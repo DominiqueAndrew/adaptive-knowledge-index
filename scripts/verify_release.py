@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the published phase-two code/report/raw-data fingerprints."""
+"""Verify the latest code/report/data fingerprints; old manifests need old checkout."""
 import argparse
 import hashlib
 import json
@@ -8,7 +8,7 @@ from pathlib import Path
 
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument("--manifest",type=Path,default=Path("results/phase2/release_manifest.json"))
+    p.add_argument("--manifest",type=Path,default=Path("results/phase3/release_manifest.json"))
     args=p.parse_args()
     root=Path.cwd().resolve()
     manifest=json.loads(args.manifest.read_text())

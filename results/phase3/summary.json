@@ -1,0 +1,110 @@
+{
+  "sample_sha256": "217300e3da8b4907e11ce6c5a8b337560e235ebff05cb71843a1de58f5c54218",
+  "python": "3.11.5",
+  "code_sha256": {
+    "aki/trace_audit.py": "5d76a6a16c1142b699982794afb173b89ef56cd4006132365e380b2358ed3e65",
+    "scripts/audit_agent_traces.py": "5d46a2ea71bece9c1aaa0548dd80e06dbe45bc081e547b8a73baea09b00a1d08",
+    "scripts/fetch_trace_sample.py": "f8854ca4e29fc55faee7ebded66b80483001e4025252461b2214258aaa77ad08"
+  },
+  "explicit_action_timing_available": false,
+  "per_action_source_tree_hash_available": false,
+  "base_commit_in_trace_columns": false,
+  "base_commit_available_in_separate_task_metadata": true,
+  "interpretation": "Observed output reuse only; no cost or correctness guarantee.",
+  "conditions": {
+    "all_shell_barriers": {
+      "trajectories": 128,
+      "repositories": 101,
+      "counts": {
+        "calls": 8613,
+        "view_calls": 2213,
+        "view_response_bytes": 5886719,
+        "view_without_numbered_lines": 427,
+        "eligible_views": 1784,
+        "numbered_line_bytes": 3764066,
+        "numbered_lines": 107284,
+        "equal_overlap_lines": 1364,
+        "equal_overlap_line_bytes": 50503,
+        "beyond_exact_overlap_line_bytes": 50503,
+        "beyond_exact_overlap_lines": 1364,
+        "opaque_shell": 3217,
+        "literal_read_shell": 1207,
+        "clipped_view_responses": 42,
+        "beyond_exact_overlap_views": 166,
+        "missing_view_response": 2,
+        "fully_observed_views": 16,
+        "max_lru_bytes": 57177
+      },
+      "functions": {
+        "think": 358,
+        "str_replace_editor": 3594,
+        "execute_bash": 4424,
+        "task_tracker": 126,
+        "finish": 111
+      },
+      "boundaries": {
+        "shell": 4424,
+        "editor_mutation": 1381
+      }
+    },
+    "literal_read_screen": {
+      "trajectories": 128,
+      "repositories": 101,
+      "counts": {
+        "calls": 8613,
+        "view_calls": 2213,
+        "view_response_bytes": 5886719,
+        "view_without_numbered_lines": 427,
+        "eligible_views": 1784,
+        "numbered_line_bytes": 3764066,
+        "numbered_lines": 107284,
+        "equal_overlap_lines": 2553,
+        "equal_overlap_line_bytes": 93580,
+        "beyond_exact_overlap_line_bytes": 91503,
+        "beyond_exact_overlap_lines": 2511,
+        "opaque_shell": 3217,
+        "literal_read_shell": 1207,
+        "clipped_view_responses": 42,
+        "beyond_exact_overlap_views": 238,
+        "fully_observed_views": 45,
+        "missing_view_response": 2,
+        "exact_equal_hits": 2,
+        "exact_equal_response_bytes": 2641,
+        "lru_equal_hits": 2,
+        "lru_equal_response_bytes": 2641,
+        "max_lru_bytes": 65564
+      },
+      "functions": {
+        "think": 358,
+        "str_replace_editor": 3594,
+        "execute_bash": 4424,
+        "task_tracker": 126,
+        "finish": 111
+      },
+      "boundaries": {
+        "shell": 3217,
+        "editor_mutation": 1381
+      }
+    }
+  },
+  "literal_shell_exact_cache": {
+    "counts": {
+      "boundaries": 4598,
+      "literal_read_calls": 1207,
+      "eligible_calls": 1156,
+      "response_bytes": 1251165,
+      "lexical_calls": 1064,
+      "lexical_response_bytes": 1193908,
+      "ambient_cwd_excluded": 51,
+      "exact_equal_hits": 1,
+      "exact_equal_response_bytes": 201,
+      "lexical_exact_equal_hits": 1,
+      "lexical_exact_equal_response_bytes": 201,
+      "lru_equal_hits": 1,
+      "lru_equal_response_bytes": 201,
+      "max_lru_bytes": 39688
+    },
+    "budget_bytes": 262144,
+    "note": "Separate diagnostic cache from views; explicit absolute cd prefix required."
+  }
+}

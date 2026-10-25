@@ -16,6 +16,14 @@ retrieval experiment. [Phase-two results](docs/PHASE2_RESULTS.md) ·
 [Original results and limitations](docs/RESULTS.md) · [design](docs/DESIGN.md)
 · [prior art](docs/PRIOR_ART.md) · [research log](docs/RESEARCH_LOG.md).
 
+**Phase three uses actual executed-agent traces.** An outcome-blind, pinned
+sample of 128 OpenHands trajectories contains 2,213 file views. Observed line
+overlap is only 1.34–2.49% of numbered-line bytes under two conservative boundary
+rules; exact view and literal-search repeats are rare. These are byte/count
+diagnostics, not latency or task-success results. Missing per-action timings and
+source-tree states prevent a lifecycle claim. The evidence does not justify a new
+candidate implementation. [Trace audit, limits and next data requirement](docs/PHASE3_RESULTS.md).
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,

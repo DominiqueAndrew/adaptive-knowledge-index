@@ -225,3 +225,24 @@ figures are in `results/phase2`; interpretation is in `PHASE2_RESULTS.md`.
 No paid resource is needed for this milestone. `NEXT_EXPERIMENTS.md` records the
 next scientific decision and source/license availability checks, without
 claiming new benchmarks were run or that a larger model would solve the gap.
+
+## Phase three — actual executed-agent access audit
+
+Registered `PHASE3_PROTOCOL.md` in `af80b41` before action inspection. Downloaded a
+bounded, pinned CC-BY-4.0 Nebius OpenHands sample: 128 outcome-blind trajectories,
+101 repositories, 8,613 tool calls. No raw trace/source/query text is published.
+The view audit finds 1.34–2.49% observed numbered-line byte overlap under strict
+and literal-read boundary conditions; exact view repeats are 0/2. Among 1,156
+explicit-cwd literal shell reads, exact caching finds one equal-output repeat.
+Simple LRU matches unlimited exact caching; neither faces payload budget pressure.
+Clipped tool notices initially looked like changed source lines; corrected the
+parser and added a test before final accounting. This was a data-format defect,
+not evidence of stale AKI serving.
+
+No action timings or per-action tree hashes exist in the trace schema. Base
+commits are available separately, but arbitrary intermediate shell effects remain
+unreconstructed. The registered lifecycle gate cannot pass on bytes/counts.
+No new candidate was implemented, no model call/purchase made, and no official
+repair benchmark claim is made. `PHASE3_RESULTS.md` records the bounded missing
+instrumented-log requirement, source attribution and reproducible audit commands.
+The existing incremental-maintenance finding and all earlier negatives remain.
