@@ -1,0 +1,14 @@
+{
+  "budget": 250,
+  "before": {
+    "tracked": 232,
+    "actual": 232
+  },
+  "after": {
+    "tracked": 232,
+    "actual": 464,
+    "rows": 4
+  },
+  "code_commit": "f2de1ca",
+  "status": "reproduced before fix"
+}

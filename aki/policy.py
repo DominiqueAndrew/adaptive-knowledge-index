@@ -21,6 +21,7 @@ class Stat:
 class Policy:
     def __init__(self, store: Store, name: str, budget: int = 65536, window: int = 128,
                  horizon: int = 64, hysteresis: float = 1.25):
+        start = time.perf_counter_ns()
         if name not in POLICIES:
             raise ValueError(name)
         self.store, self.name, self.budget = store, name, budget
@@ -36,6 +37,10 @@ class Policy:
         self.gds_clock = 0.0
         self.gds = {}
         self.refresh_risk = 0.0
+        # One live Policy owns a Store. Persisted answers without their measured
+        # cost/admission state are discarded, not silently left outside budget.
+        store.clear_materializations()
+        self.startup_ns = time.perf_counter_ns() - start
 
     def initialize(self) -> int:
         t = time.perf_counter_ns()
@@ -134,13 +139,13 @@ class Policy:
                         admit = self.benefit(key) > self.hysteresis * (sum(self.benefit(v) for v in victims) + estimate)
                     if admit:
                         t = time.perf_counter_ns()
+                        size = self.store.install(key, rows, victims)
                         for victim in victims:
                             if self.name == "gds":
                                 self.gds_clock = self.gds.pop(victim)
-                            self.store.remove(victim)
                             del self.resident[victim]
                             evicted += 1
-                        self.resident[key] = self.store.put(key, rows)
+                        self.resident[key] = size
                         build_ns = time.perf_counter_ns() - t
                         stat.build_ns = build_ns
                         self.build_ema = .7*self.build_ema + .3*build_ns
@@ -159,13 +164,19 @@ class Policy:
     def refresh(self, documents: dict[str, str], provenance: str, invalidation: str = "global") -> dict:
         t = time.perf_counter_ns()
         report = self.store.refresh(documents, provenance, invalidation)
+        if report["noop"]:
+            report["static_rebuild_ns"] = 0
+            report["total_refresh_ns"] = time.perf_counter_ns() - t
+            return report
         kept = dict(self.store.db.execute("SELECT key,bytes FROM mats"))
         self.resident = OrderedDict((k,v) for k,v in self.resident.items() if k in kept)
-        # Cost and demand estimates describe a different graph; discard them.
-        self.stats.clear()
+        # Retained closures have passed dependency validation: keep their measured
+        # costs. Reset demand on a changed tree, but do not turn cache hits into
+        # permanently zero-benefit entries. Invalidated estimates are discarded.
+        self.stats = defaultdict(Stat, {k:s for k,s in self.stats.items() if k in kept})
         self.history.clear()
         self.counts.clear()
-        self.gds = {k: self.gds_clock for k in self.resident}
+        self.gds = {k:self.gds.get(k,self.gds_clock) for k in self.resident}
         self.refresh_risk = report["invalidated"]/max(1,report["invalidated"]+report["retained"])
         report["static_rebuild_ns"] = self.initialize()
         report["total_refresh_ns"] = time.perf_counter_ns() - t

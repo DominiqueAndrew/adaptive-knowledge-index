@@ -16,17 +16,20 @@ REV="5901e1ee3aff048290db72edf9c63bc498b79ea3"
 BUNDLES={
  "v2_trace2code":"19b252e8cfff42107fedc74005dbb6972f2970af33651ce0c1571546819e41c4",
  "v2_abstention":"bb358d6b65b7ef6aa36b417240cab4f2d51a8d69e699e573cf324ab339a5c1d8",
+ "v2_code2test":"387cdfb25835b176ba27707d43dc31cae6b31514231923af237ad04deef19c0b",
 }
 
 
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--out",type=Path,required=True)
+    p.add_argument("--subsets",default="v2_trace2code,v2_abstention")
     args=p.parse_args()
     root=args.out.resolve()
     root.mkdir(parents=True,exist_ok=False)
     (root/"downloads").mkdir()
-    for subset,expected in BUNDLES.items():
+    for subset in args.subsets.split(","):
+        expected=BUNDLES[subset]
         name=f"agent_retrieval_bench_{subset}.tar.zst"
         url=f"https://huggingface.co/datasets/eyuansu71/agent_retrieval_bench/resolve/{REV}/releases/{subset}/{name}"
         archive=root/"downloads"/name
