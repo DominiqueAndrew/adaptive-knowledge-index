@@ -194,7 +194,7 @@ def run(docs: dict[str, str], label: str, seeds: list[int], count: int, budget: 
         base = next(s for s in summaries if s["seed"] == summary["seed"] and s["policy"] == "disabled")
         own = [r for r in all_rows if r["seed"] == summary["seed"] and r["policy"] == summary["policy"]]
         ref = [r for r in all_rows if r["seed"] == summary["seed"] and r["policy"] == "disabled"]
-        delta = summary["ingest_ms"] + summary["static_build_ms"] - base["ingest_ms"] - base["static_build_ms"]
+        delta = (summary["ingest_ms"] - base["ingest_ms"]) + (summary["static_build_ms"] - base["static_build_ms"])
         differences = []
         for i,(a,b) in enumerate(zip(own,ref)):
             if a["phase"] == "post_mutation" and (i == 0 or own[i-1]["phase"] != "post_mutation"):
