@@ -1,0 +1,11 @@
+{
+  "matched_samples": 101,
+  "fields": [
+    "top_files",
+    "MRR",
+    "Recall@20",
+    "BCY"
+  ],
+  "exact_match": true,
+  "reference": "results/arb-v1/rankings.jsonl"
+}

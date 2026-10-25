@@ -1,0 +1,411 @@
+{
+  "utc": "2026-10-25T05:45:49.529132+00:00",
+  "python": "3.11.5",
+  "sqlite": "3.42.0",
+  "machine": "arm64",
+  "os": "Darwin",
+  "os_release": "25.6.0",
+  "cpu_count": 12,
+  "git_commit": "5bd8417cb39e0c4841436e183ffa8f462d62ba86",
+  "code_sha256": {
+    "aki/__init__.py": "893c34ac121b471e70a014ce5cd60158657e722559ff96794a2d8e7f010b4a28",
+    "aki/arb_eval.py": "51b38855086d347030e18f025452100b878782c89bc61f454de68146170f2334",
+    "aki/benchmark.py": "67ab67b09135364bbbe07b6fbad866666dfb66af293b233d52081e74a3cf0aef",
+    "aki/chronology.py": "fc5d6d0251a3b3ee2b08f39443cfb27acede98a66ebc642c23ae8dbf6301706f",
+    "aki/paired.py": "c46f7c574ea313dd1a6285180bca3cdaa9991c8c5210b2079f815211379492b5",
+    "aki/policy.py": "7d05ed4d592c8fb03762af9ed54ca2c5c477c63670f9330e86645e36182f5cbb",
+    "aki/selective.py": "e15d22a89de5eed23045bdf74e65ed0ee156957f2af8eefa5eed1496e28728a9",
+    "aki/selective_eval.py": "e1f78c6df3e395c201248b98d48dc498dc253973c2b178aea796a4c039791160",
+    "aki/source.py": "ec254ea04b5c0b90b2c4783bdb6071bfb94068e2e848137a7c6db8d4e624aa5e",
+    "aki/store.py": "a0fcafe0998a00f81b70bdbeaeecad6f18435e645b748cfb25ae2470ed271c96",
+    "tests/test_index.py": "1d127db6f729c39cbd237955a38033b572103338337c35cc23636932b40e79be",
+    "tests/test_mutations.py": "3be1a1302710a4304e84aea7652287378c0823e04bd96bec12fd89a1015f01a6",
+    "tests/test_refresh.py": "34723df50b28c8a71e92fa10478a55d08b2908561471e2cfc1fd989ffe6053e7",
+    "tests/test_selective.py": "f96b702abfc49ca3dc5ab28b718da773638cc27a4b4ac9d0c1b2ee8d11700636"
+  },
+  "clock": "perf_counter_ns",
+  "cold_definition": "new DB; OS page cache NOT flushed",
+  "timing_excludes": "benchmark oracle, workload generation and result serialization",
+  "timing_includes": "source ingestion, candidate generation, retrieval, optimizer, builds, eviction, refresh",
+  "background_work_ns": 0,
+  "paid_inference_calls": 0,
+  "experiment": "phase2 interleaved lifecycle",
+  "seeds": [
+    70,
+    71,
+    72
+  ],
+  "label": "pallets/click",
+  "budget": 16384,
+  "conditions": [
+    [
+      "disabled",
+      "full",
+      "global",
+      true
+    ],
+    [
+      "static_full",
+      "full",
+      "global",
+      true
+    ],
+    [
+      "static_bounded",
+      "full",
+      "global",
+      true
+    ],
+    [
+      "lru",
+      "full",
+      "global",
+      true
+    ],
+    [
+      "frequency",
+      "full",
+      "global",
+      true
+    ],
+    [
+      "gds",
+      "full",
+      "global",
+      true
+    ],
+    [
+      "aki",
+      "full",
+      "global",
+      true
+    ],
+    [
+      "disabled",
+      "full",
+      "selective",
+      true
+    ],
+    [
+      "static_full",
+      "full",
+      "selective",
+      true
+    ],
+    [
+      "static_bounded",
+      "full",
+      "selective",
+      true
+    ],
+    [
+      "lru",
+      "full",
+      "selective",
+      true
+    ],
+    [
+      "frequency",
+      "full",
+      "selective",
+      true
+    ],
+    [
+      "gds",
+      "full",
+      "selective",
+      true
+    ],
+    [
+      "aki",
+      "full",
+      "selective",
+      true
+    ],
+    [
+      "disabled",
+      "incremental",
+      "global",
+      true
+    ],
+    [
+      "static_full",
+      "incremental",
+      "global",
+      true
+    ],
+    [
+      "static_bounded",
+      "incremental",
+      "global",
+      true
+    ],
+    [
+      "lru",
+      "incremental",
+      "global",
+      true
+    ],
+    [
+      "frequency",
+      "incremental",
+      "global",
+      true
+    ],
+    [
+      "gds",
+      "incremental",
+      "global",
+      true
+    ],
+    [
+      "aki",
+      "incremental",
+      "global",
+      true
+    ],
+    [
+      "disabled",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "static_full",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "static_bounded",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "lru",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "frequency",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "gds",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "aki",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "disabled",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "static_full",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "static_bounded",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "lru",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "frequency",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "gds",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "aki",
+      "incremental",
+      "selective",
+      false
+    ]
+  ],
+  "workload": "actual commit titles on parent snapshots; deterministic routing; not agent traces",
+  "license": "BSD-3-Clause",
+  "timing_includes_shared_acquisition": true,
+  "order": "seeded shuffle at setup, each refresh and each query",
+  "source_ref": "2247b35ea1c47c727d7a06e51fa280e12a863ff6",
+  "independent_repetitions": false,
+  "note": "three paired timing repetitions; workload seeds differ only for synthetic streams",
+  "tasks": [
+    {
+      "task_commit": "7925a3410d7098c28cfca3b2baa6c852666bbd14",
+      "parent_commit": "a44e9f05edbfcea04b5ec91d4403976a50381c59",
+      "query_sha256": "2dd59872179cdd19767bfbe72eef08730148d132591affc3f1696161fb709082"
+    },
+    {
+      "task_commit": "8dd4d60eb5ad4532abdd9b2809a7d9e2aa679b87",
+      "parent_commit": "7925a3410d7098c28cfca3b2baa6c852666bbd14",
+      "query_sha256": "eb586f6c8555c4e98c1c6875d4803842e68dc3f8996eef19125d37822355d86c"
+    },
+    {
+      "task_commit": "8a4ce842564ae94ab050062db8525196ad476c19",
+      "parent_commit": "8dd4d60eb5ad4532abdd9b2809a7d9e2aa679b87",
+      "query_sha256": "207fda40280935490b54631f7a0fdee183302abab079beac99e2e230816b7d10"
+    },
+    {
+      "task_commit": "8c1a0a7abbc1c36f70d1f65f3604acc46c5ce6ab",
+      "parent_commit": "8a4ce842564ae94ab050062db8525196ad476c19",
+      "query_sha256": "2a0d91813d9000facc0d8cfe94d5bf661b9531f4bc2fcc01216a621c4c76ba6d"
+    },
+    {
+      "task_commit": "b67832c2167e5b0ff6764a8c04a0a9087e697b5a",
+      "parent_commit": "8c1a0a7abbc1c36f70d1f65f3604acc46c5ce6ab",
+      "query_sha256": "24f142312a79790bf2710bd00e37d1f10a40564bd22f3700032c634cd5a48600"
+    },
+    {
+      "task_commit": "b551fe85714c906565303fae98136d7c72b252ea",
+      "parent_commit": "b67832c2167e5b0ff6764a8c04a0a9087e697b5a",
+      "query_sha256": "5483d0ba584e10ebee03694b4d49e9031a0efb1fe9ece8138bcb1ae97bd961a2"
+    },
+    {
+      "task_commit": "7df2f82305f20f1611a9668b38d26933b648d807",
+      "parent_commit": "b551fe85714c906565303fae98136d7c72b252ea",
+      "query_sha256": "6cecae908befec8e5af2c161f342f980c8f599ce778829a4a66664d5da9dfe44"
+    },
+    {
+      "task_commit": "333c28d79cd982990ee98eef61ec20ab1a4f38ba",
+      "parent_commit": "7df2f82305f20f1611a9668b38d26933b648d807",
+      "query_sha256": "d1d72b754475a0ecae020f81f9c6cdbec92ff7131e7ce3f9ad66285b48952b46"
+    },
+    {
+      "task_commit": "cfa01eeb7894a408af70b29d28c0b24f8680f9fb",
+      "parent_commit": "333c28d79cd982990ee98eef61ec20ab1a4f38ba",
+      "query_sha256": "833ef82df04294d5e95c82943d4e6418f5dc9d71941ed3edf1ca423e5d3e5344"
+    },
+    {
+      "task_commit": "5e906a8afb67242dffdd91404dbf31f469054b15",
+      "parent_commit": "cfa01eeb7894a408af70b29d28c0b24f8680f9fb",
+      "query_sha256": "9a57028476b7f50a00157dfcec4a8bb785357e8b0d74e78811466a58381d69db"
+    },
+    {
+      "task_commit": "398f9154317f6c54bf98fe3359672ad5cb851585",
+      "parent_commit": "5e906a8afb67242dffdd91404dbf31f469054b15",
+      "query_sha256": "e3527a11c8cada47e925d7a0f35eee0f05b2cd0c20b05a9cc5bb56dd97f68c03"
+    },
+    {
+      "task_commit": "42235de05e38e3b9c9346662a3c6b6a36901b8a1",
+      "parent_commit": "398f9154317f6c54bf98fe3359672ad5cb851585",
+      "query_sha256": "2edab7f56ea78409b7f7b3c9c5f6316d5d353e670a6dd5d33ed83257e1638465"
+    },
+    {
+      "task_commit": "5aa8ac43527f91c4c801a50b485c09576715d340",
+      "parent_commit": "42235de05e38e3b9c9346662a3c6b6a36901b8a1",
+      "query_sha256": "dc3fb115e3ddf1c92ef8f53861737fba1fed389bb6612179144f840b2d32fb54"
+    },
+    {
+      "task_commit": "00e592cea702e0b2caa0dee42489fdb1c22cd845",
+      "parent_commit": "5aa8ac43527f91c4c801a50b485c09576715d340",
+      "query_sha256": "184c955d6c573b562e6c453bd1ee28e29837f9ede1ee19d56c353e77dfc4d060"
+    },
+    {
+      "task_commit": "9c4dfdaebe0e6b2aabc566eb81f6f10eb5cd6ea1",
+      "parent_commit": "00e592cea702e0b2caa0dee42489fdb1c22cd845",
+      "query_sha256": "a9898e9978c475bcc51fe3ee1dfb90d5b306878b1582d82fb4209c645ea26ab1"
+    },
+    {
+      "task_commit": "8b44edfff7d9a6c895fa804148c16b3a0bc9efb5",
+      "parent_commit": "9c4dfdaebe0e6b2aabc566eb81f6f10eb5cd6ea1",
+      "query_sha256": "f51656c3af6e4ceb3e51c61fe424d4beeee0ce401ba99b9f9c6c03319b5f8e53"
+    },
+    {
+      "task_commit": "150d1071d69c5cdad7de78590013ffe56cf9e3bb",
+      "parent_commit": "8b44edfff7d9a6c895fa804148c16b3a0bc9efb5",
+      "query_sha256": "f976bcf5bc12abf61b7431c916f162919dc8e50f51de1450285987acb288b7f2"
+    },
+    {
+      "task_commit": "fc5c7f45da0a4443f60ba2d322fe4bf829977739",
+      "parent_commit": "150d1071d69c5cdad7de78590013ffe56cf9e3bb",
+      "query_sha256": "fac4e884fbe6db95b2700291f0aa65450dc27db6f7b328e5d05e30f19199e6e5"
+    },
+    {
+      "task_commit": "cbd7a4109da16ce58f54c2a618b4c986e3041fcf",
+      "parent_commit": "fc5c7f45da0a4443f60ba2d322fe4bf829977739",
+      "query_sha256": "f02b4ced5d0b8908990f4a9f26d0e1537c7ee96db8ff3cdc8a805cdc547b7f0f"
+    },
+    {
+      "task_commit": "f36d58bbd7f188178de2d4fe1d0292c510375ca7",
+      "parent_commit": "cbd7a4109da16ce58f54c2a618b4c986e3041fcf",
+      "query_sha256": "2418eb88b749f6256799cf0f342d5f25b91017e12971dca6479bc685f92d1a6d"
+    },
+    {
+      "task_commit": "61b69e967e525bd502f5bf42def4d551e761fe0e",
+      "parent_commit": "f36d58bbd7f188178de2d4fe1d0292c510375ca7",
+      "query_sha256": "2e75bcb91377a251623b16e63347dfbd9952b0d7e181fdc126b2165d0a676088"
+    },
+    {
+      "task_commit": "2103e157683c5e4cadc8ee1838df526a54bde9a4",
+      "parent_commit": "61b69e967e525bd502f5bf42def4d551e761fe0e",
+      "query_sha256": "13646e539b11bb75488bb239157e1ce339d8c0552d3106687fcd634a55e3b372"
+    },
+    {
+      "task_commit": "e1fd5946ab26aaf372009eaff1acf947140b40fb",
+      "parent_commit": "2103e157683c5e4cadc8ee1838df526a54bde9a4",
+      "query_sha256": "f3d9ec3a7f8239d0fb86cf54448c869cbe4fda3969461175de5bfa9471c16298"
+    },
+    {
+      "task_commit": "2c8cd3ac958a7eb316d67f2d316c27086c4c0369",
+      "parent_commit": "e1fd5946ab26aaf372009eaff1acf947140b40fb",
+      "query_sha256": "22187da927d78feae796cf536eb7a87ff4d66fde1fd38e79ba9fe51f7762b91e"
+    },
+    {
+      "task_commit": "68e7ea7228ca144c52e4d1d282cc09da59f7771f",
+      "parent_commit": "2c8cd3ac958a7eb316d67f2d316c27086c4c0369",
+      "query_sha256": "c6eb5ef3c4b12b60888658716c534425c2a9bb18a49426c1cd47a3ed70f9509c"
+    },
+    {
+      "task_commit": "36baa15ff831b939a22bc527cd76ce653ef6f66d",
+      "parent_commit": "68e7ea7228ca144c52e4d1d282cc09da59f7771f",
+      "query_sha256": "cee9e0305815ee6691d3ecc762b402c8d3a3b43d182b1bf9d52de3169d3740eb"
+    },
+    {
+      "task_commit": "6aabf099bfdd4c1e75fe8d0e0d4241372b988ab1",
+      "parent_commit": "36baa15ff831b939a22bc527cd76ce653ef6f66d",
+      "query_sha256": "2d803ed3c87a0694197f962c4096a847d5a40993818ba839b6afa470ce5fb3ba"
+    },
+    {
+      "task_commit": "3cbaa76b6014be7427d1ab06b4af40f01e7c278e",
+      "parent_commit": "6aabf099bfdd4c1e75fe8d0e0d4241372b988ab1",
+      "query_sha256": "6f2cd9ec337180329d2307620d5ea24737ac999d035c435d76c8b03046fe99d8"
+    },
+    {
+      "task_commit": "06b2a678741131fd577ce170e23e5ca0aeba0309",
+      "parent_commit": "3cbaa76b6014be7427d1ab06b4af40f01e7c278e",
+      "query_sha256": "c7e967d82413da4e676591168e964e3a06d35f6bd91ef8f769bb96a0436b70b9"
+    },
+    {
+      "task_commit": "2247b35ea1c47c727d7a06e51fa280e12a863ff6",
+      "parent_commit": "06b2a678741131fd577ce170e23e5ca0aeba0309",
+      "query_sha256": "2ae4e4d35111e1972931d9578c2c37bb7c9a205d847b930b79240e3e625a6ebc"
+    }
+  ]
+}

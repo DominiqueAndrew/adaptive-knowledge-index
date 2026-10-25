@@ -1,0 +1,37 @@
+{
+  "run": "low-reuse",
+  "upper_bound_only": true,
+  "assumptions": "unlimited cache, free admission/write/read/validation, no size or invalidation overhead",
+  "seeds": [
+    {
+      "requests": 500,
+      "valid_repeats": 0,
+      "repeated_traversal_ns": 0,
+      "all_traversal_ns": 353470964,
+      "seed": 70,
+      "lifecycle_ns": 629282295,
+      "free_valid_repeat_fraction": 0.0,
+      "free_all_traversal_fraction": 0.5617049244965647
+    },
+    {
+      "requests": 500,
+      "valid_repeats": 0,
+      "repeated_traversal_ns": 0,
+      "all_traversal_ns": 344554672,
+      "seed": 71,
+      "lifecycle_ns": 619412421,
+      "free_valid_repeat_fraction": 0.0,
+      "free_all_traversal_fraction": 0.5562605145110578
+    },
+    {
+      "requests": 500,
+      "valid_repeats": 0,
+      "repeated_traversal_ns": 0,
+      "all_traversal_ns": 353572736,
+      "seed": 72,
+      "lifecycle_ns": 624458076,
+      "free_valid_repeat_fraction": 0.0,
+      "free_all_traversal_fraction": 0.566207323740337
+    }
+  ]
+}

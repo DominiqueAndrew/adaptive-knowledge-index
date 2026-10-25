@@ -1,0 +1,37 @@
+{
+  "run": "pytest",
+  "upper_bound_only": true,
+  "assumptions": "unlimited cache, free admission/write/read/validation, no size or invalidation overhead",
+  "seeds": [
+    {
+      "requests": 180,
+      "valid_repeats": 103,
+      "repeated_traversal_ns": 18815581,
+      "all_traversal_ns": 38510834,
+      "seed": 70,
+      "lifecycle_ns": 5569113795,
+      "free_valid_repeat_fraction": 0.0033785592632157736,
+      "free_all_traversal_fraction": 0.006915073998770751
+    },
+    {
+      "requests": 180,
+      "valid_repeats": 103,
+      "repeated_traversal_ns": 17632882,
+      "all_traversal_ns": 37137842,
+      "seed": 71,
+      "lifecycle_ns": 5638714461,
+      "free_valid_repeat_fraction": 0.003127110287629796,
+      "free_all_traversal_fraction": 0.00658622497323863
+    },
+    {
+      "requests": 180,
+      "valid_repeats": 103,
+      "repeated_traversal_ns": 19674911,
+      "all_traversal_ns": 40493818,
+      "seed": 72,
+      "lifecycle_ns": 5381015917,
+      "free_valid_repeat_fraction": 0.0036563562166471103,
+      "free_all_traversal_fraction": 0.007525310949568038
+    }
+  ]
+}

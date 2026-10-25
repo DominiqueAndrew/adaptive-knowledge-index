@@ -1,0 +1,307 @@
+{
+  "run": "flask",
+  "passed": true,
+  "snapshots": [
+    {
+      "source_commit": "12e95c93b488725f80753f34b2e0d24838ca4646",
+      "source_revision": "440530191de990d0f912ed87a32c6769a37a783aa154d3af3831013739b005d2",
+      "files": 83,
+      "active_spans_checked": 276,
+      "edges_checked": 203,
+      "evidence_links_checked": 477,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "d98eb69a354158252854ed4a5c9778e03d089191",
+      "source_revision": "346fd318d77d8aa9bfece1663e731518e4b2ed492e0038bdc4c37bba6eebf373",
+      "files": 83,
+      "active_spans_checked": 276,
+      "edges_checked": 203,
+      "evidence_links_checked": 477,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "daca74d93a0edc458e618136de7d14803f06bc28",
+      "source_revision": "515d93fe0891e0fd7cd70bb0437eea41d4e44fef0528e6b53880403e9aa1b270",
+      "files": 83,
+      "active_spans_checked": 276,
+      "edges_checked": 204,
+      "evidence_links_checked": 479,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "a411a2434b09d9cbaa4074232b2c247d591bb655",
+      "source_revision": "f9228b2b99274ef33c5ea05c817015b2fb2efebf4248909a4bc8bfb679cdf4a1",
+      "files": 83,
+      "active_spans_checked": 276,
+      "edges_checked": 204,
+      "evidence_links_checked": 479,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "7b0088693ece1bd3a9238a6fdf56ed8df7a4d43b",
+      "source_revision": "4324fc42138eaef43ca7e023fb551623be5e854874b743fffff4bc5d52d595d9",
+      "files": 83,
+      "active_spans_checked": 276,
+      "edges_checked": 204,
+      "evidence_links_checked": 479,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "c34d6e81fd8e405e6d4178bf24b364918811ef17",
+      "source_revision": "f5d4495a4435e2e1e03c5c42aa36e245bd0f72e6bbdec012aa1803eb0a7743ee",
+      "files": 83,
+      "active_spans_checked": 278,
+      "edges_checked": 206,
+      "evidence_links_checked": 485,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "3a9d54f3da1de540adfdf6f1e2dea6fc0006e15d",
+      "source_revision": "0e5fad1339ae0ad7fdd04f6c4053ad8c95f522cd07df515f78a8561917b6a0d2",
+      "files": 83,
+      "active_spans_checked": 278,
+      "edges_checked": 206,
+      "evidence_links_checked": 485,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "4cae5d8e411b1e69949d8fae669afeacbd3e5908",
+      "source_revision": "0e5fad1339ae0ad7fdd04f6c4053ad8c95f522cd07df515f78a8561917b6a0d2",
+      "files": 83,
+      "active_spans_checked": 278,
+      "edges_checked": 206,
+      "evidence_links_checked": 485,
+      "noop": true,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "7ef2946fb5151b745df30201b8c27790cac53875",
+      "source_revision": "c98950093ed33040ab81173be8225bd4cc18278fa3f04170926458714698effc",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 206,
+      "evidence_links_checked": 483,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "e4e4bf6543ac1f132afddb1ffd0bf02bea4c93f7",
+      "source_revision": "c98950093ed33040ab81173be8225bd4cc18278fa3f04170926458714698effc",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 206,
+      "evidence_links_checked": 483,
+      "noop": true,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "258d68b6ff5e2244386540f48b48bab90d6ab827",
+      "source_revision": "f5283123001439f96c2fccd6700b6a8fd830b87416d00c653744a957bc2f417a",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "2ac89889f4cc330eabd50f295dcef02828522c69",
+      "source_revision": "f5283123001439f96c2fccd6700b6a8fd830b87416d00c653744a957bc2f417a",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": true,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "06ea505ce2b2042af26e96d35ebf159af7c0869d",
+      "source_revision": "74dcda5222c1f134094fc38ae1763cb9ff207f007459df76dc962e5703cf0a8e",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "dcbede0cb00df32e7f1895e19e37d5f40a75d1f6",
+      "source_revision": "a692c72caab900c3888a443e2452c771d8ea537ea469183b33bdec0b163e55a7",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "7374c85ddefc3f4b177a698ab9f0cbb6a5c0b392",
+      "source_revision": "a692c72caab900c3888a443e2452c771d8ea537ea469183b33bdec0b163e55a7",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": true,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "9fcd34c9f3065640bd1cd86234216ca068633fb9",
+      "source_revision": "a692c72caab900c3888a443e2452c771d8ea537ea469183b33bdec0b163e55a7",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": true,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "954f5684e4841aad84a8eec7ace7b81a0d3f6831",
+      "source_revision": "38318b8643df2d3246351fdf09f8caa29788fc50c4cb078397c631f684f101f6",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "36e4a824f340fdee7ed50937ba8e7f6bc7d17f81",
+      "source_revision": "9e87de05b559fd5a7f8a22ac885217a9353b77ac9e00252145d258276b6219a3",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "6a2f545bfd8ed31e19066a299296917e034aca58",
+      "source_revision": "902a1b8a95908c9cfa76c5e7c2c16afc631ba4cccf7140a5b607554821836333",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "8b4fd5d18611e63080b826ecfefe8659dba7d2e4",
+      "source_revision": "87c92a398889aa6770b4626202d6832bb07f1caf81fcaf75fb800c2ea72ef884",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "514fc6b3e8402e4c646d5284e97a4f0ab50a7c4b",
+      "source_revision": "a9df29933faeff85b822a5ec41786327ebf64f563957ef31f49e2f6abe8e8085",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "05e9c6bd630ecf4ec0ec884b1fc7901663737bc7",
+      "source_revision": "de53285052e27d214161c864c547f900a022b278dea2252cdf4a9d01aaffaef4",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "3596b1ab61cea85edb8970e83ff61daa073facf8",
+      "source_revision": "de53285052e27d214161c864c547f900a022b278dea2252cdf4a9d01aaffaef4",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": true,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "d8eaaba824655046958d1a97f11780de460c3271",
+      "source_revision": "d9db31fdc4961315372a7d83f50f7a940c79fa8fc4801036367f1de7cc8e9ada",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "2a8a38b051fc248865730bf3511bf2e2ea325e81",
+      "source_revision": "71fa58dcec1a41734d32fac230ae3bc8212202f9b612b1cacafef6440d4713f8",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "d318b683471101618febed18996405ad26462110",
+      "source_revision": "ebe6184a01c687a51b847977f6d85297133628372910b785cf4f252d53cf9476",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "d73fa1cdcbd8b1465c151db8924ba58b1dd14e35",
+      "source_revision": "b54ef0d7e924f8204748820488dde3e9c27fae13bc97e9b1060cdfaed7b920ef",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "728c5e440af704a786384159184f695cf04ecbe7",
+      "source_revision": "12c3e23bbc79cd59120a800ba25c23a82482d60f4445b3bacdd20c2da7a3ec7b",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "41cb747cd5a9b43da43bf809ad974722542603db",
+      "source_revision": "12c3e23bbc79cd59120a800ba25c23a82482d60f4445b3bacdd20c2da7a3ec7b",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": true,
+      "parse_errors": 0
+    },
+    {
+      "source_commit": "329c32b916938d33fec41f40eb7ed854bf0b3e2b",
+      "source_revision": "ae26a82b35bce435a202ac201c60f2298a8d27abe8fe9bbb6e6ea10f4e70ee04",
+      "files": 83,
+      "active_spans_checked": 277,
+      "edges_checked": 205,
+      "evidence_links_checked": 481,
+      "noop": false,
+      "parse_errors": 0
+    }
+  ],
+  "limitations": "extractor equivalence and exact source membership, not semantic sufficiency or exhaustive dependency truth"
+}

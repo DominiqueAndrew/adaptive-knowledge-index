@@ -1,0 +1,14 @@
+{
+  "model": "Mac14,10",
+  "memory_bytes": 34359738368,
+  "model_and_memory_source": "same-host phase-one observation recorded in docs/RESULTS.md; fresh hw.model sysctl was sandbox-restricted",
+  "logical_cpus": 12,
+  "architecture": "arm64",
+  "os": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.5",
+  "dedicated_host": false,
+  "OS_caches_flushed": false,
+  "inference_calls": 0,
+  "GPU_used": false,
+  "timing_clock": "perf_counter_ns"
+}

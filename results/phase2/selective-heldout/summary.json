@@ -1,0 +1,124 @@
+{
+  "lexical": {
+    "n": 29,
+    "MRR": 0.11113364211606583,
+    "Recall@20": 0.3045977011494253,
+    "BCY@8k": 0.1896551724137931,
+    "abstention_rate": 0,
+    "by_repo": {
+      "fastapi/fastapi": {
+        "n": 3,
+        "MRR": 0.05225784129129854,
+        "Recall@20": 0.1111111111111111,
+        "BCY@8k": 0.0,
+        "abstention_rate": 0
+      },
+      "huggingface/transformers": {
+        "n": 15,
+        "MRR": 0.12039044551209208,
+        "Recall@20": 0.35555555555555557,
+        "BCY@8k": 0.2222222222222222,
+        "abstention_rate": 0
+      },
+      "mockito/mockito": {
+        "n": 1,
+        "MRR": 0.007246376811594203,
+        "Recall@20": 0.0,
+        "BCY@8k": 0.0,
+        "abstention_rate": 0
+      },
+      "spring-projects/spring-boot": {
+        "n": 5,
+        "MRR": 0.20523809523809525,
+        "Recall@20": 0.43333333333333335,
+        "BCY@8k": 0.43333333333333335,
+        "abstention_rate": 0
+      },
+      "vuejs/core": {
+        "n": 5,
+        "MRR": 0.04536171236171236,
+        "Recall@20": 0.2,
+        "BCY@8k": 0.0,
+        "abstention_rate": 0
+      }
+    },
+    "by_language": {
+      "python": {
+        "n": 18,
+        "MRR": 0.10903501147529315,
+        "Recall@20": 0.3148148148148148,
+        "BCY@8k": 0.18518518518518517,
+        "abstention_rate": 0
+      },
+      "other": {
+        "n": 11,
+        "MRR": 0.11456776498278474,
+        "Recall@20": 0.2878787878787879,
+        "BCY@8k": 0.19696969696969696,
+        "abstention_rate": 0
+      }
+    },
+    "negative_abstention": {}
+  },
+  "lexical_gate": {
+    "n": 29,
+    "MRR": 0.11113364211606583,
+    "Recall@20": 0.3045977011494253,
+    "BCY@8k": 0.1896551724137931,
+    "abstention_rate": 0,
+    "by_repo": {
+      "fastapi/fastapi": {
+        "n": 3,
+        "MRR": 0.05225784129129854,
+        "Recall@20": 0.1111111111111111,
+        "BCY@8k": 0.0,
+        "abstention_rate": 0
+      },
+      "huggingface/transformers": {
+        "n": 15,
+        "MRR": 0.12039044551209208,
+        "Recall@20": 0.35555555555555557,
+        "BCY@8k": 0.2222222222222222,
+        "abstention_rate": 0
+      },
+      "mockito/mockito": {
+        "n": 1,
+        "MRR": 0.007246376811594203,
+        "Recall@20": 0.0,
+        "BCY@8k": 0.0,
+        "abstention_rate": 0
+      },
+      "spring-projects/spring-boot": {
+        "n": 5,
+        "MRR": 0.20523809523809525,
+        "Recall@20": 0.43333333333333335,
+        "BCY@8k": 0.43333333333333335,
+        "abstention_rate": 0
+      },
+      "vuejs/core": {
+        "n": 5,
+        "MRR": 0.04536171236171236,
+        "Recall@20": 0.2,
+        "BCY@8k": 0.0,
+        "abstention_rate": 0
+      }
+    },
+    "by_language": {
+      "python": {
+        "n": 18,
+        "MRR": 0.10903501147529315,
+        "Recall@20": 0.3148148148148148,
+        "BCY@8k": 0.18518518518518517,
+        "abstention_rate": 0
+      },
+      "other": {
+        "n": 11,
+        "MRR": 0.11456776498278474,
+        "Recall@20": 0.2878787878787879,
+        "BCY@8k": 0.19696969696969696,
+        "abstention_rate": 0
+      }
+    },
+    "negative_abstention": {}
+  }
+}

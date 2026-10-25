@@ -9,5 +9,12 @@ python3 -m aki.paired --repo ../public-click --label pallets/click --license BSD
 python3 -m aki.paired --repo ../public-pytest --label pytest-dev/pytest --license MIT --ref 0f54d41bedf00505bb1ac2c724abf96ba6dcf48d --tasks 30 --seeds 70,71,72 --write-ablation --out "${prefix}-pytest"
 python3 -m aki.paired --repo ../public-flask --label pallets/flask --license BSD-3-Clause --ref d086db856be187255b8ec61ef409357393020f32 --tasks 30 --seeds 70,71,72 --write-ablation --out "${prefix}-flask"
 python3 scripts/analyze_phase2.py "${prefix}-synthetic" "${prefix}-low-reuse" "${prefix}-click" "${prefix}-pytest" "${prefix}-flask" --out "${prefix}-analysis.json"
+for repo in click pytest flask; do
+    python3 scripts/check_history_evidence.py --run "${prefix}-${repo}" --repo "../public-${repo}" --out "${prefix}-${repo}-evidence.json"
+    python3 scripts/reuse_bound.py --run "${prefix}-${repo}" --repo "../public-${repo}" --out "${prefix}-${repo}-reuse-bound.json"
+done
+for run in synthetic low-reuse; do
+    python3 scripts/reuse_bound.py --run "${prefix}-${run}" --out "${prefix}-${run}-reuse-bound.json"
+done
 python3 -m aki.selective_eval --upstream ../arb-upstream --data ../arb-data --split development --out "${prefix}-selective-development"
 python3 -m aki.selective_eval --upstream ../arb-upstream --data ../arb-code2test --split heldout --out "${prefix}-selective-heldout"

@@ -93,4 +93,4 @@ if __name__=="__main__":
     p=argparse.ArgumentParser();p.add_argument("directories",nargs="+",type=Path);p.add_argument("--out",type=Path,required=True)
     a=p.parse_args();result=[analyze(root) for root in a.directories]
     a.out.write_text(json.dumps(result,indent=2)+"\n")
-    for r in result: print(json.dumps({k:v for k,v in r.items() if k not in ("means","maintenance_comparisons")}))
+    for r in result: print(json.dumps({k:v for k,v in r.items() if k not in ("means","maintenance_comparisons","temporal")}))

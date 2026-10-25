@@ -122,3 +122,106 @@ work are outside measured service lifecycle cost, disclosed in the report.
 
 No inference API calls, package installation, paid compute or purchased data.
 No existing personal project is part of these input sources.
+
+## Phase two diagnosis and preregistration
+
+`f2de1ca` records the hypotheses and stop criteria in `PHASE2_PROTOCOL.md` before
+implementation. `results/phase2/diagnosis.json` measures the old history runs:
+initialization/refresh accounts for 95.98% of Click and 97.82% of pytest service
+cost. Even eliminating every traversal for free could save only 2.49% / 1.51%.
+This is an impossible optimistic bound, not an achieved caching improvement.
+The original synthetic 6.5% AKI/frequency lifecycle difference was observed,
+not causal: identical ingestion code was 52.75 ms slower in AKI's run order,
+while its query work was 6.63 ms faster. New experiments interleave conditions.
+
+The original ARB zero-hit result has narrow scope: only 27/101 positives are
+Python (26 Click, one pytest), and the extractor supports Python. Among 145
+explicit-path relationship requests, only 38 anchors are Python, 133 closures
+are empty, and no exact anchor repeats within a snapshot. Two requests encounter
+a previously queried nonempty subpath. This cannot establish absence of reuse
+in actual coding-agent workloads. Original ARB timing has unequal populations
+(183 prototype versus 102 upstream queries) and incompletely charged cloned
+store setup; only its quality comparison is retained.
+
+Reproduced the retained-cost defect before fixing it: a validated expensive
+closure kept hitting after a changed-tree selective refresh, but its measured
+base cost and estimated benefit became zero. Reproduced the restart defect:
+with a 250-byte budget, reopening followed by two admissions reported 232 bytes
+while SQLite held 464. Fresh-database phase-one benchmarks were not affected by
+that restart bug. Same-tree transitions also rebuilt the base and reset state
+(3/7 Click and 3/5 pytest transitions), confounding the original global/selective
+prebuilding comparison. All old results are preserved with these qualifications.
+
+`76316b7` fixes those defects for every policy, batches durable replacements,
+adds syntax-cache/incremental base maintenance, and freezes the paired harness
+and optional selective gate. New module additions still re-resolve imports in
+unchanged files. `9929b57` additionally fixes Python physical line accounting:
+embedded Unicode U+2028 inside a string must not shift AST import evidence.
+The new extractor version forces revalidation of older stores. The complete
+suite now passes 26 tests. The phase-two lifecycle engine is pinned by each
+run's code hashes and commit; later analysis/documentation changes do not alter
+retrieval or admission rules.
+
+The new gate was scored once without subsequent rule tuning. On all 183 exposed
+development samples it fails the registered criterion: natural no-gold abstention
+remains 0/50, counterfactual abstention becomes 4/32, and positive Recall@20 falls
+from 0.69637 to 0.51650. The official lexical output matches all 101 prior positive
+top-20 rankings, MRR, recall and canonical BCY exactly. On the 29 previously
+unexposed code2test positives in five preselected repositories, the same gate
+allows every query and changes no rankings (MRR 0.11113, Recall@20 0.30460,
+BCY@8k 0.18966). There is no new natural-negative holdout. The gate remains
+experimental/opt-in; these results do not support selective retrieval quality.
+
+The pinned code2test archive has SHA-256
+`387cdfb25835b176ba27707d43dc31cae6b31514231923af237ad04deef19c0b`.
+Python's default certificate configuration initially failed; the successful
+retry used the Mac's existing `/etc/ssl/cert.pem` with TLS verification enabled.
+No tools were installed and no certificates or credentials were created.
+Flask was pinned to `d086db856be187255b8ec61ef409357393020f32` before its task
+titles were inspected; its BSD-3-Clause license was checked from that revision.
+Thirty actual commit-title tasks per repository are routed on parent snapshots.
+These are deterministic task-derived accesses, not observed agent trajectories.
+
+The serial lifecycle command sequence is reproduced by
+`scripts/reproduce_phase2.sh`; source downloads are separate prerequisites.
+Raw query answer hashes, refresh cost breakdowns, acquisition time and storage
+are retained. Every policy receives the same no-op path, incremental/full base
+choice, invalidation mode and durable-write ablation. No policy sees future
+queries or evaluator labels. Synthetic seeds 70–72 are separately labeled.
+
+## Phase two measured milestone
+
+All primary runs completed on the frozen `5bd8417` engine. Disabled-policy
+complete lifecycle means (full / incremental) are Click 8.497 / 2.621 s,
+pytest 28.322 / 5.530 s and held-out Flask 5.143 / 1.787 s. Mean paired reductions
+are 69.14%, 80.39% and 65.25%; every repetition exceeds the registered 40% goal.
+This is shared base maintenance, not an AKI admission-policy advantage.
+
+AKI and frequency remain essentially tied on synthetic locality (748.61 versus
+749.49 ms mean), missing the 20% goal. No real-source sequence meets that goal.
+The retained Flask AKI cold-refresh outlier is 920.34 ms before the first query;
+frequency and disabled are 156.17 and 149.78 ms. Its cause is unknown and must
+not be described as causal admission overhead. All raw repetitions remain.
+
+Independent accounting/hash checks pass 53,550 primary query-condition records
+and 97,020 operations. An unlimited, free, exactly validated demand-cache audit
+finds valid-repeat ceilings of only 0.232%, 0.339% and 0.323% of full service
+cost on Click/pytest/Flask. Reuse exists (97/180, 103/180 and 67/144 requests),
+but these closures are cheap. Synthetic locality's corresponding ceiling is
+39.81%; low reuse is zero. This triggers the registered stop rule for further
+closure-admission search on these real-source workloads.
+
+Final release checks added old-extractor serving guards and byte-exact source
+loading in `80085ac`. All 28 tests pass. A separate final-patch smoke run checks
+70 task-condition rows / 420 operators across all 35 conditions. Primary timings
+retain their earlier code version rather than being relabeled. A final-code
+source audit verifies 90 snapshots, 68,833 active span instances and 120,915
+evidence links against actual current text, with zero mismatches or parse errors.
+Counts include unchanged instances across snapshots. This verifies implemented
+source/graph semantics, not task evidence sufficiency or agent repair success.
+
+Results, per-refresh costs, latency/break-even records, storage, provenance and
+figures are in `results/phase2`; interpretation is in `PHASE2_RESULTS.md`.
+No paid resource is needed for this milestone. `NEXT_EXPERIMENTS.md` records the
+next scientific decision and source/license availability checks, without
+claiming new benchmarks were run or that a larger model would solve the gap.

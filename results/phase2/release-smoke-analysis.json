@@ -1,0 +1,1309 @@
+[
+  {
+    "directory": "release-smoke",
+    "checked_query_rows": 70,
+    "checked_operator_rows": 420,
+    "checked_unique_answers": 2,
+    "raw_accounting_and_answer_parity": true,
+    "means": {
+      "static_full:full:selective:True": {
+        "lifecycle_ns": 777804500,
+        "service_excluding_acquisition_ns": 696092166,
+        "setup_ns": 10309209,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 682269666,
+        "query_ns": 3513291,
+        "base_ns": 0,
+        "build_ns": 0,
+        "optimizer_ns": 1501,
+        "p50_ns": 1481125,
+        "p95_ns": 1481125,
+        "requests": 12,
+        "hits": 12,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 182,
+        "invalidated": 0
+      },
+      "static_full:incremental:selective:False": {
+        "lifecycle_ns": 588144669,
+        "service_excluding_acquisition_ns": 506432335,
+        "setup_ns": 5397959,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 489787959,
+        "query_ns": 11246417,
+        "base_ns": 0,
+        "build_ns": 0,
+        "optimizer_ns": 2374,
+        "p50_ns": 4160833,
+        "p95_ns": 4160833,
+        "requests": 12,
+        "hits": 12,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 182,
+        "invalidated": 0
+      },
+      "disabled:full:global:True": {
+        "lifecycle_ns": 678304044,
+        "service_excluding_acquisition_ns": 596591710,
+        "setup_ns": 5257959,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 584697584,
+        "query_ns": 6636167,
+        "base_ns": 1420544,
+        "build_ns": 0,
+        "optimizer_ns": 4540,
+        "p50_ns": 2072459,
+        "p95_ns": 2072459,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "gds:full:global:True": {
+        "lifecycle_ns": 681840502,
+        "service_excluding_acquisition_ns": 600128168,
+        "setup_ns": 6132292,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 577740792,
+        "query_ns": 16255084,
+        "base_ns": 1530915,
+        "build_ns": 6128000,
+        "optimizer_ns": 183417,
+        "p50_ns": 5705167,
+        "p95_ns": 5705167,
+        "requests": 12,
+        "hits": 0,
+        "builds": 12,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 6
+      },
+      "lru:incremental:selective:True": {
+        "lifecycle_ns": 486489710,
+        "service_excluding_acquisition_ns": 404777376,
+        "setup_ns": 5746333,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 389480459,
+        "query_ns": 9550584,
+        "base_ns": 1003500,
+        "build_ns": 4992666,
+        "optimizer_ns": 129291,
+        "p50_ns": 4157667,
+        "p95_ns": 4157667,
+        "requests": 12,
+        "hits": 2,
+        "builds": 10,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 6,
+        "invalidated": 0
+      },
+      "gds:full:selective:True": {
+        "lifecycle_ns": 697624668,
+        "service_excluding_acquisition_ns": 615912334,
+        "setup_ns": 7453500,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 594047709,
+        "query_ns": 14411125,
+        "base_ns": 1124209,
+        "build_ns": 5144001,
+        "optimizer_ns": 141749,
+        "p50_ns": 5317583,
+        "p95_ns": 5317583,
+        "requests": 12,
+        "hits": 2,
+        "builds": 10,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 6,
+        "invalidated": 0
+      },
+      "disabled:full:selective:True": {
+        "lifecycle_ns": 694898418,
+        "service_excluding_acquisition_ns": 613186084,
+        "setup_ns": 6518167,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 600146208,
+        "query_ns": 6521709,
+        "base_ns": 1463625,
+        "build_ns": 0,
+        "optimizer_ns": 1957,
+        "p50_ns": 2026292,
+        "p95_ns": 2026292,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "static_bounded:full:selective:True": {
+        "lifecycle_ns": 720970918,
+        "service_excluding_acquisition_ns": 639258584,
+        "setup_ns": 7147459,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 623571125,
+        "query_ns": 8540000,
+        "base_ns": 980167,
+        "build_ns": 0,
+        "optimizer_ns": 2124,
+        "p50_ns": 3007917,
+        "p95_ns": 3007917,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 37,
+        "invalidated": 0
+      },
+      "lru:full:global:True": {
+        "lifecycle_ns": 687541833,
+        "service_excluding_acquisition_ns": 605829499,
+        "setup_ns": 6349084,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 589227333,
+        "query_ns": 10253082,
+        "base_ns": 1131374,
+        "build_ns": 5900290,
+        "optimizer_ns": 136377,
+        "p50_ns": 4528041,
+        "p95_ns": 4528041,
+        "requests": 12,
+        "hits": 0,
+        "builds": 12,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 6
+      },
+      "aki:incremental:selective:False": {
+        "lifecycle_ns": 476668710,
+        "service_excluding_acquisition_ns": 394956376,
+        "setup_ns": 6214542,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 384366500,
+        "query_ns": 4375334,
+        "base_ns": 1059126,
+        "build_ns": 0,
+        "optimizer_ns": 109125,
+        "p50_ns": 2017459,
+        "p95_ns": 2017459,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "static_full:incremental:global:True": {
+        "lifecycle_ns": 698372042,
+        "service_excluding_acquisition_ns": 616659708,
+        "setup_ns": 5881458,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 601663833,
+        "query_ns": 9114417,
+        "base_ns": 0,
+        "build_ns": 0,
+        "optimizer_ns": 2335,
+        "p50_ns": 3152334,
+        "p95_ns": 3152334,
+        "requests": 12,
+        "hits": 12,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 182
+      },
+      "disabled:incremental:selective:True": {
+        "lifecycle_ns": 482997002,
+        "service_excluding_acquisition_ns": 401284668,
+        "setup_ns": 6259083,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 379367709,
+        "query_ns": 15657876,
+        "base_ns": 1681248,
+        "build_ns": 0,
+        "optimizer_ns": 2876,
+        "p50_ns": 5330417,
+        "p95_ns": 5330417,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "static_full:full:global:True": {
+        "lifecycle_ns": 878841126,
+        "service_excluding_acquisition_ns": 797128792,
+        "setup_ns": 5732459,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 787820083,
+        "query_ns": 3576250,
+        "base_ns": 0,
+        "build_ns": 0,
+        "optimizer_ns": 2125,
+        "p50_ns": 1454250,
+        "p95_ns": 1454250,
+        "requests": 12,
+        "hits": 12,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 182
+      },
+      "aki:incremental:global:True": {
+        "lifecycle_ns": 485481251,
+        "service_excluding_acquisition_ns": 403768917,
+        "setup_ns": 6569917,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 384033125,
+        "query_ns": 13165875,
+        "base_ns": 1467582,
+        "build_ns": 0,
+        "optimizer_ns": 113416,
+        "p50_ns": 6502375,
+        "p95_ns": 6502375,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "gds:incremental:selective:False": {
+        "lifecycle_ns": 484373544,
+        "service_excluding_acquisition_ns": 402661210,
+        "setup_ns": 5909500,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 387097584,
+        "query_ns": 9654126,
+        "base_ns": 967417,
+        "build_ns": 4971417,
+        "optimizer_ns": 143250,
+        "p50_ns": 4805084,
+        "p95_ns": 4805084,
+        "requests": 12,
+        "hits": 2,
+        "builds": 10,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 6,
+        "invalidated": 0
+      },
+      "lru:incremental:selective:False": {
+        "lifecycle_ns": 482540667,
+        "service_excluding_acquisition_ns": 400828333,
+        "setup_ns": 6284250,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 384996333,
+        "query_ns": 9547750,
+        "base_ns": 925668,
+        "build_ns": 4574542,
+        "optimizer_ns": 118665,
+        "p50_ns": 4671125,
+        "p95_ns": 4671125,
+        "requests": 12,
+        "hits": 2,
+        "builds": 10,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 6,
+        "invalidated": 0
+      },
+      "static_bounded:incremental:selective:False": {
+        "lifecycle_ns": 518772709,
+        "service_excluding_acquisition_ns": 437060375,
+        "setup_ns": 6693416,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 418639458,
+        "query_ns": 11727501,
+        "base_ns": 1000874,
+        "build_ns": 0,
+        "optimizer_ns": 2042,
+        "p50_ns": 5116834,
+        "p95_ns": 5116834,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 37,
+        "invalidated": 0
+      },
+      "disabled:incremental:selective:False": {
+        "lifecycle_ns": 546616000,
+        "service_excluding_acquisition_ns": 464903666,
+        "setup_ns": 5663333,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 454354916,
+        "query_ns": 4885417,
+        "base_ns": 1063791,
+        "build_ns": 0,
+        "optimizer_ns": 1959,
+        "p50_ns": 2201292,
+        "p95_ns": 2201292,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "static_bounded:incremental:global:True": {
+        "lifecycle_ns": 536748000,
+        "service_excluding_acquisition_ns": 455035666,
+        "setup_ns": 5635458,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 445344041,
+        "query_ns": 4056167,
+        "base_ns": 960956,
+        "build_ns": 0,
+        "optimizer_ns": 5209,
+        "p50_ns": 1862917,
+        "p95_ns": 1862917,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 37
+      },
+      "static_full:incremental:selective:True": {
+        "lifecycle_ns": 580778084,
+        "service_excluding_acquisition_ns": 499065750,
+        "setup_ns": 5517750,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 481182083,
+        "query_ns": 12365917,
+        "base_ns": 0,
+        "build_ns": 0,
+        "optimizer_ns": 2541,
+        "p50_ns": 6049167,
+        "p95_ns": 6049167,
+        "requests": 12,
+        "hits": 12,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 182,
+        "invalidated": 0
+      },
+      "frequency:incremental:global:True": {
+        "lifecycle_ns": 473488418,
+        "service_excluding_acquisition_ns": 391776084,
+        "setup_ns": 4989209,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 375223583,
+        "query_ns": 11563292,
+        "base_ns": 1447789,
+        "build_ns": 0,
+        "optimizer_ns": 135877,
+        "p50_ns": 4122792,
+        "p95_ns": 4122792,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "static_bounded:incremental:selective:True": {
+        "lifecycle_ns": 519671084,
+        "service_excluding_acquisition_ns": 437958750,
+        "setup_ns": 4877583,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 428446292,
+        "query_ns": 4634875,
+        "base_ns": 940543,
+        "build_ns": 0,
+        "optimizer_ns": 3250,
+        "p50_ns": 1824375,
+        "p95_ns": 1824375,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 37,
+        "invalidated": 0
+      },
+      "disabled:incremental:global:True": {
+        "lifecycle_ns": 473631584,
+        "service_excluding_acquisition_ns": 391919250,
+        "setup_ns": 5100417,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 376013875,
+        "query_ns": 10804958,
+        "base_ns": 1314751,
+        "build_ns": 0,
+        "optimizer_ns": 2958,
+        "p50_ns": 3451750,
+        "p95_ns": 3451750,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "aki:full:selective:True": {
+        "lifecycle_ns": 682748460,
+        "service_excluding_acquisition_ns": 601036126,
+        "setup_ns": 5783750,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 583537751,
+        "query_ns": 11714625,
+        "base_ns": 1527417,
+        "build_ns": 0,
+        "optimizer_ns": 124585,
+        "p50_ns": 5318000,
+        "p95_ns": 5318000,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "lru:incremental:global:True": {
+        "lifecycle_ns": 487738626,
+        "service_excluding_acquisition_ns": 406026292,
+        "setup_ns": 6373042,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 383722376,
+        "query_ns": 15930874,
+        "base_ns": 1531209,
+        "build_ns": 6257373,
+        "optimizer_ns": 168504,
+        "p50_ns": 6592541,
+        "p95_ns": 6592541,
+        "requests": 12,
+        "hits": 0,
+        "builds": 12,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 6
+      },
+      "gds:incremental:selective:True": {
+        "lifecycle_ns": 487364834,
+        "service_excluding_acquisition_ns": 405652500,
+        "setup_ns": 5940291,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 378095292,
+        "query_ns": 21616917,
+        "base_ns": 1532416,
+        "build_ns": 6488917,
+        "optimizer_ns": 199960,
+        "p50_ns": 8053834,
+        "p95_ns": 8053834,
+        "requests": 12,
+        "hits": 2,
+        "builds": 10,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 6,
+        "invalidated": 0
+      },
+      "frequency:incremental:selective:True": {
+        "lifecycle_ns": 481423126,
+        "service_excluding_acquisition_ns": 399710792,
+        "setup_ns": 5536875,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 381420625,
+        "query_ns": 12753292,
+        "base_ns": 1526459,
+        "build_ns": 0,
+        "optimizer_ns": 103585,
+        "p50_ns": 6205250,
+        "p95_ns": 6205250,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "aki:incremental:selective:True": {
+        "lifecycle_ns": 478843584,
+        "service_excluding_acquisition_ns": 397131250,
+        "setup_ns": 7317666,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 376981251,
+        "query_ns": 12832333,
+        "base_ns": 2094586,
+        "build_ns": 0,
+        "optimizer_ns": 129084,
+        "p50_ns": 5240208,
+        "p95_ns": 5240208,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "frequency:incremental:selective:False": {
+        "lifecycle_ns": 485077583,
+        "service_excluding_acquisition_ns": 403365249,
+        "setup_ns": 5655916,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 387790792,
+        "query_ns": 9918541,
+        "base_ns": 1468581,
+        "build_ns": 0,
+        "optimizer_ns": 115374,
+        "p50_ns": 3601083,
+        "p95_ns": 3601083,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "frequency:full:selective:True": {
+        "lifecycle_ns": 684313834,
+        "service_excluding_acquisition_ns": 602601500,
+        "setup_ns": 5611458,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 583997000,
+        "query_ns": 12993042,
+        "base_ns": 1739460,
+        "build_ns": 0,
+        "optimizer_ns": 118458,
+        "p50_ns": 5185458,
+        "p95_ns": 5185458,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "gds:incremental:global:True": {
+        "lifecycle_ns": 478681835,
+        "service_excluding_acquisition_ns": 396969501,
+        "setup_ns": 5201584,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 373763208,
+        "query_ns": 18004709,
+        "base_ns": 1825039,
+        "build_ns": 6877042,
+        "optimizer_ns": 189001,
+        "p50_ns": 8517625,
+        "p95_ns": 8517625,
+        "requests": 12,
+        "hits": 0,
+        "builds": 12,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 6
+      },
+      "frequency:full:global:True": {
+        "lifecycle_ns": 678341501,
+        "service_excluding_acquisition_ns": 596629167,
+        "setup_ns": 5830000,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 583736500,
+        "query_ns": 7062667,
+        "base_ns": 1304081,
+        "build_ns": 0,
+        "optimizer_ns": 121044,
+        "p50_ns": 2120125,
+        "p95_ns": 2120125,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "lru:full:selective:True": {
+        "lifecycle_ns": 690011627,
+        "service_excluding_acquisition_ns": 608299293,
+        "setup_ns": 5618792,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 586859084,
+        "query_ns": 15821417,
+        "base_ns": 1363793,
+        "build_ns": 5824083,
+        "optimizer_ns": 148957,
+        "p50_ns": 5034834,
+        "p95_ns": 5034834,
+        "requests": 12,
+        "hits": 2,
+        "builds": 10,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 6,
+        "invalidated": 0
+      },
+      "aki:full:global:True": {
+        "lifecycle_ns": 686376959,
+        "service_excluding_acquisition_ns": 604664625,
+        "setup_ns": 5995333,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 594239625,
+        "query_ns": 4429667,
+        "base_ns": 1023166,
+        "build_ns": 0,
+        "optimizer_ns": 98748,
+        "p50_ns": 1969250,
+        "p95_ns": 1969250,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 0
+      },
+      "static_bounded:full:global:True": {
+        "lifecycle_ns": 743915792,
+        "service_excluding_acquisition_ns": 662203458,
+        "setup_ns": 6256125,
+        "acquisition_ns": 81712334,
+        "refresh_ns": 651860917,
+        "query_ns": 4086416,
+        "base_ns": 958459,
+        "build_ns": 0,
+        "optimizer_ns": 1875,
+        "p50_ns": 1904375,
+        "p95_ns": 1904375,
+        "requests": 12,
+        "hits": 0,
+        "builds": 0,
+        "evictions": 0,
+        "noop": 0,
+        "retained": 0,
+        "invalidated": 37
+      }
+    },
+    "maintenance_comparisons": [
+      {
+        "comparison": "incremental/full",
+        "policy": "lru",
+        "invalidation": "selective",
+        "mean_ratio": 0.7050456701941923,
+        "paired_ratios": [
+          0.7050456701941923
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "static_full",
+        "invalidation": "global",
+        "mean_ratio": 0.7946510709832212,
+        "paired_ratios": [
+          0.7946510709832212
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "disabled",
+        "invalidation": "selective",
+        "mean_ratio": 0.6950613060684792,
+        "paired_ratios": [
+          0.6950613060684792
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "aki",
+        "invalidation": "global",
+        "mean_ratio": 0.7073099477396647,
+        "paired_ratios": [
+          0.7073099477396647
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "static_bounded",
+        "invalidation": "global",
+        "mean_ratio": 0.7215171471988324,
+        "paired_ratios": [
+          0.7215171471988324
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "static_full",
+        "invalidation": "selective",
+        "mean_ratio": 0.7466890253270584,
+        "paired_ratios": [
+          0.7466890253270584
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "frequency",
+        "invalidation": "global",
+        "mean_ratio": 0.6980089192567329,
+        "paired_ratios": [
+          0.6980089192567329
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "static_bounded",
+        "invalidation": "selective",
+        "mean_ratio": 0.720793406537932,
+        "paired_ratios": [
+          0.720793406537932
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "disabled",
+        "invalidation": "global",
+        "mean_ratio": 0.6982585290321518,
+        "paired_ratios": [
+          0.6982585290321518
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "lru",
+        "invalidation": "global",
+        "mean_ratio": 0.7093948361975525,
+        "paired_ratios": [
+          0.7093948361975525
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "gds",
+        "invalidation": "selective",
+        "mean_ratio": 0.6986060791072829,
+        "paired_ratios": [
+          0.6986060791072829
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "frequency",
+        "invalidation": "selective",
+        "mean_ratio": 0.7035121929158603,
+        "paired_ratios": [
+          0.7035121929158603
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "aki",
+        "invalidation": "selective",
+        "mean_ratio": 0.7013469997427749,
+        "paired_ratios": [
+          0.7013469997427749
+        ]
+      },
+      {
+        "comparison": "incremental/full",
+        "policy": "gds",
+        "invalidation": "global",
+        "mean_ratio": 0.7020437090432624,
+        "paired_ratios": [
+          0.7020437090432624
+        ]
+      }
+    ],
+    "admission": {
+      "strongest_simple": "frequency",
+      "aki_over_simple_paired_ratios": [
+        0.9946418402841745
+      ],
+      "aki_over_simple_mean_ratio": 0.9946418402841745,
+      "criterion_20pct_met": false
+    },
+    "opportunity": {
+      "impossible_free_all_traversal_service_fraction": 0.0034808663263711107,
+      "warning": "diagnostic upper bound; includes non-repeating operations and assumes zero cache overhead"
+    },
+    "temporal": [
+      {
+        "seed": 69,
+        "condition": [
+          "disabled",
+          "incremental",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 162360834,
+        "end_to_end_p95_ns": 162360834,
+        "final_cumulative_delta_ns": 0
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "gds",
+          "incremental",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 164182251,
+        "end_to_end_p95_ns": 164182251,
+        "final_cumulative_delta_ns": 4367832
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "lru",
+          "full",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": 1,
+        "end_to_end_p50_ns": 329409584,
+        "end_to_end_p95_ns": 329409584,
+        "final_cumulative_delta_ns": -4886791
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "frequency",
+          "full",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 318806584,
+        "end_to_end_p95_ns": 318806584,
+        "final_cumulative_delta_ns": 37457
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "lru",
+          "full",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 321469959,
+        "end_to_end_p95_ns": 321469959,
+        "final_cumulative_delta_ns": 9237789
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "disabled",
+          "full",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 318411544,
+        "end_to_end_p95_ns": 318411544,
+        "final_cumulative_delta_ns": 0
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "static_bounded",
+          "full",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 349194584,
+        "end_to_end_p95_ns": 349194584,
+        "final_cumulative_delta_ns": 26072500
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "frequency",
+          "incremental",
+          "selective",
+          false
+        ],
+        "sustained_break_even_query_vs_disabled": 1,
+        "end_to_end_p50_ns": 168801542,
+        "end_to_end_p95_ns": 168801542,
+        "final_cumulative_delta_ns": -61538417
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "gds",
+          "full",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 318667376,
+        "end_to_end_p95_ns": 318667376,
+        "final_cumulative_delta_ns": 3536458
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "static_full",
+          "incremental",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 165862751,
+        "end_to_end_p95_ns": 165862751,
+        "final_cumulative_delta_ns": 97781082
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "aki",
+          "incremental",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": 1,
+        "end_to_end_p50_ns": 164755709,
+        "end_to_end_p95_ns": 164755709,
+        "final_cumulative_delta_ns": -4153418
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "aki",
+          "full",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 315775917,
+        "end_to_end_p95_ns": 315775917,
+        "final_cumulative_delta_ns": 8072915
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "gds",
+          "incremental",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 159618709,
+        "end_to_end_p95_ns": 159618709,
+        "final_cumulative_delta_ns": 5050251
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "disabled",
+          "full",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 336430293,
+        "end_to_end_p95_ns": 336430293,
+        "final_cumulative_delta_ns": 0
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "static_bounded",
+          "incremental",
+          "selective",
+          false
+        ],
+        "sustained_break_even_query_vs_disabled": 1,
+        "end_to_end_p50_ns": 163046459,
+        "end_to_end_p95_ns": 163046459,
+        "final_cumulative_delta_ns": -27843291
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "static_bounded",
+          "incremental",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 168215292,
+        "end_to_end_p95_ns": 168215292,
+        "final_cumulative_delta_ns": 36674082
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "static_full",
+          "full",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 405574293,
+        "end_to_end_p95_ns": 405574293,
+        "final_cumulative_delta_ns": 200537082
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "gds",
+          "full",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 323790251,
+        "end_to_end_p95_ns": 323790251,
+        "final_cumulative_delta_ns": 2726250
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "static_bounded",
+          "incremental",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 195987625,
+        "end_to_end_p95_ns": 195987625,
+        "final_cumulative_delta_ns": 63116416
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "gds",
+          "incremental",
+          "selective",
+          false
+        ],
+        "sustained_break_even_query_vs_disabled": 1,
+        "end_to_end_p50_ns": 162483126,
+        "end_to_end_p95_ns": 162483126,
+        "final_cumulative_delta_ns": -62242456
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "lru",
+          "incremental",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 165239542,
+        "end_to_end_p95_ns": 165239542,
+        "final_cumulative_delta_ns": 14107042
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "static_bounded",
+          "full",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 347479209,
+        "end_to_end_p95_ns": 347479209,
+        "final_cumulative_delta_ns": 65611748
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "frequency",
+          "incremental",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": 2,
+        "end_to_end_p50_ns": 159397167,
+        "end_to_end_p95_ns": 159397167,
+        "final_cumulative_delta_ns": -143166
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "disabled",
+          "incremental",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 156152751,
+        "end_to_end_p95_ns": 156152751,
+        "final_cumulative_delta_ns": 0
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "static_full",
+          "incremental",
+          "selective",
+          false
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 168688417,
+        "end_to_end_p95_ns": 168688417,
+        "final_cumulative_delta_ns": 41528669
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "disabled",
+          "incremental",
+          "selective",
+          false
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 158746458,
+        "end_to_end_p95_ns": 158746458,
+        "final_cumulative_delta_ns": 0
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "lru",
+          "incremental",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 161439084,
+        "end_to_end_p95_ns": 161439084,
+        "final_cumulative_delta_ns": 3492708
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "static_full",
+          "incremental",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 271300084,
+        "end_to_end_p95_ns": 271300084,
+        "final_cumulative_delta_ns": 224740458
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "lru",
+          "incremental",
+          "selective",
+          false
+        ],
+        "sustained_break_even_query_vs_disabled": 1,
+        "end_to_end_p50_ns": 162419875,
+        "end_to_end_p95_ns": 162419875,
+        "final_cumulative_delta_ns": -64075333
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "static_full",
+          "full",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 359269083,
+        "end_to_end_p95_ns": 359269083,
+        "final_cumulative_delta_ns": 82906082
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "aki",
+          "incremental",
+          "global",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": null,
+        "end_to_end_p50_ns": 166083042,
+        "end_to_end_p95_ns": 166083042,
+        "final_cumulative_delta_ns": 11849667
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "aki",
+          "full",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": 1,
+        "end_to_end_p50_ns": 318817626,
+        "end_to_end_p95_ns": 318817626,
+        "final_cumulative_delta_ns": -12149958
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "frequency",
+          "incremental",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": 1,
+        "end_to_end_p50_ns": 164677542,
+        "end_to_end_p95_ns": 164677542,
+        "final_cumulative_delta_ns": -1573876
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "frequency",
+          "full",
+          "selective",
+          true
+        ],
+        "sustained_break_even_query_vs_disabled": 1,
+        "end_to_end_p50_ns": 321880334,
+        "end_to_end_p95_ns": 321880334,
+        "final_cumulative_delta_ns": -10584584
+      },
+      {
+        "seed": 69,
+        "condition": [
+          "aki",
+          "incremental",
+          "selective",
+          false
+        ],
+        "sustained_break_even_query_vs_disabled": 1,
+        "end_to_end_p50_ns": 156829459,
+        "end_to_end_p95_ns": 156829459,
+        "final_cumulative_delta_ns": -69947290
+      }
+    ],
+    "uncertainty": "paired repetitions and ratios are descriptive; shared host and few repositories limit inference"
+  }
+]

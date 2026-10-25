@@ -28,6 +28,8 @@ rejected. The package is single-owner; it is not a concurrent database service
 or a filesystem watcher. A host must synchronize repository edits before
 queries. Passing a previous snapshot as if it were current cannot be detected
 without host integration. No universal live-filesystem freshness claim is made.
+An older or uninitialized extractor version rejects serving until refresh;
+source-loader hashes preserve the exact valid UTF-8 bytes, including CRLF/CR.
 
 Both modes first hash the entire supplied snapshot. Identical source trees and
 extractor versions preserve all cache and policy state, with no database writes.
@@ -72,7 +74,8 @@ spans accumulate; there is no garbage collector in this prototype.
   exceed the aggregate lost benefit of all victims plus construction cost.
 
 No label, future query, test success, or future repository change enters the
-policy. First-lookup/build priors are fixed heuristic constants, not calibrated
+policy. Demand counts record requested operations, not verified use or correctness
+of retrieved evidence. First-lookup/build priors are fixed heuristic constants, not calibrated
 ground truth. The estimator is neither an optimal optimizer nor a bandit. It
 may be wrong under drift. Distinct anchor/direction candidates do not share
 physical storage; the measured marginal comparison includes victim opportunity

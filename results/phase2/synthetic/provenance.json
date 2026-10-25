@@ -1,0 +1,133 @@
+{
+  "utc": "2026-10-25T05:44:03.026210+00:00",
+  "python": "3.11.5",
+  "sqlite": "3.42.0",
+  "machine": "arm64",
+  "os": "Darwin",
+  "os_release": "25.6.0",
+  "cpu_count": 12,
+  "git_commit": "5bd8417cb39e0c4841436e183ffa8f462d62ba86",
+  "code_sha256": {
+    "aki/__init__.py": "893c34ac121b471e70a014ce5cd60158657e722559ff96794a2d8e7f010b4a28",
+    "aki/arb_eval.py": "51b38855086d347030e18f025452100b878782c89bc61f454de68146170f2334",
+    "aki/benchmark.py": "67ab67b09135364bbbe07b6fbad866666dfb66af293b233d52081e74a3cf0aef",
+    "aki/chronology.py": "fc5d6d0251a3b3ee2b08f39443cfb27acede98a66ebc642c23ae8dbf6301706f",
+    "aki/paired.py": "c46f7c574ea313dd1a6285180bca3cdaa9991c8c5210b2079f815211379492b5",
+    "aki/policy.py": "7d05ed4d592c8fb03762af9ed54ca2c5c477c63670f9330e86645e36182f5cbb",
+    "aki/selective.py": "e15d22a89de5eed23045bdf74e65ed0ee156957f2af8eefa5eed1496e28728a9",
+    "aki/selective_eval.py": "e1f78c6df3e395c201248b98d48dc498dc253973c2b178aea796a4c039791160",
+    "aki/source.py": "ec254ea04b5c0b90b2c4783bdb6071bfb94068e2e848137a7c6db8d4e624aa5e",
+    "aki/store.py": "a0fcafe0998a00f81b70bdbeaeecad6f18435e645b748cfb25ae2470ed271c96",
+    "tests/test_index.py": "1d127db6f729c39cbd237955a38033b572103338337c35cc23636932b40e79be",
+    "tests/test_mutations.py": "3be1a1302710a4304e84aea7652287378c0823e04bd96bec12fd89a1015f01a6",
+    "tests/test_refresh.py": "34723df50b28c8a71e92fa10478a55d08b2908561471e2cfc1fd989ffe6053e7",
+    "tests/test_selective.py": "f96b702abfc49ca3dc5ab28b718da773638cc27a4b4ac9d0c1b2ee8d11700636"
+  },
+  "clock": "perf_counter_ns",
+  "cold_definition": "new DB; OS page cache NOT flushed",
+  "timing_excludes": "benchmark oracle, workload generation and result serialization",
+  "timing_includes": "source ingestion, candidate generation, retrieval, optimizer, builds, eviction, refresh",
+  "background_work_ns": 0,
+  "paid_inference_calls": 0,
+  "experiment": "phase2 interleaved lifecycle",
+  "seeds": [
+    70,
+    71,
+    72
+  ],
+  "label": "synthetic-locality",
+  "budget": 65536,
+  "conditions": [
+    [
+      "disabled",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "static_full",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "static_bounded",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "lru",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "frequency",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "gds",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "aki",
+      "incremental",
+      "selective",
+      true
+    ],
+    [
+      "disabled",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "static_full",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "static_bounded",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "lru",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "frequency",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "gds",
+      "incremental",
+      "selective",
+      false
+    ],
+    [
+      "aki",
+      "incremental",
+      "selective",
+      false
+    ]
+  ],
+  "workload": "synthetic generated queries",
+  "license": "original synthetic",
+  "timing_includes_shared_acquisition": false,
+  "order": "seeded shuffle at setup, each refresh and each query",
+  "source_ref": "HEAD",
+  "independent_repetitions": false,
+  "note": "three paired timing repetitions; workload seeds differ only for synthetic streams"
+}

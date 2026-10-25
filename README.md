@@ -7,10 +7,13 @@ remain authoritative.
 
 **Current finding: a useful negative result.** Synthetic locality can make
 materialization worthwhile, but the cost policy has not established an advantage
-over the strongest simple baseline. Real ARB queries had zero relationship-cache
-hits; the prototype retriever trails fresh official baselines and fails no-gold
+over the strongest simple baseline. The original ARB adapter had zero relationship-cache
+hits in a weakly matched workload (only 27/101 positives are Python); the prototype retriever trails fresh official baselines and fails no-gold
 abstention. This is a research artifact, with no established novelty or coding-agent
-success claim. [Results and limitations](docs/RESULTS.md) · [design](docs/DESIGN.md)
+success claim. Phase two fixes measured state/freshness defects, tests incremental
+source maintenance on real historical tasks, and retains the failed selective
+retrieval experiment. [Phase-two results](docs/PHASE2_RESULTS.md) ·
+[Original results and limitations](docs/RESULTS.md) · [design](docs/DESIGN.md)
 · [prior art](docs/PRIOR_ART.md) · [research log](docs/RESEARCH_LOG.md).
 
 ## Run
@@ -60,7 +63,11 @@ phases. The generated workloads are not real agent traces.
 Immutable spans and import-edge evidence are stored in SQLite. Selective
 invalidation checks changed graph boundaries, including new incoming edges from
 previously unseen files. It retains only path sets proven unchanged under the
-current extractor. Base parsing/index refresh is still conservative and complete.
+current extractor. Complete source snapshots are hashed; unchanged syntax and
+file/search rows are reused, while all imports are resolved against the current
+module universe. This catches newly added modules and incoming dependencies.
+Identical snapshots preserve policy state. A new Policy discards old derived
+cache rows, so persisted storage cannot silently escape its byte budget.
 
 ## Reproduce the public-source experiments
 
@@ -91,6 +98,16 @@ Historical experiment code is preserved in Git and each run records source
 hashes; see the [run manifest](docs/RESULTS.md) before comparing versions.
 Optional `scripts/analyze.py` renders figures using an already-installed
 matplotlib. It is not required for the engine or experiments.
+
+Phase two adds 30 commit-title tasks each from Click, pytest and a previously
+unused Flask history, with three interleaved timing repetitions, full source
+acquisition costs, all seven policies and matched write ablations. It also scores
+an unchanged opt-in evidence gate on 29 previously unused code2test positives.
+These are retrieval/history experiments, not agent repair-success measurements.
+See [the preregistered protocol](docs/PHASE2_PROTOCOL.md) and run
+`sh scripts/reproduce_phase2.sh results/my-phase2` after preparing its pinned
+public data. [Next experiments](docs/NEXT_EXPERIMENTS.md) explain why more
+resource spending is not yet justified.
 
 ## License and attribution
 

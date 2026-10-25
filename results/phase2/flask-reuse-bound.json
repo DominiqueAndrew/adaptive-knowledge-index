@@ -1,0 +1,37 @@
+{
+  "run": "flask",
+  "upper_bound_only": true,
+  "assumptions": "unlimited cache, free admission/write/read/validation, no size or invalidation overhead",
+  "seeds": [
+    {
+      "requests": 144,
+      "valid_repeats": 67,
+      "repeated_traversal_ns": 5731920,
+      "all_traversal_ns": 12170172,
+      "seed": 70,
+      "lifecycle_ns": 1800628332,
+      "free_valid_repeat_fraction": 0.0031832887987680515,
+      "free_all_traversal_fraction": 0.006758847333298541
+    },
+    {
+      "requests": 144,
+      "valid_repeats": 67,
+      "repeated_traversal_ns": 5623124,
+      "all_traversal_ns": 14413036,
+      "seed": 71,
+      "lifecycle_ns": 1787813581,
+      "free_valid_repeat_fraction": 0.0031452518650488983,
+      "free_all_traversal_fraction": 0.008061822638095286
+    },
+    {
+      "requests": 144,
+      "valid_repeats": 67,
+      "repeated_traversal_ns": 5944627,
+      "all_traversal_ns": 12748293,
+      "seed": 72,
+      "lifecycle_ns": 1773970372,
+      "free_valid_repeat_fraction": 0.003351029472548598,
+      "free_all_traversal_fraction": 0.007186305476808719
+    }
+  ]
+}
