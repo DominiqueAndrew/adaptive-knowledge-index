@@ -46,11 +46,12 @@ class Parsed:
     edges: frozenset[tuple[str, str]]
     symbols: tuple[tuple[str, str, int, int], ...]
     errors: tuple[str, ...]
+    evidence: tuple[tuple[str, str, int], ...]
 
 
 def parse(documents: dict[str, str]) -> Parsed:
     modules = {module_name(p): p for p in sorted(documents) if p.endswith(".py")}
-    edges, symbols, errors = set(), [], []
+    edges, symbols, errors, evidence = set(), [], [], set()
     for path, text in sorted(documents.items()):
         if not path.endswith(".py"):
             continue
@@ -78,5 +79,6 @@ def parse(documents: dict[str, str]) -> Parsed:
                     target = modules.get(".".join(parts))
                     if target and target != path:
                         edges.add((path, target))
+                        evidence.add((path, target, node.lineno))
                     parts.pop()
-    return Parsed(frozenset(edges), tuple(symbols), tuple(errors))
+    return Parsed(frozenset(edges), tuple(symbols), tuple(errors), tuple(sorted(evidence)))

@@ -88,7 +88,11 @@ class Policy:
         evicted = 0
         if not self.frozen and self.name not in {"disabled", "static_full", "static_bounded"}:
             if len(self.history) == self.window:
-                self.counts[self.history[0]] -= 1
+                expired = self.history[0]
+                self.counts[expired] -= 1
+                if not self.counts[expired] and expired not in self.resident:
+                    self.counts.pop(expired, None)
+                    self.stats.pop(expired, None)
             self.history.append(key)
             self.counts[key] += 1
             stat = self.stats[key]
@@ -100,7 +104,7 @@ class Policy:
                 self.resident.move_to_end(key)
                 if self.name == "gds":
                     self.gds[key] = self.gds_clock + stat.base_ns/max(self.resident[key],1)
-            elif rows:
+            else:
                 candidate = True
                 stat.size = self.size(key, rows)
                 admit = self.name in {"lru","gds"} or (self.name == "frequency" and self.counts[key] >= 2)

@@ -25,6 +25,8 @@ class Store:
         CREATE INDEX IF NOT EXISTS edges_dst ON edges(dst,src);
         CREATE TABLE IF NOT EXISTS symbols(path TEXT,name TEXT,start INTEGER,end INTEGER);
         CREATE INDEX IF NOT EXISTS symbols_name ON symbols(name);
+        CREATE TABLE IF NOT EXISTS edge_spans(src TEXT,dst TEXT,line INTEGER,span_id TEXT,
+          extractor TEXT,PRIMARY KEY(src,dst,line));
         CREATE VIRTUAL TABLE IF NOT EXISTS search USING fts5(path,text);
         CREATE TABLE IF NOT EXISTS mats(key TEXT PRIMARY KEY,revision TEXT,payload TEXT,bytes INTEGER);
         """)
@@ -62,30 +64,36 @@ class Store:
                     retained.add(key)
         old_count = self.db.execute("SELECT count(*) FROM mats").fetchone()[0]
         with self.db:
-            for table in ("files", "edges", "symbols", "search"):
+            for table in ("files", "edges", "symbols", "search", "edge_spans"):
                 self.db.execute(f"DELETE FROM {table}")
             for (key,) in self.db.execute("SELECT key FROM mats").fetchall():
                 if key in retained:
                     self.db.execute("UPDATE mats SET revision=? WHERE key=?", (revision, key))
                 else:
                     self.db.execute("DELETE FROM mats WHERE key=?", (key,))
+            span_ids = {}
+            token_sizes = {}
             for path, text in sorted(documents.items()):
                 file_hash = digest(text)
-                self.db.execute("INSERT INTO files VALUES(?,?,?,?)", (path, file_hash, is_test(path), token_count(text)))
+                token_sizes[path] = token_count(text)
+                self.db.execute("INSERT INTO files VALUES(?,?,?,?)", (path, file_hash, is_test(path), token_sizes[path]))
                 self.db.execute("INSERT INTO search VALUES(?,?)", (path, text))
                 lines = text.splitlines(keepends=True)
                 for start in range(0, len(lines), 80):
                     chunk = "".join(lines[start:start + 80])
                     content_hash = digest(chunk)
                     identity = digest(json.dumps([self.scope, revision, path, start + 1, content_hash]))
+                    span_ids[path, start//80] = identity
                     self.db.execute("INSERT OR IGNORE INTO spans VALUES(?,?,?,?,?,?,?,?,?)",
                                     (identity, self.scope, revision, path, start + 1,
                                      min(start + 80, len(lines)), content_hash, chunk, provenance))
             self.db.executemany("INSERT INTO edges VALUES(?,?)", sorted(parsed.edges))
             self.db.executemany("INSERT INTO symbols VALUES(?,?,?,?)", parsed.symbols)
+            self.db.executemany("INSERT INTO edge_spans VALUES(?,?,?,?,?)",
+                ((src,dst,line,span_ids[src,(line-1)//80],"python-ast-import-v1") for src,dst,line in parsed.evidence))
             self.db.execute("INSERT OR REPLACE INTO meta VALUES('revision',?)", (revision,))
         self.revision, self.documents = revision, dict(documents)
-        self.tokens = {p: token_count(t) for p,t in documents.items()}
+        self.tokens = token_sizes
         return {"revision": revision, "files": len(documents), "edges": len(parsed.edges),
                 "parse_errors": list(parsed.errors), "invalidated": old_count-len(retained),
                 "retained": len(retained)}
@@ -93,6 +101,16 @@ class Store:
     def check(self, revision: str, scope: str | None = None):
         if revision != self.revision or (scope is not None and scope != self.scope):
             raise StaleRevision("requested source revision or scope is not current; refresh required")
+
+    def edge_evidence(self, src: str, dst: str, revision: str) -> list[dict]:
+        """Ground an edge in immutable current spans; existence is not task correctness."""
+        self.check(revision)
+        rows = self.db.execute("""SELECT e.line,e.extractor,s.id,s.path,s.start,s.end,s.hash,s.text,s.provenance
+          FROM edge_spans e JOIN spans s ON s.id=e.span_id
+          WHERE e.src=? AND e.dst=? AND s.revision=? AND s.scope=? ORDER BY e.line""",
+          (src,dst,revision,self.scope))
+        names=("line","extractor","span_id","path","start","end","sha256","text","provenance")
+        return [dict(zip(names,row)) for row in rows]
 
     def closure(self, root: str, direction: str) -> list[str]:
         if direction not in {"forward", "reverse"}:

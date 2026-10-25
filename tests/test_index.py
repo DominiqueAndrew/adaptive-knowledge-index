@@ -85,6 +85,13 @@ class IndexTest(unittest.TestCase):
     def test_snapshot_ignores_insertion_order(self):
         self.assertEqual(snapshot_id(DOCS),snapshot_id(dict(reversed(list(DOCS.items())))))
 
+    def test_edge_evidence_current_hash_and_source(self):
+        from aki.source import digest
+        evidence=self.store.edge_evidence("pkg/a.py","pkg/b.py",self.store.revision)
+        self.assertEqual(evidence[0]["line"],1)
+        self.assertEqual(evidence[0]["sha256"],digest(evidence[0]["text"]))
+        self.assertIn("from .b import b",evidence[0]["text"])
+
     def test_empty_and_zero_budget_abstain(self):
         p=Policy(self.store,"lru")
         self.assertEqual(p.query("missing","tests",self.store.revision)[0],[])
