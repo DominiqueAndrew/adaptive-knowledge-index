@@ -1,5 +1,17 @@
 # Research release history
 
+## Setup-control repair — host verification only
+
+- Preserve `noexec` by using the base interpreter with separate data-only library
+  targets; check the frozen B2 CLI's actual entrypoint.
+- Add a one-shot command watchdog with reserved teardown, bounded pipes/output,
+  conservative CPU shutdown accounting and explicit incomplete/pending outcomes.
+- Validate image normalization, exact container confinement/environment, artifact
+  hashes and source transfer using original fixtures and mocked runtime metadata.
+- Pass 88 host tests (28 new); no VM/container, dependency installation, benchmark
+  execution or model call in this repair phase. Live integration remains pending.
+  See `TASK420_SETUP_REPAIR.md`; prior negative results are unchanged.
+
 ## 0.2.0
 
 - Fixed retained closure costs/GDS priorities becoming zero after selective

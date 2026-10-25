@@ -1,0 +1,64 @@
+{
+  "schema": "aki.host-setup-repair-validation.v1",
+  "created_utc": "2026-10-25T18:20:59.623471+00:00",
+  "base_commit": "fda37442762ac3b6730155ab50d8823779d4dbd2",
+  "scope": "Original project code, host-owned subprocess fixtures, mocked guest/configuration/accounting checks; no live attempt.",
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.11.5"
+  },
+  "tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "passed": true,
+    "count": 88,
+    "elapsed_s": 2.441,
+    "new_repair_tests": 28,
+    "log_sha256": "d128de25bbe40fb067f7b4c9f88c838161f70d4da67d806a368eae802ecdb302"
+  },
+  "preparation": {
+    "command": "python3 -S scripts/prepare_task420_controls.py --output scratch/task420-repair-final-controls --attempt-id d7263915713d481c9af9f5f9a12f0fbd",
+    "live_execution_enabled": false,
+    "steps": 8,
+    "control_sha256": {
+      "approved-artifacts.json": "1fb0e878200a1fe007d4da8f77835075aac6bdab34a3a6ecaf278a000c36eb5c",
+      "bootstrap.lock": "80b44c7e50df337c417275694c3f87a28aa76b44b7adb08055d6f6781acb160a",
+      "control.py": "e08c46ccc1798a4e243ce15db4aa8b66310a9a1d648adbd1df14d1d48ed088e5",
+      "idle.py": "c6a1220439227fe31f3bef285ef2d4575a29c2c7a3d61236676c04cfd11a52a3",
+      "runtime.lock": "17b5b6950be45eb0b0c2e735bd54738fe004c515a11735b2978f9e82bb66e8ab"
+    }
+  },
+  "actual_host_checks": [
+    "Original subprocess blocked-input, output-flood, failure and hung-cleanup fixtures",
+    "Explicit CPU sample of test process only",
+    "Preparation-only generation of locks and disabled plan"
+  ],
+  "simulated_checks": [
+    "Guest mount/configuration and container ownership metadata",
+    "CPU reset, gap, ceiling and shutdown-bound scenarios",
+    "Artifact and source transfer on original synthetic files"
+  ],
+  "not_performed": [
+    "VM/container startup",
+    "Artifact download or installation",
+    "Third-party benchmark execution",
+    "Python 3.5 guest compatibility validation",
+    "Live recorder integration",
+    "Model call or agent pilot",
+    "Held-out action access"
+  ],
+  "limitations": [
+    "CPU counters in watchdog fixtures are mocks, not live setup measurements",
+    "Guest control passes Python 3.5 syntax parsing only",
+    "No enabled end-to-end Docker/agent driver",
+    "Adaptive efficacy remains unresolved"
+  ],
+  "code_sha256": {
+    "aki/setup_accounting.py": "0f00640fa20349267d1987e7afe9caadda5f82c0b67a20ada5c02c5ef5e3938f",
+    "aki/setup_plan.py": "6cde9abf63e5d4e7c93d65889b385d0042937aa078d7b4e66693ac33ad34d105",
+    "aki/setup_watchdog.py": "7fadc736bf04cffc39f0f819cc57aa49e162abe196ea36d5faee4caba284c4c0",
+    "runtime/task420/control.py": "e08c46ccc1798a4e243ce15db4aa8b66310a9a1d648adbd1df14d1d48ed088e5",
+    "scripts/prepare_task420_controls.py": "6751267156dc540f021fb916bd7513469248c4bb419ebdc429d2fe6e26443042",
+    "tests/test_setup_repair.py": "c445f4e89bc3204801936fab6402cd8b4c8168965b2fddae7244c5a7a5917944"
+  }
+}

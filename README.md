@@ -38,6 +38,12 @@ uses only project-owned fixtures. The [prospective protocol](docs/PROSPECTIVE_CA
 preserves the frozen cohort; live agent evaluation still needs a reviewed isolated
 executor and an explicit adapter to an approved model/scaffold connection.
 
+The first isolated task-420 setup failed at a `noexec` compatibility gate and was
+cleaned up. [Repaired controls and host checks](docs/TASK420_SETUP_REPAIR.md) preserve
+that restriction, reserve teardown time and reject incomplete CPU accounting.
+Their disabled setup plan still needs an approved live validation; no prospective
+agent result is claimed.
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,

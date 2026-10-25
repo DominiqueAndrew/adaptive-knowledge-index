@@ -366,3 +366,27 @@ proposal's setup-wall ceiling. This must remain visible in reports.
 Preserved the original failed controls and added a deterministic mount preflight
 guard with four regression tests. No isolated-runtime fix or second compatibility
 attempt was executed. See `TASK420_ATTEMPT1.md`; adaptive efficacy remains unresolved.
+
+## Closed-attempt control repair — no live execution
+
+Replaced the proposed copied virtual environment with base-interpreter dispatch
+and separate bootstrap/runtime library data while preserving all `noexec` mounts.
+Static review found a second silent-check problem: the frozen B2 console module
+does not dispatch `main` under `python -m`; the repaired help check calls it
+explicitly. Added an outer command watchdog reserving teardown inside the total
+deadline, complete CPU-component validation with conservative unsampled tails,
+and byte/disk ledgers. Mock checks cover Docker manifest conversion, inherited
+public image environment, confinement, and ownership-scoped cleanup.
+
+The host suite passes 88 tests, including 28 new tests. Actual original host
+subprocess fixtures exercise blocked pipes, output caps and cleanup failures;
+runtime/configuration/CPU scenarios otherwise use mocks. A local preparation-only
+command generated a disabled plan and hash locks. No VM/container was restarted,
+artifact downloaded/installed, benchmark code executed or model called. No held-out
+actions were accessed. Historical controls and failed-run evidence remain intact.
+
+The Docker/recorder integration is not live-validated or enabled. The next precise
+permission scope and preconditions are documented in `TASK420_SETUP_REPAIR.md`:
+one bounded fixture-first attempt, original limits, all security flags retained,
+no task dispatch until runtime and recorder checks pass. This closes the code and
+host-test work; adaptive efficacy and prospective agent evaluation remain unresolved.
