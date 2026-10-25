@@ -112,5 +112,12 @@ class IndexTest(unittest.TestCase):
         (root/"broken.py").write_bytes(b"x='\xff'\n")
         with self.assertRaises(UnicodeDecodeError): read_python_tree(root)
 
+    def test_multiline_import_evidence_spans_every_chunk(self):
+        source="from b import (\n"+"".join(f"    name{i},\n" for i in range(170))+")\n"
+        self.store.refresh({"a.py":source,"b.py":"name0=1\n"})
+        evidence=self.store.edge_evidence("a.py","b.py",self.store.revision)
+        self.assertEqual([e["start"] for e in evidence],[1,81,161])
+        self.assertEqual("".join(e["text"] for e in evidence),source)
+
 
 if __name__ == "__main__": unittest.main()

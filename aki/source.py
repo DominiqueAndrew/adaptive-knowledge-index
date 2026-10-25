@@ -80,5 +80,10 @@ def parse(documents: dict[str, str]) -> Parsed:
                     if target and target != path:
                         edges.add((path, target))
                         evidence.add((path, target, node.lineno))
+                        # A multiline import can cross canonical 80-line spans.
+                        # Link every intersected span, not just the statement start.
+                        first_boundary = ((node.lineno - 1)//80 + 1)*80 + 1
+                        for line in range(first_boundary, (node.end_lineno or node.lineno)+1, 80):
+                            evidence.add((path, target, line))
                     parts.pop()
     return Parsed(frozenset(edges), tuple(symbols), tuple(errors), tuple(sorted(evidence)))

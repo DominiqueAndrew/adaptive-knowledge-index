@@ -166,9 +166,10 @@ strong reference, not a clean causal head-to-head.
 
 ## 5. Verification and provenance
 
-The final standard-library test suite has **16 passing tests**. It includes
+The final standard-library test suite has **17 passing tests**. It includes
 cycles, scope/revision rejection, immutable spans, import-span hashes, UTF-8
-integrity, frozen policy state, byte budgets, disjoint unseen anchors and mutation
+integrity, complete evidence for imports crossing span boundaries, frozen policy
+state, byte budgets, disjoint unseen anchors and mutation
 properties. The 80-mutation property test compares cached results against freshly
 recomputed graphs, covering additions, changed edges, deletions, renames and new
 incoming dependencies. This finite suite is not a universal safety proof.
@@ -197,6 +198,10 @@ Derived break-even fields were recalculated with the correction in `824b491`.
 All raw timings remain unchanged. Use each run's `provenance.json` for complete
 source hashes, dataset identity and parameters. Source acquisition pins and
 licenses are in [DATA_SOURCES.md](DATA_SOURCES.md).
+After the measurements, a final evidence-boundary check added links to all
+80-line spans intersected by a multiline import. It changes evidence metadata,
+not graph/ranking semantics; the reported timings remain tied to their recorded
+historical code versions rather than claimed as a timing run of that patch.
 
 Hardware: Apple Mac14,10 arm64, 12 logical CPUs, 32 GiB RAM, Darwin 25.6.0,
 Python 3.11.5, SQLite 3.42.0, FTS5 enabled. `perf_counter_ns` measures elapsed
