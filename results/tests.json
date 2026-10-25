@@ -1,0 +1,17 @@
+{
+  "command": "python3 -m unittest discover -s tests -v",
+  "tests": 16,
+  "seconds": 1.038,
+  "passed": true,
+  "source_sha256": {
+    "aki/__init__.py": "893c34ac121b471e70a014ce5cd60158657e722559ff96794a2d8e7f010b4a28",
+    "aki/arb_eval.py": "51b38855086d347030e18f025452100b878782c89bc61f454de68146170f2334",
+    "aki/benchmark.py": "67ab67b09135364bbbe07b6fbad866666dfb66af293b233d52081e74a3cf0aef",
+    "aki/chronology.py": "fc5d6d0251a3b3ee2b08f39443cfb27acede98a66ebc642c23ae8dbf6301706f",
+    "aki/policy.py": "cf0315bb4f22e7f51abb3a2ddbc881438b324757b9d486abf40c1fd7bffa4622",
+    "aki/source.py": "b1b0bd922930027fe134b742cb15ae1c88791262039a1f2a30d1c9eba85c23a3",
+    "aki/store.py": "88e3c57006518a12a172fa038b2c968dc8a39eecde07e57a11c9ae456e0bc50d",
+    "tests/test_index.py": "0ebbba0eb53d15c68d9a475103fde393fac01fa696b28f1261027a91ae0e73bb",
+    "tests/test_mutations.py": "3be1a1302710a4304e84aea7652287378c0823e04bd96bec12fd89a1015f01a6"
+  }
+}

@@ -105,5 +105,12 @@ class IndexTest(unittest.TestCase):
         self.assertFalse(seen & unseen)
         self.assertEqual(len({q["text"] for q in queries}),len(queries))
 
+    def test_source_loader_refuses_lossy_decoding(self):
+        from aki.source import read_python_tree
+        root=Path(self.tmp.name)/"source"
+        root.mkdir()
+        (root/"broken.py").write_bytes(b"x='\xff'\n")
+        with self.assertRaises(UnicodeDecodeError): read_python_tree(root)
+
 
 if __name__ == "__main__": unittest.main()

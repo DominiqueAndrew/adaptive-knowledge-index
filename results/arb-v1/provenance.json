@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-25T04:52:44.714520+00:00",
+  "python": "3.11.5",
+  "sqlite": "3.42.0",
+  "machine": "arm64",
+  "os": "Darwin",
+  "os_release": "25.6.0",
+  "cpu_count": 12,
+  "git_commit": null,
+  "code_sha256": {
+    "aki/__init__.py": "893c34ac121b471e70a014ce5cd60158657e722559ff96794a2d8e7f010b4a28",
+    "aki/arb_eval.py": "51b38855086d347030e18f025452100b878782c89bc61f454de68146170f2334",
+    "aki/benchmark.py": "7cc9e876426c3d83f61ebd78d893b0729a86d5672ab478ab2f3c00be3c3c6948",
+    "aki/policy.py": "1bd041568e57a498f8957e66b6dfb19331e21f4df19869bbe3ab4be52aacf7de",
+    "aki/source.py": "e4423945718eabe9c68bd3296a74496e51eaa1429d54c2c9fd45b83e1c56670b",
+    "aki/store.py": "506593fe49def57a747e99f5d68312cb9e39931e360a7a356db0191c5edcbd43",
+    "tests/test_index.py": "e7218a521e2b1f1c59a3ea8c4b428a4ecc72d3b4b202beec60935fe29559b020",
+    "tests/test_mutations.py": "3be1a1302710a4304e84aea7652287378c0823e04bd96bec12fd89a1015f01a6"
+  },
+  "clock": "perf_counter_ns",
+  "cold_definition": "new DB; OS page cache NOT flushed",
+  "timing_excludes": "benchmark oracle, workload generation and result serialization",
+  "timing_includes": "source ingestion, candidate generation, retrieval, optimizer, builds, eviction, refresh",
+  "background_work_ns": 0,
+  "paid_inference_calls": 0,
+  "benchmark": "ARB static retrieval-only SUBSETS",
+  "subsets": [
+    "v2_trace2code",
+    "v2_abstention"
+  ],
+  "upstream_commit": "2c773139dd86003ec6defffa28bff1688c4af768",
+  "dataset_revision": "5901e1ee3aff048290db72edf9c63bc498b79ea3",
+  "candidate_filter": "all_files",
+  "keep_list": null,
+  "tokenizer": "regex_code_tokenizer_v1",
+  "tuning": "no gold-label tuning; method fixed before score inspection",
+  "inference_calls": 0,
+  "sample_hashes": {
+    "v2_trace2code": "9d0ff50155fa4f65c1bbb632abc4f1f11393c50fa7b0a9249e06128b368b6266",
+    "v2_abstention": "f469624153339e0847fe882e937e60f42fc386cc0285b6be56a960893b31e6f6"
+  },
+  "corpus_manifest_hashes": {
+    "v2_trace2code": "9fef569ebf06d5a96b788d9b6136dd023a324b3d5e795172faf6f0c696d9498f",
+    "v2_abstention": "8e28fd46e354bf567ce0e9a81bf872db8682e92560a338ffd8b610414c9fb128"
+  }
+}

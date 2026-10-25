@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-25T05:01:47.079448+00:00",
+  "python": "3.11.5",
+  "sqlite": "3.42.0",
+  "machine": "arm64",
+  "os": "Darwin",
+  "os_release": "25.6.0",
+  "cpu_count": 12,
+  "git_commit": "356971081f6f4f578fac1aadeeeab69d73402efb",
+  "code_sha256": {
+    "aki/__init__.py": "893c34ac121b471e70a014ce5cd60158657e722559ff96794a2d8e7f010b4a28",
+    "aki/arb_eval.py": "51b38855086d347030e18f025452100b878782c89bc61f454de68146170f2334",
+    "aki/benchmark.py": "b1cb34c7b5e1e0bdfc3e6b0e712abd3621786ed4f26f611eab2b69e8b2bb434f",
+    "aki/chronology.py": "fc5d6d0251a3b3ee2b08f39443cfb27acede98a66ebc642c23ae8dbf6301706f",
+    "aki/policy.py": "cf0315bb4f22e7f51abb3a2ddbc881438b324757b9d486abf40c1fd7bffa4622",
+    "aki/source.py": "6a6b7dae069a32615039c17398964621fa0422127735307968b42dda02e641d5",
+    "aki/store.py": "88e3c57006518a12a172fa038b2c968dc8a39eecde07e57a11c9ae456e0bc50d",
+    "tests/test_index.py": "3ad8c0303bc6eea9e096be812132e015421e649bda08305c1d779bba65dd2dcc",
+    "tests/test_mutations.py": "3be1a1302710a4304e84aea7652287378c0823e04bd96bec12fd89a1015f01a6"
+  },
+  "clock": "perf_counter_ns",
+  "cold_definition": "new DB; OS page cache NOT flushed",
+  "timing_excludes": "benchmark oracle, workload generation and result serialization",
+  "timing_includes": "source ingestion, candidate generation, retrieval, optimizer, builds, eviction, refresh",
+  "background_work_ns": 0,
+  "paid_inference_calls": 0,
+  "dataset": "original-synthetic-python",
+  "workload": "synthetic generated sequence on original-synthetic-python",
+  "source_manifest_sha256": "77594249554bce4efab79e3615467de42eb7f6a21bac1c6a917b1b493e0c3227",
+  "seeds": [
+    50,
+    51,
+    52,
+    53,
+    54
+  ],
+  "queries_per_phase": 160,
+  "logical_byte_budget": 65536,
+  "scenario": "locality",
+  "invalidation": "selective"
+}

@@ -1,0 +1,2662 @@
+[
+  {
+    "seed": 30,
+    "policy": "gds",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 60.715042,
+    "static_build_ms": 0.01225,
+    "refresh_ms": 64.507416,
+    "query_total_ms": 767.656682,
+    "lifecycle_ms": 892.89139,
+    "peak_logical_bytes": 65490,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2187264,
+      "materialized_logical_bytes": 62776
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 186.39170700000005,
+        "p50_ms": 0.6344375,
+        "p95_ms": 3.552209,
+        "hit_rate": 0.58125,
+        "abstention_rate": 0.05
+      },
+      "warm_heldout": {
+        "total_ms": 89.41305300000002,
+        "p50_ms": 0.281958,
+        "p95_ms": 1.615417,
+        "hit_rate": 0.6375,
+        "abstention_rate": 0.04375
+      },
+      "unseen_roots": {
+        "total_ms": 150.944473,
+        "p50_ms": 0.8351875,
+        "p95_ms": 2.379833,
+        "hit_rate": 0,
+        "abstention_rate": 0.0125
+      },
+      "drift": {
+        "total_ms": 141.34879100000006,
+        "p50_ms": 0.314708,
+        "p95_ms": 3.30775,
+        "hit_rate": 0.6625,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 199.558658,
+        "p50_ms": 0.755563,
+        "p95_ms": 3.177167,
+        "hit_rate": 0.53125,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 16,
+      "retained": 0,
+      "static_rebuild_ns": 2250,
+      "total_refresh_ns": 64507416
+    },
+    "relative_lifecycle": 1.0295690125016885,
+    "first_break_even_query": 265,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 30,
+    "policy": "aki",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 59.226959,
+    "static_build_ms": 0.007833,
+    "refresh_ms": 66.254291,
+    "query_total_ms": 579.123055,
+    "lifecycle_ms": 704.612138,
+    "peak_logical_bytes": 65387,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2187264,
+      "db_live_page_bytes": 2183168,
+      "materialized_logical_bytes": 63054
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 100.26270599999995,
+        "p50_ms": 0.417188,
+        "p95_ms": 1.835708,
+        "hit_rate": 0.525,
+        "abstention_rate": 0.05
+      },
+      "warm_heldout": {
+        "total_ms": 82.42093100000004,
+        "p50_ms": 0.3111035,
+        "p95_ms": 1.249958,
+        "hit_rate": 0.5875,
+        "abstention_rate": 0.04375
+      },
+      "unseen_roots": {
+        "total_ms": 151.54038000000008,
+        "p50_ms": 0.878938,
+        "p95_ms": 2.402167,
+        "hit_rate": 0,
+        "abstention_rate": 0.0125
+      },
+      "drift": {
+        "total_ms": 119.74674800000001,
+        "p50_ms": 0.3711875,
+        "p95_ms": 2.499,
+        "hit_rate": 0.1875,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 125.15228999999995,
+        "p50_ms": 0.6188745,
+        "p95_ms": 1.962417,
+        "hit_rate": 0.525,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 9,
+      "retained": 0,
+      "static_rebuild_ns": 6583,
+      "total_refresh_ns": 66254291
+    },
+    "relative_lifecycle": 0.812469278169838,
+    "first_break_even_query": 1,
+    "sustained_break_even_query": 22
+  },
+  {
+    "seed": 30,
+    "policy": "static_bounded",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 61.790875,
+    "static_build_ms": 710.799417,
+    "refresh_ms": 1042.230459,
+    "query_total_ms": 777.682395,
+    "lifecycle_ms": 2592.503146,
+    "peak_logical_bytes": 65530,
+    "initial_storage": {
+      "db_allocated_bytes": 1769472,
+      "db_live_page_bytes": 1769472,
+      "materialized_logical_bytes": 65515
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2191360,
+      "materialized_logical_bytes": 65530
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 156.0569199999999,
+        "p50_ms": 0.9507085,
+        "p95_ms": 2.117458,
+        "hit_rate": 0,
+        "abstention_rate": 0.05
+      },
+      "warm_heldout": {
+        "total_ms": 154.3960470000001,
+        "p50_ms": 0.8970210000000001,
+        "p95_ms": 2.093291,
+        "hit_rate": 0,
+        "abstention_rate": 0.04375
+      },
+      "unseen_roots": {
+        "total_ms": 147.993715,
+        "p50_ms": 0.8665419999999999,
+        "p95_ms": 2.108917,
+        "hit_rate": 0.025,
+        "abstention_rate": 0.0125
+      },
+      "drift": {
+        "total_ms": 135.269839,
+        "p50_ms": 0.732396,
+        "p95_ms": 1.963292,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 183.96587399999996,
+        "p50_ms": 1.1784375,
+        "p95_ms": 1.872459,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 19,
+      "retained": 3,
+      "static_rebuild_ns": 976270667,
+      "total_refresh_ns": 1042230459
+    },
+    "relative_lifecycle": 2.9893455506774913,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 30,
+    "policy": "static_full",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 58.910583,
+    "static_build_ms": 1395.020541,
+    "refresh_ms": 1818.808542,
+    "query_total_ms": 264.998172,
+    "lifecycle_ms": 3537.737838,
+    "peak_logical_bytes": 6273237,
+    "initial_storage": {
+      "db_allocated_bytes": 7843840,
+      "db_live_page_bytes": 7843840,
+      "materialized_logical_bytes": 5071472
+    },
+    "final_storage": {
+      "db_allocated_bytes": 9863168,
+      "db_live_page_bytes": 9863168,
+      "materialized_logical_bytes": 6273237
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 54.60782500000001,
+        "p50_ms": 0.23375,
+        "p95_ms": 1.061541,
+        "hit_rate": 1,
+        "abstention_rate": 0.05
+      },
+      "warm_heldout": {
+        "total_ms": 56.77492599999997,
+        "p50_ms": 0.216271,
+        "p95_ms": 1.066958,
+        "hit_rate": 1,
+        "abstention_rate": 0.04375
+      },
+      "unseen_roots": {
+        "total_ms": 53.21884700000002,
+        "p50_ms": 0.2139795,
+        "p95_ms": 1.137583,
+        "hit_rate": 1,
+        "abstention_rate": 0.0125
+      },
+      "drift": {
+        "total_ms": 43.69186800000002,
+        "p50_ms": 0.1822915,
+        "p95_ms": 1.055666,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 56.704705999999995,
+        "p50_ms": 0.259521,
+        "p95_ms": 0.778167,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 1123,
+      "retained": 129,
+      "static_rebuild_ns": 1712211416,
+      "total_refresh_ns": 1818808542
+    },
+    "relative_lifecycle": 4.079270214890882,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 30,
+    "policy": "frequency",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 60.283458,
+    "static_build_ms": 0.00375,
+    "refresh_ms": 62.229,
+    "query_total_ms": 556.725884,
+    "lifecycle_ms": 679.242092,
+    "peak_logical_bytes": 65449,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2187264,
+      "db_live_page_bytes": 2187264,
+      "materialized_logical_bytes": 61270
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 102.62962500000005,
+        "p50_ms": 0.4099585,
+        "p95_ms": 1.9345,
+        "hit_rate": 0.6375,
+        "abstention_rate": 0.05
+      },
+      "warm_heldout": {
+        "total_ms": 73.63809300000001,
+        "p50_ms": 0.2461255,
+        "p95_ms": 1.270625,
+        "hit_rate": 0.75,
+        "abstention_rate": 0.04375
+      },
+      "unseen_roots": {
+        "total_ms": 148.22958499999996,
+        "p50_ms": 0.862125,
+        "p95_ms": 2.25675,
+        "hit_rate": 0,
+        "abstention_rate": 0.0125
+      },
+      "drift": {
+        "total_ms": 112.72099399999999,
+        "p50_ms": 0.3322085,
+        "p95_ms": 2.163542,
+        "hit_rate": 0.54375,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 119.50758699999999,
+        "p50_ms": 0.5928745,
+        "p95_ms": 1.941375,
+        "hit_rate": 0.6,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 15,
+      "retained": 0,
+      "static_rebuild_ns": 2709,
+      "total_refresh_ns": 62229000
+    },
+    "relative_lifecycle": 0.7832157614489047,
+    "first_break_even_query": 25,
+    "sustained_break_even_query": 47
+  },
+  {
+    "seed": 30,
+    "policy": "lru",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 59.5695,
+    "static_build_ms": 0.002792,
+    "refresh_ms": 63.934333,
+    "query_total_ms": 734.20792,
+    "lifecycle_ms": 857.714545,
+    "peak_logical_bytes": 65508,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2195456,
+      "db_live_page_bytes": 2183168,
+      "materialized_logical_bytes": 60443
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 170.63512900000003,
+        "p50_ms": 0.575563,
+        "p95_ms": 3.1285,
+        "hit_rate": 0.5875,
+        "abstention_rate": 0.05
+      },
+      "warm_heldout": {
+        "total_ms": 92.992709,
+        "p50_ms": 0.290271,
+        "p95_ms": 1.7195,
+        "hit_rate": 0.6375,
+        "abstention_rate": 0.04375
+      },
+      "unseen_roots": {
+        "total_ms": 147.34846199999996,
+        "p50_ms": 0.8165415,
+        "p95_ms": 2.305625,
+        "hit_rate": 0.00625,
+        "abstention_rate": 0.0125
+      },
+      "drift": {
+        "total_ms": 125.86345900000002,
+        "p50_ms": 0.260521,
+        "p95_ms": 2.992917,
+        "hit_rate": 0.7125,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 197.368161,
+        "p50_ms": 0.7162915,
+        "p95_ms": 3.147041,
+        "hit_rate": 0.54375,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 16,
+      "retained": 0,
+      "static_rebuild_ns": 2459,
+      "total_refresh_ns": 63934333
+    },
+    "relative_lifecycle": 0.9890075399920534,
+    "first_break_even_query": 21,
+    "sustained_break_even_query": 216
+  },
+  {
+    "seed": 30,
+    "policy": "disabled",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 59.302167,
+    "static_build_ms": 0.004125,
+    "refresh_ms": 65.104417,
+    "query_total_ms": 742.837022,
+    "lifecycle_ms": 867.247731,
+    "peak_logical_bytes": 0,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2113536,
+      "db_live_page_bytes": 2113536,
+      "materialized_logical_bytes": 0
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 152.92758700000002,
+        "p50_ms": 0.8980625,
+        "p95_ms": 2.093875,
+        "hit_rate": 0,
+        "abstention_rate": 0.05
+      },
+      "warm_heldout": {
+        "total_ms": 146.56697300000002,
+        "p50_ms": 0.871417,
+        "p95_ms": 2.023917,
+        "hit_rate": 0,
+        "abstention_rate": 0.04375
+      },
+      "unseen_roots": {
+        "total_ms": 141.95534299999986,
+        "p50_ms": 0.8295625,
+        "p95_ms": 2.2935,
+        "hit_rate": 0,
+        "abstention_rate": 0.0125
+      },
+      "drift": {
+        "total_ms": 127.73574300000003,
+        "p50_ms": 0.683812,
+        "p95_ms": 1.896417,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 173.65137599999994,
+        "p50_ms": 1.106792,
+        "p95_ms": 1.77875,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 0,
+      "retained": 0,
+      "static_rebuild_ns": 2958,
+      "total_refresh_ns": 65104417
+    },
+    "relative_lifecycle": 1.0,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 31,
+    "policy": "static_bounded",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 72.990209,
+    "static_build_ms": 702.510292,
+    "refresh_ms": 1049.896917,
+    "query_total_ms": 751.695304,
+    "lifecycle_ms": 2577.092722,
+    "peak_logical_bytes": 65530,
+    "initial_storage": {
+      "db_allocated_bytes": 1769472,
+      "db_live_page_bytes": 1769472,
+      "materialized_logical_bytes": 65515
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2191360,
+      "materialized_logical_bytes": 65530
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 144.371495,
+        "p50_ms": 0.8044795,
+        "p95_ms": 2.076,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 135.912883,
+        "p50_ms": 0.709854,
+        "p95_ms": 1.820625,
+        "hit_rate": 0.00625,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 158.632473,
+        "p50_ms": 0.9723539999999999,
+        "p95_ms": 1.99625,
+        "hit_rate": 0.025,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 128.020544,
+        "p50_ms": 0.705271,
+        "p95_ms": 1.965333,
+        "hit_rate": 0.11875,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 184.75790900000004,
+        "p50_ms": 1.170979,
+        "p95_ms": 1.814834,
+        "hit_rate": 0.08125,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 19,
+      "retained": 3,
+      "static_rebuild_ns": 985015625,
+      "total_refresh_ns": 1049896917
+    },
+    "relative_lifecycle": 2.9350622805893525,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 31,
+    "policy": "static_full",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 62.630709,
+    "static_build_ms": 1408.88275,
+    "refresh_ms": 1719.110042,
+    "query_total_ms": 268.364145,
+    "lifecycle_ms": 3458.987646,
+    "peak_logical_bytes": 6273237,
+    "initial_storage": {
+      "db_allocated_bytes": 7843840,
+      "db_live_page_bytes": 7843840,
+      "materialized_logical_bytes": 5071472
+    },
+    "final_storage": {
+      "db_allocated_bytes": 9863168,
+      "db_live_page_bytes": 9863168,
+      "materialized_logical_bytes": 6273237
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 53.86736999999999,
+        "p50_ms": 0.225625,
+        "p95_ms": 1.026458,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 45.76013200000001,
+        "p50_ms": 0.192958,
+        "p95_ms": 0.914333,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 53.81572099999999,
+        "p50_ms": 0.221375,
+        "p95_ms": 1.019083,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 51.44347200000001,
+        "p50_ms": 0.2099585,
+        "p95_ms": 0.968375,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 63.47745000000002,
+        "p50_ms": 0.27360399999999996,
+        "p95_ms": 0.963833,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 1123,
+      "retained": 129,
+      "static_rebuild_ns": 1614677000,
+      "total_refresh_ns": 1719110042
+    },
+    "relative_lifecycle": 3.93945630365998,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 31,
+    "policy": "lru",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 61.172084,
+    "static_build_ms": 0.009375,
+    "refresh_ms": 97.377625,
+    "query_total_ms": 823.432924,
+    "lifecycle_ms": 981.992008,
+    "peak_logical_bytes": 65535,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2187264,
+      "materialized_logical_bytes": 64071
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 170.566242,
+        "p50_ms": 0.8147709999999999,
+        "p95_ms": 3.012916,
+        "hit_rate": 0.5375,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 76.683342,
+        "p50_ms": 0.327334,
+        "p95_ms": 1.274041,
+        "hit_rate": 0.7,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 162.16750899999997,
+        "p50_ms": 0.983042,
+        "p95_ms": 2.014625,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 159.9536629999999,
+        "p50_ms": 0.579646,
+        "p95_ms": 3.578833,
+        "hit_rate": 0.63125,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 254.0621679999999,
+        "p50_ms": 1.408271,
+        "p95_ms": 3.543792,
+        "hit_rate": 0.4125,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 15,
+      "retained": 0,
+      "static_rebuild_ns": 6417,
+      "total_refresh_ns": 97377625
+    },
+    "relative_lifecycle": 1.118395034030521,
+    "first_break_even_query": 1,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 31,
+    "policy": "disabled",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 68.579833,
+    "static_build_ms": 0.0045,
+    "refresh_ms": 64.104583,
+    "query_total_ms": 745.347894,
+    "lifecycle_ms": 878.03681,
+    "peak_logical_bytes": 0,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2113536,
+      "db_live_page_bytes": 2113536,
+      "materialized_logical_bytes": 0
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 138.57504600000001,
+        "p50_ms": 0.8111665,
+        "p95_ms": 2.020292,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 127.350672,
+        "p50_ms": 0.6607505,
+        "p95_ms": 1.737917,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 151.98542200000009,
+        "p50_ms": 0.9413545,
+        "p95_ms": 1.96325,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 136.027461,
+        "p50_ms": 0.749271,
+        "p95_ms": 1.943458,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 191.40929299999996,
+        "p50_ms": 1.2047085,
+        "p95_ms": 2.0725,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 0,
+      "retained": 0,
+      "static_rebuild_ns": 6792,
+      "total_refresh_ns": 64104583
+    },
+    "relative_lifecycle": 1.0,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 31,
+    "policy": "aki",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 59.754333,
+    "static_build_ms": 0.003583,
+    "refresh_ms": 65.89,
+    "query_total_ms": 579.565099,
+    "lifecycle_ms": 705.213015,
+    "peak_logical_bytes": 65274,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2183168,
+      "db_live_page_bytes": 2183168,
+      "materialized_logical_bytes": 64071
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 96.59646500000002,
+        "p50_ms": 0.3847915,
+        "p95_ms": 1.623375,
+        "hit_rate": 0.575,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 65.440969,
+        "p50_ms": 0.28979200000000005,
+        "p95_ms": 1.051459,
+        "hit_rate": 0.65625,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 151.47701000000006,
+        "p50_ms": 0.925125,
+        "p95_ms": 1.946292,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 119.15358299999997,
+        "p50_ms": 0.5798125000000001,
+        "p95_ms": 2.024125,
+        "hit_rate": 0.24375,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 146.89707199999998,
+        "p50_ms": 0.7653540000000001,
+        "p95_ms": 2.072125,
+        "hit_rate": 0.4875,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 11,
+      "retained": 0,
+      "static_rebuild_ns": 2000,
+      "total_refresh_ns": 65890000
+    },
+    "relative_lifecycle": 0.8031702167475189,
+    "first_break_even_query": 1,
+    "sustained_break_even_query": 1
+  },
+  {
+    "seed": 31,
+    "policy": "frequency",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 60.003416,
+    "static_build_ms": 0.00375,
+    "refresh_ms": 67.894542,
+    "query_total_ms": 585.372959,
+    "lifecycle_ms": 713.274667,
+    "peak_logical_bytes": 65480,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2183168,
+      "db_live_page_bytes": 2183168,
+      "materialized_logical_bytes": 65480
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 95.295462,
+        "p50_ms": 0.394042,
+        "p95_ms": 1.579459,
+        "hit_rate": 0.63125,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 66.47246500000003,
+        "p50_ms": 0.26983349999999995,
+        "p95_ms": 1.191792,
+        "hit_rate": 0.7625,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 152.27916500000003,
+        "p50_ms": 0.9072290000000001,
+        "p95_ms": 1.926625,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 119.57333099999997,
+        "p50_ms": 0.5578540000000001,
+        "p95_ms": 2.287625,
+        "hit_rate": 0.5375,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 151.75253599999996,
+        "p50_ms": 0.63825,
+        "p95_ms": 2.369667,
+        "hit_rate": 0.51875,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 14,
+      "retained": 1,
+      "static_rebuild_ns": 2542,
+      "total_refresh_ns": 67894542
+    },
+    "relative_lifecycle": 0.8123516678076401,
+    "first_break_even_query": 1,
+    "sustained_break_even_query": 1
+  },
+  {
+    "seed": 31,
+    "policy": "gds",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 58.543417,
+    "static_build_ms": 0.003209,
+    "refresh_ms": 63.14225,
+    "query_total_ms": 834.968382,
+    "lifecycle_ms": 956.657258,
+    "peak_logical_bytes": 65535,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2183168,
+      "materialized_logical_bytes": 64071
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 181.47944799999996,
+        "p50_ms": 0.9249995,
+        "p95_ms": 3.185834,
+        "hit_rate": 0.4875,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 73.87821699999998,
+        "p50_ms": 0.352959,
+        "p95_ms": 1.092959,
+        "hit_rate": 0.625,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 162.01692800000004,
+        "p50_ms": 1.0002085,
+        "p95_ms": 2.100167,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 161.02175000000003,
+        "p50_ms": 0.597271,
+        "p95_ms": 3.306792,
+        "hit_rate": 0.575,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 256.57203899999996,
+        "p50_ms": 1.6825415000000001,
+        "p95_ms": 3.391166,
+        "hit_rate": 0.375,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 15,
+      "retained": 0,
+      "static_rebuild_ns": 2291,
+      "total_refresh_ns": 63142250
+    },
+    "relative_lifecycle": 1.0895411753864852,
+    "first_break_even_query": 1,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 32,
+    "policy": "static_bounded",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 63.078375,
+    "static_build_ms": 706.605875,
+    "refresh_ms": 1036.174625,
+    "query_total_ms": 790.248602,
+    "lifecycle_ms": 2596.107477,
+    "peak_logical_bytes": 65530,
+    "initial_storage": {
+      "db_allocated_bytes": 1769472,
+      "db_live_page_bytes": 1769472,
+      "materialized_logical_bytes": 65515
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2191360,
+      "materialized_logical_bytes": 65530
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 155.00320599999995,
+        "p50_ms": 0.993479,
+        "p95_ms": 2.100583,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 171.48897299999996,
+        "p50_ms": 1.0191664999999999,
+        "p95_ms": 2.197,
+        "hit_rate": 0.00625,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 141.45342200000002,
+        "p50_ms": 0.8370215000000001,
+        "p95_ms": 1.701792,
+        "hit_rate": 0.0375,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 136.078591,
+        "p50_ms": 0.8110835000000001,
+        "p95_ms": 1.720292,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 186.22441,
+        "p50_ms": 1.167125,
+        "p95_ms": 1.807291,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 19,
+      "retained": 3,
+      "static_rebuild_ns": 970061417,
+      "total_refresh_ns": 1036174625
+    },
+    "relative_lifecycle": 2.998907996790687,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 32,
+    "policy": "static_full",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 63.322042,
+    "static_build_ms": 1488.576333,
+    "refresh_ms": 1736.461583,
+    "query_total_ms": 274.118614,
+    "lifecycle_ms": 3562.478572,
+    "peak_logical_bytes": 6273237,
+    "initial_storage": {
+      "db_allocated_bytes": 7843840,
+      "db_live_page_bytes": 7843840,
+      "materialized_logical_bytes": 5071472
+    },
+    "final_storage": {
+      "db_allocated_bytes": 9863168,
+      "db_live_page_bytes": 9863168,
+      "materialized_logical_bytes": 6273237
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 52.02369899999997,
+        "p50_ms": 0.23854150000000002,
+        "p95_ms": 1.019458,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 60.456799000000004,
+        "p50_ms": 0.2416045,
+        "p95_ms": 1.04875,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 46.094677000000004,
+        "p50_ms": 0.222125,
+        "p95_ms": 0.923958,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 45.91920100000002,
+        "p50_ms": 0.19516650000000002,
+        "p95_ms": 0.843291,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 69.62423799999999,
+        "p50_ms": 0.3217085,
+        "p95_ms": 0.886167,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 1123,
+      "retained": 129,
+      "static_rebuild_ns": 1630681166,
+      "total_refresh_ns": 1736461583
+    },
+    "relative_lifecycle": 4.115216944065781,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 32,
+    "policy": "disabled",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 59.78025,
+    "static_build_ms": 0.004291,
+    "refresh_ms": 65.065375,
+    "query_total_ms": 740.834353,
+    "lifecycle_ms": 865.684269,
+    "peak_logical_bytes": 0,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2113536,
+      "db_live_page_bytes": 2113536,
+      "materialized_logical_bytes": 0
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 145.14670700000008,
+        "p50_ms": 0.9261455000000001,
+        "p95_ms": 1.91725,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 158.06879500000008,
+        "p50_ms": 0.949396,
+        "p95_ms": 2.041625,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 131.624927,
+        "p50_ms": 0.7794165,
+        "p95_ms": 1.663209,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 125.36492000000003,
+        "p50_ms": 0.760791,
+        "p95_ms": 1.621625,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 180.62900400000004,
+        "p50_ms": 1.1380625,
+        "p95_ms": 1.984667,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 0,
+      "retained": 0,
+      "static_rebuild_ns": 2166,
+      "total_refresh_ns": 65065375
+    },
+    "relative_lifecycle": 1.0,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 32,
+    "policy": "aki",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 63.326084,
+    "static_build_ms": 0.00325,
+    "refresh_ms": 65.0845,
+    "query_total_ms": 581.12791,
+    "lifecycle_ms": 709.541744,
+    "peak_logical_bytes": 65500,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2183168,
+      "db_live_page_bytes": 2183168,
+      "materialized_logical_bytes": 63606
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 99.71596099999998,
+        "p50_ms": 0.3616665,
+        "p95_ms": 1.965375,
+        "hit_rate": 0.5625,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 84.33280000000002,
+        "p50_ms": 0.298292,
+        "p95_ms": 1.47925,
+        "hit_rate": 0.6875,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 133.54030499999993,
+        "p50_ms": 0.7913545,
+        "p95_ms": 1.69725,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 124.37013100000004,
+        "p50_ms": 0.596896,
+        "p95_ms": 1.912041,
+        "hit_rate": 0.2125,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 139.1687129999999,
+        "p50_ms": 0.7112085,
+        "p95_ms": 2.178833,
+        "hit_rate": 0.50625,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 11,
+      "retained": 0,
+      "static_rebuild_ns": 6750,
+      "total_refresh_ns": 65084500
+    },
+    "relative_lifecycle": 0.819631093469714,
+    "first_break_even_query": 58,
+    "sustained_break_even_query": 58
+  },
+  {
+    "seed": 32,
+    "policy": "frequency",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 61.96525,
+    "static_build_ms": 0.007709,
+    "refresh_ms": 62.613,
+    "query_total_ms": 588.731644,
+    "lifecycle_ms": 713.317603,
+    "peak_logical_bytes": 65520,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2187264,
+      "materialized_logical_bytes": 63107
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 102.99229099999997,
+        "p50_ms": 0.350229,
+        "p95_ms": 2.111458,
+        "hit_rate": 0.61875,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 84.70766799999997,
+        "p50_ms": 0.304021,
+        "p95_ms": 1.510292,
+        "hit_rate": 0.69375,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 141.48518500000006,
+        "p50_ms": 0.8281665,
+        "p95_ms": 1.859417,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 119.94887800000002,
+        "p50_ms": 0.5233125000000001,
+        "p95_ms": 2.156125,
+        "hit_rate": 0.475,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 139.597622,
+        "p50_ms": 0.6645,
+        "p95_ms": 2.358292,
+        "hit_rate": 0.59375,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 15,
+      "retained": 0,
+      "static_rebuild_ns": 2167,
+      "total_refresh_ns": 62613000
+    },
+    "relative_lifecycle": 0.823992798002432,
+    "first_break_even_query": 56,
+    "sustained_break_even_query": 56
+  },
+  {
+    "seed": 32,
+    "policy": "gds",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 61.210667,
+    "static_build_ms": 0.004042,
+    "refresh_ms": 66.778875,
+    "query_total_ms": 806.35071,
+    "lifecycle_ms": 934.344294,
+    "peak_logical_bytes": 65528,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2183168,
+      "materialized_logical_bytes": 60520
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 177.41946199999998,
+        "p50_ms": 0.7192084999999999,
+        "p95_ms": 3.126333,
+        "hit_rate": 0.5,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 100.958345,
+        "p50_ms": 0.3044375,
+        "p95_ms": 2.096958,
+        "hit_rate": 0.6,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 141.56679,
+        "p50_ms": 0.8617705,
+        "p95_ms": 1.738791,
+        "hit_rate": 0.0125,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 170.05049799999998,
+        "p50_ms": 0.5536045,
+        "p95_ms": 3.268833,
+        "hit_rate": 0.60625,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 216.35561500000003,
+        "p50_ms": 0.889812,
+        "p95_ms": 2.967625,
+        "hit_rate": 0.4875,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 13,
+      "retained": 0,
+      "static_rebuild_ns": 2250,
+      "total_refresh_ns": 66778875
+    },
+    "relative_lifecycle": 1.0793130099029211,
+    "first_break_even_query": 264,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 32,
+    "policy": "lru",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 61.35775,
+    "static_build_ms": 0.006208,
+    "refresh_ms": 64.970875,
+    "query_total_ms": 789.840547,
+    "lifecycle_ms": 916.17538,
+    "peak_logical_bytes": 65488,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2183168,
+      "materialized_logical_bytes": 64295
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 185.80315899999994,
+        "p50_ms": 0.7112084999999999,
+        "p95_ms": 3.210875,
+        "hit_rate": 0.50625,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 100.67841699999995,
+        "p50_ms": 0.27631249999999996,
+        "p95_ms": 2.077083,
+        "hit_rate": 0.64375,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 144.21192900000003,
+        "p50_ms": 0.8630415,
+        "p95_ms": 1.808167,
+        "hit_rate": 0.0125,
+        "abstention_rate": 0
+      },
+      "drift": {
+        "total_ms": 144.50816399999997,
+        "p50_ms": 0.5268120000000001,
+        "p95_ms": 2.795416,
+        "hit_rate": 0.61875,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 214.638878,
+        "p50_ms": 0.8183750000000001,
+        "p95_ms": 3.234,
+        "hit_rate": 0.5125,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 14,
+      "retained": 0,
+      "static_rebuild_ns": 2709,
+      "total_refresh_ns": 64970875
+    },
+    "relative_lifecycle": 1.0583250878040387,
+    "first_break_even_query": 285,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 33,
+    "policy": "aki",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 63.265125,
+    "static_build_ms": 0.004542,
+    "refresh_ms": 65.607959,
+    "query_total_ms": 571.62984,
+    "lifecycle_ms": 700.507466,
+    "peak_logical_bytes": 64808,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2183168,
+      "db_live_page_bytes": 2183168,
+      "materialized_logical_bytes": 63279
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 87.15520399999994,
+        "p50_ms": 0.3317915,
+        "p95_ms": 1.619791,
+        "hit_rate": 0.575,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 79.57137600000001,
+        "p50_ms": 0.3044165,
+        "p95_ms": 1.393208,
+        "hit_rate": 0.66875,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 128.89101300000002,
+        "p50_ms": 0.6544795,
+        "p95_ms": 1.96825,
+        "hit_rate": 0,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 143.15558400000003,
+        "p50_ms": 0.6965205,
+        "p95_ms": 2.407417,
+        "hit_rate": 0.26875,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 132.856663,
+        "p50_ms": 0.633854,
+        "p95_ms": 2.267042,
+        "hit_rate": 0.5,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 9,
+      "retained": 0,
+      "static_rebuild_ns": 2417,
+      "total_refresh_ns": 65607959
+    },
+    "relative_lifecycle": 0.8039583438697522,
+    "first_break_even_query": 1,
+    "sustained_break_even_query": 1
+  },
+  {
+    "seed": 33,
+    "policy": "frequency",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 61.4365,
+    "static_build_ms": 0.005041,
+    "refresh_ms": 69.341042,
+    "query_total_ms": 578.793634,
+    "lifecycle_ms": 709.576217,
+    "peak_logical_bytes": 65442,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2187264,
+      "db_live_page_bytes": 2187264,
+      "materialized_logical_bytes": 64624
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 83.80832699999999,
+        "p50_ms": 0.30462449999999996,
+        "p95_ms": 1.585333,
+        "hit_rate": 0.7,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 74.04939000000005,
+        "p50_ms": 0.2426875,
+        "p95_ms": 1.3515,
+        "hit_rate": 0.7875,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 129.16325700000002,
+        "p50_ms": 0.6458335,
+        "p95_ms": 1.884583,
+        "hit_rate": 0,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 147.59720399999998,
+        "p50_ms": 0.714958,
+        "p95_ms": 2.498375,
+        "hit_rate": 0.425,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 144.17545600000003,
+        "p50_ms": 0.6779795,
+        "p95_ms": 2.452416,
+        "hit_rate": 0.54375,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 13,
+      "retained": 0,
+      "static_rebuild_ns": 6375,
+      "total_refresh_ns": 69341042
+    },
+    "relative_lifecycle": 0.8143663671797096,
+    "first_break_even_query": 1,
+    "sustained_break_even_query": 1
+  },
+  {
+    "seed": 33,
+    "policy": "disabled",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 69.985208,
+    "static_build_ms": 0.004833,
+    "refresh_ms": 66.602542,
+    "query_total_ms": 734.730504,
+    "lifecycle_ms": 871.323087,
+    "peak_logical_bytes": 0,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2113536,
+      "db_live_page_bytes": 2113536,
+      "materialized_logical_bytes": 0
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 129.62158199999996,
+        "p50_ms": 0.8019164999999999,
+        "p95_ms": 1.869625,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 135.98250900000002,
+        "p50_ms": 0.826875,
+        "p95_ms": 1.818959,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 129.30754999999994,
+        "p50_ms": 0.6644585000000001,
+        "p95_ms": 1.868208,
+        "hit_rate": 0,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 156.3695389999999,
+        "p50_ms": 0.911125,
+        "p95_ms": 2.159042,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 183.44932400000005,
+        "p50_ms": 1.1780415,
+        "p95_ms": 2.291333,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 0,
+      "retained": 0,
+      "static_rebuild_ns": 6250,
+      "total_refresh_ns": 66602542
+    },
+    "relative_lifecycle": 1.0,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 33,
+    "policy": "lru",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 63.163833,
+    "static_build_ms": 0.003042,
+    "refresh_ms": 66.274667,
+    "query_total_ms": 801.936136,
+    "lifecycle_ms": 931.377678,
+    "peak_logical_bytes": 65512,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2174976,
+      "materialized_logical_bytes": 57897
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 141.29600399999995,
+        "p50_ms": 0.403583,
+        "p95_ms": 2.489958,
+        "hit_rate": 0.6375,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 81.58254499999995,
+        "p50_ms": 0.30333350000000003,
+        "p95_ms": 1.472833,
+        "hit_rate": 0.74375,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 137.18309599999992,
+        "p50_ms": 0.6992290000000001,
+        "p95_ms": 1.921208,
+        "hit_rate": 0,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 188.10399599999997,
+        "p50_ms": 0.6986455,
+        "p95_ms": 3.855083,
+        "hit_rate": 0.56875,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 253.77049500000004,
+        "p50_ms": 1.201021,
+        "p95_ms": 4.191875,
+        "hit_rate": 0.45,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 14,
+      "retained": 0,
+      "static_rebuild_ns": 1917,
+      "total_refresh_ns": 66274667
+    },
+    "relative_lifecycle": 1.0689234474513585,
+    "first_break_even_query": 1,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 33,
+    "policy": "static_bounded",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 65.649958,
+    "static_build_ms": 702.267666,
+    "refresh_ms": 1050.986708,
+    "query_total_ms": 776.645136,
+    "lifecycle_ms": 2595.549468,
+    "peak_logical_bytes": 65530,
+    "initial_storage": {
+      "db_allocated_bytes": 1769472,
+      "db_live_page_bytes": 1769472,
+      "materialized_logical_bytes": 65515
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2191360,
+      "materialized_logical_bytes": 65530
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 134.21240999999986,
+        "p50_ms": 0.8182085,
+        "p95_ms": 1.664958,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 140.13218200000009,
+        "p50_ms": 0.859229,
+        "p95_ms": 1.655083,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 137.84547399999997,
+        "p50_ms": 0.7119795,
+        "p95_ms": 1.992917,
+        "hit_rate": 0.01875,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 169.518829,
+        "p50_ms": 0.955729,
+        "p95_ms": 2.195791,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 194.93624099999988,
+        "p50_ms": 1.247875,
+        "p95_ms": 2.403334,
+        "hit_rate": 0.00625,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 19,
+      "retained": 3,
+      "static_rebuild_ns": 973524958,
+      "total_refresh_ns": 1050986708
+    },
+    "relative_lifecycle": 2.978859973671282,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 33,
+    "policy": "static_full",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 61.284083,
+    "static_build_ms": 1546.829666,
+    "refresh_ms": 1982.759084,
+    "query_total_ms": 276.710829,
+    "lifecycle_ms": 3867.583662,
+    "peak_logical_bytes": 6273237,
+    "initial_storage": {
+      "db_allocated_bytes": 7843840,
+      "db_live_page_bytes": 7843840,
+      "materialized_logical_bytes": 5071472
+    },
+    "final_storage": {
+      "db_allocated_bytes": 9863168,
+      "db_live_page_bytes": 9863168,
+      "materialized_logical_bytes": 6273237
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 48.14870100000001,
+        "p50_ms": 0.21302100000000002,
+        "p95_ms": 0.829875,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 52.59025499999999,
+        "p50_ms": 0.215208,
+        "p95_ms": 0.969292,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 49.991801,
+        "p50_ms": 0.2032505,
+        "p95_ms": 1.007833,
+        "hit_rate": 1,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 57.555251,
+        "p50_ms": 0.2356245,
+        "p95_ms": 1.072291,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 68.42482100000004,
+        "p50_ms": 0.27975,
+        "p95_ms": 1.116708,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 1123,
+      "retained": 129,
+      "static_rebuild_ns": 1874492709,
+      "total_refresh_ns": 1982759084
+    },
+    "relative_lifecycle": 4.438748059937496,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 33,
+    "policy": "gds",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 61.800916,
+    "static_build_ms": 0.005458,
+    "refresh_ms": 79.946416,
+    "query_total_ms": 823.127256,
+    "lifecycle_ms": 964.880046,
+    "peak_logical_bytes": 65512,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2183168,
+      "materialized_logical_bytes": 62899
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 159.579749,
+        "p50_ms": 0.48360400000000003,
+        "p95_ms": 2.743833,
+        "hit_rate": 0.59375,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 82.803048,
+        "p50_ms": 0.306604,
+        "p95_ms": 1.456375,
+        "hit_rate": 0.74375,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 139.44720700000013,
+        "p50_ms": 0.734229,
+        "p95_ms": 2.020125,
+        "hit_rate": 0,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 192.37308099999998,
+        "p50_ms": 0.706208,
+        "p95_ms": 4.062542,
+        "hit_rate": 0.58125,
+        "abstention_rate": 0
+      },
+      "post_mutation": {
+        "total_ms": 248.92417100000017,
+        "p50_ms": 1.134042,
+        "p95_ms": 3.975625,
+        "hit_rate": 0.4625,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 13,
+      "retained": 0,
+      "static_rebuild_ns": 2167,
+      "total_refresh_ns": 79946416
+    },
+    "relative_lifecycle": 1.1073734420628292,
+    "first_break_even_query": 1,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 34,
+    "policy": "static_bounded",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 71.844041,
+    "static_build_ms": 706.636292,
+    "refresh_ms": 1054.3725,
+    "query_total_ms": 804.620825,
+    "lifecycle_ms": 2637.473658,
+    "peak_logical_bytes": 65530,
+    "initial_storage": {
+      "db_allocated_bytes": 1769472,
+      "db_live_page_bytes": 1769472,
+      "materialized_logical_bytes": 65515
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2191360,
+      "materialized_logical_bytes": 65530
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 141.20328099999986,
+        "p50_ms": 0.745375,
+        "p95_ms": 1.885541,
+        "hit_rate": 0.10625,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 146.84304499999993,
+        "p50_ms": 0.8551249999999999,
+        "p95_ms": 2.179583,
+        "hit_rate": 0.1,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 161.62854400000012,
+        "p50_ms": 0.9219170000000001,
+        "p95_ms": 2.416458,
+        "hit_rate": 0.01875,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 155.60099600000004,
+        "p50_ms": 0.9331039999999999,
+        "p95_ms": 2.133333,
+        "hit_rate": 0.0375,
+        "abstention_rate": 0.00625
+      },
+      "post_mutation": {
+        "total_ms": 199.344959,
+        "p50_ms": 1.2250204999999998,
+        "p95_ms": 2.075125,
+        "hit_rate": 0.04375,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 19,
+      "retained": 3,
+      "static_rebuild_ns": 983368416,
+      "total_refresh_ns": 1054372500
+    },
+    "relative_lifecycle": 2.802192585295254,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 34,
+    "policy": "static_full",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 68.515458,
+    "static_build_ms": 1604.880541,
+    "refresh_ms": 1927.961291,
+    "query_total_ms": 286.908996,
+    "lifecycle_ms": 3888.266286,
+    "peak_logical_bytes": 6273237,
+    "initial_storage": {
+      "db_allocated_bytes": 7843840,
+      "db_live_page_bytes": 7843840,
+      "materialized_logical_bytes": 5071472
+    },
+    "final_storage": {
+      "db_allocated_bytes": 9863168,
+      "db_live_page_bytes": 9863168,
+      "materialized_logical_bytes": 6273237
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 57.396201999999995,
+        "p50_ms": 0.2288335,
+        "p95_ms": 1.159583,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 57.32917399999999,
+        "p50_ms": 0.231521,
+        "p95_ms": 1.106542,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 58.03188099999999,
+        "p50_ms": 0.2083755,
+        "p95_ms": 1.11325,
+        "hit_rate": 1,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 49.11141000000001,
+        "p50_ms": 0.194771,
+        "p95_ms": 0.989125,
+        "hit_rate": 1,
+        "abstention_rate": 0.00625
+      },
+      "post_mutation": {
+        "total_ms": 65.04032899999999,
+        "p50_ms": 0.27577050000000003,
+        "p95_ms": 1.105875,
+        "hit_rate": 1,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 1123,
+      "retained": 129,
+      "static_rebuild_ns": 1778533000,
+      "total_refresh_ns": 1927961291
+    },
+    "relative_lifecycle": 4.131101337537118,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 34,
+    "policy": "lru",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 197.142125,
+    "static_build_ms": 0.006792,
+    "refresh_ms": 69.841583,
+    "query_total_ms": 973.338316,
+    "lifecycle_ms": 1240.328816,
+    "peak_logical_bytes": 65445,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2187264,
+      "materialized_logical_bytes": 65351
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 216.75525500000018,
+        "p50_ms": 0.9299165,
+        "p95_ms": 4.271667,
+        "hit_rate": 0.48125,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 95.36284100000002,
+        "p50_ms": 0.3324585,
+        "p95_ms": 1.401375,
+        "hit_rate": 0.66875,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 163.18722499999984,
+        "p50_ms": 0.9490835,
+        "p95_ms": 2.408083,
+        "hit_rate": 0.00625,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 226.12495799999996,
+        "p50_ms": 1.0326665,
+        "p95_ms": 3.477459,
+        "hit_rate": 0.4375,
+        "abstention_rate": 0.00625
+      },
+      "post_mutation": {
+        "total_ms": 271.9080369999999,
+        "p50_ms": 1.6291665,
+        "p95_ms": 3.576875,
+        "hit_rate": 0.40625,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 12,
+      "retained": 0,
+      "static_rebuild_ns": 2125,
+      "total_refresh_ns": 69841583
+    },
+    "relative_lifecycle": 1.3177914406769182,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 34,
+    "policy": "frequency",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 66.415791,
+    "static_build_ms": 0.002834,
+    "refresh_ms": 71.081333,
+    "query_total_ms": 639.752432,
+    "lifecycle_ms": 777.25239,
+    "peak_logical_bytes": 65253,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2187264,
+      "db_live_page_bytes": 2187264,
+      "materialized_logical_bytes": 64762
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 103.55762299999998,
+        "p50_ms": 0.32164550000000003,
+        "p95_ms": 1.998625,
+        "hit_rate": 0.63125,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 79.78797099999998,
+        "p50_ms": 0.2670625,
+        "p95_ms": 1.3505,
+        "hit_rate": 0.775,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 152.608974,
+        "p50_ms": 0.8893960000000001,
+        "p95_ms": 2.293917,
+        "hit_rate": 0.00625,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 150.360331,
+        "p50_ms": 0.6576665,
+        "p95_ms": 2.575583,
+        "hit_rate": 0.4125,
+        "abstention_rate": 0.00625
+      },
+      "post_mutation": {
+        "total_ms": 153.43753299999997,
+        "p50_ms": 0.7792285,
+        "p95_ms": 2.172791,
+        "hit_rate": 0.50625,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 14,
+      "retained": 0,
+      "static_rebuild_ns": 1666,
+      "total_refresh_ns": 71081333
+    },
+    "relative_lifecycle": 0.8257943648288809,
+    "first_break_even_query": 1,
+    "sustained_break_even_query": 48
+  },
+  {
+    "seed": 34,
+    "policy": "gds",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 68.771625,
+    "static_build_ms": 0.005083,
+    "refresh_ms": 75.862916,
+    "query_total_ms": 980.558585,
+    "lifecycle_ms": 1125.198209,
+    "peak_logical_bytes": 65504,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2191360,
+      "db_live_page_bytes": 2187264,
+      "materialized_logical_bytes": 63845
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 210.16346199999995,
+        "p50_ms": 0.9049795,
+        "p95_ms": 3.865834,
+        "hit_rate": 0.5,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 95.12712600000005,
+        "p50_ms": 0.344229,
+        "p95_ms": 1.45475,
+        "hit_rate": 0.66875,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 161.29713200000003,
+        "p50_ms": 0.9337705000000001,
+        "p95_ms": 2.3655,
+        "hit_rate": 0.00625,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 234.94545699999998,
+        "p50_ms": 1.118354,
+        "p95_ms": 3.712375,
+        "hit_rate": 0.4375,
+        "abstention_rate": 0.00625
+      },
+      "post_mutation": {
+        "total_ms": 279.02540799999986,
+        "p50_ms": 1.814417,
+        "p95_ms": 3.658125,
+        "hit_rate": 0.39375,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 12,
+      "retained": 0,
+      "static_rebuild_ns": 2458,
+      "total_refresh_ns": 75862916
+    },
+    "relative_lifecycle": 1.1954705476142047,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 34,
+    "policy": "disabled",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 67.538791,
+    "static_build_ms": 0.004375,
+    "refresh_ms": 74.227209,
+    "query_total_ms": 799.447467,
+    "lifecycle_ms": 941.217842,
+    "peak_logical_bytes": 0,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2113536,
+      "db_live_page_bytes": 2113536,
+      "materialized_logical_bytes": 0
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 152.68732700000004,
+        "p50_ms": 0.8677915,
+        "p95_ms": 2.281458,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 153.81229799999997,
+        "p50_ms": 0.9322295,
+        "p95_ms": 2.271167,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 154.18962900000002,
+        "p50_ms": 0.8718334999999999,
+        "p95_ms": 2.35675,
+        "hit_rate": 0,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 146.26600000000002,
+        "p50_ms": 0.8917295000000001,
+        "p95_ms": 2.011042,
+        "hit_rate": 0,
+        "abstention_rate": 0.00625
+      },
+      "post_mutation": {
+        "total_ms": 192.49221299999988,
+        "p50_ms": 1.2121875,
+        "p95_ms": 2.02475,
+        "hit_rate": 0,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 0,
+      "retained": 0,
+      "static_rebuild_ns": 2125,
+      "total_refresh_ns": 74227209
+    },
+    "relative_lifecycle": 1.0,
+    "first_break_even_query": null,
+    "sustained_break_even_query": null
+  },
+  {
+    "seed": 34,
+    "policy": "aki",
+    "files": 626,
+    "edges": 2727,
+    "parse_errors": [],
+    "queries": 800,
+    "exact_matches": 800,
+    "stale_revision_rejections": 1,
+    "ingest_ms": 70.677084,
+    "static_build_ms": 0.005041,
+    "refresh_ms": 73.911209,
+    "query_total_ms": 655.725792,
+    "lifecycle_ms": 800.319126,
+    "peak_logical_bytes": 65189,
+    "initial_storage": {
+      "db_allocated_bytes": 1691648,
+      "db_live_page_bytes": 1691648,
+      "materialized_logical_bytes": 0
+    },
+    "final_storage": {
+      "db_allocated_bytes": 2187264,
+      "db_live_page_bytes": 2187264,
+      "materialized_logical_bytes": 65189
+    },
+    "phases": {
+      "cold_adapt": {
+        "total_ms": 111.63466800000005,
+        "p50_ms": 0.3491875,
+        "p95_ms": 2.171292,
+        "hit_rate": 0.4875,
+        "abstention_rate": 0
+      },
+      "warm_heldout": {
+        "total_ms": 80.19895799999996,
+        "p50_ms": 0.333146,
+        "p95_ms": 1.262833,
+        "hit_rate": 0.6,
+        "abstention_rate": 0
+      },
+      "unseen_roots": {
+        "total_ms": 164.635795,
+        "p50_ms": 0.970896,
+        "p95_ms": 2.442375,
+        "hit_rate": 0,
+        "abstention_rate": 0.00625
+      },
+      "drift": {
+        "total_ms": 148.70803700000005,
+        "p50_ms": 0.721875,
+        "p95_ms": 2.419375,
+        "hit_rate": 0.16875,
+        "abstention_rate": 0.00625
+      },
+      "post_mutation": {
+        "total_ms": 150.54833400000007,
+        "p50_ms": 0.8054585000000001,
+        "p95_ms": 2.056083,
+        "hit_rate": 0.41875,
+        "abstention_rate": 0
+      }
+    },
+    "refresh_report": {
+      "revision": "bf2bfb55180093e0bb1b229e8267bd93c74db11e2261a4a02ab0d5928e7116d0",
+      "files": 626,
+      "edges": 2704,
+      "parse_errors": [],
+      "invalidated": 10,
+      "retained": 0,
+      "static_rebuild_ns": 5167,
+      "total_refresh_ns": 73911209
+    },
+    "relative_lifecycle": 0.8503016945571246,
+    "first_break_even_query": 66,
+    "sustained_break_even_query": 66
+  }
+]

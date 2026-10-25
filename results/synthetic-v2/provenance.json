@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-25T04:49:31.240374+00:00",
+  "python": "3.11.5",
+  "sqlite": "3.42.0",
+  "machine": "arm64",
+  "os": "Darwin",
+  "os_release": "25.6.0",
+  "cpu_count": 12,
+  "git_commit": null,
+  "code_sha256": {
+    "aki/__init__.py": "893c34ac121b471e70a014ce5cd60158657e722559ff96794a2d8e7f010b4a28",
+    "aki/benchmark.py": "7cc9e876426c3d83f61ebd78d893b0729a86d5672ab478ab2f3c00be3c3c6948",
+    "aki/policy.py": "1bd041568e57a498f8957e66b6dfb19331e21f4df19869bbe3ab4be52aacf7de",
+    "aki/source.py": "e4423945718eabe9c68bd3296a74496e51eaa1429d54c2c9fd45b83e1c56670b",
+    "aki/store.py": "3d388887fcf082e81326baf38f751c28c16d6abfaacc47ba49aeedc67408de62",
+    "tests/test_index.py": "e7218a521e2b1f1c59a3ea8c4b428a4ecc72d3b4b202beec60935fe29559b020"
+  },
+  "clock": "perf_counter_ns",
+  "cold_definition": "new DB; OS page cache NOT flushed",
+  "timing_excludes": "benchmark oracle, workload generation and result serialization",
+  "timing_includes": "source ingestion, candidate generation, retrieval, optimizer, builds, eviction, refresh",
+  "background_work_ns": 0,
+  "paid_inference_calls": 0,
+  "dataset": "original-synthetic-python",
+  "workload": "synthetic generated sequence on original-synthetic-python",
+  "source_manifest_sha256": "77594249554bce4efab79e3615467de42eb7f6a21bac1c6a917b1b493e0c3227",
+  "seeds": [
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "queries_per_phase": 160,
+  "logical_byte_budget": 65536,
+  "scenario": "locality",
+  "invalidation": "selective"
+}

@@ -1,0 +1,716 @@
+[
+  {
+    "seed": 20,
+    "policy": "frequency",
+    "mode": "global",
+    "lifecycle_ms": 2378.896405,
+    "retained": 0,
+    "invalidated": 130,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16382,
+    "storage": {
+      "db_allocated_bytes": 9838592,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 16382
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "static_full",
+    "mode": "global",
+    "lifecycle_ms": 6098.628226,
+    "retained": 0,
+    "invalidated": 1176,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 100024,
+    "storage": {
+      "db_allocated_bytes": 9940992,
+      "db_live_page_bytes": 9940992,
+      "materialized_logical_bytes": 100024
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "frequency",
+    "mode": "selective",
+    "lifecycle_ms": 2453.270978,
+    "retained": 115,
+    "invalidated": 15,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16382,
+    "storage": {
+      "db_allocated_bytes": 9838592,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 16382
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "static_bounded",
+    "mode": "global",
+    "lifecycle_ms": 2454.4564,
+    "retained": 0,
+    "invalidated": 262,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16368,
+    "storage": {
+      "db_allocated_bytes": 9834496,
+      "db_live_page_bytes": 9834496,
+      "materialized_logical_bytes": 16295
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "disabled",
+    "mode": "global",
+    "lifecycle_ms": 2276.618057,
+    "retained": 0,
+    "invalidated": 0,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 0,
+    "storage": {
+      "db_allocated_bytes": 9818112,
+      "db_live_page_bytes": 9818112,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "gds",
+    "mode": "selective",
+    "lifecycle_ms": 2969.562233,
+    "retained": 152,
+    "invalidated": 11,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16384,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 15641
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "disabled",
+    "mode": "selective",
+    "lifecycle_ms": 2270.684791,
+    "retained": 0,
+    "invalidated": 0,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 0,
+    "storage": {
+      "db_allocated_bytes": 9818112,
+      "db_live_page_bytes": 9818112,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "lru",
+    "mode": "global",
+    "lifecycle_ms": 3002.472884,
+    "retained": 0,
+    "invalidated": 118,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16382,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 14774
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "lru",
+    "mode": "selective",
+    "lifecycle_ms": 2998.562072,
+    "retained": 105,
+    "invalidated": 13,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16382,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 14774
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "static_full",
+    "mode": "selective",
+    "lifecycle_ms": 2383.90115,
+    "retained": 1125,
+    "invalidated": 51,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 100024,
+    "storage": {
+      "db_allocated_bytes": 9957376,
+      "db_live_page_bytes": 9957376,
+      "materialized_logical_bytes": 100024
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "static_bounded",
+    "mode": "selective",
+    "lifecycle_ms": 2335.11115,
+    "retained": 285,
+    "invalidated": 3,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16377,
+    "storage": {
+      "db_allocated_bytes": 9838592,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 16377
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "gds",
+    "mode": "global",
+    "lifecycle_ms": 2853.146698,
+    "retained": 0,
+    "invalidated": 157,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16380,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 14456
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "aki",
+    "mode": "selective",
+    "lifecycle_ms": 2395.32535,
+    "retained": 9,
+    "invalidated": 6,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 8289,
+    "storage": {
+      "db_allocated_bytes": 9818112,
+      "db_live_page_bytes": 9818112,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "seed": 20,
+    "policy": "aki",
+    "mode": "global",
+    "lifecycle_ms": 2283.465827,
+    "retained": 0,
+    "invalidated": 4,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 5526,
+    "storage": {
+      "db_allocated_bytes": 9826304,
+      "db_live_page_bytes": 9826304,
+      "materialized_logical_bytes": 5526
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "disabled",
+    "mode": "selective",
+    "lifecycle_ms": 2282.213083,
+    "retained": 0,
+    "invalidated": 0,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 0,
+    "storage": {
+      "db_allocated_bytes": 9818112,
+      "db_live_page_bytes": 9818112,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "static_bounded",
+    "mode": "global",
+    "lifecycle_ms": 2523.0601,
+    "retained": 0,
+    "invalidated": 262,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16368,
+    "storage": {
+      "db_allocated_bytes": 9834496,
+      "db_live_page_bytes": 9834496,
+      "materialized_logical_bytes": 16295
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "aki",
+    "mode": "global",
+    "lifecycle_ms": 2300.99746,
+    "retained": 0,
+    "invalidated": 6,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 4804,
+    "storage": {
+      "db_allocated_bytes": 9818112,
+      "db_live_page_bytes": 9818112,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "gds",
+    "mode": "selective",
+    "lifecycle_ms": 2893.588895,
+    "retained": 125,
+    "invalidated": 12,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16383,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9834496,
+      "materialized_logical_bytes": 14209
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "static_bounded",
+    "mode": "selective",
+    "lifecycle_ms": 2381.607775,
+    "retained": 285,
+    "invalidated": 3,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16377,
+    "storage": {
+      "db_allocated_bytes": 9838592,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 16377
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "frequency",
+    "mode": "selective",
+    "lifecycle_ms": 2449.077217,
+    "retained": 115,
+    "invalidated": 15,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16374,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9842688,
+      "materialized_logical_bytes": 16147
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "frequency",
+    "mode": "global",
+    "lifecycle_ms": 2565.40801,
+    "retained": 0,
+    "invalidated": 130,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16374,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9842688,
+      "materialized_logical_bytes": 16147
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "disabled",
+    "mode": "global",
+    "lifecycle_ms": 2247.163031,
+    "retained": 0,
+    "invalidated": 0,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 0,
+    "storage": {
+      "db_allocated_bytes": 9818112,
+      "db_live_page_bytes": 9818112,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "aki",
+    "mode": "selective",
+    "lifecycle_ms": 2283.829366,
+    "retained": 13,
+    "invalidated": 7,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 14890,
+    "storage": {
+      "db_allocated_bytes": 9818112,
+      "db_live_page_bytes": 9818112,
+      "materialized_logical_bytes": 522
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "static_full",
+    "mode": "selective",
+    "lifecycle_ms": 2400.142168,
+    "retained": 1125,
+    "invalidated": 51,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 100024,
+    "storage": {
+      "db_allocated_bytes": 9957376,
+      "db_live_page_bytes": 9957376,
+      "materialized_logical_bytes": 100024
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "gds",
+    "mode": "global",
+    "lifecycle_ms": 2830.966038,
+    "retained": 0,
+    "invalidated": 147,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16384,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 15065
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "lru",
+    "mode": "global",
+    "lifecycle_ms": 2892.528883,
+    "retained": 0,
+    "invalidated": 106,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16384,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9834496,
+      "materialized_logical_bytes": 13924
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "static_full",
+    "mode": "global",
+    "lifecycle_ms": 2948.685891,
+    "retained": 0,
+    "invalidated": 1176,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 100024,
+    "storage": {
+      "db_allocated_bytes": 9940992,
+      "db_live_page_bytes": 9940992,
+      "materialized_logical_bytes": 100024
+    }
+  },
+  {
+    "seed": 21,
+    "policy": "lru",
+    "mode": "selective",
+    "lifecycle_ms": 3011.200924,
+    "retained": 93,
+    "invalidated": 13,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16384,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9834496,
+      "materialized_logical_bytes": 13924
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "frequency",
+    "mode": "selective",
+    "lifecycle_ms": 2482.198,
+    "retained": 93,
+    "invalidated": 16,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16381,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9842688,
+      "materialized_logical_bytes": 16233
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "static_full",
+    "mode": "global",
+    "lifecycle_ms": 2928.793985,
+    "retained": 0,
+    "invalidated": 1176,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 100024,
+    "storage": {
+      "db_allocated_bytes": 9940992,
+      "db_live_page_bytes": 9940992,
+      "materialized_logical_bytes": 100024
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "aki",
+    "mode": "global",
+    "lifecycle_ms": 2289.699926,
+    "retained": 0,
+    "invalidated": 8,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 9586,
+    "storage": {
+      "db_allocated_bytes": 9826304,
+      "db_live_page_bytes": 9826304,
+      "materialized_logical_bytes": 5526
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "static_bounded",
+    "mode": "global",
+    "lifecycle_ms": 2509.158343,
+    "retained": 0,
+    "invalidated": 262,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16368,
+    "storage": {
+      "db_allocated_bytes": 9834496,
+      "db_live_page_bytes": 9834496,
+      "materialized_logical_bytes": 16295
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "gds",
+    "mode": "selective",
+    "lifecycle_ms": 2929.641702,
+    "retained": 121,
+    "invalidated": 12,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16377,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 15951
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "disabled",
+    "mode": "selective",
+    "lifecycle_ms": 2355.287248,
+    "retained": 0,
+    "invalidated": 0,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 0,
+    "storage": {
+      "db_allocated_bytes": 9818112,
+      "db_live_page_bytes": 9818112,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "gds",
+    "mode": "global",
+    "lifecycle_ms": 2914.223189,
+    "retained": 0,
+    "invalidated": 138,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16383,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 16130
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "lru",
+    "mode": "selective",
+    "lifecycle_ms": 3125.562221,
+    "retained": 82,
+    "invalidated": 15,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16383,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 14822
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "disabled",
+    "mode": "global",
+    "lifecycle_ms": 2277.360844,
+    "retained": 0,
+    "invalidated": 0,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 0,
+    "storage": {
+      "db_allocated_bytes": 9818112,
+      "db_live_page_bytes": 9818112,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "lru",
+    "mode": "global",
+    "lifecycle_ms": 2921.158797,
+    "retained": 0,
+    "invalidated": 97,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16383,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 14822
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "frequency",
+    "mode": "global",
+    "lifecycle_ms": 2448.923031,
+    "retained": 0,
+    "invalidated": 109,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16381,
+    "storage": {
+      "db_allocated_bytes": 9842688,
+      "db_live_page_bytes": 9842688,
+      "materialized_logical_bytes": 16233
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "static_bounded",
+    "mode": "selective",
+    "lifecycle_ms": 2381.001873,
+    "retained": 285,
+    "invalidated": 3,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 16377,
+    "storage": {
+      "db_allocated_bytes": 9838592,
+      "db_live_page_bytes": 9838592,
+      "materialized_logical_bytes": 16377
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "static_full",
+    "mode": "selective",
+    "lifecycle_ms": 2414.08625,
+    "retained": 1125,
+    "invalidated": 51,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 100024,
+    "storage": {
+      "db_allocated_bytes": 9957376,
+      "db_live_page_bytes": 9957376,
+      "materialized_logical_bytes": 100024
+    }
+  },
+  {
+    "seed": 22,
+    "policy": "aki",
+    "mode": "selective",
+    "lifecycle_ms": 2313.463646,
+    "retained": 15,
+    "invalidated": 7,
+    "stale_rejections": 4,
+    "queries": 960,
+    "parity": true,
+    "peak_logical_bytes": 14368,
+    "storage": {
+      "db_allocated_bytes": 9830400,
+      "db_live_page_bytes": 9830400,
+      "materialized_logical_bytes": 8289
+    }
+  }
+]

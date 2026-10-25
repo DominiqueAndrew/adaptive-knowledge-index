@@ -1,0 +1,2956 @@
+[
+  {
+    "repo": "HypothesisWorks/hypothesis",
+    "commit": "2b1de221b8f627131169cac859597da6283cb7e1",
+    "samples": 1,
+    "files": 670,
+    "load_ns": 68301417,
+    "setup": {
+      "aki_base_ns": 567454125
+    },
+    "edges": 17,
+    "parse_error_count": 79,
+    "storage": {
+      "db_allocated_bytes": 8785920,
+      "db_live_page_bytes": 8785920,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "HypothesisWorks/hypothesis",
+    "commit": "84f92dcf29229e37f822ba3ba5eea4212d2abf35",
+    "samples": 1,
+    "files": 673,
+    "load_ns": 66791083,
+    "setup": {
+      "aki_base_ns": 559167792
+    },
+    "edges": 17,
+    "parse_error_count": 80,
+    "storage": {
+      "db_allocated_bytes": 8855552,
+      "db_live_page_bytes": 8855552,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "HypothesisWorks/hypothesis",
+    "commit": "c1d70b89c5d586660e1b21fdf422a10fd14e9d6c",
+    "samples": 3,
+    "files": 659,
+    "load_ns": 63459750,
+    "setup": {
+      "aki_base_ns": 593301166
+    },
+    "edges": 17,
+    "parse_error_count": 78,
+    "storage": {
+      "db_allocated_bytes": 8691712,
+      "db_live_page_bytes": 8691712,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "astral-sh/ruff",
+    "commit": "038cf9e9effd96740625ee0ff374f63691178dc1",
+    "samples": 1,
+    "files": 5909,
+    "load_ns": 428793458,
+    "setup": {
+      "aki_base_ns": 2139251250
+    },
+    "edges": 39,
+    "parse_error_count": 582,
+    "storage": {
+      "db_allocated_bytes": 47136768,
+      "db_live_page_bytes": 47136768,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "astral-sh/ruff",
+    "commit": "277bc638341d5b7e80fbec65a00e9bcc7cfef8d4",
+    "samples": 1,
+    "files": 5916,
+    "load_ns": 462848417,
+    "setup": {
+      "aki_base_ns": 2058164958
+    },
+    "edges": 39,
+    "parse_error_count": 584,
+    "storage": {
+      "db_allocated_bytes": 47292416,
+      "db_live_page_bytes": 47292416,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "astral-sh/ruff",
+    "commit": "31db1b6e162356b62e7dc8811f297020da824183",
+    "samples": 1,
+    "files": 3264,
+    "load_ns": 165110916,
+    "setup": {
+      "aki_base_ns": 1031497667
+    },
+    "edges": 7,
+    "parse_error_count": 83,
+    "storage": {
+      "db_allocated_bytes": 23859200,
+      "db_live_page_bytes": 23584768,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "astral-sh/ruff",
+    "commit": "f83d66918fab0c347602b806455bec8d5bbfd00f",
+    "samples": 1,
+    "files": 5915,
+    "load_ns": 415642209,
+    "setup": {
+      "aki_base_ns": 1999266292
+    },
+    "edges": 39,
+    "parse_error_count": 584,
+    "storage": {
+      "db_allocated_bytes": 47271936,
+      "db_live_page_bytes": 47271936,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "commit": "178294e9d70fede4244c3c57313925e0f9a17b4c",
+    "samples": 1,
+    "files": 555,
+    "load_ns": 50865334,
+    "setup": {
+      "aki_base_ns": 207901042
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5971968,
+      "db_live_page_bytes": 5971968,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "commit": "18ab0f955fc1075d7727c7658dbfb734c673a5c9",
+    "samples": 1,
+    "files": 604,
+    "load_ns": 31982583,
+    "setup": {
+      "aki_base_ns": 236378667,
+      "repomap_build_ns": 340626625
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 6651904,
+      "db_live_page_bytes": 6651904,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "commit": "4f504588669e28373f455b694539475ffe4d2926",
+    "samples": 1,
+    "files": 586,
+    "load_ns": 30765542,
+    "setup": {
+      "aki_base_ns": 215646167,
+      "repomap_build_ns": 325928209
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 6459392,
+      "db_live_page_bytes": 6459392,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "commit": "54d03ced48a8ed2264ae9248c81f00a1c2648d82",
+    "samples": 1,
+    "files": 503,
+    "load_ns": 30324250,
+    "setup": {
+      "aki_base_ns": 190862834
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5693440,
+      "db_live_page_bytes": 5693440,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "commit": "7586e68e273fbe84b588e73c014d15d815413648",
+    "samples": 1,
+    "files": 594,
+    "load_ns": 29121959,
+    "setup": {
+      "aki_base_ns": 219481458,
+      "repomap_build_ns": 333193666
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 6557696,
+      "db_live_page_bytes": 6557696,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "commit": "95941a71e87d6ccd6318bfd95c56929b01edfafd",
+    "samples": 1,
+    "files": 570,
+    "load_ns": 26179875,
+    "setup": {
+      "aki_base_ns": 206688417,
+      "repomap_build_ns": 309683542
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 6217728,
+      "db_live_page_bytes": 6217728,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "commit": "a6d488a15beb01369384e74d0e0159da11272bc3",
+    "samples": 1,
+    "files": 503,
+    "load_ns": 24556042,
+    "setup": {
+      "aki_base_ns": 187846958
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5697536,
+      "db_live_page_bytes": 5697536,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "commit": "aed1af59763d54520a9c72f1fd0222d43904ebfd",
+    "samples": 1,
+    "files": 600,
+    "load_ns": 32165208,
+    "setup": {
+      "aki_base_ns": 220602042,
+      "repomap_build_ns": 343183083
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 6602752,
+      "db_live_page_bytes": 6602752,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "commit": "ca0ca67fbdb831c026d334dfd77ecc653f321876",
+    "samples": 1,
+    "files": 590,
+    "load_ns": 30717417,
+    "setup": {
+      "aki_base_ns": 236800041,
+      "repomap_build_ns": 333596000
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 6496256,
+      "db_live_page_bytes": 6496256,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "commit": "ef496e58ef9e7844cf8f1831030713ee5e9b354b",
+    "samples": 1,
+    "files": 605,
+    "load_ns": 34971375,
+    "setup": {
+      "aki_base_ns": 245673625,
+      "repomap_build_ns": 344193958
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 6656000,
+      "db_live_page_bytes": 6656000,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "clap-rs/clap",
+    "commit": "68b5ff900bae8ee1a0e328c1a2301a7985e4f1c6",
+    "samples": 1,
+    "files": 607,
+    "load_ns": 37438583,
+    "setup": {
+      "aki_base_ns": 202915375
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5279744,
+      "db_live_page_bytes": 5279744,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "clap-rs/clap",
+    "commit": "e82e1edf76bcbddf5fe53428d297520d76a6a300",
+    "samples": 1,
+    "files": 591,
+    "load_ns": 41757292,
+    "setup": {
+      "aki_base_ns": 199010584,
+      "repomap_build_ns": 421171708
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5206016,
+      "db_live_page_bytes": 5206016,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "eslint/eslint",
+    "commit": "0f5a94a84beee19f376025c74f703f275d52c94b",
+    "samples": 1,
+    "files": 2151,
+    "load_ns": 129497834,
+    "setup": {
+      "aki_base_ns": 904431375
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 22110208,
+      "db_live_page_bytes": 22110208,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "eslint/eslint",
+    "commit": "78892043a36da4aa7640b59c99344b00c181048a",
+    "samples": 4,
+    "files": 2154,
+    "load_ns": 131762625,
+    "setup": {
+      "aki_base_ns": 785633625
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 22134784,
+      "db_live_page_bytes": 22134784,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "etcd-io/etcd",
+    "commit": "8687c97fa5fc7814bf2deaf4b13e666a1b9a0dda",
+    "samples": 1,
+    "files": 1431,
+    "load_ns": 73537583,
+    "setup": {
+      "aki_base_ns": 537692583,
+      "repomap_build_ns": 2093780541
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 17289216,
+      "db_live_page_bytes": 16740352,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "etcd-io/etcd",
+    "commit": "b83b67e483936a94e59a61198934e88bf0ef95b1",
+    "samples": 1,
+    "files": 1425,
+    "load_ns": 80088583,
+    "setup": {
+      "aki_base_ns": 531729250,
+      "repomap_build_ns": 2063542417
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 17203200,
+      "db_live_page_bytes": 16646144,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "etcd-io/etcd",
+    "commit": "be3acf4ed017efb7008beb08585d890e5364ce93",
+    "samples": 1,
+    "files": 1421,
+    "load_ns": 81053000,
+    "setup": {
+      "aki_base_ns": 541323333,
+      "repomap_build_ns": 2096835333
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 17154048,
+      "db_live_page_bytes": 16601088,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "etcd-io/etcd",
+    "commit": "c64f8fd68c2e75cc65b88bc0d956547a5f77cab1",
+    "samples": 1,
+    "files": 1425,
+    "load_ns": 80027500,
+    "setup": {
+      "aki_base_ns": 558511334,
+      "repomap_build_ns": 2150765958
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 17195008,
+      "db_live_page_bytes": 16637952,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "05caa5c00e552a27c3bfb659b99c0d79b81fafe4",
+    "samples": 1,
+    "files": 119,
+    "load_ns": 15913958,
+    "setup": {
+      "aki_base_ns": 49072167,
+      "repomap_build_ns": 70393667
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1196032,
+      "db_live_page_bytes": 1196032,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "0cbb30aa940a643e31874f8ad8e355219d306756",
+    "samples": 1,
+    "files": 104,
+    "load_ns": 179413500,
+    "setup": {
+      "aki_base_ns": 367541416,
+      "repomap_build_ns": 726134333
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1134592,
+      "db_live_page_bytes": 1134592,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "16cd8cdd4ef9257b1e86b5119df1536de71c6a87",
+    "samples": 1,
+    "files": 103,
+    "load_ns": 15635875,
+    "setup": {
+      "aki_base_ns": 42477459,
+      "repomap_build_ns": 64384791
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1118208,
+      "db_live_page_bytes": 1118208,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "19b877fa50cbbb9282763099fb177a1e5cc5c850",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 11119542,
+    "setup": {
+      "aki_base_ns": 47956792,
+      "repomap_build_ns": 87121959
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1331200,
+      "db_live_page_bytes": 1331200,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "28e57f58b184b2305ace192e02496bb89f6fd8cb",
+    "samples": 2,
+    "files": 117,
+    "load_ns": 11940291,
+    "setup": {
+      "aki_base_ns": 48235875,
+      "repomap_build_ns": 85502292
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "2a794cd0b0faa7d829291375b27a3467ea972b0d",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 10501000,
+    "setup": {
+      "aki_base_ns": 49805083,
+      "repomap_build_ns": 89837125
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1331200,
+      "db_live_page_bytes": 1331200,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "2e22e5085960205fbb11c25776f6ea76b8053253",
+    "samples": 1,
+    "files": 124,
+    "load_ns": 13203542,
+    "setup": {
+      "aki_base_ns": 54046334,
+      "repomap_build_ns": 85548667
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1314816,
+      "db_live_page_bytes": 1314816,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "2e2bd1f408fdaa5e522bc56972e3f109fd7502fd",
+    "samples": 1,
+    "files": 119,
+    "load_ns": 9604250,
+    "setup": {
+      "aki_base_ns": 45712375,
+      "repomap_build_ns": 81053709
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1228800,
+      "db_live_page_bytes": 1228800,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "334160bab772f6f93767b870f9d07c176cd4aa2b",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 8628500,
+    "setup": {
+      "aki_base_ns": 44389750,
+      "repomap_build_ns": 77015583
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "38534e2bf98a06e1f62d6b24384e90b5f78699bf",
+    "samples": 1,
+    "files": 128,
+    "load_ns": 10662208,
+    "setup": {
+      "aki_base_ns": 50880875,
+      "repomap_build_ns": 90501458
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1327104,
+      "db_live_page_bytes": 1327104,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "3ab698dc5110af1977d57226e4995c57dd34c233",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 11782334,
+    "setup": {
+      "aki_base_ns": 47447542,
+      "repomap_build_ns": 87863625
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1331200,
+      "db_live_page_bytes": 1331200,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "3cb30679b5e3021db16c776ed7e70d380586e9ce",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 10063334,
+    "setup": {
+      "aki_base_ns": 46031708,
+      "repomap_build_ns": 78217084
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "3f5b0afa2ac85ea79638ca08f4140ce64b8246e5",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 8960917,
+    "setup": {
+      "aki_base_ns": 45703750,
+      "repomap_build_ns": 77344542
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1212416,
+      "db_live_page_bytes": 1212416,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "44d0dd70924dd154e3b98bc340accc53484efa9c",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 9536875,
+    "setup": {
+      "aki_base_ns": 47287959,
+      "repomap_build_ns": 71584084
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1220608,
+      "db_live_page_bytes": 1220608,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "472d086af2acd924cb4b9d7be0525f7d790f69bc",
+    "samples": 1,
+    "files": 128,
+    "load_ns": 9638916,
+    "setup": {
+      "aki_base_ns": 47405791,
+      "repomap_build_ns": 92743375
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1327104,
+      "db_live_page_bytes": 1327104,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "4f339e6a35b163d31b30916b37f4176d385f41bd",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 10822458,
+    "setup": {
+      "aki_base_ns": 44260833,
+      "repomap_build_ns": 80488542
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "5e5ff3ace496a31b138b0820136a146bfb5de0ef",
+    "samples": 1,
+    "files": 125,
+    "load_ns": 10768083,
+    "setup": {
+      "aki_base_ns": 45087291,
+      "repomap_build_ns": 84939166
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1314816,
+      "db_live_page_bytes": 1314816,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "61c2b1c28f0c5a754330545e31f02cd6d6f7944e",
+    "samples": 1,
+    "files": 119,
+    "load_ns": 9428833,
+    "setup": {
+      "aki_base_ns": 42915584,
+      "repomap_build_ns": 80544916
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1228800,
+      "db_live_page_bytes": 1228800,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "64ead9e6bd924d431f4dd612349bc5e13300e6fc",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 10425000,
+    "setup": {
+      "aki_base_ns": 42215000,
+      "repomap_build_ns": 77304791
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "67c9d4ee110e9adfe33063ef847dba56717c148a",
+    "samples": 1,
+    "files": 119,
+    "load_ns": 11655542,
+    "setup": {
+      "aki_base_ns": 43762084,
+      "repomap_build_ns": 79789542
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1220608,
+      "db_live_page_bytes": 1220608,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "688a429d19d8c804447bb889d3635e2c31a5564d",
+    "samples": 1,
+    "files": 120,
+    "load_ns": 9948458,
+    "setup": {
+      "aki_base_ns": 44814583,
+      "repomap_build_ns": 81974416
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1257472,
+      "db_live_page_bytes": 1257472,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "76dd08d512504b80ef76a76c9e6bd1831e121b71",
+    "samples": 1,
+    "files": 120,
+    "load_ns": 9471333,
+    "setup": {
+      "aki_base_ns": 43779000,
+      "repomap_build_ns": 82484292
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1257472,
+      "db_live_page_bytes": 1257472,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "79a61b90324586d3c3a5859f8755cae2d1c46f2d",
+    "samples": 1,
+    "files": 122,
+    "load_ns": 8507167,
+    "setup": {
+      "aki_base_ns": 42619375,
+      "repomap_build_ns": 72932625
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1236992,
+      "db_live_page_bytes": 1236992,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "7a865dcf1dbe6ec52e074b1ddce830d278eb72cf",
+    "samples": 1,
+    "files": 118,
+    "load_ns": 9342750,
+    "setup": {
+      "aki_base_ns": 42492834,
+      "repomap_build_ns": 76767750
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1224704,
+      "db_live_page_bytes": 1224704,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "86ff4a64c7efe1a1c875529835eeef9e15de1e86",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 8007667,
+    "setup": {
+      "aki_base_ns": 43375709,
+      "repomap_build_ns": 74700291
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1220608,
+      "db_live_page_bytes": 1220608,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "90cf4602698dcbce18df3165b2d24e2940670a41",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 10034667,
+    "setup": {
+      "aki_base_ns": 42855583,
+      "repomap_build_ns": 78680708
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "915e4c90d28ec4cffc6eb146e208ab5a65eac772",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 10812583,
+    "setup": {
+      "aki_base_ns": 49122375,
+      "repomap_build_ns": 88742416
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1331200,
+      "db_live_page_bytes": 1331200,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "9c081de9cdd1948f521d47d170d18cbc2981c33a",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 10379625,
+    "setup": {
+      "aki_base_ns": 43687250,
+      "repomap_build_ns": 77867917
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "9f598a31aafb92d675f38f1c8371e4ac76f858bf",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 10708125,
+    "setup": {
+      "aki_base_ns": 45609208,
+      "repomap_build_ns": 74240541
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1220608,
+      "db_live_page_bytes": 1220608,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "a481ee2897af1e368de5c919fbeb21b89aa26fc7",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 13385750,
+    "setup": {
+      "aki_base_ns": 47693167,
+      "repomap_build_ns": 74449666
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "a4ac275e079d46d493965491d686bfe72d121e85",
+    "samples": 1,
+    "files": 120,
+    "load_ns": 10282792,
+    "setup": {
+      "aki_base_ns": 49805333,
+      "repomap_build_ns": 84982750
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1261568,
+      "db_live_page_bytes": 1261568,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "a64286a7760be2031209686ce4d36e99d42dd419",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 8839917,
+    "setup": {
+      "aki_base_ns": 49263584,
+      "repomap_build_ns": 71839625
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1220608,
+      "db_live_page_bytes": 1220608,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "ac95fa6bbcf5ec102bc81fbbb70e8fccba90f0b1",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 11173083,
+    "setup": {
+      "aki_base_ns": 51228917,
+      "repomap_build_ns": 91188541
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1323008,
+      "db_live_page_bytes": 1323008,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "b1c1e7b572f76071fb0e0e7884a0697e0458aa7c",
+    "samples": 1,
+    "files": 115,
+    "load_ns": 10529916,
+    "setup": {
+      "aki_base_ns": 47506458,
+      "repomap_build_ns": 76887541
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1208320,
+      "db_live_page_bytes": 1208320,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "b2b489dbf4826c2c630717a77fd5e42774625410",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 11441459,
+    "setup": {
+      "aki_base_ns": 51197458,
+      "repomap_build_ns": 88385542
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1331200,
+      "db_live_page_bytes": 1331200,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "b4f66e965ba9d60257e0de4c25d4ad4bd6115927",
+    "samples": 1,
+    "files": 118,
+    "load_ns": 8303917,
+    "setup": {
+      "aki_base_ns": 46193333,
+      "repomap_build_ns": 74830459
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1220608,
+      "db_live_page_bytes": 1220608,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "ba093d19477b896ac89a7fc3246af23d290b8e26",
+    "samples": 1,
+    "files": 128,
+    "load_ns": 10997834,
+    "setup": {
+      "aki_base_ns": 49173958,
+      "repomap_build_ns": 91173042
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1327104,
+      "db_live_page_bytes": 1327104,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "bdc1ad7987b6931801af9d50e2df25667fdfaaf4",
+    "samples": 1,
+    "files": 120,
+    "load_ns": 11894542,
+    "setup": {
+      "aki_base_ns": 48710792,
+      "repomap_build_ns": 83110708
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1257472,
+      "db_live_page_bytes": 1257472,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "c221133ee80c46e3a6c50717ca6f1b41d4ab7711",
+    "samples": 1,
+    "files": 124,
+    "load_ns": 10207875,
+    "setup": {
+      "aki_base_ns": 48164417,
+      "repomap_build_ns": 82188375
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1314816,
+      "db_live_page_bytes": 1314816,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "c2ba8f19ec19914b73290c53a32de479cd463555",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 8603875,
+    "setup": {
+      "aki_base_ns": 45794542,
+      "repomap_build_ns": 71038542
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "c358d5656d0feb8b310d4ec379bccde46ccc8cc7",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 10604333,
+    "setup": {
+      "aki_base_ns": 52624834,
+      "repomap_build_ns": 87339958
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1323008,
+      "db_live_page_bytes": 1323008,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "c4287b1300363cb3dc2c8408299d3ba6deded485",
+    "samples": 1,
+    "files": 119,
+    "load_ns": 10041208,
+    "setup": {
+      "aki_base_ns": 48533083,
+      "repomap_build_ns": 79977458
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1228800,
+      "db_live_page_bytes": 1228800,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "d4a64265f21993368c90602c18e778bf04ef36db",
+    "samples": 2,
+    "files": 117,
+    "load_ns": 8423042,
+    "setup": {
+      "aki_base_ns": 49800666,
+      "repomap_build_ns": 74240833
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1220608,
+      "db_live_page_bytes": 1220608,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "dab5944a7bca8ae37d947dda02ac591afc1177d3",
+    "samples": 1,
+    "files": 122,
+    "load_ns": 13443917,
+    "setup": {
+      "aki_base_ns": 56854959,
+      "repomap_build_ns": 83109542
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1265664,
+      "db_live_page_bytes": 1265664,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "db309081bc5c137b2aa15701ef53f7f19788da25",
+    "samples": 1,
+    "files": 128,
+    "load_ns": 12464750,
+    "setup": {
+      "aki_base_ns": 67715417,
+      "repomap_build_ns": 94874625
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1327104,
+      "db_live_page_bytes": 1327104,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "e0d46ded6cb6974d55a255ab122d1aa6ca0cd60e",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 10777375,
+    "setup": {
+      "aki_base_ns": 51036709,
+      "repomap_build_ns": 77229875
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "e46bd521859fdfc83c508f1d42c92cb7f91e9fcb",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 9684042,
+    "setup": {
+      "aki_base_ns": 49590166,
+      "repomap_build_ns": 79687917
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1220608,
+      "db_live_page_bytes": 1220608,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "ecb3f7b5e2f3915bf1db240ed5eee572f8dbea36",
+    "samples": 1,
+    "files": 125,
+    "load_ns": 11710375,
+    "setup": {
+      "aki_base_ns": 50854083,
+      "repomap_build_ns": 87035750
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1306624,
+      "db_live_page_bytes": 1306624,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "ecdbbbe9483dd12222f2085f717a2c7cb5ac55fe",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 8977292,
+    "setup": {
+      "aki_base_ns": 49285417,
+      "repomap_build_ns": 73988208
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1224704,
+      "db_live_page_bytes": 1224704,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "ed150e72544949a96e7eb0b7d1151cf1907068fb",
+    "samples": 1,
+    "files": 124,
+    "load_ns": 12200833,
+    "setup": {
+      "aki_base_ns": 50159042,
+      "repomap_build_ns": 85197042
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1310720,
+      "db_live_page_bytes": 1310720,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "f75144a356e57c95bd21a048f0a40492dcdb33c5",
+    "samples": 1,
+    "files": 117,
+    "load_ns": 11061875,
+    "setup": {
+      "aki_base_ns": 44802833,
+      "repomap_build_ns": 76155667
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1216512,
+      "db_live_page_bytes": 1216512,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "fad706f1216e6d12bdd51d28d5a40ec27e6c6453",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 12092875,
+    "setup": {
+      "aki_base_ns": 49583375,
+      "repomap_build_ns": 87768500
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1331200,
+      "db_live_page_bytes": 1331200,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "fb2583442c4d9bccb75e6d26f1aa6e7c01950db6",
+    "samples": 1,
+    "files": 128,
+    "load_ns": 9877333,
+    "setup": {
+      "aki_base_ns": 50668625,
+      "repomap_build_ns": 91079709
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1327104,
+      "db_live_page_bytes": 1327104,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "gin-gonic/gin",
+    "commit": "fc1c43298de675e5252d0b44f97dc5e204bd4e1e",
+    "samples": 1,
+    "files": 122,
+    "load_ns": 8376167,
+    "setup": {
+      "aki_base_ns": 48933667,
+      "repomap_build_ns": 72272250
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 1236992,
+      "db_live_page_bytes": 1236992,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "huggingface/diffusers",
+    "commit": "3a4421c89b9ecd8959741c70c6696cb3c844e40f",
+    "samples": 2,
+    "files": 2429,
+    "load_ns": 522601000,
+    "setup": {
+      "aki_base_ns": 2633414625
+    },
+    "edges": 4846,
+    "parse_error_count": 825,
+    "storage": {
+      "db_allocated_bytes": 46350336,
+      "db_live_page_bytes": 45260800,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "ipython/ipython",
+    "commit": "79f313ab453f82d231ba7ac2c1e5211e71d612ce",
+    "samples": 2,
+    "files": 418,
+    "load_ns": 68570875,
+    "setup": {
+      "aki_base_ns": 330936917
+    },
+    "edges": 475,
+    "parse_error_count": 64,
+    "storage": {
+      "db_allocated_bytes": 5791744,
+      "db_live_page_bytes": 5791744,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "microsoft/playwright",
+    "commit": "00dcb5cd511e1e1a1af9dded0b16a975ea7591de",
+    "samples": 1,
+    "files": 2664,
+    "load_ns": 230526750,
+    "setup": {
+      "aki_base_ns": 1026462500
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 30412800,
+      "db_live_page_bytes": 30404608,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "microsoft/playwright",
+    "commit": "6bdd2694ee6b0d34bfc8fb4151223c6f3e31a9e5",
+    "samples": 1,
+    "files": 2332,
+    "load_ns": 216178417,
+    "setup": {
+      "aki_base_ns": 844883958
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 25628672,
+      "db_live_page_bytes": 25079808,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "microsoft/playwright",
+    "commit": "ee8208beda1156f29aac8869570b273f2c135c0e",
+    "samples": 2,
+    "files": 2331,
+    "load_ns": 218455458,
+    "setup": {
+      "aki_base_ns": 852572708
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 25550848,
+      "db_live_page_bytes": 25006080,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "numpy/numpy",
+    "commit": "4d711763f8c5b978abd88cea710147c14d802675",
+    "samples": 1,
+    "files": 2217,
+    "load_ns": 308414958,
+    "setup": {
+      "aki_base_ns": 1386628667
+    },
+    "edges": 966,
+    "parse_error_count": 143,
+    "storage": {
+      "db_allocated_bytes": 27353088,
+      "db_live_page_bytes": 27353088,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "numpy/numpy",
+    "commit": "94f930730c61747a9a0cc889743ce335292c3cb8",
+    "samples": 1,
+    "files": 1155,
+    "load_ns": 218798542,
+    "setup": {
+      "aki_base_ns": 920314875
+    },
+    "edges": 855,
+    "parse_error_count": 138,
+    "storage": {
+      "db_allocated_bytes": 16457728,
+      "db_live_page_bytes": 16179200,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "numpy/numpy",
+    "commit": "aaae9d1da5174290152eb380bf22cfd991089bda",
+    "samples": 1,
+    "files": 1764,
+    "load_ns": 272990833,
+    "setup": {
+      "aki_base_ns": 1210572417
+    },
+    "edges": 1071,
+    "parse_error_count": 141,
+    "storage": {
+      "db_allocated_bytes": 23834624,
+      "db_live_page_bytes": 23277568,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "numpy/numpy",
+    "commit": "b3f09c6787e98e57eff303cbb75c3001dd8b0514",
+    "samples": 1,
+    "files": 1966,
+    "load_ns": 286431125,
+    "setup": {
+      "aki_base_ns": 1374999083
+    },
+    "edges": 1110,
+    "parse_error_count": 136,
+    "storage": {
+      "db_allocated_bytes": 25513984,
+      "db_live_page_bytes": 25513984,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "numpy/numpy",
+    "commit": "b42e4eec3c542e51f2da616913bad98f76328458",
+    "samples": 1,
+    "files": 1570,
+    "load_ns": 260568166,
+    "setup": {
+      "aki_base_ns": 1235224416
+    },
+    "edges": 1066,
+    "parse_error_count": 137,
+    "storage": {
+      "db_allocated_bytes": 21590016,
+      "db_live_page_bytes": 21037056,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "numpy/numpy",
+    "commit": "b9e3ed2e41f99ce146b16d8d1041842c38685430",
+    "samples": 1,
+    "files": 2122,
+    "load_ns": 282232042,
+    "setup": {
+      "aki_base_ns": 1324118500
+    },
+    "edges": 981,
+    "parse_error_count": 129,
+    "storage": {
+      "db_allocated_bytes": 26845184,
+      "db_live_page_bytes": 26845184,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "011b9f9d190c71310264e6c54bae6259f5e38a9f",
+    "samples": 1,
+    "files": 133,
+    "load_ns": 32153500,
+    "setup": {
+      "aki_base_ns": 95831250,
+      "repomap_build_ns": 81724542
+    },
+    "edges": 62,
+    "parse_error_count": 18,
+    "storage": {
+      "db_allocated_bytes": 1536000,
+      "db_live_page_bytes": 1536000,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "02046e7a19480f85fff7e4577486518abe47e401",
+    "samples": 1,
+    "files": 136,
+    "load_ns": 14292500,
+    "setup": {
+      "aki_base_ns": 101613833,
+      "repomap_build_ns": 76460791
+    },
+    "edges": 70,
+    "parse_error_count": 16,
+    "storage": {
+      "db_allocated_bytes": 1466368,
+      "db_live_page_bytes": 1466368,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "08ecfd0e7c238a2444886d239de6d0e9d83530ec",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 10997083,
+    "setup": {
+      "aki_base_ns": 91150834,
+      "repomap_build_ns": 72903708
+    },
+    "edges": 69,
+    "parse_error_count": 15,
+    "storage": {
+      "db_allocated_bytes": 1449984,
+      "db_live_page_bytes": 1449984,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "0bf333e1b77b4ae0e85d387531b38930fc657f12",
+    "samples": 1,
+    "files": 141,
+    "load_ns": 12227375,
+    "setup": {
+      "aki_base_ns": 96292083,
+      "repomap_build_ns": 80287791
+    },
+    "edges": 62,
+    "parse_error_count": 18,
+    "storage": {
+      "db_allocated_bytes": 1527808,
+      "db_live_page_bytes": 1527808,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "1458800409ed12076f18451889b0857db36aa522",
+    "samples": 1,
+    "files": 138,
+    "load_ns": 15745084,
+    "setup": {
+      "aki_base_ns": 97026666,
+      "repomap_build_ns": 89084042
+    },
+    "edges": 58,
+    "parse_error_count": 22,
+    "storage": {
+      "db_allocated_bytes": 1593344,
+      "db_live_page_bytes": 1593344,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "1a4d8c1bb1e8f8e214ede7223bd2c05dc2ce006a",
+    "samples": 1,
+    "files": 136,
+    "load_ns": 12101709,
+    "setup": {
+      "aki_base_ns": 94469875,
+      "repomap_build_ns": 75648417
+    },
+    "edges": 70,
+    "parse_error_count": 16,
+    "storage": {
+      "db_allocated_bytes": 1462272,
+      "db_live_page_bytes": 1462272,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "2ed395b0b5ac4d56553ff715335f456f812cdc78",
+    "samples": 1,
+    "files": 133,
+    "load_ns": 14377708,
+    "setup": {
+      "aki_base_ns": 91786250,
+      "repomap_build_ns": 84448834
+    },
+    "edges": 65,
+    "parse_error_count": 19,
+    "storage": {
+      "db_allocated_bytes": 1523712,
+      "db_live_page_bytes": 1523712,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "380008389b32ca2b7de7c73f670a9eee1562004e",
+    "samples": 1,
+    "files": 136,
+    "load_ns": 11615000,
+    "setup": {
+      "aki_base_ns": 95501834,
+      "repomap_build_ns": 76955041
+    },
+    "edges": 73,
+    "parse_error_count": 15,
+    "storage": {
+      "db_allocated_bytes": 1474560,
+      "db_live_page_bytes": 1474560,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "422cb2064eed146dbe03ba3aed5be35daeb70414",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 13384875,
+    "setup": {
+      "aki_base_ns": 91353958,
+      "repomap_build_ns": 73062000
+    },
+    "edges": 69,
+    "parse_error_count": 15,
+    "storage": {
+      "db_allocated_bytes": 1449984,
+      "db_live_page_bytes": 1449984,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "4271fe283dc9365563aebb369ada8d20eee015a8",
+    "samples": 1,
+    "files": 136,
+    "load_ns": 10688208,
+    "setup": {
+      "aki_base_ns": 101067834,
+      "repomap_build_ns": 77686458
+    },
+    "edges": 74,
+    "parse_error_count": 14,
+    "storage": {
+      "db_allocated_bytes": 1474560,
+      "db_live_page_bytes": 1474560,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "60cad4ad6583bf885c62d6f4597f3555d1ee1a0f",
+    "samples": 1,
+    "files": 140,
+    "load_ns": 16615500,
+    "setup": {
+      "aki_base_ns": 93060041,
+      "repomap_build_ns": 88744333
+    },
+    "edges": 58,
+    "parse_error_count": 22,
+    "storage": {
+      "db_allocated_bytes": 1630208,
+      "db_live_page_bytes": 1630208,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "6c7624491911f0b18f869e5d0a989506e7b416f8",
+    "samples": 1,
+    "files": 125,
+    "load_ns": 13277709,
+    "setup": {
+      "aki_base_ns": 86116417,
+      "repomap_build_ns": 72322041
+    },
+    "edges": 49,
+    "parse_error_count": 21,
+    "storage": {
+      "db_allocated_bytes": 1437696,
+      "db_live_page_bytes": 1437696,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "7d7183604158f064390539d83d4a19a978c6b08a",
+    "samples": 1,
+    "files": 133,
+    "load_ns": 14683208,
+    "setup": {
+      "aki_base_ns": 94089917,
+      "repomap_build_ns": 83136000
+    },
+    "edges": 64,
+    "parse_error_count": 20,
+    "storage": {
+      "db_allocated_bytes": 1515520,
+      "db_live_page_bytes": 1515520,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "7f7bbe4569ea68e8dabee232eade069ef3310aea",
+    "samples": 1,
+    "files": 135,
+    "load_ns": 16832791,
+    "setup": {
+      "aki_base_ns": 92941750,
+      "repomap_build_ns": 83272917
+    },
+    "edges": 65,
+    "parse_error_count": 19,
+    "storage": {
+      "db_allocated_bytes": 1544192,
+      "db_live_page_bytes": 1544192,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "82a83fda1fafd4a43c67755140555bfd5afbd592",
+    "samples": 1,
+    "files": 125,
+    "load_ns": 10802125,
+    "setup": {
+      "aki_base_ns": 86136416,
+      "repomap_build_ns": 71004625
+    },
+    "edges": 53,
+    "parse_error_count": 20,
+    "storage": {
+      "db_allocated_bytes": 1441792,
+      "db_live_page_bytes": 1441792,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "8d3449517a97b6fd457a025bd9c3d2acfd301fa4",
+    "samples": 1,
+    "files": 140,
+    "load_ns": 15520333,
+    "setup": {
+      "aki_base_ns": 101511125,
+      "repomap_build_ns": 91613958
+    },
+    "edges": 58,
+    "parse_error_count": 22,
+    "storage": {
+      "db_allocated_bytes": 1642496,
+      "db_live_page_bytes": 1642496,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "a1235aacb1be55dc66ddcfefbf64dec44b6ab54d",
+    "samples": 1,
+    "files": 132,
+    "load_ns": 15836666,
+    "setup": {
+      "aki_base_ns": 94979792,
+      "repomap_build_ns": 81205541
+    },
+    "edges": 65,
+    "parse_error_count": 17,
+    "storage": {
+      "db_allocated_bytes": 1527808,
+      "db_live_page_bytes": 1527808,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "a8c05427602d12842c53ce48b03b5d6b5c0c6693",
+    "samples": 1,
+    "files": 136,
+    "load_ns": 11865083,
+    "setup": {
+      "aki_base_ns": 96567084,
+      "repomap_build_ns": 77304209
+    },
+    "edges": 73,
+    "parse_error_count": 15,
+    "storage": {
+      "db_allocated_bytes": 1474560,
+      "db_live_page_bytes": 1474560,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "b625b9f39082f366dd85ad13024e43c8f5e78b87",
+    "samples": 1,
+    "files": 125,
+    "load_ns": 13445916,
+    "setup": {
+      "aki_base_ns": 87714375,
+      "repomap_build_ns": 73500083
+    },
+    "edges": 45,
+    "parse_error_count": 22,
+    "storage": {
+      "db_allocated_bytes": 1429504,
+      "db_live_page_bytes": 1429504,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "bf3a945b3a220589c67d55dcb73cc1c9a9a175b3",
+    "samples": 1,
+    "files": 125,
+    "load_ns": 12758417,
+    "setup": {
+      "aki_base_ns": 95335459,
+      "repomap_build_ns": 71495208
+    },
+    "edges": 54,
+    "parse_error_count": 19,
+    "storage": {
+      "db_allocated_bytes": 1441792,
+      "db_live_page_bytes": 1441792,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "bf9da4838986af3bc09a1b16974d154c61dcbe3f",
+    "samples": 1,
+    "files": 126,
+    "load_ns": 14813833,
+    "setup": {
+      "aki_base_ns": 106022916,
+      "repomap_build_ns": 73559125
+    },
+    "edges": 65,
+    "parse_error_count": 16,
+    "storage": {
+      "db_allocated_bytes": 1454080,
+      "db_live_page_bytes": 1454080,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "c7e1ba8448cbcb2cdd9c1c7f4a592e863dcc3995",
+    "samples": 1,
+    "files": 140,
+    "load_ns": 15584708,
+    "setup": {
+      "aki_base_ns": 105936291,
+      "repomap_build_ns": 91675375
+    },
+    "edges": 58,
+    "parse_error_count": 22,
+    "storage": {
+      "db_allocated_bytes": 1630208,
+      "db_live_page_bytes": 1630208,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "c88f333de440c5066ff563f784a6561f4713cf78",
+    "samples": 1,
+    "files": 132,
+    "load_ns": 12206375,
+    "setup": {
+      "aki_base_ns": 106431000,
+      "repomap_build_ns": 81192667
+    },
+    "edges": 65,
+    "parse_error_count": 17,
+    "storage": {
+      "db_allocated_bytes": 1523712,
+      "db_live_page_bytes": 1523712,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "ddede2147c9370ab8275f81db4826b6895d2e7dc",
+    "samples": 1,
+    "files": 140,
+    "load_ns": 14514375,
+    "setup": {
+      "aki_base_ns": 102395042,
+      "repomap_build_ns": 91545542
+    },
+    "edges": 57,
+    "parse_error_count": 22,
+    "storage": {
+      "db_allocated_bytes": 1642496,
+      "db_live_page_bytes": 1642496,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "fa7f035ab58dc4d9b8818b92fbc6a8f3c3234af6",
+    "samples": 1,
+    "files": 137,
+    "load_ns": 13509042,
+    "setup": {
+      "aki_base_ns": 97206500,
+      "repomap_build_ns": 85137750
+    },
+    "edges": 65,
+    "parse_error_count": 19,
+    "storage": {
+      "db_allocated_bytes": 1560576,
+      "db_live_page_bytes": 1560576,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pallets/click",
+    "commit": "fcd85032cff78aa536a6d2b455fb83bfcc02b228",
+    "samples": 1,
+    "files": 136,
+    "load_ns": 12033416,
+    "setup": {
+      "aki_base_ns": 102364250,
+      "repomap_build_ns": 76784959
+    },
+    "edges": 73,
+    "parse_error_count": 15,
+    "storage": {
+      "db_allocated_bytes": 1478656,
+      "db_live_page_bytes": 1478656,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pydantic/pydantic",
+    "commit": "1a37a3d479dea9b21c7379e882bf5ec56fb94fc2",
+    "samples": 1,
+    "files": 701,
+    "load_ns": 102171208,
+    "setup": {
+      "aki_base_ns": 664620166
+    },
+    "edges": 575,
+    "parse_error_count": 115,
+    "storage": {
+      "db_allocated_bytes": 10063872,
+      "db_live_page_bytes": 10063872,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pypa/pip",
+    "commit": "0981e071bee8ac3ca2497813fa0863005033c6c2",
+    "samples": 1,
+    "files": 527,
+    "load_ns": 37467375,
+    "setup": {
+      "aki_base_ns": 379635666
+    },
+    "edges": 1032,
+    "parse_error_count": 63,
+    "storage": {
+      "db_allocated_bytes": 5468160,
+      "db_live_page_bytes": 5468160,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pypa/pip",
+    "commit": "768810ea6d01c9edc3dd21bf5a69a89d80849c59",
+    "samples": 1,
+    "files": 597,
+    "load_ns": 39641709,
+    "setup": {
+      "aki_base_ns": 424534042
+    },
+    "edges": 1067,
+    "parse_error_count": 79,
+    "storage": {
+      "db_allocated_bytes": 6606848,
+      "db_live_page_bytes": 6606848,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pypa/pip",
+    "commit": "b97708aadb64c9f07497f964bb32eb4df0fa2a30",
+    "samples": 1,
+    "files": 588,
+    "load_ns": 41500625,
+    "setup": {
+      "aki_base_ns": 458090667
+    },
+    "edges": 1056,
+    "parse_error_count": 81,
+    "storage": {
+      "db_allocated_bytes": 6619136,
+      "db_live_page_bytes": 6619136,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pypa/pip",
+    "commit": "bca2f4ed594ce881fb0cab6117fa05b7ef13b558",
+    "samples": 1,
+    "files": 395,
+    "load_ns": 19029792,
+    "setup": {
+      "aki_base_ns": 181937958
+    },
+    "edges": 423,
+    "parse_error_count": 30,
+    "storage": {
+      "db_allocated_bytes": 2805760,
+      "db_live_page_bytes": 2805760,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pypa/pip",
+    "commit": "c6dbd1bdc032cf34679c3e632d17613cbfd80027",
+    "samples": 1,
+    "files": 559,
+    "load_ns": 37211125,
+    "setup": {
+      "aki_base_ns": 409834167
+    },
+    "edges": 999,
+    "parse_error_count": 79,
+    "storage": {
+      "db_allocated_bytes": 6430720,
+      "db_live_page_bytes": 6430720,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pypa/pip",
+    "commit": "d05d3c1e97a69cdaf65c787180325fd86dc4f5f8",
+    "samples": 1,
+    "files": 496,
+    "load_ns": 33530792,
+    "setup": {
+      "aki_base_ns": 344915625
+    },
+    "edges": 1035,
+    "parse_error_count": 56,
+    "storage": {
+      "db_allocated_bytes": 5324800,
+      "db_live_page_bytes": 5324800,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "09d163aa3a1f01701fe2e3f073a89d49b9d0cce2",
+    "samples": 1,
+    "files": 270,
+    "load_ns": 29571750,
+    "setup": {
+      "aki_base_ns": 189214083
+    },
+    "edges": 164,
+    "parse_error_count": 30,
+    "storage": {
+      "db_allocated_bytes": 3280896,
+      "db_live_page_bytes": 3280896,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "0c80a1c836616b0206a4af2fe72001ff797a5f8f",
+    "samples": 1,
+    "files": 520,
+    "load_ns": 48028542,
+    "setup": {
+      "aki_base_ns": 277038584
+    },
+    "edges": 397,
+    "parse_error_count": 57,
+    "storage": {
+      "db_allocated_bytes": 5148672,
+      "db_live_page_bytes": 5148672,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "2b5adc88a7a83e03bd680d090314ade92602ff8c",
+    "samples": 1,
+    "files": 466,
+    "load_ns": 48373250,
+    "setup": {
+      "aki_base_ns": 247930458
+    },
+    "edges": 297,
+    "parse_error_count": 46,
+    "storage": {
+      "db_allocated_bytes": 4538368,
+      "db_live_page_bytes": 4538368,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "2f33ea87c8d303c3439655eb2bea24483bffde5e",
+    "samples": 1,
+    "files": 522,
+    "load_ns": 54686000,
+    "setup": {
+      "aki_base_ns": 293986708
+    },
+    "edges": 430,
+    "parse_error_count": 59,
+    "storage": {
+      "db_allocated_bytes": 5210112,
+      "db_live_page_bytes": 5210112,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "4265ab3a41206c5ad40cf711910cf7e8d5286cff",
+    "samples": 1,
+    "files": 415,
+    "load_ns": 46931292,
+    "setup": {
+      "aki_base_ns": 251471209
+    },
+    "edges": 240,
+    "parse_error_count": 47,
+    "storage": {
+      "db_allocated_bytes": 4263936,
+      "db_live_page_bytes": 4263936,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "43d1398fc7f6af7f140afcadf9cccf569dd66ac2",
+    "samples": 1,
+    "files": 550,
+    "load_ns": 58213958,
+    "setup": {
+      "aki_base_ns": 295182875
+    },
+    "edges": 394,
+    "parse_error_count": 62,
+    "storage": {
+      "db_allocated_bytes": 5292032,
+      "db_live_page_bytes": 5292032,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "486a9ed057ee43a70d0a2e1c57bb3b8f925dc42c",
+    "samples": 1,
+    "files": 557,
+    "load_ns": 54078417,
+    "setup": {
+      "aki_base_ns": 299625583
+    },
+    "edges": 387,
+    "parse_error_count": 63,
+    "storage": {
+      "db_allocated_bytes": 5296128,
+      "db_live_page_bytes": 5296128,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "5989efe3efec31a9d14f550d89903b6311dfc828",
+    "samples": 1,
+    "files": 574,
+    "load_ns": 60024625,
+    "setup": {
+      "aki_base_ns": 310609958
+    },
+    "edges": 461,
+    "parse_error_count": 62,
+    "storage": {
+      "db_allocated_bytes": 5595136,
+      "db_live_page_bytes": 5595136,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "5fc7b21391c959bb5a54174d9084ad55131b8fdb",
+    "samples": 1,
+    "files": 566,
+    "load_ns": 52595750,
+    "setup": {
+      "aki_base_ns": 292336083
+    },
+    "edges": 366,
+    "parse_error_count": 58,
+    "storage": {
+      "db_allocated_bytes": 5169152,
+      "db_live_page_bytes": 5169152,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "7bc02cca0dd92ec505b4556c054b4e06e9cb8d4d",
+    "samples": 2,
+    "files": 589,
+    "load_ns": 65867125,
+    "setup": {
+      "aki_base_ns": 337248167
+    },
+    "edges": 393,
+    "parse_error_count": 71,
+    "storage": {
+      "db_allocated_bytes": 5705728,
+      "db_live_page_bytes": 5705728,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "8ecf49ec2807768105b05dda5461b28cdad89d03",
+    "samples": 1,
+    "files": 595,
+    "load_ns": 59242583,
+    "setup": {
+      "aki_base_ns": 323696209
+    },
+    "edges": 398,
+    "parse_error_count": 70,
+    "storage": {
+      "db_allocated_bytes": 5730304,
+      "db_live_page_bytes": 5730304,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "978b315861c553618fd7ec813e21f3e3916f0d09",
+    "samples": 1,
+    "files": 482,
+    "load_ns": 47876541,
+    "setup": {
+      "aki_base_ns": 265030667
+    },
+    "edges": 299,
+    "parse_error_count": 49,
+    "storage": {
+      "db_allocated_bytes": 4579328,
+      "db_live_page_bytes": 4579328,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "a0e3a49f194175bec96a551791b2b02b23e06a09",
+    "samples": 1,
+    "files": 601,
+    "load_ns": 72764667,
+    "setup": {
+      "aki_base_ns": 324823667
+    },
+    "edges": 415,
+    "parse_error_count": 61,
+    "storage": {
+      "db_allocated_bytes": 5517312,
+      "db_live_page_bytes": 5517312,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "a1208f56319470c2ce37d0a0aa694e4423bed314",
+    "samples": 1,
+    "files": 355,
+    "load_ns": 40403375,
+    "setup": {
+      "aki_base_ns": 220284709
+    },
+    "edges": 226,
+    "parse_error_count": 45,
+    "storage": {
+      "db_allocated_bytes": 3915776,
+      "db_live_page_bytes": 3915776,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "bf92debb4fd874289f6aed29c6947b611b1de0ae",
+    "samples": 1,
+    "files": 580,
+    "load_ns": 58282458,
+    "setup": {
+      "aki_base_ns": 309182250
+    },
+    "edges": 456,
+    "parse_error_count": 63,
+    "storage": {
+      "db_allocated_bytes": 5595136,
+      "db_live_page_bytes": 5595136,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "c26c145e0fcef51426d64a184d0faa651777f86f",
+    "samples": 2,
+    "files": 592,
+    "load_ns": 61197541,
+    "setup": {
+      "aki_base_ns": 328822458,
+      "repomap_build_ns": 606114792
+    },
+    "edges": 404,
+    "parse_error_count": 68,
+    "storage": {
+      "db_allocated_bytes": 5718016,
+      "db_live_page_bytes": 5718016,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "c9d8765381d71197fc981a9636828aea5063dc7f",
+    "samples": 1,
+    "files": 559,
+    "load_ns": 65359666,
+    "setup": {
+      "aki_base_ns": 323557125
+    },
+    "edges": 436,
+    "parse_error_count": 56,
+    "storage": {
+      "db_allocated_bytes": 5332992,
+      "db_live_page_bytes": 5332992,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "pytest-dev/pytest",
+    "commit": "f5a9aa0b8409eb70e73ffcca5bd055ad3816c690",
+    "samples": 1,
+    "files": 539,
+    "load_ns": 55019041,
+    "setup": {
+      "aki_base_ns": 296459167
+    },
+    "edges": 387,
+    "parse_error_count": 62,
+    "storage": {
+      "db_allocated_bytes": 5263360,
+      "db_live_page_bytes": 5263360,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "scrapy/scrapy",
+    "commit": "0e579182319504ba7bfd0c09333fe92f70c6d312",
+    "samples": 1,
+    "files": 450,
+    "load_ns": 35419959,
+    "setup": {
+      "aki_base_ns": 377431917
+    },
+    "edges": 976,
+    "parse_error_count": 35,
+    "storage": {
+      "db_allocated_bytes": 5652480,
+      "db_live_page_bytes": 5652480,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "scrapy/scrapy",
+    "commit": "5dcf8b9015d412919aca99cad0371298f9591b94",
+    "samples": 1,
+    "files": 479,
+    "load_ns": 39635625,
+    "setup": {
+      "aki_base_ns": 401263792
+    },
+    "edges": 985,
+    "parse_error_count": 54,
+    "storage": {
+      "db_allocated_bytes": 6238208,
+      "db_live_page_bytes": 6238208,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "scrapy/scrapy",
+    "commit": "f6ed5edc31e7cc66225c0860e1534a6230511954",
+    "samples": 1,
+    "files": 446,
+    "load_ns": 32076500,
+    "setup": {
+      "aki_base_ns": 380694584
+    },
+    "edges": 957,
+    "parse_error_count": 35,
+    "storage": {
+      "db_allocated_bytes": 5582848,
+      "db_live_page_bytes": 5582848,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "tokio-rs/tokio",
+    "commit": "670a907c55c7f7b27da203208e65da60de6598b2",
+    "samples": 2,
+    "files": 766,
+    "load_ns": 65688792,
+    "setup": {
+      "aki_base_ns": 360135000,
+      "repomap_build_ns": 924929917
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 9330688,
+      "db_live_page_bytes": 9330688,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "tokio-rs/tokio",
+    "commit": "873cb8ae2fc291eaffbd71e3c83d17b2f0ed7abf",
+    "samples": 1,
+    "files": 758,
+    "load_ns": 80634583,
+    "setup": {
+      "aki_base_ns": 311315166,
+      "repomap_build_ns": 860629500
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 9019392,
+      "db_live_page_bytes": 9019392,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "tokio-rs/tokio",
+    "commit": "911ab21d7012a50e53971ad1292a9f18de22d4c8",
+    "samples": 1,
+    "files": 765,
+    "load_ns": 66918542,
+    "setup": {
+      "aki_base_ns": 328974708,
+      "repomap_build_ns": 926638583
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 9293824,
+      "db_live_page_bytes": 9293824,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "tokio-rs/tokio",
+    "commit": "a05135a4f8866679dca7ad721fa37ab447ccbb47",
+    "samples": 1,
+    "files": 608,
+    "load_ns": 49748959,
+    "setup": {
+      "aki_base_ns": 252956750
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 7241728,
+      "db_live_page_bytes": 7241728,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "tokio-rs/tokio",
+    "commit": "c79121391db8f8d36d4213feeb25381caee110c7",
+    "samples": 1,
+    "files": 826,
+    "load_ns": 73120542,
+    "setup": {
+      "aki_base_ns": 369784041,
+      "repomap_build_ns": 1059391417
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 10162176,
+      "db_live_page_bytes": 10162176,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "tokio-rs/tokio",
+    "commit": "d1744bf260384838e00311230faf7787a97f477b",
+    "samples": 1,
+    "files": 481,
+    "load_ns": 35480667,
+    "setup": {
+      "aki_base_ns": 209046250
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5206016,
+      "db_live_page_bytes": 5206016,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "tokio-rs/tokio",
+    "commit": "de6ef21a81fc451f904bcad8ba85dd8c96b17d76",
+    "samples": 1,
+    "files": 774,
+    "load_ns": 64417625,
+    "setup": {
+      "aki_base_ns": 354844959,
+      "repomap_build_ns": 920485459
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 9297920,
+      "db_live_page_bytes": 9297920,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "tox-dev/tox",
+    "commit": "16df4d8d54d75b673482ab6021e5aaa3b2d0152a",
+    "samples": 3,
+    "files": 274,
+    "load_ns": 27198333,
+    "setup": {
+      "aki_base_ns": 280908042
+    },
+    "edges": 805,
+    "parse_error_count": 34,
+    "storage": {
+      "db_allocated_bytes": 3538944,
+      "db_live_page_bytes": 3538944,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "1358a3c75bfa1d6e72aa8d98dd0e1f70662c8056",
+    "samples": 1,
+    "files": 1482,
+    "load_ns": 38967708,
+    "setup": {
+      "aki_base_ns": 195366500
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5971968,
+      "db_live_page_bytes": 5971968,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "27e28328235d2f5c6a44129a7635b697097ec50a",
+    "samples": 1,
+    "files": 1471,
+    "load_ns": 41560042,
+    "setup": {
+      "aki_base_ns": 198075625
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5947392,
+      "db_live_page_bytes": 5947392,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "34826aae015ed16dc9b9096c0f778154ca6981a6",
+    "samples": 1,
+    "files": 1529,
+    "load_ns": 44704167,
+    "setup": {
+      "aki_base_ns": 214812208
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 6004736,
+      "db_live_page_bytes": 6004736,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "45d6797d9e573fe572dfd6d1c337c8c21f4c29a4",
+    "samples": 1,
+    "files": 1372,
+    "load_ns": 38893083,
+    "setup": {
+      "aki_base_ns": 209823625
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5734400,
+      "db_live_page_bytes": 5734400,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "5ba688bc422c54944bc6fc563bfe1ba2616a0911",
+    "samples": 1,
+    "files": 2328,
+    "load_ns": 67457583,
+    "setup": {
+      "aki_base_ns": 336406250
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 9297920,
+      "db_live_page_bytes": 9297920,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "67e3e9542a35c9ad949651c3faa2f22d2ae50b0c",
+    "samples": 1,
+    "files": 2022,
+    "load_ns": 58322125,
+    "setup": {
+      "aki_base_ns": 325809208
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 7995392,
+      "db_live_page_bytes": 7995392,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "81989bfb32bee3138f406350d518c53b1683919e",
+    "samples": 1,
+    "files": 1362,
+    "load_ns": 41953792,
+    "setup": {
+      "aki_base_ns": 216439584
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5681152,
+      "db_live_page_bytes": 5681152,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "a07a4bd052ac75f916391c999c408ad5f2867e61",
+    "samples": 1,
+    "files": 2350,
+    "load_ns": 64776500,
+    "setup": {
+      "aki_base_ns": 351363208
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 9453568,
+      "db_live_page_bytes": 9453568,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "ac5d8a7745776f6d7921a110ac650ab48037debf",
+    "samples": 1,
+    "files": 1604,
+    "load_ns": 43302333,
+    "setup": {
+      "aki_base_ns": 227969667
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 6193152,
+      "db_live_page_bytes": 6193152,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "bb85bd751e4568c707612b708deaba67f8af4ca3",
+    "samples": 1,
+    "files": 2240,
+    "load_ns": 61198000,
+    "setup": {
+      "aki_base_ns": 321890125
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 8810496,
+      "db_live_page_bytes": 8810496,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "bf0cd25adb3b8bb5d53433ba9323d0a95e9f756a",
+    "samples": 1,
+    "files": 1415,
+    "load_ns": 39627750,
+    "setup": {
+      "aki_base_ns": 189334708
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5701632,
+      "db_live_page_bytes": 5701632,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "cecc366614042e54744a1e3ef7aada0ca5f7c491",
+    "samples": 1,
+    "files": 1326,
+    "load_ns": 39084292,
+    "setup": {
+      "aki_base_ns": 190229250
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5566464,
+      "db_live_page_bytes": 5566464,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "de6323f460dd3e7e3edf97443ece2acce6187ea0",
+    "samples": 1,
+    "files": 1476,
+    "load_ns": 40714041,
+    "setup": {
+      "aki_base_ns": 210335750
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5951488,
+      "db_live_page_bytes": 5951488,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "e92d025cedabb477687d6a352ee8c9b7d529f623",
+    "samples": 1,
+    "files": 1489,
+    "load_ns": 39566375,
+    "setup": {
+      "aki_base_ns": 201993417
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 5939200,
+      "db_live_page_bytes": 5939200,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "f623ba37dbc517656a7ffb10bc1b3cb221a4bc72",
+    "samples": 1,
+    "files": 609,
+    "load_ns": 19927459,
+    "setup": {
+      "aki_base_ns": 106813291
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 3153920,
+      "db_live_page_bytes": 3153920,
+      "materialized_logical_bytes": 0
+    }
+  },
+  {
+    "repo": "vitejs/vite",
+    "commit": "f80ff77a4326669a07f76df3a2ccd66f9e0cafa5",
+    "samples": 1,
+    "files": 1553,
+    "load_ns": 38994042,
+    "setup": {
+      "aki_base_ns": 200842333
+    },
+    "edges": 0,
+    "parse_error_count": 0,
+    "storage": {
+      "db_allocated_bytes": 6012928,
+      "db_live_page_bytes": 6012928,
+      "materialized_logical_bytes": 0
+    }
+  }
+]

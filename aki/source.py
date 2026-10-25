@@ -27,7 +27,7 @@ def read_python_tree(root: Path) -> dict[str, str]:
         if p.is_symlink() or any(x.startswith(".") for x in p.relative_to(root).parts):
             continue
         if p.stat().st_size <= 1_000_000:
-            docs[p.relative_to(root).as_posix()] = p.read_text(encoding="utf-8", errors="replace")
+            docs[p.relative_to(root).as_posix()] = p.read_text(encoding="utf-8", errors="strict")
     return docs
 
 

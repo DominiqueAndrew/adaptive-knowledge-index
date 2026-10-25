@@ -1,0 +1,448 @@
+{
+  "final-synthetic-v2": {
+    "best_matched_baseline": "frequency",
+    "aki_over_best_ratios": [
+      0.9579222162545421,
+      1.1935913328030119,
+      0.9809558499817015,
+      0.9779467497147579,
+      1.2122531802284564
+    ],
+    "aki_over_best_mean": 1.064533865796494,
+    "bootstrap_95_seed_mean": [
+      0.9705387563840603,
+      1.1585289752089276
+    ],
+    "bootstrap_caveat": "descriptive only: five generated seeds on one machine, not population generalization",
+    "policies": {
+      "aki": {
+        "mean_lifecycle_ms": 798.1703088,
+        "mean_query_ms": 615.0128838,
+        "mean_peak_logical_bytes": 65016.2,
+        "sustained_break_even_queries": [
+          1,
+          null,
+          29,
+          32,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 1.8786834,
+          "warm_heldout": 1.4409084,
+          "unseen_roots": 2.0949418,
+          "drift": 2.2151248,
+          "post_mutation": 2.0087164
+        }
+      },
+      "disabled": {
+        "mean_lifecycle_ms": 881.198292,
+        "mean_query_ms": 756.945034,
+        "mean_peak_logical_bytes": 0,
+        "sustained_break_even_queries": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 2.0469416000000002,
+          "warm_heldout": 2.0945918,
+          "unseen_roots": 2.0543752,
+          "drift": 1.8421084,
+          "post_mutation": 1.8477584
+        }
+      },
+      "frequency": {
+        "mean_lifecycle_ms": 749.3178984,
+        "mean_query_ms": 621.6465064,
+        "mean_peak_logical_bytes": 65450,
+        "sustained_break_even_queries": [
+          64,
+          79,
+          1,
+          48,
+          75
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 2.001575,
+          "warm_heldout": 1.5039246,
+          "unseen_roots": 2.1490916,
+          "drift": 2.4471586,
+          "post_mutation": 2.2213248
+        }
+      },
+      "gds": {
+        "mean_lifecycle_ms": 965.0659808,
+        "mean_query_ms": 837.047023,
+        "mean_peak_logical_bytes": 65492.4,
+        "sustained_break_even_queries": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 3.3439416,
+          "warm_heldout": 1.5587502,
+          "unseen_roots": 2.1395832,
+          "drift": 3.1840334,
+          "post_mutation": 3.2500168
+        }
+      },
+      "lru": {
+        "mean_lifecycle_ms": 957.2061666,
+        "mean_query_ms": 829.044358,
+        "mean_peak_logical_bytes": 65504.4,
+        "sustained_break_even_queries": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 3.2836832,
+          "warm_heldout": 1.4588836,
+          "unseen_roots": 2.117425,
+          "drift": 3.3297246,
+          "post_mutation": 3.3523584
+        }
+      },
+      "static_bounded": {
+        "mean_lifecycle_ms": 2612.400757,
+        "mean_query_ms": 797.3414154,
+        "mean_peak_logical_bytes": 65530,
+        "sustained_break_even_queries": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 2.09985,
+          "warm_heldout": 2.1376164,
+          "unseen_roots": 2.1008586,
+          "drift": 1.9350502,
+          "post_mutation": 1.937725
+        }
+      },
+      "static_full": {
+        "mean_lifecycle_ms": 3628.6392936,
+        "mean_query_ms": 280.3381438,
+        "mean_peak_logical_bytes": 6273237,
+        "sustained_break_even_queries": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 1.0844500000000001,
+          "warm_heldout": 1.0445666,
+          "unseen_roots": 1.061775,
+          "drift": 0.9708916,
+          "post_mutation": 0.9370582000000001
+        }
+      }
+    }
+  },
+  "final-low-reuse": {
+    "best_matched_baseline": "disabled",
+    "aki_over_best_ratios": [
+      1.0256267123596108,
+      0.996126854909291,
+      1.0235376142579986,
+      1.0016458585259924,
+      1.2187456186474463
+    ],
+    "aki_over_best_mean": 1.0531365317400678,
+    "bootstrap_95_seed_mean": [
+      1.0038166082257132,
+      1.136284065745266
+    ],
+    "bootstrap_caveat": "descriptive only: five generated seeds on one machine, not population generalization",
+    "policies": {
+      "aki": {
+        "mean_lifecycle_ms": 632.7545394,
+        "mean_query_ms": 475.16794699999997,
+        "mean_peak_logical_bytes": 0,
+        "sustained_break_even_queries": [
+          null,
+          401,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 2.0211252,
+          "warm_heldout": 1.9578834,
+          "unseen_roots": 1.9466168,
+          "drift": 2.0320082,
+          "post_mutation": 2.2000332
+        }
+      },
+      "disabled": {
+        "mean_lifecycle_ms": 600.5901258,
+        "mean_query_ms": 469.7440178,
+        "mean_peak_logical_bytes": 0,
+        "sustained_break_even_queries": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 2.0068166,
+          "warm_heldout": 1.9927334,
+          "unseen_roots": 1.9631168,
+          "drift": 2.0069168,
+          "post_mutation": 2.2545418
+        }
+      },
+      "frequency": {
+        "mean_lifecycle_ms": 609.6062836,
+        "mean_query_ms": 475.8347504,
+        "mean_peak_logical_bytes": 0,
+        "sustained_break_even_queries": [
+          null,
+          1,
+          null,
+          null,
+          1
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 1.9852416,
+          "warm_heldout": 1.9670502,
+          "unseen_roots": 1.9332086000000002,
+          "drift": 2.0177332,
+          "post_mutation": 2.1975918
+        }
+      },
+      "gds": {
+        "mean_lifecycle_ms": 978.6165644,
+        "mean_query_ms": 846.4313978,
+        "mean_peak_logical_bytes": 65521.4,
+        "sustained_break_even_queries": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 3.967933,
+          "warm_heldout": 1.9954666,
+          "unseen_roots": 1.96995,
+          "drift": 4.1810002,
+          "post_mutation": 4.1030082
+        }
+      },
+      "lru": {
+        "mean_lifecycle_ms": 972.3154376,
+        "mean_query_ms": 840.450504,
+        "mean_peak_logical_bytes": 65526.6,
+        "sustained_break_even_queries": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 4.1515918,
+          "warm_heldout": 2.0469832,
+          "unseen_roots": 1.9871746,
+          "drift": 3.8510916,
+          "post_mutation": 4.2058998
+        }
+      },
+      "static_bounded": {
+        "mean_lifecycle_ms": 2323.393179,
+        "mean_query_ms": 491.555146,
+        "mean_peak_logical_bytes": 65530,
+        "sustained_break_even_queries": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 2.0669002,
+          "warm_heldout": 2.0177168,
+          "unseen_roots": 2.0184584,
+          "drift": 2.095325,
+          "post_mutation": 2.2846502
+        }
+      },
+      "static_full": {
+        "mean_lifecycle_ms": 3460.6318026,
+        "mean_query_ms": 173.3137528,
+        "mean_peak_logical_bytes": 6273237,
+        "sustained_break_even_queries": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_phase_p95_ms": {
+          "cold_adapt": 1.0597166,
+          "warm_heldout": 1.0517002,
+          "unseen_roots": 1.0203084,
+          "drift": 1.03065,
+          "post_mutation": 1.0967500000000001
+        }
+      }
+    }
+  },
+  "click-history": {
+    "aki/global": {
+      "mean_lifecycle_ms": 2291.3877376666665,
+      "retained": 0,
+      "invalidated": 18
+    },
+    "aki/selective": {
+      "mean_lifecycle_ms": 2330.8727873333332,
+      "retained": 37,
+      "invalidated": 20
+    },
+    "disabled/global": {
+      "mean_lifecycle_ms": 2267.047310666667,
+      "retained": 0,
+      "invalidated": 0
+    },
+    "disabled/selective": {
+      "mean_lifecycle_ms": 2302.7283740000003,
+      "retained": 0,
+      "invalidated": 0
+    },
+    "frequency/global": {
+      "mean_lifecycle_ms": 2464.4091486666666,
+      "retained": 0,
+      "invalidated": 369
+    },
+    "frequency/selective": {
+      "mean_lifecycle_ms": 2461.5153983333335,
+      "retained": 323,
+      "invalidated": 46
+    },
+    "gds/global": {
+      "mean_lifecycle_ms": 2866.111975,
+      "retained": 0,
+      "invalidated": 442
+    },
+    "gds/selective": {
+      "mean_lifecycle_ms": 2930.9309433333333,
+      "retained": 398,
+      "invalidated": 35
+    },
+    "lru/global": {
+      "mean_lifecycle_ms": 2938.720188,
+      "retained": 0,
+      "invalidated": 321
+    },
+    "lru/selective": {
+      "mean_lifecycle_ms": 3045.108405666667,
+      "retained": 280,
+      "invalidated": 41
+    },
+    "static_bounded/global": {
+      "mean_lifecycle_ms": 2495.558281,
+      "retained": 0,
+      "invalidated": 786
+    },
+    "static_bounded/selective": {
+      "mean_lifecycle_ms": 2365.9069326666668,
+      "retained": 855,
+      "invalidated": 9
+    },
+    "static_full/global": {
+      "mean_lifecycle_ms": 3992.0360339999997,
+      "retained": 0,
+      "invalidated": 3528
+    },
+    "static_full/selective": {
+      "mean_lifecycle_ms": 2399.3765226666665,
+      "retained": 3375,
+      "invalidated": 153
+    }
+  },
+  "pytest-history": {
+    "aki/global": {
+      "mean_lifecycle_ms": 7146.760592,
+      "retained": 0,
+      "invalidated": 19
+    },
+    "aki/selective": {
+      "mean_lifecycle_ms": 6161.737504,
+      "retained": 19,
+      "invalidated": 6
+    },
+    "disabled/global": {
+      "mean_lifecycle_ms": 6096.192085000001,
+      "retained": 0,
+      "invalidated": 0
+    },
+    "disabled/selective": {
+      "mean_lifecycle_ms": 6063.386512,
+      "retained": 0,
+      "invalidated": 0
+    },
+    "frequency/global": {
+      "mean_lifecycle_ms": 6184.2048073333335,
+      "retained": 0,
+      "invalidated": 92
+    },
+    "frequency/selective": {
+      "mean_lifecycle_ms": 6198.941218333333,
+      "retained": 96,
+      "invalidated": 7
+    },
+    "gds/global": {
+      "mean_lifecycle_ms": 8094.677305666666,
+      "retained": 0,
+      "invalidated": 102
+    },
+    "gds/selective": {
+      "mean_lifecycle_ms": 6641.4646256666665,
+      "retained": 91,
+      "invalidated": 6
+    },
+    "lru/global": {
+      "mean_lifecycle_ms": 6621.468019,
+      "retained": 0,
+      "invalidated": 73
+    },
+    "lru/selective": {
+      "mean_lifecycle_ms": 6873.900152333334,
+      "retained": 67,
+      "invalidated": 6
+    },
+    "static_bounded/global": {
+      "mean_lifecycle_ms": 6773.054901,
+      "retained": 0,
+      "invalidated": 420
+    },
+    "static_bounded/selective": {
+      "mean_lifecycle_ms": 6704.420711666667,
+      "retained": 402,
+      "invalidated": 18
+    },
+    "static_full/global": {
+      "mean_lifecycle_ms": 8419.839661333333,
+      "retained": 0,
+      "invalidated": 8220
+    },
+    "static_full/selective": {
+      "mean_lifecycle_ms": 6719.269397666667,
+      "retained": 7458,
+      "invalidated": 762
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "click-history": {
+    "raw_queries": 40320,
+    "accounting": "passed",
+    "budget": "passed",
+    "cross_policy_answer_hashes": "harness BFS assertions; no output hashes saved"
+  },
+  "final-low-reuse": {
+    "raw_queries": 17500,
+    "accounting": "passed",
+    "budget": "passed",
+    "cross_policy_answer_hashes": "passed"
+  },
+  "final-synthetic": {
+    "raw_queries": 28000,
+    "accounting": "passed",
+    "budget": "passed",
+    "cross_policy_answer_hashes": "passed"
+  },
+  "final-synthetic-v2": {
+    "raw_queries": 28000,
+    "accounting": "passed",
+    "budget": "passed",
+    "cross_policy_answer_hashes": "passed"
+  },
+  "pilot-v1": {
+    "raw_queries": 4800,
+    "accounting": "passed",
+    "budget": "passed",
+    "cross_policy_answer_hashes": "passed"
+  },
+  "pytest-history": {
+    "raw_queries": 20160,
+    "accounting": "passed",
+    "budget": "passed",
+    "cross_policy_answer_hashes": "harness BFS assertions; no output hashes saved"
+  },
+  "synthetic-v2": {
+    "raw_queries": 28000,
+    "accounting": "passed",
+    "budget": "passed",
+    "cross_policy_answer_hashes": "passed"
+  },
+  "arb": {
+    "sample_rank_parity": 183,
+    "passed": true
+  }
+}

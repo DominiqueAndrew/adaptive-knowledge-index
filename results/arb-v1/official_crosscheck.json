@@ -1,0 +1,8 @@
+{
+  "unmodified_official_entrypoint": "evaluate_lexical_baseline",
+  "samples": 101,
+  "identical_top20": 101,
+  "MRR_and_Recall20": "identical",
+  "skipped": {},
+  "passed": true
+}
