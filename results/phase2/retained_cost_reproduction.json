@@ -1,0 +1,52 @@
+{
+  "aki": {
+    "before": {
+      "resident": true,
+      "base_ns": 1085416.4,
+      "benefit": 65434367.99999999,
+      "gds": null
+    },
+    "after": {
+      "resident": true,
+      "hit": true,
+      "base_ns": 0,
+      "benefit": 0.0,
+      "gds": 0.0
+    },
+    "refresh": {
+      "revision": "1db03a88e4019746980168d1b3ee6c467aa7015873175e108556c08dc6b7d5d3",
+      "files": 627,
+      "edges": 2727,
+      "parse_errors": [],
+      "invalidated": 0,
+      "retained": 1,
+      "static_rebuild_ns": 2083,
+      "total_refresh_ns": 55278833
+    }
+  },
+  "gds": {
+    "before": {
+      "resident": true,
+      "base_ns": 1065958,
+      "benefit": 66493844.48,
+      "gds": 173.58052434456928
+    },
+    "after": {
+      "resident": true,
+      "hit": true,
+      "base_ns": 0,
+      "benefit": 0.0,
+      "gds": 0.0
+    },
+    "refresh": {
+      "revision": "1db03a88e4019746980168d1b3ee6c467aa7015873175e108556c08dc6b7d5d3",
+      "files": 627,
+      "edges": 2727,
+      "parse_errors": [],
+      "invalidated": 0,
+      "retained": 1,
+      "static_rebuild_ns": 1709,
+      "total_refresh_ns": 56977292
+    }
+  }
+}
