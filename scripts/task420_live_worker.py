@@ -27,6 +27,7 @@ sys.path.insert(0, str(PROJECT))
 sys.path.insert(0, str(PROJECT/'scripts'))
 from aki.setup_plan import expected_container_environment, verify_container, verify_loaded_image, owned_container_removal
 from aki.recorder import Recorder, canonical, verify
+from aki.setup_tls import verified_context
 
 DOCKER = ['/opt/homebrew/bin/docker', '--context', 'colima']
 COLIMA = '/opt/homebrew/bin/colima'
@@ -73,6 +74,8 @@ def run(argv, *, data=None, timeout=30, limit=2*1024**2, reject_pattern=None):
 
 def stage(root):
     proposal = read(PROJECT/'results/runtime/task420-setup-proposal.json')
+    tls,tls_proof=verified_context()
+    if tls_proof!=read(root/'tls-preflight.json'):raise RuntimeError('TLS trust inputs changed after preflight')
     state = {'download_bytes': 0, 'expanded_layer_bytes': 0, 'files': [], 'status': 'staging'}
     def fetch(url, *, digest=None, size=None, target=None, headers=None, start=None):
         remaining = CAP-state['download_bytes']; cap = size if size is not None else min(1024**2, remaining)
@@ -80,7 +83,7 @@ def stage(root):
         data = bytearray(); h = hashlib.sha256(); count = 0
         stream = target.open('xb') if target else None
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=headers or {}), timeout=20) as response:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers or {}), timeout=20,context=tls) as response:
                 if start is not None and (response.status!=206 or not response.headers.get('Content-Range','').startswith('bytes '+str(start)+'-'+str(start+size-1)+'/')):raise RuntimeError('metadata range not honored')
                 while count < cap:
                     block = response.read(min(1024**2, cap-count))
@@ -159,7 +162,12 @@ def stage(root):
             return fetch(url+'?range='+str(start)+'-'+str(start+count-1),size=count,headers=headers,start=start)
     # Charge a conservative allowance for the range reader's HEAD response headers.
     state['download_bytes']+=8192
-    parquet=pq.ParquetFile(RemoteParquet(MetadataBudget(),url))
+    class TaskParquet(RemoteParquet):
+        def __init__(self,budget,url):
+            self.budget,self.url,self.pos=budget,url,0
+            with urllib.request.urlopen(urllib.request.Request(url,method='HEAD'),timeout=20,context=tls) as response:
+                self.size=int(response.headers['Content-Length'])
+    parquet=pq.ParquetFile(TaskParquet(MetadataBudget(),url))
     columns=['instance_id','repo','base_commit','problem_statement']
     task=parquet.read_row_group(metadata['row_group'],columns=columns).slice(metadata['row_index'],1).to_pylist()[0]
     if task['instance_id']!='Backblaze__B2_Command_Line_Tool-420' or task['base_commit']!=proposal['base_commit']:raise RuntimeError('task identity mismatch')

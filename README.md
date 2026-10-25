@@ -44,6 +44,11 @@ that restriction, reserve teardown time and reject incomplete CPU accounting.
 Their disabled setup plan still needs an approved live validation; no prospective
 agent result is claimed.
 
+The [second bounded attempt](docs/TASK420_ATTEMPT2.md) stopped on its first TLS
+request because the selected Python runtime had an empty default CA store. No VM
+or pilot started. A local verified-trust preflight is now tested; it has not been
+retried against the network. Prior research conclusions remain unchanged.
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,

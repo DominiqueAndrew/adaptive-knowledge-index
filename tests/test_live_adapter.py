@@ -6,12 +6,14 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+import ssl
 from unittest import mock
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 import task420_live_worker as worker
 import run_task420_attempt as supervisor
+from aki.setup_tls import verified_context
 
 
 def module(name,path):
@@ -22,6 +24,20 @@ with mock.patch.dict(sys.modules,{'control':CONTROL}):BACKEND=module('fixture_ba
 
 
 class LiveBridgeTests(unittest.TestCase):
+    def test_local_tls_preflight_loads_existing_roots_without_network(self):
+        with mock.patch('urllib.request.urlopen',side_effect=AssertionError('network not allowed')):
+            context,proof=verified_context()
+        self.assertGreater(proof['loaded_ca_count'],0)
+        self.assertTrue(context.check_hostname);self.assertEqual(context.verify_mode,ssl.CERT_REQUIRED)
+
+    def test_tls_preflight_rejects_empty_or_disabled_verification(self):
+        empty=mock.Mock();empty.cert_store_stats.return_value={'x509_ca':0}
+        with mock.patch('ssl.create_default_context',return_value=empty):
+            with self.assertRaises(RuntimeError):verified_context()
+        disabled=mock.Mock();disabled.cert_store_stats.return_value={'x509_ca':10};disabled.check_hostname=False
+        with mock.patch('ssl.create_default_context',return_value=disabled):
+            with self.assertRaises(RuntimeError):verified_context()
+
     def test_guest_syntax_and_scoped_read_edit(self):
         ast.parse((ROOT/'runtime/task420/backend.py').read_text(),feature_version=(3,5))
         with tempfile.TemporaryDirectory() as d:

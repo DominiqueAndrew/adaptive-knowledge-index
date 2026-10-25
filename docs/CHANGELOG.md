@@ -1,5 +1,15 @@
 # Research release history
 
+## Corrected live attempt and verified-trust preflight
+
+- Freeze an integrated, bounded fixture-first driver at `238d6b5`; 93 host tests.
+- Record its initial TLS verification failure, completed cleanup and full numeric
+  accounting. No VM, fixture, task or model execution occurred; no retry followed.
+- Add local nonempty trust-store validation and explicit verified TLS contexts
+  using already-installed roots; preserve hostname verification and `CERT_REQUIRED`.
+- Separate report-writing CPU allowance from observed counters. Final patch passes
+  95 host tests; network/runtime validation remains pending. See `TASK420_ATTEMPT2.md`.
+
 ## Setup-control repair — host verification only
 
 - Preserve `noexec` by using the base interpreter with separate data-only library

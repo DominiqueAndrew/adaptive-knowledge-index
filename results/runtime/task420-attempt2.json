@@ -1,0 +1,107 @@
+{
+  "schema": "aki.task420.live-attempt-result.v2",
+  "created_utc": "2026-10-25T19:16:52.062890+00:00",
+  "execution_commit": "238d6b59c862125011d05aeec63c4a152de397e0",
+  "protocol": "docs/TASK420_LIVE_ATTEMPT2_PROTOCOL.md",
+  "task": "Backblaze__B2_Command_Line_Tool-420",
+  "status": "stopped_at_initial_verified_tls_request",
+  "failure": {
+    "error_type": "URLError",
+    "message": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)>"
+  },
+  "target": "https://auth.docker.io/token?service=registry.docker.io&scope=repository:library/python:pull",
+  "executed": {
+    "single_live_supervisor_attempt": true,
+    "http_artifact_response_bodies": 0,
+    "vm_starts": 0,
+    "containers": 0,
+    "dependency_installs": 0,
+    "live_recorder_fixtures": 0,
+    "pilot_operations": 0,
+    "model_calls": 0
+  },
+  "measurements": {
+    "total_including_preparation_wall_s": 1.178685416933149,
+    "supervised_wall_s": 0.5667120828293264,
+    "conservative_cpu_ns": 1851190656,
+    "observed_cpu_component_sum_ns": 845956000,
+    "report_serialization_cpu_allowance_ns": 1000000000,
+    "other_unsampled_cpu_bound_ns": 5234656,
+    "reserved_peak_disk_bytes": 872445257,
+    "cleanup_removed_artifact_bytes": 0,
+    "artifact_body_download_bytes": 0,
+    "tls_transport_bytes": "not instrumented; not claimed zero"
+  },
+  "cpu_accounting_caveat": "The frozen driver stored a one-CPU-second reporting allowance in measured_ns. This report separates it from observed counters; repaired code now puts it in the bound field. Host/guest counters can overlap.",
+  "cleanup": {
+    "pending": [],
+    "accounting_finalized": true,
+    "saved_config_hashes_unchanged": true,
+    "vm": "already stopped at initial precondition; no start issued",
+    "created_container_or_image": "none",
+    "local_artifact_bodies": "none"
+  },
+  "command_measurements": [
+    {
+      "name": "stage",
+      "phase": "work",
+      "exit": 1,
+      "wall_s": 0.24014729191549122,
+      "input_bytes_sent": 0,
+      "output_bytes_seen": 4358
+    },
+    {
+      "name": "cleanup-container",
+      "phase": "cleanup",
+      "exit": 0,
+      "wall_s": 0.07850491697899997,
+      "input_bytes_sent": 0,
+      "output_bytes_seen": 50
+    },
+    {
+      "name": "cleanup-image",
+      "phase": "cleanup",
+      "exit": 0,
+      "wall_s": 0.08404579106718302,
+      "input_bytes_sent": 0,
+      "output_bytes_seen": 46
+    },
+    {
+      "name": "cleanup-vm",
+      "phase": "cleanup",
+      "exit": 0,
+      "wall_s": 0.0815409580245614,
+      "input_bytes_sent": 0,
+      "output_bytes_seen": 43
+    },
+    {
+      "name": "cleanup-local",
+      "phase": "cleanup",
+      "exit": 0,
+      "wall_s": 0.07828116719610989,
+      "input_bytes_sent": 0,
+      "output_bytes_seen": 46
+    }
+  ],
+  "read_only_diagnosis": {
+    "python_version": "3.11.5",
+    "default_ca_count_normal": 0,
+    "default_ca_count_isolated": 0,
+    "existing_bundle_preflight": {
+      "source": "existing_certifi",
+      "default_ca_count": 0,
+      "bundle_sha256": "c55b21f907f7f86d48add093552fb5651749ff5f860508ccbb423d6c1fbd80c7",
+      "bundle_version": "2025.01.31",
+      "loaded_ca_count": 150
+    },
+    "network_retest_performed": false
+  },
+  "validation": {
+    "frozen_driver_host_tests": 93,
+    "post_failure_patch_host_tests": 95,
+    "live_dependency_compatibility_validated": false,
+    "live_recorder_validated": false
+  },
+  "next_gate": "Renewed authorization for one verified-TLS preflight and conditional bounded fixture-first attempt; no host install/security change needed.",
+  "research_interpretation": "Environment setup failure, not an agent task failure or an AKI efficacy result."
+}

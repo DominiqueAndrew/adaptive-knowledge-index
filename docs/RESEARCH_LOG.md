@@ -390,3 +390,26 @@ permission scope and preconditions are documented in `TASK420_SETUP_REPAIR.md`:
 one bounded fixture-first attempt, original limits, all security flags retained,
 no task dispatch until runtime and recorder checks pass. This closes the code and
 host-test work; adaptive efficacy and prospective agent evaluation remain unresolved.
+
+## Authorized corrected attempt — initial TLS failure, no live fixture reached
+
+Froze the integrated driver and bounded three-turn planner protocol in `238d6b5`
+after 93 host tests. The one authorized attempt failed immediately at the public
+registry token request with certificate verification failure. No artifact body,
+VM start, dependency execution, recorder fixture, task operation or model call
+followed. Bounded cleanup completed with finalized accounting and unchanged saved
+configuration hashes. Total preparation/work/cleanup wall was 1.178685 seconds;
+observed CPU components sum to 0.845956 seconds, conservative total 1.851191 seconds.
+
+Local read-only diagnosis found zero default Python CA roots in both ordinary and
+isolated mode. Existing certifi loads 150 roots. Added a verified-context preflight,
+explicit context propagation to registry/artifact/task-metadata requests and two
+tests. Also separated the driver's one-CPU-second report-writing allowance from
+observed CPU fields; the original raw record remains unmodified and the public
+numeric report discloses the old labeling. Final suite: 95 tests passed. No new
+network request or execution retry occurred after failure. See `TASK420_ATTEMPT2.md`.
+
+The precise remaining gate is renewed authorization for the verified registry
+preflight and conditional bounded fixture-first attempt. It requires no host
+installation, new credential or security-setting change. Adaptive benefit,
+live recorder feasibility and prospective agent outcomes remain unresolved.

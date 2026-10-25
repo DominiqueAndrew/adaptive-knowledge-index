@@ -22,6 +22,7 @@ PROJECT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(PROJECT));sys.path.insert(0,str(PROJECT/'scripts'))
 from aki.setup_accounting import AccountingError, CpuLedger, darwin_process_cpu, guest_cpu_snapshot
 from aki.setup_watchdog import SetupWatchdog, Command
+from aki.setup_tls import verified_context
 from prepare_task420_controls import prepare
 from task420_live_worker import save, read, COLIMA
 
@@ -138,9 +139,11 @@ class Accounting:
             self.stop.set();self.thread.join(timeout=3.5)
             if self.thread.is_alive():raise AccountingError('CPU collector termination pending')
             now=time.monotonic_ns()
-            self.ledger.update('supervisor','supervisor',time.process_time_ns()+1_000_000_000,now)
+            self.ledger.update('supervisor','supervisor',time.process_time_ns(),now)
             self.ledger.update('workers','workers',self._workers(),now)
             for name in self.ledger.REQUIRED:self.ledger.finalize(name,now,confirmed=True)
+            # Keep this allowance separate from actual observed CPU counters.
+            self.ledger.counters['supervisor'].terminal_bound_ns+=1_000_000_000
         value=self.ledger.snapshot(now);self.max_cpu=max(self.max_cpu,value['conservative_cpu_ns'])
         # Reserve VM unpacked image + bounded tmpfs/capture space before download.
         local=0
@@ -165,12 +168,14 @@ def main():
     main_started=time.monotonic()
     parser=argparse.ArgumentParser();parser.add_argument('--execute-approved-single-attempt',action='store_true');args=parser.parse_args()
     if not args.execute_approved_single_attempt:raise SystemExit('No action; separate live-attempt authorization required.')
+    tls,tls_proof=verified_context()  # Local only, before allocating a live attempt.
     # This precondition does not start or stop anything.
     status=subprocess.run([COLIMA,'list','--json'],capture_output=True,check=True,timeout=10)
     profiles=[json.loads(row) for row in status.stdout.splitlines()]
     if not any(r.get('name')=='default' and r.get('status')=='Stopped' for r in profiles):raise SystemExit('existing default VM must be stopped')
     attempt=uuid.uuid4().hex;root=PROJECT/'scratch'/('task420-live-'+attempt)
     prepare(root,attempt);(root/'control/backend.py').write_bytes((PROJECT/'runtime/task420/backend.py').read_bytes())
+    save(root/'tls-preflight.json',tls_proof)
     before=config_hashes();save(root/'supervisor.json',{'pid':os.getpid(),'attempt':attempt,'started_unix':time.time(),'single_attempt':True})
     accounting=Accounting(root);runner=SetupWatchdog(cpu_snapshot=accounting.snapshot,total_s=600-(time.monotonic()-main_started))
     accounting.runner=runner
