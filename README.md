@@ -138,3 +138,7 @@ are attributed in [DATA_SOURCES.md](docs/DATA_SOURCES.md). Only original code,
 numeric measurements, source hashes and public file rankings are published.
 No source corpus, personal files, query/failure traces, credentials, or model
 conversation is included.
+
+[CLI/runtime readiness follow-up](docs/CODEX_CLI_READINESS.md): the bundled Codex
+CLI works with existing ChatGPT authentication. The stopped Colima VM and reviewed
+tool-dispatch integration remain the prerequisites for a live public-task pilot.

@@ -186,7 +186,7 @@ planner may use an already-approved model connection, while repository execution
 remains isolated. Record image digest, model/scaffold version, tokenizer and actual
 model usage in the frozen experiment manifest without logging prompts or secrets.
 
-**Current capability check:** Python and Docker CLI are installed. A bounded
+**Initial capability check:** Python and Docker CLI are installed. A bounded
 read-only `docker version` check returned daemon-not-running-or-unreachable;
 no container or daemon was started. This project has no reviewed live agent
 adapter/model transport configured. The current Codex tools do not expose a
@@ -205,3 +205,8 @@ The recorder cannot redact an adapter's own console/provider logs. Disable promp
 logging or keep those logs private under the approved experiment's controls.
 Only the recorder's explicitly documented artifacts have its retention rules.
 The default library/test suite remains stdlib-only; recorder capture is POSIX-only.
+
+A [targeted follow-up](CODEX_CLI_READINESS.md) subsequently verified the bundled
+Codex CLI with the existing ChatGPT login. Model authentication is available; the
+remaining runtime is an existing stopped Colima VM, with an explicit resume step
+and a one-task pilot plan. No benchmark code has run.

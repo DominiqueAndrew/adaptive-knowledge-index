@@ -293,3 +293,18 @@ agent adapter/model transport is configured here. Those are the concrete remaini
 capabilities needed for a prospective run; no purchase is requested. The useful
 current deliverable remains incremental source/evidence maintenance, with adaptive
 selection unresolved.
+
+## Targeted runtime/model feasibility follow-up
+
+Found the app-bundled Codex CLI despite its absence from PATH; existing ChatGPT
+authentication is active. One tool-disabled ephemeral fixture probe succeeded,
+with only an agent-message event and a verified recording (one operation/two
+boundaries). Reported model usage was 15,889 input and 15 output tokens; no repeat
+probe or paid API setup was performed. No existing sessions were read or resumed.
+
+Docker targets an existing stopped Colima profile, not an installed Docker Desktop
+app. Its VM startup has guest provisioning/system/disk operations, so the narrower
+ordinary-app-launch permission was not expanded to that boot. Recorded the exact
+resume command, remaining reviewed-isolation/adapter checks, and the first frozen
+one-task pilot in `CODEX_CLI_READINESS.md`. No benchmark code ran; held-out actions
+remain unopened. Generated captures stay local; only documentation is published.
