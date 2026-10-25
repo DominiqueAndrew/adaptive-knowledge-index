@@ -1,0 +1,20 @@
+{
+  "development_tasks": 12,
+  "qualifying_tasks": 0,
+  "required_qualifying_tasks": 8,
+  "matched_views": 0,
+  "mismatched_views": 0,
+  "stop_reasons": {
+    "unresolved_path": 12
+  },
+  "evaluation_actions_inspected": false,
+  "python": "3.11.5",
+  "timing_scope": "Local UTF8 source read/decode/view selection only; original tool latency and skipped shell work unavailable.",
+  "code_sha256": {
+    "aki/replay.py": "43763559f0fa3f0fe2598dca2c39004f28765325c34ee4863f5f03580e4e8518",
+    "scripts/reconstruct_development.py": "1b7da3abaf432d63f07c4ae49a400fdf9b8ef6fc52b1aa0eed645534c49d9048"
+  },
+  "reconstruction_gate_passed": false,
+  "timed_view_wall_ns": 0,
+  "timed_view_cpu_ns": 0
+}

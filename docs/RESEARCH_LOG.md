@@ -246,3 +246,26 @@ No new candidate was implemented, no model call/purchase made, and no official
 repair benchmark claim is made. `PHASE3_RESULTS.md` records the bounded missing
 instrumented-log requirement, source attribution and reproducible audit commands.
 The existing incremental-maintenance finding and all earlier negatives remain.
+
+## Phase four — bounded source reconstruction reaches a real blocker
+
+Registered protocol `313c382`; froze 24 metadata-selected tasks across six
+repositories in `ce59006`. Acquired all twelve development source snapshots and
+only selected development action objects. Corrected a `/testbed` assumption using
+pinned task-version metadata for `/workspace/<repo>__<version>`. Expanded only a
+safe literal-find grammar; no command execution was introduced.
+
+Twenty-one views match source evidence; zero mismatches. All tasks stop after
+one or two matched reads at Python setup/test/module execution, so 0/12 meet the
+registered three-read minimum (8/12 required). Held-out actions remain uninspected.
+No policy benchmark or new candidate was run after that failed gate. Final local
+view read/hash/decode/selection totals are 9.795 ms wall and 2.505 ms CPU, explicitly
+not original agent service times or full lifecycle savings.
+
+Budgeted downloads are 1.017 GiB; measured script CPU 38.123 s, with conservative
+review/validation allowances still well within the 2 GiB/30 CPU-minute cap.
+No third-party setup/test/source code ran. The missing input is post-opaque-action
+source snapshots or verified deltas with actual tree identities and tool timings.
+Current deliverable decision: incremental source/evidence maintenance, retaining
+AKI admission as experimental and all prior negative results. See
+`PHASE4_RESULTS.md` for exact limits, provenance, tests and the smallest next input.

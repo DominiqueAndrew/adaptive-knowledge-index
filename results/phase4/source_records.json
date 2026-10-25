@@ -1,0 +1,230 @@
+[
+  {
+    "instance_id": "Backblaze__B2_Command_Line_Tool-420",
+    "repo": "Backblaze/B2_Command_Line_Tool",
+    "base_commit": "15a60ad1c71b75366061e4f742ef52eb9dcc23e7",
+    "environment_setup_commit": "ee2339bd21d21d6140936d58597957250a33fc26",
+    "success": true,
+    "source_download_bytes": 111652,
+    "acquisition_ns": 299495625,
+    "unpack_hash_ns": 32946791,
+    "tree_manifest_sha256": "865ce7a3a56ee7287bb042d36d412c65601cabee27af96fde4bd9521887ccc42",
+    "regular_file_bytes": 485038,
+    "licenses": [
+      {
+        "path": "LICENSE",
+        "sha256": "0ef213a0ea27ed3be9e46a9b75fb70dcdddc2296cd35d957bf2b23083ea5b6f5",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "Backblaze__B2_Command_Line_Tool-488",
+    "repo": "Backblaze/B2_Command_Line_Tool",
+    "base_commit": "4154652165dd475d79de606abd70b6debc4596d4",
+    "environment_setup_commit": "6d1ff3c30dc9c14d6999da7161483b5fbbf7a48b",
+    "success": true,
+    "source_download_bytes": 131963,
+    "acquisition_ns": 352026000,
+    "unpack_hash_ns": 41975917,
+    "tree_manifest_sha256": "a7053ac53d316690b1ff012e8736ba9e9decc537ee55a1451cad46331e20574e",
+    "regular_file_bytes": 582631,
+    "licenses": [
+      {
+        "path": "LICENSE",
+        "sha256": "0ef213a0ea27ed3be9e46a9b75fb70dcdddc2296cd35d957bf2b23083ea5b6f5",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "Backblaze__B2_Command_Line_Tool-302",
+    "repo": "Backblaze/B2_Command_Line_Tool",
+    "base_commit": "0fe4f2d0faad6e4e86d668b54958d93bc116b85c",
+    "environment_setup_commit": "4f2a17eb0342ba6efed8b97442dd20c4e80c1845",
+    "success": true,
+    "source_download_bytes": 94721,
+    "acquisition_ns": 309996500,
+    "unpack_hash_ns": 34453250,
+    "tree_manifest_sha256": "f7543365056731e99b9192239fa7d64434b594adaeb7964852da18221de18de3",
+    "regular_file_bytes": 412937,
+    "licenses": [
+      {
+        "path": "LICENSE",
+        "sha256": "0ef213a0ea27ed3be9e46a9b75fb70dcdddc2296cd35d957bf2b23083ea5b6f5",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "Backblaze__B2_Command_Line_Tool-332",
+    "repo": "Backblaze/B2_Command_Line_Tool",
+    "base_commit": "26ba7c389b732b2202da62a28826a893a8d47749",
+    "environment_setup_commit": "4e3ee3d1d9bdaf7bbd164dfaa812868aa92c2d32",
+    "success": true,
+    "source_download_bytes": 98343,
+    "acquisition_ns": 254804042,
+    "unpack_hash_ns": 34077125,
+    "tree_manifest_sha256": "fd81c5911731807d078849fca21952ce226bf88d2ece7275b0af9d02ab0d7bc1",
+    "regular_file_bytes": 428628,
+    "licenses": [
+      {
+        "path": "LICENSE",
+        "sha256": "0ef213a0ea27ed3be9e46a9b75fb70dcdddc2296cd35d957bf2b23083ea5b6f5",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "certbot__certbot-5687",
+    "repo": "certbot/certbot",
+    "base_commit": "e0ae356aa35adf22d154113e06dd01409df93bba",
+    "environment_setup_commit": "e0ae356aa35adf22d154113e06dd01409df93bba",
+    "success": true,
+    "source_download_bytes": 1127571,
+    "acquisition_ns": 469027333,
+    "unpack_hash_ns": 355264667,
+    "tree_manifest_sha256": "ed3e4442de596327d290cc1704195f4ab9daba4120da20a66d8c00842016048d",
+    "regular_file_bytes": 3813659,
+    "licenses": [
+      {
+        "path": "LICENSE.txt",
+        "sha256": "09469ed16fa61a319a788800b9ecdfd0a1d6ab8e10e3e17e2c75cd57b1173f71",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "certbot__certbot-7095",
+    "repo": "certbot/certbot",
+    "base_commit": "bf818036eb4f23164f92800b9ea83591149c0814",
+    "environment_setup_commit": "8b684e9b9543c015669844222b8960e1b9a71e97",
+    "success": true,
+    "source_download_bytes": 1330767,
+    "acquisition_ns": 505698125,
+    "unpack_hash_ns": 409740459,
+    "tree_manifest_sha256": "6a60a4cf2f058d7f4103989cb63cbb88f0057fcfae809242484cea3afeb76655",
+    "regular_file_bytes": 4573152,
+    "licenses": [
+      {
+        "path": "LICENSE.txt",
+        "sha256": "09469ed16fa61a319a788800b9ecdfd0a1d6ab8e10e3e17e2c75cd57b1173f71",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "certbot__certbot-6788",
+    "repo": "certbot/certbot",
+    "base_commit": "b10ceb7d907cdcc36ec2d745e7802127919ec043",
+    "environment_setup_commit": "0c6d83dc39e3226cbf86e3cc6cb51e85b1383017",
+    "success": true,
+    "source_download_bytes": 1271758,
+    "acquisition_ns": 569514750,
+    "unpack_hash_ns": 414505583,
+    "tree_manifest_sha256": "22f224033ef3de974cc5149b784bd1d50a18aa6d56c64e5a107064e29286675c",
+    "regular_file_bytes": 4384932,
+    "licenses": [
+      {
+        "path": "LICENSE.txt",
+        "sha256": "09469ed16fa61a319a788800b9ecdfd0a1d6ab8e10e3e17e2c75cd57b1173f71",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "certbot__certbot-7387",
+    "repo": "certbot/certbot",
+    "base_commit": "754c34c12043bbbe3ceb12fb5660f841d09e3690",
+    "environment_setup_commit": "754c34c12043bbbe3ceb12fb5660f841d09e3690",
+    "success": true,
+    "source_download_bytes": 1346260,
+    "acquisition_ns": 556022334,
+    "unpack_hash_ns": 423129541,
+    "tree_manifest_sha256": "c82b1d0f50b502ed7c462a5bd63a43d53c6962a4b616b41e3ebe58edec804306",
+    "regular_file_bytes": 4775548,
+    "licenses": [
+      {
+        "path": "LICENSE.txt",
+        "sha256": "09469ed16fa61a319a788800b9ecdfd0a1d6ab8e10e3e17e2c75cd57b1173f71",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "miurahr__aqtinstall-364",
+    "repo": "miurahr/aqtinstall",
+    "base_commit": "dd0b42bd72a49c5f361ccff582662411912392a9",
+    "environment_setup_commit": "cb7eaeeb2afb755a3020ad510b74e62647b3ab99",
+    "success": true,
+    "source_download_bytes": 1322899,
+    "acquisition_ns": 523816000,
+    "unpack_hash_ns": 44834333,
+    "tree_manifest_sha256": "9d6d6f53bc4a701f461e3266b8f71309fa490b714c164460fba55d33811ee7f7",
+    "regular_file_bytes": 1975665,
+    "licenses": [
+      {
+        "path": "LICENSE",
+        "sha256": "68c568bbd39857324bb8bb736c82b9eb63b44d52597f76b3f1804384e6f24c6c",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "miurahr__aqtinstall-510",
+    "repo": "miurahr/aqtinstall",
+    "base_commit": "a27fa31566272f39947a000484dafadc207443bc",
+    "environment_setup_commit": "068302bca58f92eaab815dc672bebeb7e02b8ae3",
+    "success": true,
+    "source_download_bytes": 1377459,
+    "acquisition_ns": 570317125,
+    "unpack_hash_ns": 48116166,
+    "tree_manifest_sha256": "eef40f716cd8644b00e018562f93640114966dda5778f1379ac9bb446c624639",
+    "regular_file_bytes": 2297096,
+    "licenses": [
+      {
+        "path": "LICENSE",
+        "sha256": "68c568bbd39857324bb8bb736c82b9eb63b44d52597f76b3f1804384e6f24c6c",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "miurahr__aqtinstall-550",
+    "repo": "miurahr/aqtinstall",
+    "base_commit": "2b390e53c50c67e35b78d809db0055078ce21f0b",
+    "environment_setup_commit": "7c331f449b17d4459ce664324c65ee5d0b605bf4",
+    "success": true,
+    "source_download_bytes": 1404171,
+    "acquisition_ns": 355405583,
+    "unpack_hash_ns": 49669209,
+    "tree_manifest_sha256": "23de100709340a0db15873c78e009c5b22b028a31edcd1a942ef9be851f2c453",
+    "regular_file_bytes": 2512054,
+    "licenses": [
+      {
+        "path": "LICENSE",
+        "sha256": "68c568bbd39857324bb8bb736c82b9eb63b44d52597f76b3f1804384e6f24c6c",
+        "recognized_permissive_family": true
+      }
+    ]
+  },
+  {
+    "instance_id": "miurahr__aqtinstall-633",
+    "repo": "miurahr/aqtinstall",
+    "base_commit": "eae2568e49a340d8de8d2663fc0f5ce6a94dd5e3",
+    "environment_setup_commit": "7917b2d725f56e8ceb6ba17b41ea0571506c7320",
+    "success": true,
+    "source_download_bytes": 1492097,
+    "acquisition_ns": 476798916,
+    "unpack_hash_ns": 58878167,
+    "tree_manifest_sha256": "673ae3eabe80fb6b440baf65f5309a8adfc9ca4fdb0d9759df32e40bc985788c",
+    "regular_file_bytes": 2873290,
+    "licenses": [
+      {
+        "path": "LICENSE",
+        "sha256": "68c568bbd39857324bb8bb736c82b9eb63b44d52597f76b3f1804384e6f24c6c",
+        "recognized_permissive_family": true
+      }
+    ]
+  }
+]

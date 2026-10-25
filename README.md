@@ -24,6 +24,13 @@ diagnostics, not latency or task-success results. Missing per-action timings and
 source-tree states prevent a lifecycle claim. The evidence does not justify a new
 candidate implementation. [Trace audit, limits and next data requirement](docs/PHASE3_RESULTS.md).
 
+**Bounded replay also stops at an evidence gap.** The frozen 24-task/six-repository
+study reconstructed 21 source views in its 12 development tasks, all matching the
+pinned source. Every task then reached project-code execution before enough reads
+to pass the registered coverage gate; held-out actions remain uninspected. The
+current useful deliverable is incremental source/evidence maintenance. Adaptive
+selection remains experimental. [Replay findings and research decision](docs/PHASE4_RESULTS.md).
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,

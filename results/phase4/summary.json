@@ -1,0 +1,26 @@
+{
+  "development_tasks": 12,
+  "qualifying_tasks": 0,
+  "required_qualifying_tasks": 8,
+  "matched_views": 21,
+  "mismatched_views": 0,
+  "stop_reasons": {
+    "opaque_shell_state_transition": 12
+  },
+  "evaluation_actions_inspected": false,
+  "python": "3.11.5",
+  "timing_scope": "Local UTF8 source read/hash/decode/view selection only; original tool latency and skipped shell work unavailable.",
+  "code_sha256": {
+    "aki/replay.py": "ee3c797888972b51e45486f8f39c3d97453be2608c2fd646cb7e0602325ecf3d",
+    "scripts/reconstruct_development.py": "4debc05d8aa0a75cfa9e53a52f527777a0fd3de7acf084e7474153d312342a0d"
+  },
+  "reconstruction_gate_passed": false,
+  "timed_view_wall_ns": 9795418,
+  "timed_view_cpu_ns": 2505000,
+  "stop_operations": {
+    "python_setup_script": 3,
+    "python_module_pytest": 8,
+    "other_python_execution": 1
+  },
+  "repeated_valid_view_signatures": 0
+}
