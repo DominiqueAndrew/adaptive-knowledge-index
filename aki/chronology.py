@@ -28,7 +28,7 @@ def run(args):
     # No future snapshot enters a policy: these are harness/evaluator storage only.
     snapshots=[(c,load_snapshot(args.repo,c)) for c in commits]
     args.out.mkdir(parents=True,exist_ok=False)
-    meta=metadata() | {"repo":"pallets/click", "license":"BSD-3-Clause", "commits":commits,
+    meta=metadata() | {"repo":args.label, "license":args.license, "commits":commits,
                       "source_manifests":[snapshot_id(d) for c,d in snapshots],
                       "workload":"generated random query sequence on real chronological source revisions",
                       "seeds":args.seeds,"queries_per_snapshot":args.count,"budget":args.budget,
@@ -49,12 +49,12 @@ def run(args):
         rng.shuffle(conditions)
         for name,mode in conditions:
             with tempfile.TemporaryDirectory(prefix="aki-history-") as temp:
-                store=Store(Path(temp)/"db.sqlite","pallets/click")
+                store=Store(Path(temp)/"db.sqlite",args.label)
                 policy=Policy(store,name,args.budget)
                 total_ns,stale,retained,invalidated=0,0,0,0
                 for episode,((commit,docs),(queries,gold)) in enumerate(zip(snapshots,workloads)):
                     previous=store.revision
-                    report=policy.refresh(docs,f"pallets/click@{commit}",mode)
+                    report=policy.refresh(docs,f"{args.label}@{commit}",mode)
                     total_ns+=report["total_refresh_ns"]
                     retained+=report["retained"]
                     invalidated+=report["invalidated"]
@@ -83,6 +83,8 @@ def run(args):
 if __name__=="__main__":
     p=argparse.ArgumentParser()
     p.add_argument("--repo",type=Path,required=True)
+    p.add_argument("--label",default="pallets/click")
+    p.add_argument("--license",default="BSD-3-Clause")
     p.add_argument("--ref",default="2247b35ea1c47c727d7a06e51fa280e12a863ff6")
     p.add_argument("--snapshots",type=int,default=8)
     p.add_argument("--seeds",default="20,21,22")

@@ -63,7 +63,8 @@ def workloads(docs: dict[str, str], seed: int, count: int, scenario: str):
     roots = sorted(p for p in docs if not is_test(p))
     rng.shuffle(roots)
     hot = roots[:max(2, min(8, len(roots)//4))]
-    other = roots[len(hot):] or roots
+    train_pool = roots[:max(len(hot),len(roots)//2)]
+    other = roots[len(train_pool):] or roots
     drift = other[:len(hot)]
     result = []
     for phase, pool, frozen in (("cold_adapt", hot, False), ("warm_heldout", hot, True),
@@ -73,7 +74,12 @@ def workloads(docs: dict[str, str], seed: int, count: int, scenario: str):
             if scenario == "low_reuse":
                 root = roots[(i + (len(result)//count)*count) % len(roots)]
             else:
-                root = rng.choice(pool if rng.random() < .85 else roots)
+                if phase == "unseen_roots":
+                    root = rng.choice(other)
+                elif phase in {"cold_adapt","warm_heldout"}:
+                    root = rng.choice(pool if rng.random() < .85 else train_pool)
+                else:
+                    root = rng.choice(pool if rng.random() < .85 else roots)
             # Distinct query strings across phases; structure can still be reused.
             kind = rng.choice(("dependencies", "ripple", "tests"))
             text = f"{phase} variant{i} " + rng.choice(("test", "core", "m00", ""))

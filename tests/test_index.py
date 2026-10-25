@@ -97,5 +97,13 @@ class IndexTest(unittest.TestCase):
         self.assertEqual(p.query("missing","tests",self.store.revision)[0],[])
         self.assertEqual(p.query("pkg/b.py","tests",self.store.revision,budget=0)[0],[])
 
+    def test_unseen_roots_are_disjoint_and_query_strings_unique(self):
+        from aki.benchmark import workloads
+        queries=workloads(synthetic(100),8,100,"locality")
+        seen={q["root"] for q in queries if q["phase"] in {"cold_adapt","warm_heldout"}}
+        unseen={q["root"] for q in queries if q["phase"]=="unseen_roots"}
+        self.assertFalse(seen & unseen)
+        self.assertEqual(len({q["text"] for q in queries}),len(queries))
+
 
 if __name__ == "__main__": unittest.main()
