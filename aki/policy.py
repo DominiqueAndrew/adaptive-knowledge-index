@@ -37,13 +37,14 @@ class Policy:
         self.gds_clock = 0.0
         self.gds = {}
         self.refresh_risk = 0.0
-        # One live Policy owns a Store. Persisted answers without their measured
+        # One live Policy owns a Store. Persisted paths without their measured
         # cost/admission state are discarded, not silently left outside budget.
         store.clear_materializations()
         self.startup_ns = time.perf_counter_ns() - start
 
     def initialize(self) -> int:
         t = time.perf_counter_ns()
+        self.store.check(self.store.revision)
         if self.name.startswith("static"):
             for (root,) in self.store.db.execute("SELECT path FROM files ORDER BY path").fetchall():
                 for direction in ("forward", "reverse"):

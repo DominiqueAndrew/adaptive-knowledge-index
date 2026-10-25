@@ -130,5 +130,33 @@ class RefreshTest(unittest.TestCase):
             self.assertEqual(evidence[0]["text"], source)
         s.close()
 
+    def test_old_extractor_store_requires_refresh_before_policy_use(self):
+        from aki.store import StaleRevision
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/"old.sqlite"
+            docs={"a.py":"import b", "b.py":"x=1"}
+            s=Store(path,"migration")
+            s.refresh(docs)
+            with s.db: s.db.execute("UPDATE meta SET v='legacy-extractor' WHERE k='extractor'")
+            s.close()
+            s=Store(path,"migration")
+            p=Policy(s,"lru")
+            with self.assertRaises(StaleRevision): p.query("a.py","dependencies",s.revision)
+            with self.assertRaises(StaleRevision): p.initialize()
+            with self.assertRaises(StaleRevision): s.closure("a.py","forward")
+            with self.assertRaises(StaleRevision): s.get(p.key("a.py","forward"))
+            with self.assertRaises(StaleRevision): s.edge_evidence("a.py","b.py",s.revision)
+            report=p.refresh(docs,"same bytes, new extractor","selective")
+            self.assertFalse(report["noop"])
+            self.assertEqual(p.query("a.py","dependencies",s.revision)[0],["b.py"])
+            s.close()
+
+    def test_source_loader_preserves_exact_utf8_line_endings(self):
+        from aki.source import read_python_tree
+        with tempfile.TemporaryDirectory() as tmp:
+            source='x="\u2028"\r\nimport b\r'
+            (Path(tmp)/"a.py").write_bytes(source.encode("utf-8"))
+            self.assertEqual(read_python_tree(Path(tmp))["a.py"],source)
+
 
 if __name__ == "__main__": unittest.main()

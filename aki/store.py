@@ -49,6 +49,8 @@ class Store:
         self.db.commit()
         row = self.db.execute("SELECT v FROM meta WHERE k='revision'").fetchone()
         self.revision = row[0] if row else ""
+        row = self.db.execute("SELECT v FROM meta WHERE k='extractor'").fetchone()
+        self.extractor = row[0] if row else ""
         self.documents: dict[str, str] = {}
         self.tokens = dict(self.db.execute("SELECT path,tokens FROM files"))
 
@@ -65,6 +67,7 @@ class Store:
         old_count = self.db.execute("SELECT count(*) FROM mats").fetchone()[0]
         if revision == self.revision and meta.get("extractor") == EXTRACTOR:
             self.documents = dict(documents)
+            self.extractor = EXTRACTOR
             return {"revision": revision, "files": len(documents),
                     "edges": self.db.execute("SELECT count(*) FROM edges").fetchone()[0],
                     "parse_errors": json.loads(meta.get("parse_errors", "[]")),
@@ -140,6 +143,7 @@ class Store:
             self.db.execute("INSERT OR REPLACE INTO meta VALUES('extractor',?)", (EXTRACTOR,))
             self.db.execute("INSERT OR REPLACE INTO meta VALUES('parse_errors',?)", (json.dumps(parsed.errors),))
         self.revision, self.documents = revision, dict(documents)
+        self.extractor = EXTRACTOR
         self.tokens = token_sizes
         return {"revision": revision, "files": len(documents), "edges": len(parsed.edges),
                 "parse_errors": list(parsed.errors), "invalidated": old_count-len(retained),
@@ -151,6 +155,8 @@ class Store:
                 "store_refresh_ns": time.perf_counter_ns()-begin}
 
     def check(self, revision: str, scope: str | None = None):
+        if self.extractor != EXTRACTOR:
+            raise StaleRevision("extractor version changed or uninitialized; refresh before querying")
         if revision != self.revision or (scope is not None and scope != self.scope):
             raise StaleRevision("requested source revision or scope is not current; refresh required")
 
@@ -165,6 +171,7 @@ class Store:
         return [dict(zip(names,row)) | {"current_revision": revision} for row in rows]
 
     def closure(self, root: str, direction: str) -> list[str]:
+        self.check(self.revision)
         if direction not in {"forward", "reverse"}:
             raise ValueError(direction)
         a, b = ("src", "dst") if direction == "forward" else ("dst", "src")
@@ -177,6 +184,7 @@ class Store:
         """, (root, root))]
 
     def get(self, key: str) -> list[str] | None:
+        self.check(self.revision)
         row = self.db.execute("SELECT revision,payload FROM mats WHERE key=?", (key,)).fetchone()
         return json.loads(row[1]) if row and row[0] == self.revision else None
 
