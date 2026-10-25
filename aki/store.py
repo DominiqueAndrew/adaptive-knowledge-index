@@ -5,9 +5,9 @@ import json
 import sqlite3
 import time
 from pathlib import Path
-from .source import digest, is_test, parse, snapshot_id, token_count
+from .source import digest, is_test, parse, source_lines, token_count
 
-EXTRACTOR = "python-ast-import-v2-active-spans"
+EXTRACTOR = "python-ast-import-v3-physical-lines"
 
 
 class StaleRevision(ValueError):
@@ -120,7 +120,7 @@ class Store:
                 token_sizes[path] = token_count(text)
                 self.db.execute("INSERT INTO files VALUES(?,?,?,?)", (path, file_hash, is_test(path), token_sizes[path]))
                 self.db.execute("INSERT INTO search VALUES(?,?)", (path, text))
-                lines = text.splitlines(keepends=True)
+                lines = source_lines(text)
                 for start in range(0, len(lines), 80):
                     chunk = "".join(lines[start:start + 80])
                     content_hash = digest(chunk)

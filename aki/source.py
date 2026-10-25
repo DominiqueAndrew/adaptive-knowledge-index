@@ -12,6 +12,11 @@ def digest(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
+def source_lines(text: str) -> list[str]:
+    """Python physical lines, preserving terminators and embedded Unicode separators."""
+    return [line for line in re.findall(r"[^\r\n]*(?:\r\n|\r|\n|$)", text) if line]
+
+
 def token_count(text: str) -> int:
     """Deterministic proxy; NOT a model tokenizer or ARB's canonical tokenizer."""
     return len(re.findall(r"\w+|[^\w\s]", text))

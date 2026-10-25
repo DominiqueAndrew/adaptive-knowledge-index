@@ -119,5 +119,16 @@ class RefreshTest(unittest.TestCase):
         self.assertEqual(s.usage(), sum(p.resident.values()))
         s.close()
 
+    def test_unicode_separators_do_not_shift_ast_evidence_lines(self):
+        s = Store(":memory:", "physical-lines")
+        for newline in ("\n", "\r\n", "\r"):
+            source = 'x="' + '\u2028'*90 + '"' + newline + 'import b' + newline
+            s.refresh({"a.py":source, "b.py":"x=1"})
+            evidence = s.edge_evidence("a.py", "b.py", s.revision)
+            self.assertEqual(evidence[0]["line"], 2)
+            self.assertEqual(evidence[0]["end"], 2)
+            self.assertEqual(evidence[0]["text"], source)
+        s.close()
+
 
 if __name__ == "__main__": unittest.main()
