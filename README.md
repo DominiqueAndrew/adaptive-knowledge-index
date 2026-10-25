@@ -145,3 +145,8 @@ subsequently reached Docker readiness without installation messages. Task 420
 declares no runtime image and needs Python 3.5 plus installed dependencies; a
 reviewed compatible image and live tool-dispatch adapter remain. The VM is stopped,
 and no prospective agent attempt has run.
+
+The [first bounded setup attempt](docs/TASK420_ATTEMPT1.md) subsequently verified
+the pinned artifacts but failed virtual-environment bootstrap on a `noexec` mount.
+Its container/image/artifacts were removed. The pilot remains unattempted; resource
+measurements, accounting limits and a cleanup timing overrun are reported explicitly.

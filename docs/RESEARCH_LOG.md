@@ -345,3 +345,24 @@ The live adapter bridge still needs a validated isolated backend; no agent attem
 was launched. Existing model access works; the remaining input is a reviewed
 native task image or a permitted bounded isolated build, then adapter validation.
 Held-out actions and the frozen cohort are unchanged. No adaptive result added.
+
+## First bounded task-420 setup attempt — failed compatibility gate
+
+Verified and staged 329,867,946 bytes, including the pinned native image and 29
+package artifacts. Resolved Docker 29's converted manifest representation by
+matching the exact original config blob and all uncompressed layer hashes, without
+another import. One confined non-root/offline container received 82 public files.
+Its first compatibility command failed: `/env` was `noexec`, preventing execution
+of the copied virtual-environment interpreter. No dependency installation, task
+test, model call, recorder pilot or held-out action followed.
+
+Removed the owned container/image and 844,838,739 local artifact bytes; VM stopped
+and saved settings unchanged. Staging used 4.885 measured CPU-seconds. Accounted
+setup CPU at failure was about 121.2 s including a 50 s host allowance; final
+shutdown CPU is not fully measured. Failure occurred at 541.897 elapsed seconds;
+runtime shutdown finished at 618.473 s, an 18.473 s cleanup overrun against the
+proposal's setup-wall ceiling. This must remain visible in reports.
+
+Preserved the original failed controls and added a deterministic mount preflight
+guard with four regression tests. No isolated-runtime fix or second compatibility
+attempt was executed. See `TASK420_ATTEMPT1.md`; adaptive efficacy remains unresolved.

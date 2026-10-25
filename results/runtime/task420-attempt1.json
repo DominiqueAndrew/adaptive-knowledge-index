@@ -1,0 +1,86 @@
+{
+  "status": "setup compatibility gate failed; pilot not started",
+  "artifact_transfer_bytes": 329867946,
+  "transfer_ceiling_bytes": 536870912,
+  "expanded_image_layer_bytes": 840434688,
+  "conservative_disk_bytes_at_import": 2015178255,
+  "disk_ceiling_bytes": 3221225472,
+  "artifact_staging_host_cpu_seconds": 4.885173,
+  "artifact_staging_wall_seconds": 21.797317792195827,
+  "setup_cpu_accounting": {
+    "host_seconds_including_allowance": 55.846288,
+    "prior_orchestration_allowance_seconds": 50,
+    "guest_busy_seconds_since_boot_at_compatibility_end": 65.33,
+    "guest_busy_seconds_since_boot_before_cleanup": 67.49,
+    "ceiling_seconds": 300,
+    "limitation": "Some host orchestration uses a conservative 50-second allowance. Guest shutdown CPU was not measured after VM termination; pre-cleanup readings are not a complete final CPU measurement."
+  },
+  "setup_elapsed_seconds_at_failure": 541.8973670005798,
+  "setup_wall_ceiling_seconds": 600,
+  "runtime_shutdown_utc": "2026-10-25T17:46:13Z",
+  "runtime_shutdown_elapsed_seconds": 618.4730849266052,
+  "wall_limit_note": "Compatibility stopped before 600 seconds. Runtime shutdown completed about 18.5 seconds after the proposal setup-wall ceiling; remaining local artifact cleanup occurred later. Cleanup continued only to release owned resources.",
+  "image_manifest_digest": "sha256:fe70a4d5ac4049e60fddce443c417c637f63d90bf97f1a597e4ac13114771b43",
+  "original_config_blob_verified": true,
+  "loaded_local_manifest_digest": "sha256:5275dbd420045f3945fe58a876ab8125dbaf352aac2e4e659c37752cb58cd5bd",
+  "native_runtime_start_seconds": 17.971,
+  "source_files_copied": 82,
+  "compatibility_attempts": 1,
+  "compatibility_exit": 1,
+  "failed_command": [
+    "/usr/local/bin/python3",
+    "-m",
+    "venv",
+    "--copies",
+    "/env"
+  ],
+  "cause": "/env tmpfs was noexec; copied Python binary existed with executable permissions but could not execute",
+  "container_uid": 65534,
+  "mount_flags": [
+    "tmpfs /env tmpfs rw,nosuid,nodev,noexec,relatime,size=262144k,uid=65534,gid=65534,inode64 0 0",
+    "tmpfs /tmp tmpfs rw,nosuid,nodev,noexec,relatime,size=131072k,uid=65534,gid=65534,inode64 0 0",
+    "tmpfs /workspace tmpfs rw,nosuid,nodev,noexec,relatime,size=65536k,mode=755,uid=65534,gid=65534,inode64 0 0"
+  ],
+  "pip_install_started": false,
+  "repository_setup_executed": false,
+  "task_tests_executed": false,
+  "pilot_operations": 0,
+  "new_model_calls": 0,
+  "heldout_actions_inspected": false,
+  "cleanup": {
+    "container_removal_exit": 0,
+    "image_removal_exit": 0,
+    "container_name": "aki-task420-attempt1",
+    "image_tag": "aki-task420-reviewed:attempt1",
+    "local_artifact_bytes_removed": 844838739,
+    "local_artifact_dirs_removed": [
+      "image",
+      "packages"
+    ],
+    "saved_config_unchanged": {
+      "colima_saved": true,
+      "ssh_saved": true,
+      "docker_saved": true
+    },
+    "vm_status": "Stopped"
+  },
+  "limitations": [
+    "Not an agent result or Python dependency compatibility result.",
+    "Initial Docker identity selectors failed because Docker 29 reports a converted manifest ID and omits legacy config defaults; exact config blob plus layer hashes subsequently verified.",
+    "Docker archive copy failed before writing source; same container received source through a bounded non-root JSON helper.",
+    "Recorder/backend integration was not validated because compatibility failed first."
+  ],
+  "control_source_sha256": {
+    "research/task420-attempt1/continue.py": "8d10d4e1bc07fc76079001144dce710608d7e697129fa92978678b112ea6b6ee",
+    "research/task420-attempt1/control/idle.py": "c6a1220439227fe31f3bef285ef2d4575a29c2c7a3d61236676c04cfd11a52a3",
+    "research/task420-attempt1/control/populate.py": "2826438667cb70caef2df68b5c167f81d3805412b628294ab7365c4d0211222b",
+    "research/task420-attempt1/control/setup.py": "c178186e13f31f232b89a4e3a829e0848091dee7331ab1df1d8ee9416eade28d",
+    "research/task420-attempt1/setup_driver.py": "f836a4abac70942436af9fddc17f0f35d8f6122cef25b98a5441ff561d48ed8d",
+    "research/task420-attempt1/stage.py": "ead62dbb067b043f5825a9b17e07f1426e30eeb36ce9e10ac3c2bd4863d64151"
+  },
+  "post_attempt_validation": {
+    "stdlib_tests_passed": 60,
+    "new_mount_regressions": 4,
+    "isolated_fix_executed": false
+  }
+}

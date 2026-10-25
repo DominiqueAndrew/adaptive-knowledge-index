@@ -1,0 +1,667 @@
+{
+  "status": "proposal only; metadata inspected; no image/package artifacts downloaded, installed or executed",
+  "created_utc": "2026-10-25T17:30:24.032720+00:00",
+  "task": "Backblaze__B2_Command_Line_Tool-420",
+  "base_commit": "15a60ad1c71b75366061e4f742ef52eb9dcc23e7",
+  "environment_setup_commit": "ee2339bd21d21d6140936d58597957250a33fc26",
+  "image": {
+    "source": "docker.io/library/python",
+    "manifest_digest": "sha256:fe70a4d5ac4049e60fddce443c417c637f63d90bf97f1a597e4ac13114771b43",
+    "manifest_digest_verified": true,
+    "config_digest": "sha256:ca5c413738f01816ca17d523619e61c7e10489d299a5aa386f6076c7427393ea",
+    "config_digest_verified": true,
+    "architecture": "arm64",
+    "os": "linux",
+    "compressed_layer_bytes": 325456469
+  },
+  "image_metadata_url": "https://hub.docker.com/v2/repositories/library/python/tags/3.5.10-buster",
+  "historical_dockerfile": "https://github.com/docker-library/python/blob/c85a8c6d27b6121ae196baae7d7e6353dc934991/3.5/buster/Dockerfile",
+  "declared_python": "3.5.10",
+  "declared_pip": "20.2.3",
+  "gcc_present_in_build_history": true,
+  "base_and_package_artifact_bytes": 329851192,
+  "candidate_dependencies": {
+    "status": "metadata-only candidate, not installed or runtime-tested",
+    "runtime_declared_dependency_conflicts": [],
+    "missing_requires_python_metadata": [
+      "arrow",
+      "logfury",
+      "certifi",
+      "nose",
+      "iniconfig",
+      "yapf",
+      "funcsigs",
+      "pathlib2"
+    ],
+    "artifact_count": 29,
+    "artifact_bytes": 4394723,
+    "source_distribution_names": [
+      "arrow"
+    ],
+    "packages": [
+      {
+        "name": "setuptools",
+        "version": "50.3.2",
+        "metadata_url": "https://pypi.org/pypi/setuptools/50.3.2/json",
+        "requires_python": ">=3.5",
+        "requires_dist": [
+          "certifi (==2016.9.26) ; extra == 'certs'",
+          "sphinx ; extra == 'docs'",
+          "jaraco.packaging (>=6.1) ; extra == 'docs'",
+          "rst.linker (>=1.9) ; extra == 'docs'",
+          "pygments-github-lexers (==0.0.5) ; extra == 'docs'",
+          "wincertstore (==0.2) ; (sys_platform == \"win32\") and extra == 'ssl'",
+          "mock ; extra == 'tests'",
+          "pytest-flake8 ; extra == 'tests'",
+          "virtualenv (>=13.0.0) ; extra == 'tests'",
+          "pytest-virtualenv (>=1.2.7) ; extra == 'tests'",
+          "pytest (>=3.7) ; extra == 'tests'",
+          "wheel ; extra == 'tests'",
+          "coverage (>=4.5.1) ; extra == 'tests'",
+          "pip (>=19.1) ; extra == 'tests'",
+          "jaraco.envs ; extra == 'tests'",
+          "pytest-cov (>=2.5.1) ; (platform_python_implementation != \"PyPy\") and extra == 'tests'",
+          "flake8-2020 ; (python_version >= \"3.6\") and extra == 'tests'",
+          "paver ; (python_version >= \"3.6\") and extra == 'tests'",
+          "jaraco.test (>=3.1.1) ; (python_version >= \"3.6\") and extra == 'tests'"
+        ],
+        "artifact": {
+          "filename": "setuptools-50.3.2-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/6d/38/c21ef5034684ffc0412deefbb07d66678332290c14bb5269c85145fbd55e/setuptools-50.3.2-py3-none-any.whl",
+          "size": 785194,
+          "sha256": "2c242a0856fbad7efbe560df4a7add9324f340cf48df43651e9604924466794a",
+          "requires_python": ">=3.5",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "wheel",
+        "version": "0.35.1",
+        "metadata_url": "https://pypi.org/pypi/wheel/0.35.1/json",
+        "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7",
+        "requires_dist": [
+          "pytest (>=3.0.0) ; extra == 'test'",
+          "pytest-cov ; extra == 'test'"
+        ],
+        "artifact": {
+          "filename": "wheel-0.35.1-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/a7/00/3df031b3ecd5444d572141321537080b40c1c25e1caa3d86cdd12e5e919c/wheel-0.35.1-py2.py3-none-any.whl",
+          "size": 33174,
+          "sha256": "497add53525d16c173c2c1c733b8f655510e909ea78cc0e29d374243544b77a2",
+          "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "arrow",
+        "version": "0.12.0",
+        "metadata_url": "https://pypi.org/pypi/arrow/0.12.0/json",
+        "requires_python": "",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "arrow-0.12.0.tar.gz",
+          "url": "https://files.pythonhosted.org/packages/90/48/7ecfce4f2830f59dfacbb2b5a31e3ff1112b731a413724be40f57faa4450/arrow-0.12.0.tar.gz",
+          "size": 89600,
+          "sha256": "a15ecfddf334316e3ac8695e48c15d1be0d6038603b33043930dcf0e675c86ee",
+          "requires_python": null,
+          "packagetype": "sdist",
+          "yanked": false
+        }
+      },
+      {
+        "name": "python-dateutil",
+        "version": "2.8.2",
+        "metadata_url": "https://pypi.org/pypi/python-dateutil/2.8.2/json",
+        "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+        "requires_dist": [
+          "six (>=1.5)"
+        ],
+        "artifact": {
+          "filename": "python_dateutil-2.8.2-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/36/7a/87837f39d0296e723bb9b62bbb257d0355c7f6128853c78955f57342a56d/python_dateutil-2.8.2-py2.py3-none-any.whl",
+          "size": 247702,
+          "sha256": "961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9",
+          "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "logfury",
+        "version": "0.1.2",
+        "metadata_url": "https://pypi.org/pypi/logfury/0.1.2/json",
+        "requires_python": "",
+        "requires_dist": [
+          "six (>=1.10)",
+          "funcsigs",
+          "check-manifest; extra == 'test'",
+          "pyflakes; extra == 'test'",
+          "readme-renderer; extra == 'test'",
+          "testfixtures; extra == 'test'",
+          "yapf; extra == 'test'"
+        ],
+        "artifact": {
+          "filename": "logfury-0.1.2-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/55/71/c70df1ef41721b554c91982ebde423a5cf594261aa5132e39ade9196fa3b/logfury-0.1.2-py2.py3-none-any.whl",
+          "size": 12440,
+          "sha256": "e0ce7f95bab6e5b2fd835b3d8ff5e226704476671d15340a99b00285f4c2d1fc",
+          "requires_python": null,
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "requests",
+        "version": "2.25.1",
+        "metadata_url": "https://pypi.org/pypi/requests/2.25.1/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+        "requires_dist": [
+          "chardet (<5,>=3.0.2)",
+          "idna (<3,>=2.5)",
+          "urllib3 (<1.27,>=1.21.1)",
+          "certifi (>=2017.4.17)",
+          "pyOpenSSL (>=0.14) ; extra == 'security'",
+          "cryptography (>=1.3.4) ; extra == 'security'",
+          "PySocks (!=1.5.7,>=1.5.6) ; extra == 'socks'",
+          "win-inet-pton ; (sys_platform == \"win32\" and python_version == \"2.7\") and extra == 'socks'"
+        ],
+        "artifact": {
+          "filename": "requests-2.25.1-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/29/c1/24814557f1d22c56d50280771a17307e6bf87b70727d975fd6b2ce6b014a/requests-2.25.1-py2.py3-none-any.whl",
+          "size": 61216,
+          "sha256": "c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "chardet",
+        "version": "4.0.0",
+        "metadata_url": "https://pypi.org/pypi/chardet/4.0.0/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "chardet-4.0.0-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/19/c7/fa589626997dd07bd87d9269342ccb74b1720384a4d739a1872bd84fbe68/chardet-4.0.0-py2.py3-none-any.whl",
+          "size": 178743,
+          "sha256": "f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "idna",
+        "version": "2.10",
+        "metadata_url": "https://pypi.org/pypi/idna/2.10/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "idna-2.10-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl",
+          "size": 58811,
+          "sha256": "b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "urllib3",
+        "version": "1.26.9",
+        "metadata_url": "https://pypi.org/pypi/urllib3/1.26.9/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4",
+        "requires_dist": [
+          "brotlicffi (>=0.8.0) ; ((os_name != \"nt\" or python_version >= \"3\") and platform_python_implementation != \"CPython\") and extra == 'brotli'",
+          "brotli (>=1.0.9) ; ((os_name != \"nt\" or python_version >= \"3\") and platform_python_implementation == \"CPython\") and extra == 'brotli'",
+          "brotlipy (>=0.6.0) ; (os_name == \"nt\" and python_version < \"3\") and extra == 'brotli'",
+          "pyOpenSSL (>=0.14) ; extra == 'secure'",
+          "cryptography (>=1.3.4) ; extra == 'secure'",
+          "idna (>=2.0.0) ; extra == 'secure'",
+          "certifi ; extra == 'secure'",
+          "ipaddress ; (python_version == \"2.7\") and extra == 'secure'",
+          "PySocks (!=1.5.7,<2.0,>=1.5.6) ; extra == 'socks'"
+        ],
+        "artifact": {
+          "filename": "urllib3-1.26.9-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/ec/03/062e6444ce4baf1eac17a6a0ebfe36bb1ad05e1df0e20b110de59c278498/urllib3-1.26.9-py2.py3-none-any.whl",
+          "size": 138990,
+          "sha256": "44ece4d53fb1706f667c9bd1c648f5469a2ec925fcf3a776667042d645472c14",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "certifi",
+        "version": "2020.12.5",
+        "metadata_url": "https://pypi.org/pypi/certifi/2020.12.5/json",
+        "requires_python": "",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "certifi-2020.12.5-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/5e/a0/5f06e1e1d463903cf0c0eebeb751791119ed7a4b3737fdc9a77f1cdfb51f/certifi-2020.12.5-py2.py3-none-any.whl",
+          "size": 147526,
+          "sha256": "719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830",
+          "requires_python": null,
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "six",
+        "version": "1.16.0",
+        "metadata_url": "https://pypi.org/pypi/six/1.16.0/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "six-1.16.0-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/d9/5a/e7c31adbe875f2abbb91bd84cf2dc52d792b5a01506781dbcf25c91daf11/six-1.16.0-py2.py3-none-any.whl",
+          "size": 11053,
+          "sha256": "8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "tqdm",
+        "version": "4.50.2",
+        "metadata_url": "https://pypi.org/pypi/tqdm/4.50.2/json",
+        "requires_python": ">=2.6, !=3.0.*, !=3.1.*",
+        "requires_dist": [
+          "py-make (>=0.1.0) ; extra == 'dev'",
+          "twine ; extra == 'dev'",
+          "argopt ; extra == 'dev'",
+          "pydoc-markdown ; extra == 'dev'"
+        ],
+        "artifact": {
+          "filename": "tqdm-4.50.2-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/bd/cf/f91813073e4135c1183cadf968256764a6fe4e35c351d596d527c0540461/tqdm-4.50.2-py2.py3-none-any.whl",
+          "size": 70856,
+          "sha256": "43ca183da3367578ebf2f1c2e3111d51ea161ed1dc4e6345b86e27c2a93beff7",
+          "requires_python": ">=2.6, !=3.0.*, !=3.1.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "nose",
+        "version": "1.3.7",
+        "metadata_url": "https://pypi.org/pypi/nose/1.3.7/json",
+        "requires_python": null,
+        "requires_dist": null,
+        "artifact": {
+          "filename": "nose-1.3.7-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/15/d8/dd071918c040f50fa1cf80da16423af51ff8ce4a0f2399b7bf8de45ac3d9/nose-1.3.7-py3-none-any.whl",
+          "size": 154731,
+          "sha256": "9ff7c6cc443f8c51994b34a667bbcf45afd6d945be7477b52e97516fd17c53ac",
+          "requires_python": null,
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "pytest",
+        "version": "6.1.2",
+        "metadata_url": "https://pypi.org/pypi/pytest/6.1.2/json",
+        "requires_python": ">=3.5",
+        "requires_dist": [
+          "attrs (>=17.4.0)",
+          "iniconfig",
+          "packaging",
+          "pluggy (<1.0,>=0.12)",
+          "py (>=1.8.2)",
+          "toml",
+          "pathlib2 (>=2.2.0) ; python_version < \"3.6\"",
+          "importlib-metadata (>=0.12) ; python_version < \"3.8\"",
+          "atomicwrites (>=1.0) ; sys_platform == \"win32\"",
+          "colorama ; sys_platform == \"win32\"",
+          "mypy (==0.780) ; extra == 'checkqa_mypy'",
+          "argcomplete ; extra == 'testing'",
+          "hypothesis (>=3.56) ; extra == 'testing'",
+          "mock ; extra == 'testing'",
+          "nose ; extra == 'testing'",
+          "requests ; extra == 'testing'",
+          "xmlschema ; extra == 'testing'"
+        ],
+        "artifact": {
+          "filename": "pytest-6.1.2-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/b1/ee/53945d50284906adb1e613fabf2e1b8b25926e8676854bb25b93564c0ce7/pytest-6.1.2-py3-none-any.whl",
+          "size": 272430,
+          "sha256": "4288fed0d9153d9646bfcdf0c0428197dba1ecb27a33bb6e031d002fa88653fe",
+          "requires_python": ">=3.5",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "attrs",
+        "version": "20.3.0",
+        "metadata_url": "https://pypi.org/pypi/attrs/20.3.0/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+        "requires_dist": [
+          "coverage[toml] (>=5.0.2) ; extra == 'dev'",
+          "hypothesis ; extra == 'dev'",
+          "pympler ; extra == 'dev'",
+          "pytest (>=4.3.0) ; extra == 'dev'",
+          "six ; extra == 'dev'",
+          "zope.interface ; extra == 'dev'",
+          "furo ; extra == 'dev'",
+          "sphinx ; extra == 'dev'",
+          "pre-commit ; extra == 'dev'",
+          "furo ; extra == 'docs'",
+          "sphinx ; extra == 'docs'",
+          "zope.interface ; extra == 'docs'",
+          "coverage[toml] (>=5.0.2) ; extra == 'tests'",
+          "hypothesis ; extra == 'tests'",
+          "pympler ; extra == 'tests'",
+          "pytest (>=4.3.0) ; extra == 'tests'",
+          "six ; extra == 'tests'",
+          "zope.interface ; extra == 'tests'",
+          "coverage[toml] (>=5.0.2) ; extra == 'tests_no_zope'",
+          "hypothesis ; extra == 'tests_no_zope'",
+          "pympler ; extra == 'tests_no_zope'",
+          "pytest (>=4.3.0) ; extra == 'tests_no_zope'",
+          "six ; extra == 'tests_no_zope'"
+        ],
+        "artifact": {
+          "filename": "attrs-20.3.0-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/c3/aa/cb45262569fcc047bf070b5de61813724d6726db83259222cd7b4c79821a/attrs-20.3.0-py2.py3-none-any.whl",
+          "size": 49337,
+          "sha256": "31b2eced602aa8423c2aea9c76a724617ed67cf9513173fd3a4f03e3a929c7e6",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "iniconfig",
+        "version": "1.1.1",
+        "metadata_url": "https://pypi.org/pypi/iniconfig/1.1.1/json",
+        "requires_python": "",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "iniconfig-1.1.1-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/9b/dd/b3c12c6d707058fa947864b67f0c4e0c39ef8610988d7baea9578f3c48f3/iniconfig-1.1.1-py2.py3-none-any.whl",
+          "size": 4990,
+          "sha256": "011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3",
+          "requires_python": null,
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "packaging",
+        "version": "20.9",
+        "metadata_url": "https://pypi.org/pypi/packaging/20.9/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+        "requires_dist": [
+          "pyparsing (>=2.0.2)"
+        ],
+        "artifact": {
+          "filename": "packaging-20.9-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/3e/89/7ea760b4daa42653ece2380531c90f64788d979110a2ab51049d92f408af/packaging-20.9-py2.py3-none-any.whl",
+          "size": 40870,
+          "sha256": "67714da7f7bc052e064859c05c595155bd1ee9f69f76557e21f051443c20947a",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "pyparsing",
+        "version": "2.4.7",
+        "metadata_url": "https://pypi.org/pypi/pyparsing/2.4.7/json",
+        "requires_python": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "pyparsing-2.4.7-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/8a/bb/488841f56197b13700afd5658fc279a2025a39e22449b7cf29864669b15d/pyparsing-2.4.7-py2.py3-none-any.whl",
+          "size": 67842,
+          "sha256": "ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b",
+          "requires_python": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "pluggy",
+        "version": "0.13.1",
+        "metadata_url": "https://pypi.org/pypi/pluggy/0.13.1/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+        "requires_dist": [
+          "importlib-metadata (>=0.12) ; python_version < \"3.8\"",
+          "pre-commit ; extra == 'dev'",
+          "tox ; extra == 'dev'"
+        ],
+        "artifact": {
+          "filename": "pluggy-0.13.1-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/a0/28/85c7aa31b80d150b772fbe4a229487bc6644da9ccb7e427dd8cc60cb8a62/pluggy-0.13.1-py2.py3-none-any.whl",
+          "size": 18077,
+          "sha256": "966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "py",
+        "version": "1.10.0",
+        "metadata_url": "https://pypi.org/pypi/py/1.10.0/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "py-1.10.0-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/67/32/6fe01cfc3d1a27c92fdbcdfc3f67856da8cbadf0dd9f2e18055202b2dc62/py-1.10.0-py2.py3-none-any.whl",
+          "size": 97631,
+          "sha256": "3b80836aa6d1feeaa108e046da6423ab8f6ceda6468545ae8d02d9d58d18818a",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "toml",
+        "version": "0.10.2",
+        "metadata_url": "https://pypi.org/pypi/toml/0.10.2/json",
+        "requires_python": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "toml-0.10.2-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl",
+          "size": 16588,
+          "sha256": "806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b",
+          "requires_python": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "importlib-metadata",
+        "version": "2.1.3",
+        "metadata_url": "https://pypi.org/pypi/importlib-metadata/2.1.3/json",
+        "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7",
+        "requires_dist": [
+          "zipp (>=0.5)",
+          "pathlib2 ; python_version < \"3\"",
+          "contextlib2 ; python_version < \"3\"",
+          "configparser (>=3.5) ; python_version < \"3\"",
+          "sphinx ; extra == 'docs'",
+          "rst.linker ; extra == 'docs'",
+          "packaging ; extra == 'testing'",
+          "pep517 ; extra == 'testing'",
+          "unittest2 ; (python_version < \"3\") and extra == 'testing'",
+          "importlib-resources (>=1.3) ; (python_version < \"3.9\") and extra == 'testing'"
+        ],
+        "artifact": {
+          "filename": "importlib_metadata-2.1.3-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/cf/b4/877779cd7b5a15536ecbe0655cfb35a0de0ede6d888151fd7356d278c47d/importlib_metadata-2.1.3-py2.py3-none-any.whl",
+          "size": 10211,
+          "sha256": "52e65a0856f9ba7ea8f2c4ced253fb6c88d1a8c352cb1e916cff4eb17d5a693d",
+          "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "zipp",
+        "version": "1.2.0",
+        "metadata_url": "https://pypi.org/pypi/zipp/1.2.0/json",
+        "requires_python": ">=2.7",
+        "requires_dist": [
+          "contextlib2 ; python_version < \"3.4\"",
+          "sphinx ; extra == 'docs'",
+          "jaraco.packaging (>=3.2) ; extra == 'docs'",
+          "rst.linker (>=1.9) ; extra == 'docs'",
+          "pathlib2 ; extra == 'testing'",
+          "unittest2 ; extra == 'testing'",
+          "jaraco.itertools ; extra == 'testing'",
+          "func-timeout ; extra == 'testing'"
+        ],
+        "artifact": {
+          "filename": "zipp-1.2.0-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/96/0a/67556e9b7782df7118c1f49bdc494da5e5e429c93aa77965f33e81287c8c/zipp-1.2.0-py2.py3-none-any.whl",
+          "size": 4821,
+          "sha256": "e0d9e63797e483a30d27e09fffd308c59a700d365ec34e93cc100844168bf921",
+          "requires_python": ">=2.7",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "mock",
+        "version": "3.0.5",
+        "metadata_url": "https://pypi.org/pypi/mock/3.0.5/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+        "requires_dist": [
+          "six",
+          "funcsigs (>=1) ; python_version < \"3.3\"",
+          "twine ; extra == 'build'",
+          "wheel ; extra == 'build'",
+          "blurb ; extra == 'build'",
+          "sphinx ; extra == 'docs'",
+          "pytest ; extra == 'test'",
+          "pytest-cov ; extra == 'test'"
+        ],
+        "artifact": {
+          "filename": "mock-3.0.5-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/05/d2/f94e68be6b17f46d2c353564da56e6fb89ef09faeeff3313a046cb810ca9/mock-3.0.5-py2.py3-none-any.whl",
+          "size": 25027,
+          "sha256": "d157e52d4e5b938c550f39eb2fd15610db062441a9c2747d3dbfa9298211d0f8",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "pyflakes",
+        "version": "2.2.0",
+        "metadata_url": "https://pypi.org/pypi/pyflakes/2.2.0/json",
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "pyflakes-2.2.0-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/69/5b/fd01b0c696f2f9a6d2c839883b642493b431f28fa32b29abc465ef675473/pyflakes-2.2.0-py2.py3-none-any.whl",
+          "size": 66950,
+          "sha256": "0d94e0e05a19e57a99444b6ddcf9a6eb2e5c68d3ca1e98e90707af8152c90a92",
+          "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "yapf",
+        "version": "0.30.0",
+        "metadata_url": "https://pypi.org/pypi/yapf/0.30.0/json",
+        "requires_python": "",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "yapf-0.30.0-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/c1/5d/d84677fe852bc5e091739acda444a9b6700ffc6b11a21b00dd244c8caef0/yapf-0.30.0-py2.py3-none-any.whl",
+          "size": 190268,
+          "sha256": "3abf61ba67cf603069710d30acbc88cfe565d907e16ad81429ae90ce9651e0c9",
+          "requires_python": null,
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "funcsigs",
+        "version": "1.0.2",
+        "metadata_url": "https://pypi.org/pypi/funcsigs/1.0.2/json",
+        "requires_python": null,
+        "requires_dist": null,
+        "artifact": {
+          "filename": "funcsigs-1.0.2-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/69/cb/f5be453359271714c01b9bd06126eaf2e368f1fddfff30818754b5ac2328/funcsigs-1.0.2-py2.py3-none-any.whl",
+          "size": 17697,
+          "sha256": "330cc27ccbf7f1e992e69fef78261dc7c6569012cf397db8d3de0234e6c937ca",
+          "requires_python": null,
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "pathlib2",
+        "version": "2.3.5",
+        "metadata_url": "https://pypi.org/pypi/pathlib2/2.3.5/json",
+        "requires_python": "",
+        "requires_dist": [
+          "six",
+          "scandir; python_version<\"3.5\""
+        ],
+        "artifact": {
+          "filename": "pathlib2-2.3.5-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/e9/45/9c82d3666af4ef9f221cbb954e1d77ddbb513faf552aea6df5f37f1a4859/pathlib2-2.3.5-py2.py3-none-any.whl",
+          "size": 18252,
+          "sha256": "0ec8205a157c80d7acc301c0b18fbd5d44fe655968f5d947b6ecef5290fc35db",
+          "requires_python": null,
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      },
+      {
+        "name": "pip",
+        "version": "20.2.3",
+        "metadata_url": "https://pypi.org/pypi/pip/20.2.3/json",
+        "requires_python": ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*",
+        "requires_dist": null,
+        "artifact": {
+          "filename": "pip-20.2.3-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/4e/5f/528232275f6509b1fff703c9280e58951a81abe24640905de621c9f81839/pip-20.2.3-py2.py3-none-any.whl",
+          "size": 1503696,
+          "sha256": "0f35d63b7245205f4060efe1982f5ea2196aa6e5b26c07669adcf800e2542026",
+          "requires_python": ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      }
+    ]
+  },
+  "proposed_caps": {
+    "new_transfer_bytes": 536870912,
+    "new_disk_bytes": 3221225472,
+    "setup_cpu_seconds": 300,
+    "setup_wall_seconds": 600,
+    "container_cpus": 1,
+    "container_memory_bytes": 1073741824,
+    "container_pids": 64,
+    "task_tmpfs_bytes": 67108864,
+    "environment_tmpfs_bytes": 268435456,
+    "scratch_tmpfs_bytes": 134217728,
+    "pilot_operations": 12,
+    "operation_wall_seconds": 30,
+    "pilot_wall_seconds": 600,
+    "total_phase_cpu_seconds": 1800
+  },
+  "estimates_not_measurements": {
+    "expected_new_disk_gib": "1.5-2.5",
+    "expected_setup_cpu_minutes": "1-3",
+    "expected_setup_wall_minutes": "2-8 excluding slow network"
+  },
+  "execution_pending_approval": true
+}
