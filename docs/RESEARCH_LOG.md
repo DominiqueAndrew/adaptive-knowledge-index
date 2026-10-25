@@ -324,3 +324,24 @@ startup. No benchmark image or code ran, no further model probe was made, and
 held-out actions remain uninspected. The installation boundary requires resolution
 before another startup; native-only `--binfmt=false` is documented but untried.
 Image review and live adapter validation remain. See `COLIMA_RESUME_CHECK.md`.
+
+## Native startup and task-image gate
+
+Native-only Colima start completed in 19.264 seconds with binfmt disabled and no
+download/install/permission indication. Docker 29.5.2 answered on linux/arm64;
+no qemu/Rosetta handler files were present. Saved configuration hashes remained
+equal through shutdown, and the VM is confirmed Stopped.
+
+Reviewed pinned task 420 runtime metadata, transferring 511,343 additional bytes.
+Both image fields are null. The declared environment needs Python 3.5, GCC and
+pip-installed dependencies. No reviewed compatible image is currently available;
+unrelated cached project images were not reused. Added a bounded metadata-review
+command restricted to frozen development tasks, with no action/gold/outcome reads
+and no execution of setup strings. See `NATIVE_PILOT_PREFLIGHT.md` and numeric
+records under `results/runtime/`.
+
+Image construction/installation was not silently added to the no-install scope.
+The live adapter bridge still needs a validated isolated backend; no agent attempt
+was launched. Existing model access works; the remaining input is a reviewed
+native task image or a permitted bounded isolated build, then adapter validation.
+Held-out actions and the frozen cohort are unchanged. No adaptive result added.

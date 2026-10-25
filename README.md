@@ -140,7 +140,8 @@ No source corpus, personal files, query/failure traces, credentials, or model
 conversation is included.
 
 [CLI/runtime readiness follow-up](docs/CODEX_CLI_READINESS.md): the bundled Codex
-CLI works with existing ChatGPT authentication. The [guarded Colima resume](docs/COLIMA_RESUME_CHECK.md)
-reached Docker readiness, then left the VM stopped after emulation-registration
-messages triggered the installation boundary. Runtime resume, image review and
-reviewed tool dispatch remain prerequisites for a live public-task pilot.
+CLI works with existing ChatGPT authentication. A [native-only Colima start](docs/NATIVE_PILOT_PREFLIGHT.md)
+subsequently reached Docker readiness without installation messages. Task 420
+declares no runtime image and needs Python 3.5 plus installed dependencies; a
+reviewed compatible image and live tool-dispatch adapter remain. The VM is stopped,
+and no prospective agent attempt has run.

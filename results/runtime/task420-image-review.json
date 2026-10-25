@@ -1,0 +1,57 @@
+{
+  "task_revision": "89cdfbab4ab1bd8f5a658bb212d1b63624f4f881",
+  "instance_id": "Backblaze__B2_Command_Line_Tool-420",
+  "selected_columns": [
+    "instance_id",
+    "repo",
+    "base_commit",
+    "environment_setup_commit",
+    "version",
+    "license_name",
+    "docker_image",
+    "image_name",
+    "install_config"
+  ],
+  "matches": [
+    {
+      "dataset_file": "data/test-00000-of-00002.parquet",
+      "row_group": 0,
+      "row_index": 358,
+      "fields": {
+        "instance_id": "Backblaze__B2_Command_Line_Tool-420",
+        "repo": "Backblaze/B2_Command_Line_Tool",
+        "base_commit": "15a60ad1c71b75366061e4f742ef52eb9dcc23e7",
+        "environment_setup_commit": "ee2339bd21d21d6140936d58597957250a33fc26",
+        "version": "1.1",
+        "license_name": "MIT License",
+        "docker_image": null,
+        "image_name": null,
+        "install_config": {
+          "env_vars": null,
+          "env_yml_path": null,
+          "install": "pip install -e .[dev]",
+          "log_parser": "parse_log_pytest",
+          "no_use_env": null,
+          "packages": "requirements.txt",
+          "pip_packages": [
+            "nose",
+            "pytest"
+          ],
+          "pre_install": [
+            "apt-get update",
+            "apt-get install -y gcc"
+          ],
+          "python": "3.5",
+          "reqs_path": [
+            "requirements.txt"
+          ],
+          "test_cmd": "pytest --no-header -rA --tb=line --color=no -p no:cacheprovider -W ignore::DeprecationWarning"
+        }
+      }
+    }
+  ],
+  "metadata_sha256": "89877383ccd279da4f304143d43f3e3233b3c6f3d730d50f698c8040801d60eb",
+  "new_download_bytes": 0,
+  "image_declared": false,
+  "commands_executed": false
+}

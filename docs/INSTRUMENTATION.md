@@ -210,3 +210,8 @@ A [targeted follow-up](CODEX_CLI_READINESS.md) subsequently verified the bundled
 Codex CLI with the existing ChatGPT login. Model authentication is available; the
 remaining runtime is an existing stopped Colima VM, with an explicit resume step
 and a one-task pilot plan. No benchmark code has run.
+
+The later [native preflight](NATIVE_PILOT_PREFLIGHT.md) verified Docker readiness
+and clean native-only startup. The frozen first task has no declared image and
+requires Python 3.5 plus installed dependencies, so the image gate is unresolved.
+The VM was stopped again; the live adapter and prospective attempt remain pending.

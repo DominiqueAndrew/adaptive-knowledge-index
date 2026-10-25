@@ -4,6 +4,10 @@ This is runtime-readiness evidence, not a benchmark or prospective agent run.
 The frozen first task remains `Backblaze__B2_Command_Line_Tool-420`. No task
 container, repository setup/test code, new agent attempt or held-out action ran.
 
+This historical checkpoint is superseded by the successful
+[native-only startup and image review](NATIVE_PILOT_PREFLIGHT.md). The original
+attempt below is preserved; native startup permission is no longer the blocker.
+
 ## Observed outcome
 
 The existing Colima 0.10.3 installation (commit
