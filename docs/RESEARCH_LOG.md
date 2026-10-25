@@ -308,3 +308,19 @@ ordinary-app-launch permission was not expanded to that boot. Recorded the exact
 resume command, remaining reviewed-isolation/adapter checks, and the first frozen
 one-task pilot in `CODEX_CLI_READINESS.md`. No benchmark code ran; held-out actions
 remain unopened. Generated captures stay local; only documentation is published.
+
+## Guarded runtime resume follow-up
+
+Started the existing Colima profile once with save-config/context/SSH-config
+changes disabled. Its VM booted, then printed successful 386/amd64 installation
+messages; the startup guard interrupted at 13.888 seconds. Matching installed
+Colima source identifies an existing guest binfmt invocation for emulation-handler
+registration, not a package downloader. The messages had already been emitted;
+the guard is not claimed to have prevented those guest operations.
+
+Read-only Docker readiness succeeded (Engine 29.5.2, linux/arm64). Stopped the VM
+and verified its profile is Stopped. Saved configuration hashes were equal across
+startup. No benchmark image or code ran, no further model probe was made, and
+held-out actions remain uninspected. The installation boundary requires resolution
+before another startup; native-only `--binfmt=false` is documented but untried.
+Image review and live adapter validation remain. See `COLIMA_RESUME_CHECK.md`.

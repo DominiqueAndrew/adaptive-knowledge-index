@@ -62,15 +62,18 @@ colima start --save-config=false --activate=false --ssh-config=false
 docker --context colima version
 ```
 
-**This command was prepared, not executed.** Starting this VM invokes its configured
+**At this original checkpoint, this command was prepared, not executed.** A later
+bounded attempt and confirmed shutdown are recorded in
+[the resume check](COLIMA_RESUME_CHECK.md). Starting this VM invokes its configured
 guest provisioning, including system/group/mount and filesystem-resize operations.
 That is broader than the permission to launch an ordinary installed app without
 settings changes. No package download/install commands were found by the narrow
 configuration check, but this was not a proof that all runtime startup dependencies
 are already satisfied. Do not silently authorize installation or permission prompts.
 
-The precise next owner step is to start this existing Colima profile, or explicitly
-authorize its normal guest boot/provisioning under the command above. Stop if startup
+The original next step was to start this existing Colima profile, or explicitly
+authorize its normal guest boot/provisioning under the command above. The resume
+check supersedes that status and records the narrower remaining boundary. Stop if startup
 requires a download, installation, new permission or configuration change. A new
 Docker Desktop installation or new model API credential is not the requested step.
 A read-only process-list attempt was sandbox-blocked; installed-bundle inspection
