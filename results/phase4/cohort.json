@@ -1,0 +1,273 @@
+{
+  "trace_revision": "35455389ab51bf5e2306bfd436ef72d0f98bf882",
+  "task_revision": "89cdfbab4ab1bd8f5a658bb212d1b63624f4f881",
+  "exposed_repository_count": 101,
+  "eligible_repository_count": 385,
+  "ambiguous_task_metadata_excluded": 0,
+  "cohort": [
+    {
+      "trajectory_id": "chatcmpl-74ca507154ac7e626d1dbc7c7e69ed66",
+      "instance_id": "Backblaze__B2_Command_Line_Tool-420",
+      "repo": "Backblaze/B2_Command_Line_Tool",
+      "row_group": 12,
+      "row_index": 3102,
+      "base_commit": "15a60ad1c71b75366061e4f742ef52eb9dcc23e7",
+      "environment_setup_commit": "ee2339bd21d21d6140936d58597957250a33fc26",
+      "license_name": "MIT License",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-b9ab19f083345fc57019562e4a3d152f",
+      "instance_id": "Backblaze__B2_Command_Line_Tool-488",
+      "repo": "Backblaze/B2_Command_Line_Tool",
+      "row_group": 1,
+      "row_index": 2566,
+      "base_commit": "4154652165dd475d79de606abd70b6debc4596d4",
+      "environment_setup_commit": "6d1ff3c30dc9c14d6999da7161483b5fbbf7a48b",
+      "license_name": "MIT License",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-dc457660f25cceedc1b17b685785a556",
+      "instance_id": "Backblaze__B2_Command_Line_Tool-302",
+      "repo": "Backblaze/B2_Command_Line_Tool",
+      "row_group": 7,
+      "row_index": 691,
+      "base_commit": "0fe4f2d0faad6e4e86d668b54958d93bc116b85c",
+      "environment_setup_commit": "4f2a17eb0342ba6efed8b97442dd20c4e80c1845",
+      "license_name": "MIT License",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-80c97017b44aa79858ec6ec379f82c95",
+      "instance_id": "Backblaze__B2_Command_Line_Tool-332",
+      "repo": "Backblaze/B2_Command_Line_Tool",
+      "row_group": 1,
+      "row_index": 3707,
+      "base_commit": "26ba7c389b732b2202da62a28826a893a8d47749",
+      "environment_setup_commit": "4e3ee3d1d9bdaf7bbd164dfaa812868aa92c2d32",
+      "license_name": "MIT License",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-740362af380beff68b2e8e671a108e02",
+      "instance_id": "certbot__certbot-5687",
+      "repo": "certbot/certbot",
+      "row_group": 5,
+      "row_index": 2490,
+      "base_commit": "e0ae356aa35adf22d154113e06dd01409df93bba",
+      "environment_setup_commit": "e0ae356aa35adf22d154113e06dd01409df93bba",
+      "license_name": "Apache License 2.0",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-ab819185c7c6ca42dc86e805b214c4f1",
+      "instance_id": "certbot__certbot-7095",
+      "repo": "certbot/certbot",
+      "row_group": 13,
+      "row_index": 1008,
+      "base_commit": "bf818036eb4f23164f92800b9ea83591149c0814",
+      "environment_setup_commit": "8b684e9b9543c015669844222b8960e1b9a71e97",
+      "license_name": "Apache License 2.0",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-60228c74f5204fac75796dfa87006f6c",
+      "instance_id": "certbot__certbot-6788",
+      "repo": "certbot/certbot",
+      "row_group": 6,
+      "row_index": 805,
+      "base_commit": "b10ceb7d907cdcc36ec2d745e7802127919ec043",
+      "environment_setup_commit": "0c6d83dc39e3226cbf86e3cc6cb51e85b1383017",
+      "license_name": "Apache License 2.0",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-1f7eee2188eb8f74963864ed16be33d4",
+      "instance_id": "certbot__certbot-7387",
+      "repo": "certbot/certbot",
+      "row_group": 9,
+      "row_index": 782,
+      "base_commit": "754c34c12043bbbe3ceb12fb5660f841d09e3690",
+      "environment_setup_commit": "754c34c12043bbbe3ceb12fb5660f841d09e3690",
+      "license_name": "Apache License 2.0",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-fbcb2b3cb01e60ab28e60cab3478d9e3",
+      "instance_id": "miurahr__aqtinstall-364",
+      "repo": "miurahr/aqtinstall",
+      "row_group": 8,
+      "row_index": 2849,
+      "base_commit": "dd0b42bd72a49c5f361ccff582662411912392a9",
+      "environment_setup_commit": "cb7eaeeb2afb755a3020ad510b74e62647b3ab99",
+      "license_name": "MIT License",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-94267b6019aa8c0343581772797e5bc2",
+      "instance_id": "miurahr__aqtinstall-510",
+      "repo": "miurahr/aqtinstall",
+      "row_group": 7,
+      "row_index": 3323,
+      "base_commit": "a27fa31566272f39947a000484dafadc207443bc",
+      "environment_setup_commit": "068302bca58f92eaab815dc672bebeb7e02b8ae3",
+      "license_name": "MIT License",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-7d1fe3d23a7b31c0aed3da70da1bb9da",
+      "instance_id": "miurahr__aqtinstall-550",
+      "repo": "miurahr/aqtinstall",
+      "row_group": 12,
+      "row_index": 3150,
+      "base_commit": "2b390e53c50c67e35b78d809db0055078ce21f0b",
+      "environment_setup_commit": "7c331f449b17d4459ce664324c65ee5d0b605bf4",
+      "license_name": "MIT License",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-6e7f04ed1bb33f4862e569ae1ea79d69",
+      "instance_id": "miurahr__aqtinstall-633",
+      "repo": "miurahr/aqtinstall",
+      "row_group": 14,
+      "row_index": 3298,
+      "base_commit": "eae2568e49a340d8de8d2663fc0f5ce6a94dd5e3",
+      "environment_setup_commit": "7917b2d725f56e8ceb6ba17b41ea0571506c7320",
+      "license_name": "MIT License",
+      "split": "development"
+    },
+    {
+      "trajectory_id": "chatcmpl-55bcbfd3abc7afa2d90331eace88ed31",
+      "instance_id": "numba__numba-5527",
+      "repo": "numba/numba",
+      "row_group": 16,
+      "row_index": 103,
+      "base_commit": "1ea770564cb3c0c6cb9d8ab92e7faf23cd4c4c19",
+      "environment_setup_commit": "4aceb2727b2e07916d480573e536c35687ac3f40",
+      "license_name": "BSD 2-Clause \"Simplified\" License",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-a06ff3e2c522715b47017cc0c99040f2",
+      "instance_id": "numba__numba-5478",
+      "repo": "numba/numba",
+      "row_group": 0,
+      "row_index": 2166,
+      "base_commit": "1e2dc49c699b72c48b258a7c15998b505058289a",
+      "environment_setup_commit": "4aceb2727b2e07916d480573e536c35687ac3f40",
+      "license_name": "BSD 2-Clause \"Simplified\" License",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-221b15b4b1c1a743eb91d1ccd6c460eb",
+      "instance_id": "numba__numba-6582",
+      "repo": "numba/numba",
+      "row_group": 6,
+      "row_index": 2052,
+      "base_commit": "0bac18af44d08e913cd512babb9f9b7f6386d30a",
+      "environment_setup_commit": "00ad12751725391e8423d67ef845ba56110c55df",
+      "license_name": "BSD 2-Clause \"Simplified\" License",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-15e297f5a4f5930d45cac668d241d75a",
+      "instance_id": "numba__numba-5935",
+      "repo": "numba/numba",
+      "row_group": 15,
+      "row_index": 1918,
+      "base_commit": "9ce5c30d328a1ab2690fe4ea0880d32f1e9fa075",
+      "environment_setup_commit": "4aceb2727b2e07916d480573e536c35687ac3f40",
+      "license_name": "BSD 2-Clause \"Simplified\" License",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-073b614a6bd08a53f17167ade9d427a5",
+      "instance_id": "planetlabs__planet-client-python-978",
+      "repo": "planetlabs/planet-client-python",
+      "row_group": 5,
+      "row_index": 3151,
+      "base_commit": "699f15b9b523fddd942d4d87bb3a57c6a00f5ffd",
+      "environment_setup_commit": "79d9a3cb952fcd4f75e5e935ee067455580c779d",
+      "license_name": "Apache License 2.0",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-91d7a3799a84da0bdf100cf87015b8be",
+      "instance_id": "planetlabs__planet-client-python-378",
+      "repo": "planetlabs/planet-client-python",
+      "row_group": 1,
+      "row_index": 628,
+      "base_commit": "217310866988d7381e98755bfe2d10efee844d75",
+      "environment_setup_commit": "50c73a594f5c28d43670135d451beb5d12a6ba57",
+      "license_name": "Apache License 2.0",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-845363430e5236e57efb13cb690d1fe6",
+      "instance_id": "planetlabs__planet-client-python-805",
+      "repo": "planetlabs/planet-client-python",
+      "row_group": 13,
+      "row_index": 2325,
+      "base_commit": "8d67d237c07606a1fd3f76abb96e518def506b54",
+      "environment_setup_commit": "601cf8a43601349311b20ce07cac8a52a4789adc",
+      "license_name": "Apache License 2.0",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-3ab6d4e103705ed9b185a361728556b7",
+      "instance_id": "planetlabs__planet-client-python-852",
+      "repo": "planetlabs/planet-client-python",
+      "row_group": 0,
+      "row_index": 1459,
+      "base_commit": "082d117db8adfc85881508e871bdafce1f6cbbbb",
+      "environment_setup_commit": "79d9a3cb952fcd4f75e5e935ee067455580c779d",
+      "license_name": "Apache License 2.0",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-355510d733ceccff9a1af1b9f7732d90",
+      "instance_id": "sanic-org__sanic-2546",
+      "repo": "sanic-org/sanic",
+      "row_group": 11,
+      "row_index": 3682,
+      "base_commit": "4726cf1910fe7735ac0944504b02fc4f3d89d5fd",
+      "environment_setup_commit": "23ce4eaaa4ef8f05dc76766d4af7780769ca98b3",
+      "license_name": "MIT License",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-6fc3efcab11b88b7b9a2e06ce257d5c9",
+      "instance_id": "sanic-org__sanic-2773",
+      "repo": "sanic-org/sanic",
+      "row_group": 1,
+      "row_index": 272,
+      "base_commit": "976da69e79e22c08ba2ea9ffe48bed72bf3290df",
+      "environment_setup_commit": "c17230ef9443d7e9932ac425ddbca4ad850f96a2",
+      "license_name": "MIT License",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-f7b9c699a29dde49c4575acd2e1c6931",
+      "instance_id": "sanic-org__sanic-3015",
+      "repo": "sanic-org/sanic",
+      "row_group": 9,
+      "row_index": 2598,
+      "base_commit": "665234da121ed74e9155c3c455afa3ee2c71fb58",
+      "environment_setup_commit": "4327b8b27eeccb8067788ed9f098c05b83b1109d",
+      "license_name": "MIT License",
+      "split": "evaluation"
+    },
+    {
+      "trajectory_id": "chatcmpl-0d415e3681f825874dbfc3617d382478",
+      "instance_id": "sanic-org__sanic-2606",
+      "repo": "sanic-org/sanic",
+      "row_group": 1,
+      "row_index": 1470,
+      "base_commit": "71cd53b64ec2d39a66feb8e256eeeea4ae332deb",
+      "environment_setup_commit": "4ad8168bb016cef19213cd3db2b12efb1a4dcb30",
+      "license_name": "MIT License",
+      "split": "evaluation"
+    }
+  ]
+}
