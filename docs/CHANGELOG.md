@@ -30,3 +30,15 @@ or production readiness.
 Initial Python import-closure prototype, seven policies, synthetic/real-source
 histories and pinned ARB retrieval-only comparisons. Negative findings and raw
 runs remain available in `results/` and Git.
+
+## 0.3.0 — opt-in instrumentation
+
+- Add explicitly enrolled local source-boundary recording, exact-byte optional
+  source/request retention, observer/backend timing separation and output hashes.
+- Verify snapshot deltas, source blobs, complete operation boundaries and journal
+  integrity; reject unstable captures, symlinks, sensitive paths and unobserved
+  changes between tools.
+- Provide an original-fixture demo, reviewed-adapter entry point and frozen
+  prospective capture protocol. No live agent/scaffold or credential is supplied.
+- Preserve earlier results and their code revisions; core Store/Policy semantics
+  are unchanged. No adaptive efficacy or agent-success claim is added.

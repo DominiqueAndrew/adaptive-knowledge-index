@@ -269,3 +269,27 @@ source snapshots or verified deltas with actual tree identities and tool timings
 Current deliverable decision: incremental source/evidence maintenance, retaining
 AKI admission as experimental and all prior negative results. See
 `PHASE4_RESULTS.md` for exact limits, provenance, tests and the smallest next input.
+
+## Instrumentation release — missing evidence made actionable
+
+Added the opt-in POSIX `aki.recorder` and a small reviewed-adapter bridge. It records
+explicitly enrolled source snapshots/deltas, monotonic observer times, separately
+reported executor metrics, and request/output hashes. Optional source/request
+retention stays private and local. No hidden session, unrelated project, private
+repository, model credential, remote capture endpoint or background watcher is
+accessed. Whole-repository/environment freshness is not inferred from a scoped
+snapshot. Failed or incomplete boundaries fail validation.
+
+Demonstrated only on original project-owned fixtures: five complete operations,
+ten boundaries, twelve events, exact-byte source versions and add/delete deltas.
+This is instrumentation validation, not agent evaluation. Captures remain ignored
+under scratch; publication contains only code, documentation and tests. The
+prospective protocol reuses the frozen 24-task cohort and defines a three-task
+pilot with explicit budgets and stop criteria before held-out inspection.
+
+The Docker CLI exists, but a bounded read-only version check found its daemon
+unreachable/not running. No daemon or container was started. No reviewed live
+agent adapter/model transport is configured here. Those are the concrete remaining
+capabilities needed for a prospective run; no purchase is requested. The useful
+current deliverable remains incremental source/evidence maintenance, with adaptive
+selection unresolved.

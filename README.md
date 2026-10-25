@@ -31,6 +31,13 @@ to pass the registered coverage gate; held-out actions remain uninspected. The
 current useful deliverable is incremental source/evidence maintenance. Adaptive
 selection remains experimental. [Replay findings and research decision](docs/PHASE4_RESULTS.md).
 
+Version 0.3 adds an [opt-in local recorder](docs/INSTRUMENTATION.md) for scoped
+source hashes/deltas, tool-boundary timings and output hashes. Source/request bytes
+require separate opt-in; nothing is discovered or uploaded automatically. Its demo
+uses only project-owned fixtures. The [prospective protocol](docs/PROSPECTIVE_CAPTURE_PROTOCOL.md)
+preserves the frozen cohort; live agent evaluation still needs a reviewed isolated
+executor and an explicit adapter to an approved model/scaffold connection.
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,
