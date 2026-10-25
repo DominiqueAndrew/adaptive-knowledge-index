@@ -8,7 +8,7 @@ they store neither query strings nor answers. Reverse closures serve both
 ripple and test projections. This is deliberately a narrow candidate family.
 
 Source spans are immutable UTF-8 text records with SHA-256, project scope,
-content-tree revision, path, line boundaries and provenance. Each import edge
+first-seen content-tree revision, path, physical line boundaries and provenance. Each import edge
 points to a source span and extractor version. `Store.edge_evidence` resolves
 current evidence; a relation's presence is not proof of downstream task correctness.
 The local source loader rejects invalid UTF-8 rather than hashing a silently
@@ -29,8 +29,10 @@ or a filesystem watcher. A host must synchronize repository edits before
 queries. Passing a previous snapshot as if it were current cannot be detected
 without host integration. No universal live-filesystem freshness claim is made.
 
-Global mode drops every materialization. Selective mode computes old/new edge
-symmetric differences after reparsing the new snapshot. A forward closure is
+Both modes first hash the entire supplied snapshot. Identical source trees and
+extractor versions preserve all cache and policy state, with no database writes.
+On a changed tree, global mode drops every materialization. Selective mode computes old/new edge
+symmetric differences after resolving the new snapshot. A forward closure is
 invalidated if any changed outgoing-edge source is in its old closure plus
 anchor. A reverse closure is invalidated if any changed incoming-edge target
 is in that footprint. Deleted footprint files invalidate either direction.
@@ -40,8 +42,15 @@ previously read source files would miss those negative dependencies.
 If no boundary changes, the reachable path set is invariant and can be retained
 under the new revision. Content and token counts are always refreshed, including
 when the relationship set survives. Validation, retained-row writes, parsing,
-source refresh, invalidation and rewarming are charged. Base indexing is still
-fully rebuilt; selective *base* indexing is future work. Immutable historical
+source refresh, invalidation and rewarming are charged. Incremental base refresh
+caches per-file syntax, but resolves all imports against the new module universe:
+a newly added module may change edges from an unchanged importer. Only changed
+file/FTS/symbol rows are rewritten; edge evidence is reconnected to active spans.
+The full-refresh comparison uses the same no-op fast path. An `active_spans`
+mapping certifies membership in the current snapshot. Unchanged immutable spans
+keep their first-seen revision and provenance; `edge_evidence` supplies the
+current revision separately. Python physical line boundaries preserve embedded
+Unicode separators, avoiding disagreement with AST line numbers. Immutable historical
 spans accumulate; there is no garbage collector in this prototype.
 
 ## Admission and accounting
@@ -68,6 +77,15 @@ ground truth. The estimator is neither an optimal optimizer nor a bandit. It
 may be wrong under drift. Distinct anchor/direction candidates do not share
 physical storage; the measured marginal comparison includes victim opportunity
 cost but does not solve general overlapping-subgraph selection.
+
+Selective refresh preserves measured costs and GDS priorities for validated
+retained closures while resetting demand counts on a changed tree. Identical
+trees preserve both. Policy state is session-local: creating a new Policy
+discards persisted materializations in one charged transaction, preventing
+untracked storage after reopening. Only one live Policy may own a Store.
+Evictions and admission use one durable SQLite transaction; a common separate-
+transaction mode exists solely as an experiment ablation. Both use DELETE
+journaling and FULL synchronous durability.
 
 Byte budgets constrain serialized materialization payload plus key/revision
 and a fixed row allowance. SQLite allocated/live page bytes are reported
@@ -98,3 +116,14 @@ Source graphs are not independent
 repositories. Click's eight actual ancestral revisions run in chronological
 order but queries are generated, not reconstructed human/agent tasks. ARB is
 static real-task evaluation with no gold tuning; it is not a longitudinal trace.
+
+Phase two adds interleaved per-task/per-query condition order, source acquisition
+accounting, raw refresh breakdowns and answer hashes. Historical commit titles
+are queried on their parent snapshots, with fixed routing from title to current
+paths, symbols and FTS results. This is a task-derived workload, not an observed
+agent trace; changed-file lists and future code are not supplied to the router.
+The opt-in selective gate checks explicit paths, unique basenames and unique
+released symbol hints. These metadata are heuristic extraction, not verified
+semantic declarations. A gate miss means insufficient routing evidence, not
+proof that no relevant answer exists. It is evaluated against the identical
+official lexical ranker and does not alter AKI's default ranking.
