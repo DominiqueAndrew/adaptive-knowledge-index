@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import resource
+import signal
 import stat
 import subprocess
 import sys
@@ -12,6 +13,18 @@ import time
 
 sys.path.insert(0, '/control')
 import control
+
+
+def assert_quiescent(proc_root='/proc',current_pid=None):
+    """Check this container's PID namespace only; reject surviving tool children."""
+    current_pid=os.getpid() if current_pid is None else current_pid
+    for name in os.listdir(proc_root):
+        if not name.isdigit() or int(name) in (1,current_pid):continue
+        try:
+            with open(os.path.join(proc_root,name,'stat')) as stream:text=stream.read()
+        except IOError:raise ValueError('process inventory unstable')
+        fields=text.rsplit(')',1)[-1].split()
+        if not fields or fields[0]!='Z':raise ValueError('unexpected live process at source boundary')
 
 
 def source_path(root, name):
@@ -53,10 +66,15 @@ def execute(root, fixture):
     with tempfile.TemporaryFile() as output:
         def limits(): resource.setrlimit(resource.RLIMIT_FSIZE, (1024*1024, 1024*1024))
         p = subprocess.Popen(argv, cwd=root, env=control.clean_environment(), stdout=output,
-                             stderr=subprocess.STDOUT, preexec_fn=limits)
-        try: code = p.wait(timeout=25)
+                             stderr=subprocess.STDOUT, preexec_fn=limits,start_new_session=True)
+        try:
+            code = p.wait(timeout=25)
         except subprocess.TimeoutExpired:
-            p.kill(); p.wait(); raise ValueError('execute timeout')
+            raise ValueError('execute timeout')
+        finally:
+            try:os.killpg(p.pid,signal.SIGKILL)
+            except ProcessLookupError:pass
+            if p.poll() is None:p.wait(timeout=2)
         output.seek(0); data = output.read(1024*1024+1)
         if len(data) > 1024*1024: raise ValueError('execute output cap')
     return {'exit_code': code, 'output': data.decode('utf-8', 'replace')}
@@ -94,12 +112,14 @@ if __name__ == '__main__':
     payload = sys.stdin.read(2*1024*1024+1)
     if len(payload) > 2*1024*1024: raise ValueError('request cap')
     request = json.loads(payload)
+    assert_quiescent()
     if fixture and request == {'op': 'initialize'}:
         os.mkdir(root)
         with open(root+'/example.py', 'w') as stream: stream.write('VALUE = 1\n')
         request = {'op': 'snapshot'}
     started = time.monotonic(); cpu = time.process_time(); child = resource.getrusage(resource.RUSAGE_CHILDREN)
     value = dispatch(request, root, fixture)
+    assert_quiescent()
     after = resource.getrusage(resource.RUSAGE_CHILDREN)
     result = {'result': value, 'wall_ns': int((time.monotonic()-started)*1e9),
               'cpu_ns': int((time.process_time()-cpu+after.ru_utime+after.ru_stime-child.ru_utime-child.ru_stime)*1e9)}

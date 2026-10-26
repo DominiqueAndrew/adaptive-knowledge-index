@@ -425,7 +425,7 @@ launchers or weakening TLS, architecture or mount constraints.
 Run 2 (`e3ff05a`, 100 tests) started the native isolated runtime, verified a live
 four-operation original fixture, and passed six dependency/setup checks. Four
 complete operations, eight source snapshots and ten journal events independently
-verified. Full fixture service time was 1.166584 s versus 0.072436 s guest operation
+verified. Recorded fixture service intervals summed to 1.166584 s versus 0.072436 s guest operation
 bodies. This is instrumentation evidence, not an agent/retrieval result.
 
 The CLI help check stopped on exit 1; static inspection confirms the legacy CLI
@@ -440,3 +440,30 @@ Changed the next compatibility check to `version` and added a host-tested bounde
 tail for known processes exiting during teardown. Final suite: 101 tests. These
 patches were not run live and do not change the incomplete historical status.
 See `TASK420_SHARED_BUDGET_RESULTS.md`; adaptive efficacy remains unresolved.
+
+## 2026-10-26 — closed-campaign offline audit
+
+No live operation, download, benchmark execution or model call. Rehashed the exact
+40-file cache: 844,838,767 bytes, with compressed image expansion explaining its
+difference from 329,892,894 charged download bytes. Whole-campaign logical files
+total 844,957,468 bytes; retain local captures/logs and artifacts unpublished.
+The budget hash and closed state are unchanged.
+
+The missing teardown counter identities/timestamps prevent certification of the
+166.486913-second charge. Conditional reconciliation gives 242.713025 seconds for
+one affected host component or 318.939137 for both, assuming full prior coverage
+and gaps only during cleanup. Neither is an observed total or proof of breach.
+Preserve the incomplete accounting finding rather than infer spare allowance.
+
+Static inspection confirms legacy Help.run returns 1 and Version.run returns 0.
+Remaining live gates are corrected CLI/version, unit collection, new source-boundary
+controls and shutdown accounting. Added append-only counter evidence, strict runtime
+fault handling, failure-safe post-source capture, guest child cleanup/quiescence,
+bounded planner output and verified gates. A validation-only plan excludes models.
+Nine focused fixture/mock tests pass; full suite 110 passes in 2.627 seconds.
+
+The historical service interval omitted the preliminary guest snapshot; wording
+is corrected and raw measurements retained. Future measurements include that work.
+Retain task 420 for a future explicitly authorized compatibility/accounting-only
+check; no new task selection or optimizer work. See `TASK420_OFFLINE_AUDIT.md` for
+the evidence, limitations and narrow future scope. The current campaign is closed.

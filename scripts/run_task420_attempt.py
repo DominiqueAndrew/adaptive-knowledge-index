@@ -44,11 +44,15 @@ def owned_sample(pid,previous,*,cleanup,capacity,now):
     Only ESRCH during teardown is recoverable. Unknown PIDs and permission errors
     still fail; no missing observation is interpreted as zero CPU.
     """
+    if previous and now<previous['observed_ns']:raise AccountingError('owned CPU clock regression')
     try:
-        return {**darwin_process_cpu(pid),'observed_ns':now,'unobserved_ns':0}
+        sample=darwin_process_cpu(pid)
+        if previous and sample['identity']!=previous['identity']:raise AccountingError('owned PID identity changed')
+        return {**sample,'observed_ns':now,'unobserved_ns':0}
     except AccountingError as exc:
+        exc.counter_context={'pid':pid,'at_monotonic_ns':now,'previous':previous,'cleanup':cleanup,'capacity':capacity,'errno':getattr(exc,'errno',None)}
         if getattr(exc,'errno',None)!=errno.ESRCH or not cleanup or previous is None:raise
-        return {**previous,'unobserved_ns':max(0,now-previous['observed_ns'])*capacity}
+        return {**previous,'unobserved_ns':(now-previous['observed_ns'])*capacity,'bound_reason':'known_process_exited_ESRCH'}
 
 
 class Accounting:
@@ -65,7 +69,15 @@ class Accounting:
         self.last_progress_ns=0
         self.vm_dir=Path.home()/'.colima/_lima/colima'
         self.disks={p.name:p.stat().st_blocks*512 for p in self.vm_dir.glob('*disk') if p.is_file()}
+        self._record('baseline',{'host_capacity':self.host_capacity,'guest_capacity':4,'vm_disk_allocated_bytes':self.disks})
         self.thread=threading.Thread(target=self._guest_loop,daemon=True);self.thread.start()
+
+    def _record(self,kind,value):
+        path=self.root/'accounting-evidence.jsonl'
+        data=(json.dumps({'kind':kind,'at_monotonic_ns':time.monotonic_ns(),'value':value},sort_keys=True)+'\n').encode()
+        if (path.stat().st_size if path.exists() else 0)+len(data)>8*1024**2:raise AccountingError('accounting evidence cap')
+        fd=os.open(path,os.O_WRONLY|os.O_CREAT|os.O_APPEND,0o600)
+        with os.fdopen(fd,'ab') as stream:stream.write(data)
 
     def _vm(self):
         path=self.root/'vm-state.json'
@@ -105,7 +117,9 @@ class Accounting:
                                     capacity=self.host_capacity,now=time.monotonic_ns())
                 self.worker_samples[pid]=sample
                 total+=sample['cpu_ns']+sample['reaped_children_cpu_ns']+sample['unobserved_ns'];queue.extend(children(pid))
-            except AccountingError:
+            except AccountingError as exc:
+                exc.counter_component='workers'
+                self._record('counter_error',{'component':'workers','message':str(exc),'context':getattr(exc,'counter_context',{})})
                 # A process may have just reaped. Its CPU enters RUSAGE_CHILDREN.
                 try:os.kill(pid,0)
                 except ProcessLookupError:continue
@@ -128,8 +142,9 @@ class Accounting:
                 if pid<=0:raise AccountingError('invalid VM PID')
                 previous=next((v for v in self.runtime.values() if v['pid']==pid),None)
                 try:sample=owned_sample(pid,previous,cleanup=vm['state'] in ('stopping','stopped'),capacity=self.host_capacity,now=now)
-                except AccountingError:
-                    if vm['state']=='stopped':continue
+                except AccountingError as exc:
+                    exc.counter_component='runtime_host'
+                    self._record('counter_error',{'component':'runtime_host','message':str(exc),'context':getattr(exc,'counter_context',{})})
                     raise
                 if self.runtime_first is None:self.runtime_first=now
                 identity=sample['identity'];previous=self.runtime.get(identity)
@@ -184,6 +199,9 @@ class Accounting:
             save(self.root/'accounting-progress.json',{'conservative_cpu_ns':value['conservative_cpu_ns'],
                  'disk_reserved_bytes':disk,'elapsed_s':(now-self.started)/1e9,'vm_state':vm['state']})
             self.last_progress_ns=now
+            self._record('snapshot',{'vm_state':vm,'workers':self.worker_samples,'runtime_host':self.runtime,'guest':g,
+                                    'cpu_ledger':value,'disk_reserved_bytes':disk})
+        if finalized:self._record('final',{'workers':self.worker_samples,'runtime_host':self.runtime,'guest':g,'cpu_ledger':value})
         if finalized:self.final=value
         return value
 
@@ -193,9 +211,15 @@ def config_hashes():
     return {name:hashlib.sha256((Path.home()/name).read_bytes()).hexdigest() if (Path.home()/name).exists() else None for name in names}
 
 
+def work_phases(validation_only=False):
+    phases=[('stage',120),('start',70),('import',120),('setup',180)]
+    return phases if validation_only else phases+[('pilot',180)]
+
+
 def main():
     main_started=time.monotonic()
-    parser=argparse.ArgumentParser();parser.add_argument('--execute-approved-single-attempt',action='store_true');parser.add_argument('--campaign',type=Path,required=True);args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--execute-approved-single-attempt',action='store_true');parser.add_argument('--campaign',type=Path,required=True)
+    parser.add_argument('--validation-only',action='store_true',help='Exclude all model/planner/pilot dispatch; does not authorize live execution.');args=parser.parse_args()
     if not args.execute_approved_single_attempt:raise SystemExit('No action; separate live-attempt authorization required.')
     tls,tls_proof=verified_context()  # Local only, before allocating a live attempt.
     campaign=args.campaign.resolve()
@@ -215,12 +239,13 @@ def main():
     def cmd(phase,timeout):return Command(phase,(sys.executable,'-I',str(PROJECT/'scripts/task420_live_worker.py'),phase,str(root)),timeout_s=timeout)
     print(json.dumps({'attempt_directory':str(root),'status':'starting_one_bounded_attempt'}),flush=True)
     try:
-        result=runner.run([cmd('stage',120),cmd('start',70),cmd('import',120),cmd('setup',180),cmd('pilot',180)],
+        result=runner.run([cmd(phase,timeout) for phase,timeout in work_phases(args.validation_only)],
                           [cmd('cleanup-container',15),cmd('cleanup-image',15),cmd('cleanup-vm',45),cmd('cleanup-local',10)])
     finally:accounting.stop.set();accounting.thread.join(timeout=4)
     result.update({'config_hashes_unchanged':config_hashes()==before,'peak_conservative_cpu_ns':accounting.max_cpu,
                    'peak_disk_reserved_bytes':accounting.max_disk,'root_name':root.name,
                    'total_including_preparation_wall_s':time.monotonic()-main_started,
+                   'validation_only':args.validation_only,
                    'interpretation':'Live setup/fixture only unless pilot record separately confirms dispatch; counters are conservative with overlapping host/guest costs.'})
     save(root/'result.json',result)
     budget.finish(attempt,result)

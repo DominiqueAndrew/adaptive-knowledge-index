@@ -38,7 +38,7 @@ No architecture, `noexec`, TLS or confinement control was relaxed.
 
 ## Actual fixture measurements
 
-| Original operation | Host service time | Guest operation body |
+| Original operation | Recorded service interval | Guest operation body |
 |---|---:|---:|
 | Read | 275.423 ms | 0.072 ms |
 | Edit | 270.828 ms | 0.132 ms |
@@ -46,8 +46,12 @@ No architecture, `noexec`, TLS or confinement control was relaxed.
 | Read | 270.990 ms | 0.084 ms |
 | Total | **1,166.584 ms** | **72.436 ms** |
 
-Guest operation-body CPU totaled **50.255 ms**. The difference between service and
-body timings includes Docker dispatch and source-snapshot transfer. Recorder-local
+The recorded service interval excludes the preliminary guest snapshot and is not
+full end-to-end time. This was established in the [offline audit](TASK420_OFFLINE_AUDIT.md);
+the original numeric measurements are unchanged.
+
+Guest operation-body CPU totaled **50.255 ms**. The difference between that interval and
+body timings includes Docker dispatch and post-source-snapshot transfer. Recorder-local
 snapshot/journal/finalization wall overhead totaled approximately **4.02 ms**.
 The journal has ten valid events, four complete operations and eight source
 snapshots. Four observations are not a latency distribution or retrieval benchmark.

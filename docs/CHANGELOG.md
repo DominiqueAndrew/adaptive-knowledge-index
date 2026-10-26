@@ -1,5 +1,19 @@
 # Research release history
 
+## Closed-campaign offline audit
+
+- Reconcile all 40 retained artifact hashes and compressed-download/expanded-disk
+  totals without changing the cache or closed budget. Preserve incomplete CPU
+  compliance: missing teardown process identity/time prevents a certified bound.
+- Retain append-only counter provenance and structured fault context; reject PID
+  reuse and unexplained stopped-runtime counter failures.
+- Capture post-source after failed operations, reject unavailable boundaries,
+  terminate guest process groups and check source-boundary quiescence. Bound
+  planner output and independently verify live gates before any dispatch.
+- Correct historical timing scope without rewriting measurements. Add a
+  validation-only plan excluding pilot/model dispatch. 110 host tests pass;
+  none of these follow-up controls has been validated in a new live run.
+
 ## Shared-budget live instrumentation milestone
 
 - Persist download/CPU totals across authorized recoverable setup retries; reuse

@@ -63,9 +63,9 @@ def save(path, value):
 def read(path): return json.loads(path.read_text())
 
 
-def run(argv, *, data=None, timeout=30, limit=2*1024**2, reject_pattern=None):
+def run(argv, *, data=None, timeout=30, limit=2*1024**2, reject_pattern=None,environment=None):
     # Outer watchdog kills the whole worker group; bounded local calls also stop.
-    p = subprocess.Popen(argv, stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    p = subprocess.Popen(argv, stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,env=environment)
     selector=selectors.DefaultSelector();value=bytearray();sent=0;end=time.monotonic()+timeout
     os.set_blocking(p.stdout.fileno(),False);selector.register(p.stdout,selectors.EVENT_READ)
     if data:
@@ -306,21 +306,45 @@ def fixture(root):
     try:
         for action in [{'op':'read','path':'example.py'}, {'op':'edit','path':'example.py','old':'1','new':'2'},
                        {'op':'execute'}, {'op':'read','path':'example.py'}]:
-            before=backend(root,{'op':'snapshot'},True)['result']
-            local={p.relative_to(source).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in source.rglob('*') if p.is_file()}
-            if local!={r['path']:r['sha256'] for r in before}:raise RuntimeError('unobserved guest mutation')
-            kind={'read':'source_read','edit':'source_edit','execute':'source_execute'}[action['op']]
-            started=time.perf_counter_ns()
-            with rec.operation(kind,canonical(action)) as event:
-                response=backend(root,action,True);event.output(canonical(response['result']))
-                event.executor_metrics(wall_ns=response['wall_ns'],cpu_ns=response['cpu_ns'])
-                mirror(source,backend(root,{'op':'snapshot'},True)['result'])
-            observations.append({'op':action['op'],'service_wall_ns':time.perf_counter_ns()-started,
-                                 'backend_wall_ns':response['wall_ns'],'backend_cpu_ns':response['cpu_ns']})
+            response,rows,observation=record_operation(root,source,rec,action,fixture=True)
+            observations.append(observation)
             if action['op']=='execute' and response['result']['exit_code']!=0:raise RuntimeError('fixture execution failed')
     finally:metrics=rec.close()
     save(root/'fixture-result.json',{'purpose':'live original fixture; not agent evaluation','observations':observations,
                                   'recorder_metrics':metrics,'verification':verify(root/'fixture-capture')})
+
+
+def record_operation(root,source,rec,action,*,fixture=False):
+    started=time.perf_counter_ns()  # Includes preliminary guest snapshot/validation.
+    before=backend(root,{'op':'snapshot'},fixture)['result']
+    local={p.relative_to(source).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in source.rglob('*') if p.is_file()}
+    if local!={r['path']:r['sha256'] for r in before}:raise RuntimeError('unobserved guest mutation')
+    kind={'read':'source_read','edit':'source_edit','execute':'source_execute'}[action['op']]
+    with rec.operation(kind,canonical(action)) as event:
+        try:
+            response=backend(root,action,fixture);event.output(canonical(response['result']))
+            event.executor_metrics(wall_ns=response['wall_ns'],cpu_ns=response['cpu_ns'])
+        except Exception as exc:
+            event.output(str(exc).encode('utf8'))
+            raise
+        finally:
+            try:
+                rows=backend(root,{'op':'snapshot'},fixture)['result'];mirror(source,rows)
+            except Exception:
+                event.source_boundary_failed()
+                raise
+    return response,rows,{'op':action['op'],'service_wall_ns':time.perf_counter_ns()-started,
+                         'service_scope':'guest pre-snapshot through validated post-snapshot',
+                         'backend_wall_ns':response['wall_ns'],'backend_cpu_ns':response['cpu_ns']}
+
+
+def assert_live_gates(root):
+    compatibility=read(root/'compatibility.json')
+    evidence=read(root/'fixture-result.json')['verification']
+    if (compatibility.get('passed') is not True or len(compatibility.get('completed',[]))!=8
+            or evidence.get('integrity_verified') is not True or evidence.get('complete_operations')!=4):
+        raise RuntimeError('live gates missing')
+    if verify(root/'fixture-capture')!=evidence:raise RuntimeError('fixture evidence changed')
 
 
 def setup(root):
@@ -358,9 +382,9 @@ def setup(root):
 
 
 def pilot(root):
+    assert_live_gates(root)
     campaign=Path(read(root/'supervisor.json').get('campaign',root))
     with (campaign/'pilot-started.json').open('x') as stream:json.dump({'attempt':root.name,'started_unix':time.time()},stream)
-    if not read(root/'compatibility.json')['passed'] or not read(root/'fixture-result.json')['verification']:raise RuntimeError('live gates missing')
     source=root/'public-mirror';rows=backend(root,{'op':'snapshot'})['result'];mirror(source,rows)
     task=read(root/'task-input.json');planner=root/'planner';planner.mkdir()
     schema={'type':'object','properties':{'actions':{'type':'array','maxItems':4,'items':{'type':'object','properties':{
@@ -372,8 +396,8 @@ def pilot(root):
     environment=dict(os.environ)
     for key in list(environment):
         if any(word in key for word in ('API_KEY','TOKEN','SECRET','AWS_','AZURE_','GOOGLE_')):environment.pop(key,None)
-    status=subprocess.run([cli,'login','status'],capture_output=True,text=True,timeout=10,env=environment)
-    if status.returncode or 'chatgpt' not in (status.stdout+status.stderr).lower():raise RuntimeError('existing ChatGPT auth not confirmed')
+    status=run([cli,'login','status'],timeout=10,environment=environment)
+    if b'chatgpt' not in status.lower():raise RuntimeError('existing ChatGPT auth not confirmed')
     rec=Recorder(root=source,scopes=sorted({r['path'].split('/')[0] for r in rows}),output=root/'pilot-capture',allow_collection=True,
                  source_kind='public_repository',repository=task['repo'],declared_revision=task['base_commit'],store_source_blobs=True,store_tool_requests=True)
     history=[];observations=[];models=[];started=time.monotonic()
@@ -390,17 +414,19 @@ def pilot(root):
             args=[cli,'exec','--ephemeral','--ignore-user-config','--model','gpt-6-astra','-c','model_reasoning_effort="low"','--sandbox','read-only','--skip-git-repo-check','--json','--color','never','-c','web_search="disabled"','--cd',str(planner),'--output-schema',str(planner/'schema.json'),'--output-last-message',str(output)]
             for name in ['apps','shell_tool','unified_exec','multi_agent','memories','hooks','skill_search','skill_mcp_dependency_install','shell_snapshot','in_app_browser']:args+=['--disable',name]
             args+=['-'];begin=time.monotonic()
-            p=subprocess.run(args,input=prompt,capture_output=True,text=True,timeout=45,env=environment)
-            if len(p.stdout.encode())+len(p.stderr.encode())>2*1024**2:raise RuntimeError('planner output cap')
+            try:stdout=run(args,data=prompt.encode(),timeout=45,environment=environment).decode('utf8')
+            except Exception:
+                models.append({'model':'gpt-6-astra','reasoning_effort':'low','wall_s':time.monotonic()-begin,'status':'failed','usage':None})
+                save(root/'model-usage.json',models);raise
             events=[];usage=None
-            for line in p.stdout.splitlines():
+            for line in stdout.splitlines():
                 try:event=json.loads(line)
                 except ValueError:continue
                 if 'item' in event:events.append(event['item'].get('type'))
                 if event.get('type')=='turn.completed':usage=event.get('usage')
-            models.append({'model':'gpt-6-astra','reasoning_effort':'low','wall_s':time.monotonic()-begin,'usage':usage,'item_types':events,'returncode':p.returncode})
+            models.append({'model':'gpt-6-astra','reasoning_effort':'low','wall_s':time.monotonic()-begin,'usage':usage,'item_types':events,'returncode':0})
             save(root/'model-usage.json',models)
-            if p.returncode or any(kind!='agent_message' for kind in events) or usage is None:raise RuntimeError('planner failed or used unapproved tool')
+            if any(kind!='agent_message' for kind in events) or usage is None:raise RuntimeError('planner failed or used unapproved tool')
             plan=read(output)
             if not isinstance(plan.get('actions'),list) or len(plan['actions'])>4:raise RuntimeError('invalid planner action batch')
             if not plan['actions']:break
@@ -408,16 +434,9 @@ def pilot(root):
                 if len(observations)>=12:raise RuntimeError('operation cap')
                 action={k:v for k,v in action.items() if v is not None}
                 if action.get('op') not in ('read','edit','execute'):raise RuntimeError('unapproved operation')
-                before=backend(root,{'op':'snapshot'})['result']
-                local={p.relative_to(source).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in source.rglob('*') if p.is_file()}
-                if local!={r['path']:r['sha256'] for r in before}:raise RuntimeError('unobserved public source mutation')
-                kind={'read':'source_read','edit':'source_edit','execute':'source_execute'}[action['op']];begin=time.perf_counter_ns()
-                with rec.operation(kind,canonical(action)) as event:
-                    response=backend(root,action);event.output(canonical(response['result']))
-                    event.executor_metrics(wall_ns=response['wall_ns'],cpu_ns=response['cpu_ns'])
-                    rows=backend(root,{'op':'snapshot'})['result'];mirror(source,rows)
+                response,rows,observation=record_operation(root,source,rec,action)
                 history.append({'action':action,'result':response['result']})
-                observations.append({'op':action['op'],'service_wall_ns':time.perf_counter_ns()-begin,'backend_wall_ns':response['wall_ns'],'backend_cpu_ns':response['cpu_ns']})
+                observations.append(observation)
                 save(root/'pilot-progress.json',{'operations':len(observations),'observations':observations})
     finally:metrics=rec.close()
     save(root/'pilot-result.json',{'purpose':'prospective bounded development instrumentation; not repair-success evaluation',

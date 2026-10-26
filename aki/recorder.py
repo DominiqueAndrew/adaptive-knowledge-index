@@ -42,6 +42,9 @@ class Observation:
         self.output_sha256 = None
         self.executor_wall_ns = None
         self.executor_cpu_ns = None
+        self.boundary_failed = False
+    def source_boundary_failed(self):
+        self.boundary_failed = True
     def output(self, value: bytes):
         if not isinstance(value,bytes):raise TypeError('output must be explicit bytes')
         self.output_bytes=len(value);self.output_sha256=sha(value)
@@ -208,6 +211,7 @@ class Recorder:
                 after=None;capture_error=None
                 try:after=self._snapshot()
                 except (CaptureError,OSError):capture_error='source_capture_failed'
+                if observation.boundary_failed:capture_error='backend_source_boundary_failed'
                 self._append({'event':'end','operation_id':number,'status':'error' if error else 'ok',
                               'error_type':error,'capture_error':capture_error,'after':after,
                               'observer_start_monotonic_ns':start,'observer_end_monotonic_ns':end,

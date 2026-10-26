@@ -1,0 +1,91 @@
+{
+  "scope": "offline audit; no runtime, download, benchmark-source execution or model calls",
+  "budget_closed": true,
+  "budget_sha256": "7a065fe179dfea3cd327016b012270dd7f1235cc6901e87a1cbaf36c0f51bc2a",
+  "cache": {
+    "parts_bytes": {
+      "expanded_image_layers": 840434688,
+      "package_artifacts": 4394723,
+      "image_config_and_local_manifest": 9356
+    },
+    "total_bytes": 844838767,
+    "exact_inventory_and_hashes_verified": true,
+    "files": 40,
+    "layers": 9,
+    "packages": 29
+  },
+  "download": {
+    "compressed_layer_bytes": 325456469,
+    "package_bytes": 4394723,
+    "observed_response_body_bytes": 329884702,
+    "charged_bytes": 329892894,
+    "metadata_bodies_bytes": 33510,
+    "header_allowance_bytes": 8192
+  },
+  "campaign_disk_at_audit": {
+    "unique_regular_files": 95,
+    "logical_file_bytes": 844957468,
+    "allocated_file_bytes": 846905344,
+    "symlinks": 0,
+    "excludes": "directory metadata, APFS snapshots/shared extents and historical VM disk growth"
+  },
+  "cpu": {
+    "recorded_charge_s": 166.486912557,
+    "certified_complete": false,
+    "runs": [
+      {
+        "status": "work_stopped",
+        "accounting_faults": [],
+        "faults_have_process_context": false,
+        "cleanup_window_upper_s": 0.3563082511536777,
+        "recorded_charge_ns": 8363721328
+      },
+      {
+        "status": "accounting_incomplete",
+        "accounting_faults": [
+          "explicit process CPU unavailable: 3",
+          "explicit process CPU unavailable: 3"
+        ],
+        "faults_have_process_context": false,
+        "cleanup_window_upper_s": 6.3521759998984635,
+        "recorded_charge_ns": 158123191229
+      }
+    ],
+    "host_capacity_now": 12,
+    "missing_process_identity_and_fault_timestamps": true,
+    "conditional_one_host_component_full_cleanup_s": 242.71302455578157,
+    "conditional_both_host_components_full_cleanup_s": 318.9391365545631,
+    "scenario_assumptions": "Counter gaps confined to teardown; prior coverage complete; same host capacity. These are conservative reconciliation scenarios, not observed CPU totals or a proof of a breach."
+  },
+  "cli_static_evidence": {
+    "source_sha256": "51a977052cf9de6053569ce774f1cecf76e6718e5066d948b010abd2e52e8f4d",
+    "methods": {
+      "Help.run": {
+        "line": 534,
+        "literal_return_values": [
+          1
+        ]
+      },
+      "Version.run": {
+        "line": 1040,
+        "literal_return_values": [
+          0
+        ]
+      },
+      "ConsoleTool._usage_and_fail": {
+        "line": 1127,
+        "literal_return_values": [
+          1
+        ]
+      }
+    },
+    "source_executed": false
+  },
+  "conclusion": "Retain task 420: six compatibility gates and the live fixture passed. Historical CPU compliance remains unproved; keep campaign closed.",
+  "validation": {
+    "focused_original_fixture_mock_tests_passed": 9,
+    "all_host_tests_passed": 110,
+    "all_host_tests_wall_s": 2.627,
+    "followup_live_validation": false
+  }
+}

@@ -55,6 +55,11 @@ gates. A legacy CLI check and shutdown CPU-counter errors stopped progression; n
 agent pilot ran. All runtime resources were cleaned up. These are instrumentation
 results, with adaptive efficacy still unresolved.
 
+The [closed-campaign audit](docs/TASK420_OFFLINE_AUDIT.md) verifies the retained
+artifact inventory, explains the download/cache difference, and preserves the
+incomplete CPU finding. Narrow accounting and recorder repairs pass 110 host tests;
+the remaining compatibility and shutdown checks still require live validation.
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,

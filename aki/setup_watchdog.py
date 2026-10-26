@@ -42,6 +42,7 @@ class SetupWatchdog:
         self.stop_event = threading.Event(); self.reason = None; self.phase = 'work'
         self.cancelled = False; self.used = False
         self.accounting_faults = []; self.cpu_overrun = False
+        self.accounting_fault_details = []
         self.finalize_reserve_s = min(5, teardown_reserve_s / 10)
         self.command_records = []
 
@@ -91,6 +92,8 @@ class SetupWatchdog:
             row = self._snapshot()
         except Exception as exc:
             self.accounting_faults.append(str(exc))
+            self.accounting_fault_details.append({'phase':self.phase,'at_monotonic_s':self.clock(),
+                'component':getattr(exc,'counter_component',None),'context':getattr(exc,'counter_context',{}),'message':str(exc)})
             if self.phase == 'work': raise
             # Missing telemetry cannot justify leaving owned execution running.
             # Only bounded teardown continues; the final result must fail validation.
@@ -195,6 +198,7 @@ class SetupWatchdog:
         result['elapsed_s'] = self.clock()-self.started
         result['deadline_exceeded'] = result['elapsed_s'] > self.total_s
         result['accounting_faults'] = self.accounting_faults
+        result['accounting_fault_details'] = self.accounting_fault_details
         result['command_records'] = self.command_records
         result['cpu_ceiling_exceeded'] = self.cpu_overrun or result.get('cpu', {}).get('conservative_cpu_ns', 0) > self.cpu_limit
         if self.accounting_faults:

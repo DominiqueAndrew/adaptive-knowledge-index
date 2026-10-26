@@ -8,7 +8,7 @@ from pathlib import Path
 
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument("--manifest",type=Path,default=Path("docs/TASK420_SHARED_BUDGET_RELEASE.json"))
+    p.add_argument("--manifest",type=Path,default=Path("docs/TASK420_OFFLINE_AUDIT_RELEASE.json"))
     args=p.parse_args()
     root=Path.cwd().resolve()
     manifest=json.loads(args.manifest.read_text())
