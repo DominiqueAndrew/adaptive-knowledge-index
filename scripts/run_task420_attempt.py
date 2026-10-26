@@ -23,6 +23,7 @@ sys.path.insert(0,str(PROJECT));sys.path.insert(0,str(PROJECT/'scripts'))
 from aki.setup_accounting import AccountingError, CpuLedger, darwin_process_cpu, guest_cpu_snapshot
 from aki.setup_watchdog import SetupWatchdog, Command
 from aki.setup_tls import verified_context
+from aki.setup_budget import SharedBudget
 from prepare_task420_controls import prepare
 from task420_live_worker import save, read, COLIMA
 
@@ -37,14 +38,16 @@ def children(pid):
 
 
 class Accounting:
-    def __init__(self,root):
+    def __init__(self,root,campaign=None):
         self.root=root;self.started=time.monotonic_ns();self.host_capacity=os.cpu_count()
+        self.disk_root=campaign or root
         self.ledger=CpuLedger();self.runner=None;self.stop=threading.Event();self.lock=threading.Lock()
         for name in self.ledger.REQUIRED:
             self.ledger.register(name,name,4 if name=='guest' else self.host_capacity,0,self.started,active=True)
         self.worker_max=0;self.runtime={};self.runtime_first=None;self.vm_start=None
         self.guest=None;self.guest_error=None;self.final=None
         self.observations=[];self.max_cpu=0;self.max_disk=0
+        self.last_progress_ns=0
         self.vm_dir=Path.home()/'.colima/_lima/colima'
         self.disks={p.name:p.stat().st_blocks*512 for p in self.vm_dir.glob('*disk') if p.is_file()}
         self.thread=threading.Thread(target=self._guest_loop,daemon=True);self.thread.start()
@@ -147,14 +150,21 @@ class Accounting:
         value=self.ledger.snapshot(now);self.max_cpu=max(self.max_cpu,value['conservative_cpu_ns'])
         # Reserve VM unpacked image + bounded tmpfs/capture space before download.
         local=0
-        for p in self.root.rglob('*'):
+        seen=set()
+        for p in self.disk_root.rglob('*'):
             try:
-                if p.is_file() and not p.is_symlink():local+=p.stat().st_size
+                if p.is_file() and not p.is_symlink():
+                    info=p.stat();identity=(info.st_dev,info.st_ino)
+                    if identity not in seen:local+=info.st_size;seen.add(identity)
             except FileNotFoundError:pass  # Atomic ledger replacement/deletion; reserved space covers writers.
         vm_growth=sum(max(0,p.stat().st_blocks*512-self.disks.get(p.name,p.stat().st_blocks*512)) for p in self.vm_dir.glob('*disk') if p.is_file())
         disk=local+max(vm_growth,1024**3 if vm['state'] in ('starting','ready') else 0)+448*1024**2+384*1024**2
         self.max_disk=max(self.max_disk,disk)
         if disk>3*1024**3:raise AccountingError('additional disk reservation ceiling')
+        if now-self.last_progress_ns>2*10**9:
+            save(self.root/'accounting-progress.json',{'conservative_cpu_ns':value['conservative_cpu_ns'],
+                 'disk_reserved_bytes':disk,'elapsed_s':(now-self.started)/1e9,'vm_state':vm['state']})
+            self.last_progress_ns=now
         if finalized:self.final=value
         return value
 
@@ -166,18 +176,22 @@ def config_hashes():
 
 def main():
     main_started=time.monotonic()
-    parser=argparse.ArgumentParser();parser.add_argument('--execute-approved-single-attempt',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--execute-approved-single-attempt',action='store_true');parser.add_argument('--campaign',type=Path,required=True);args=parser.parse_args()
     if not args.execute_approved_single_attempt:raise SystemExit('No action; separate live-attempt authorization required.')
     tls,tls_proof=verified_context()  # Local only, before allocating a live attempt.
+    campaign=args.campaign.resolve()
+    if not campaign.is_relative_to(PROJECT/'scratch') or campaign==PROJECT/'scratch':raise SystemExit('dedicated project scratch campaign required')
+    budget=SharedBudget(campaign)
     # This precondition does not start or stop anything.
     status=subprocess.run([COLIMA,'list','--json'],capture_output=True,check=True,timeout=10)
     profiles=[json.loads(row) for row in status.stdout.splitlines()]
     if not any(r.get('name')=='default' and r.get('status')=='Stopped' for r in profiles):raise SystemExit('existing default VM must be stopped')
-    attempt=uuid.uuid4().hex;root=PROJECT/'scratch'/('task420-live-'+attempt)
+    attempt=uuid.uuid4().hex;remaining=budget.begin(attempt);root=campaign/('run-'+attempt)
     prepare(root,attempt);(root/'control/backend.py').write_bytes((PROJECT/'runtime/task420/backend.py').read_bytes())
     save(root/'tls-preflight.json',tls_proof)
-    before=config_hashes();save(root/'supervisor.json',{'pid':os.getpid(),'attempt':attempt,'started_unix':time.time(),'single_attempt':True})
-    accounting=Accounting(root);runner=SetupWatchdog(cpu_snapshot=accounting.snapshot,total_s=600-(time.monotonic()-main_started))
+    before=config_hashes();save(root/'supervisor.json',{'pid':os.getpid(),'attempt':attempt,'started_unix':time.time(),'single_attempt':True,'campaign':str(campaign)})
+    accounting=Accounting(root,campaign);runner=SetupWatchdog(cpu_snapshot=accounting.snapshot,
+        total_s=600-budget.state['active_wall_s']-(time.monotonic()-main_started),cpu_limit_ns=remaining)
     accounting.runner=runner
     def cmd(phase,timeout):return Command(phase,(sys.executable,'-I',str(PROJECT/'scripts/task420_live_worker.py'),phase,str(root)),timeout_s=timeout)
     print(json.dumps({'attempt_directory':str(root),'status':'starting_one_bounded_attempt'}),flush=True)
@@ -190,7 +204,10 @@ def main():
                    'total_including_preparation_wall_s':time.monotonic()-main_started,
                    'interpretation':'Live setup/fixture only unless pilot record separately confirms dispatch; counters are conservative with overlapping host/guest costs.'})
     save(root/'result.json',result)
-    print(json.dumps({k:result.get(k) for k in ('status','reason','elapsed_s','accounting_complete','cleanup_pending','config_hashes_unchanged','peak_conservative_cpu_ns','peak_disk_reserved_bytes')}),flush=True)
+    budget.finish(attempt,result)
+    result['shared_budget']={k:budget.state[k] for k in ('download_bytes','cpu_charged_ns','active_wall_s','closed')}
+    save(root/'result.json',result);budget.close()
+    print(json.dumps({k:result.get(k) for k in ('status','reason','elapsed_s','accounting_complete','cleanup_pending','config_hashes_unchanged','peak_conservative_cpu_ns','peak_disk_reserved_bytes','shared_budget')}),flush=True)
 
 
 if __name__=='__main__':main()

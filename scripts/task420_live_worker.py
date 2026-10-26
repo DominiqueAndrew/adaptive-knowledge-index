@@ -76,27 +76,38 @@ def stage(root):
     proposal = read(PROJECT/'results/runtime/task420-setup-proposal.json')
     tls,tls_proof=verified_context()
     if tls_proof!=read(root/'tls-preflight.json'):raise RuntimeError('TLS trust inputs changed after preflight')
-    state = {'download_bytes': 0, 'expanded_layer_bytes': 0, 'files': [], 'status': 'staging'}
+    campaign=Path(read(root/'supervisor.json').get('campaign',root))
+    cache=campaign/'artifact-cache';cache.mkdir(exist_ok=True)
+    transfer=campaign/'transfer.json'
+    state = read(transfer) if transfer.exists() else {'download_bytes': 0, 'observed_body_bytes':0,'expanded_layer_bytes': 0, 'files': [], 'status': 'staging'}
+    def checkpoint():save(transfer,state);save(root/'transfer.json',state)
     def fetch(url, *, digest=None, size=None, target=None, headers=None, start=None):
         remaining = CAP-state['download_bytes']; cap = size if size is not None else min(1024**2, remaining)
-        if cap > remaining: raise RuntimeError('transfer ceiling')
+        if cap<=0 or cap > remaining: raise RuntimeError('transfer ceiling')
         data = bytearray(); h = hashlib.sha256(); count = 0
         stream = target.open('xb') if target else None
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=headers or {}), timeout=20,context=tls) as response:
                 if start is not None and (response.status!=206 or not response.headers.get('Content-Range','').startswith('bytes '+str(start)+'-'+str(start+size-1)+'/')):raise RuntimeError('metadata range not honored')
                 while count < cap:
-                    block = response.read(min(1024**2, cap-count))
+                    allowed=min(1024**2,cap-count)
+                    # Persist reservations before receiving a chunk, so interrupted
+                    # reads cannot reset unobserved transfer to zero on retry.
+                    state['download_bytes']+=allowed;checkpoint()
+                    block = response.read(allowed)
+                    state['download_bytes']-=allowed-len(block)
+                    state['observed_body_bytes']+=len(block)
+                    checkpoint()
                     if not block: break
-                    count += len(block); state['download_bytes'] += len(block); h.update(block)
+                    count += len(block); h.update(block)
                     if stream: stream.write(block)
                     else: data.extend(block)
-                    save(root/'transfer.json', state)
+                    checkpoint()
             if (size is not None and count != size) or (size is None and count == cap): raise RuntimeError('transfer size/cap')
             if digest and h.hexdigest() != digest.removeprefix('sha256:'): raise RuntimeError('artifact hash')
         finally:
             if stream: stream.close()
-        state['files'].append({'bytes':count,'sha256':h.hexdigest()}); save(root/'transfer.json',state)
+        state['files'].append({'bytes':count,'sha256':h.hexdigest()}); checkpoint()
         return bytes(data)
     token = json.loads(fetch('https://auth.docker.io/token?service=registry.docker.io&scope=repository:library/python:pull'))['token']
     headers = {'Authorization':'Bearer '+token,'Accept':'application/vnd.docker.distribution.manifest.v2+json'}
@@ -106,12 +117,23 @@ def stage(root):
     parsed = json.loads(config)
     if parsed['architecture']!='arm64' or parsed['os']!='linux': raise RuntimeError('image architecture')
     if sum(x['size'] for x in manifest['layers']) != proposal['image']['compressed_layer_bytes']: raise RuntimeError('layer inventory')
-    image = root/'image'; image.mkdir(); config_name=manifest['config']['digest'].split(':')[1]+'.json'
+    image = cache/'image'; image.mkdir(exist_ok=True)
+    (root/'image').symlink_to(image,target_is_directory=True)
+    config_name=manifest['config']['digest'].split(':')[1]+'.json'
     (image/config_name).write_bytes(config); layers=[]
     for i, layer in enumerate(manifest['layers']):
-        compressed=root/'current-layer.gz'
+        name=str(i)+'/layer.tar';target=image/name
+        if target.exists():
+            h=hashlib.sha256()
+            with target.open('rb') as stream:
+                for block in iter(lambda:stream.read(1024**2),b''):h.update(block)
+            if 'sha256:'+h.hexdigest()==parsed['rootfs']['diff_ids'][i]:layers.append(name);continue
+            target.unlink()  # Only an incomplete, never validated local staging file.
+        compressed=cache/'current-layer.gz'
+        if compressed.exists():compressed.unlink()
         fetch(base+'blobs/'+layer['digest'],digest=layer['digest'],size=layer['size'],target=compressed,headers=headers)
-        name=str(i)+'/layer.tar'; target=image/name; target.parent.mkdir(); h=hashlib.sha256()
+        target.parent.mkdir(exist_ok=True); h=hashlib.sha256()
+        state['expanded_layer_bytes']=sum(p.stat().st_size for p in image.glob('*/layer.tar'))
         with gzip.open(compressed,'rb') as source,target.open('xb') as output:
             while True:
                 block=source.read(1024**2)
@@ -123,11 +145,14 @@ def stage(root):
         compressed.unlink();layers.append(name)
     tag='aki-task420-reviewed:'+root.name
     (image/'manifest.json').write_text(json.dumps([{'Config':config_name,'RepoTags':[tag],'Layers':layers}]))
-    packages=root/'packages';packages.mkdir()
+    packages=root/'packages';packages.mkdir();cached_packages=cache/'packages';cached_packages.mkdir(exist_ok=True)
     for item in proposal['candidate_dependencies']['packages']:
         a=item['artifact']
         if not a['url'].startswith('https://files.pythonhosted.org/'): raise RuntimeError('unapproved package host')
-        fetch(a['url'],digest=a['sha256'],size=a['size'],target=packages/a['filename'])
+        target=cached_packages/a['filename']
+        if target.exists() and (target.stat().st_size!=a['size'] or hashlib.sha256(target.read_bytes()).hexdigest()!=a['sha256']):target.unlink()
+        if not target.exists():fetch(a['url'],digest=a['sha256'],size=a['size'],target=target)
+        os.link(target,packages/a['filename'])
     # Read archive declarations without extracting or running any package on macOS.
     review=[]
     for artifact in packages.iterdir():
@@ -145,12 +170,17 @@ def stage(root):
                 review.append({'artifact':artifact.name,'setup_sha256':hashlib.sha256(data).hexdigest(),'review':'bounded inert declaration scan; not a safety proof'})
         else: raise RuntimeError('unreviewed artifact format')
     state.update(status='staged_verified',package_review=review,tag=tag,config_name=config_name)
-    save(root/'transfer.json',state)
+    checkpoint()
     # Only official problem text/identities from the pinned task dataset; never
     # trajectories, patch, tests, outcomes or held-out columns/rows for the agent.
     import pyarrow.parquet as pq
     from replay_inputs import RemoteParquet
     cohort=read(PROJECT/'results/phase4/cohort.json')
+    cached_task=campaign/'task-input.json'
+    if cached_task.exists():
+        task=read(cached_task)
+        if hashlib.sha256(canonical(task)).hexdigest()!=state.get('task_input_sha256'):raise RuntimeError('cached task metadata changed')
+        save(root/'task-input.json',task);return
     metadata=read(PROJECT/'results/runtime/task420-image-review.json')['matches'][0]
     url='https://huggingface.co/datasets/nebius/SWE-rebench/resolve/'+cohort['task_revision']+'/'+metadata['dataset_file']
     class MetadataBudget:
@@ -161,7 +191,8 @@ def stage(root):
             headers={'Range':'bytes='+str(start)+'-'+str(start+count-1)}
             return fetch(url+'?range='+str(start)+'-'+str(start+count-1),size=count,headers=headers,start=start)
     # Charge a conservative allowance for the range reader's HEAD response headers.
-    state['download_bytes']+=8192
+    if state['download_bytes']+8192>CAP:raise RuntimeError('metadata transfer allowance exhausted')
+    state['download_bytes']+=8192;checkpoint()
     class TaskParquet(RemoteParquet):
         def __init__(self,budget,url):
             self.budget,self.url,self.pos=budget,url,0
@@ -172,7 +203,8 @@ def stage(root):
     task=parquet.read_row_group(metadata['row_group'],columns=columns).slice(metadata['row_index'],1).to_pylist()[0]
     if task['instance_id']!='Backblaze__B2_Command_Line_Tool-420' or task['base_commit']!=proposal['base_commit']:raise RuntimeError('task identity mismatch')
     save(root/'task-input.json',task)
-    state['task_input_sha256']=hashlib.sha256(canonical(task)).hexdigest();save(root/'transfer.json',state)
+    save(cached_task,task)
+    state['task_input_sha256']=hashlib.sha256(canonical(task)).hexdigest();checkpoint()
 
 
 def start(root):
@@ -308,6 +340,8 @@ def setup(root):
 
 
 def pilot(root):
+    campaign=Path(read(root/'supervisor.json').get('campaign',root))
+    with (campaign/'pilot-started.json').open('x') as stream:json.dump({'attempt':root.name,'started_unix':time.time()},stream)
     if not read(root/'compatibility.json')['passed'] or not read(root/'fixture-result.json')['verification']:raise RuntimeError('live gates missing')
     source=root/'public-mirror';rows=backend(root,{'op':'snapshot'})['result'];mirror(source,rows)
     task=read(root/'task-input.json');planner=root/'planner';planner.mkdir()
@@ -395,10 +429,11 @@ def cleanup(root, phase):
         removed=0
         for name in ('image','packages','current-layer.gz'):
             path=root/name
-            if path.is_dir():
+            if path.is_symlink():path.unlink()
+            elif path.is_dir():
                 removed+=sum(p.stat().st_size for p in path.rglob('*') if p.is_file());shutil.rmtree(path)
             elif path.exists():removed+=path.stat().st_size;path.unlink()
-        save(root/'local-cleanup.json',{'removed_bytes':removed})
+        save(root/'local-cleanup.json',{'removed_bytes':removed,'verified_campaign_cache_retained':True})
 
 
 if __name__=='__main__':
