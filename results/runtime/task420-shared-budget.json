@@ -1,0 +1,276 @@
+{
+  "schema": "aki.shared-budget-live-setup.v1",
+  "created_utc": "2026-10-26T02:08:27.242244+00:00",
+  "task": "Backblaze__B2_Command_Line_Tool-420",
+  "base_commit": "15a60ad1c71b75366061e4f742ef52eb9dcc23e7",
+  "protocol": "docs/TASK420_SHARED_BUDGET_PROTOCOL.md",
+  "host_python": "3.11.5",
+  "python_process_architecture": "arm64",
+  "runtime": "native linux/arm64, Python 3.5.10, offline nonroot noexec confinement validated",
+  "limits": {
+    "download_bytes": 536870912,
+    "additional_disk_bytes": 3221225472,
+    "setup_cpu_ns": 300000000000,
+    "pilot_operations": 12,
+    "pilot_wall_s": 600
+  },
+  "cumulative": {
+    "charged_download_bytes": 329892894,
+    "observed_response_body_bytes": 329884702,
+    "conservative_cpu_charged_ns": 166486912557,
+    "active_wall_s": 82.79963970882818,
+    "peak_disk_reservation_bytes": 2791110143,
+    "cpu_limit_compliance_certified": false
+  },
+  "runs": [
+    {
+      "execution_commit": "31284cf86a75aaaa904a69cfbf0c046df123350e",
+      "status": "work_stopped",
+      "reason": "command failed: stage exit=1",
+      "active_wall_s": 21.771038834005594,
+      "conservative_cpu_charge_ns": 8363721328,
+      "disk_reservation_peak_bytes": 1828330695,
+      "accounting_complete": true,
+      "accounting_faults": [],
+      "cleanup_pending": [],
+      "saved_configuration_unchanged": true,
+      "commands": [
+        {
+          "name": "stage",
+          "phase": "work",
+          "exit": 1,
+          "wall_s": 20.91473020799458,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 878
+        },
+        {
+          "name": "cleanup-container",
+          "phase": "cleanup",
+          "exit": 0,
+          "wall_s": 0.10924983397126198,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 50
+        },
+        {
+          "name": "cleanup-image",
+          "phase": "cleanup",
+          "exit": 0,
+          "wall_s": 0.07746641710400581,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 46
+        },
+        {
+          "name": "cleanup-vm",
+          "phase": "cleanup",
+          "exit": 0,
+          "wall_s": 0.07588612497784197,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 43
+        },
+        {
+          "name": "cleanup-local",
+          "phase": "cleanup",
+          "exit": 0,
+          "wall_s": 0.0801719999872148,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 46
+        }
+      ],
+      "failure_interpretation": "Review rejected inert Windows launcher data bundled in the pinned pip/setuptools wheels before any VM start."
+    },
+    {
+      "execution_commit": "e3ff05a01f4e278067a107aa2006a8155fcbdd19",
+      "status": "accounting_incomplete",
+      "reason": "command failed: setup exit=1",
+      "active_wall_s": 61.02860087482259,
+      "conservative_cpu_charge_ns": 158123191229,
+      "disk_reservation_peak_bytes": 2791110143,
+      "accounting_complete": false,
+      "accounting_faults": [
+        "explicit process CPU unavailable: 3",
+        "explicit process CPU unavailable: 3"
+      ],
+      "cleanup_pending": [],
+      "saved_configuration_unchanged": true,
+      "commands": [
+        {
+          "name": "stage",
+          "phase": "work",
+          "exit": 0,
+          "wall_s": 2.134139042114839,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 38
+        },
+        {
+          "name": "start",
+          "phase": "work",
+          "exit": 0,
+          "wall_s": 22.284641582984477,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 38
+        },
+        {
+          "name": "import",
+          "phase": "work",
+          "exit": 0,
+          "wall_s": 17.79558112495579,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 39
+        },
+        {
+          "name": "setup",
+          "phase": "work",
+          "exit": 1,
+          "wall_s": 11.938504457939416,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 2856
+        },
+        {
+          "name": "cleanup-container",
+          "phase": "cleanup",
+          "exit": 0,
+          "wall_s": 1.1313776669558138,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 50
+        },
+        {
+          "name": "cleanup-image",
+          "phase": "cleanup",
+          "exit": 0,
+          "wall_s": 0.582360708154738,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 46
+        },
+        {
+          "name": "cleanup-vm",
+          "phase": "cleanup",
+          "exit": 0,
+          "wall_s": 4.49551145802252,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 43
+        },
+        {
+          "name": "cleanup-local",
+          "phase": "cleanup",
+          "exit": 0,
+          "wall_s": 0.08095287508331239,
+          "input_bytes_sent": 0,
+          "output_bytes_seen": 46
+        }
+      ],
+      "live_fixture": {
+        "purpose": "live original fixture; not agent evaluation",
+        "observations": [
+          {
+            "op": "read",
+            "service_wall_ns": 275422500,
+            "backend_wall_ns": 71912,
+            "backend_cpu_ns": 70417
+          },
+          {
+            "op": "edit",
+            "service_wall_ns": 270827709,
+            "backend_wall_ns": 132352,
+            "backend_cpu_ns": 130791
+          },
+          {
+            "op": "execute",
+            "service_wall_ns": 349344084,
+            "backend_wall_ns": 72148160,
+            "backend_cpu_ns": 49971083
+          },
+          {
+            "op": "read",
+            "service_wall_ns": 270989583,
+            "backend_wall_ns": 83867,
+            "backend_cpu_ns": 82709
+          }
+        ],
+        "recorder_metrics": {
+          "snapshot_wall_ns": 2116874,
+          "snapshot_cpu_ns": 2117000,
+          "journal_wall_ns": 1706917,
+          "journal_cpu_ns": 1443000,
+          "snapshots": 8,
+          "finalization_wall_ns": 199375,
+          "finalization_cpu_ns": 201000,
+          "retained_source_bytes": 20,
+          "retained_request_bytes": 102
+        },
+        "verification": {
+          "schema": "aki-observation-v1",
+          "events": 10,
+          "complete_operations": 4,
+          "final_scoped_tree_sha256": "40b5041af5043904dad1ce7487744cf62af83f4f3ecceb847ba3ebd16a9a5cc7",
+          "integrity_verified": true
+        }
+      },
+      "compatibility": {
+        "completed": [
+          {
+            "name": "bootstrap",
+            "wall_s": 0.874650334008038,
+            "output_sha256": "173fb2ca5e5c1423963ba5038e5aef6cdd9d24a76475d478026d5ce099312b52"
+          },
+          {
+            "name": "dependencies",
+            "wall_s": 1.834956457838416,
+            "output_sha256": "084941c9c2a90a160ee788a5510ffd0577d818d148b0a4a53d7da0d8bb5479fe"
+          },
+          {
+            "name": "dependency_check",
+            "wall_s": 0.4582767910324037,
+            "output_sha256": "b990e26c32f0ba55c3cc168ffd5c269777e362aa4d8ca62abe2929b887227cdb"
+          },
+          {
+            "name": "imports",
+            "wall_s": 0.6995719168335199,
+            "output_sha256": "31900675fa8fb3d05597886fc34edb265ce829e507ffda83b30f5114e2b5aa44"
+          },
+          {
+            "name": "project_metadata",
+            "wall_s": 0.3974190419539809,
+            "output_sha256": "5762ad7861c4f2d277c99dbaca80a957dae14afff008772f62007945a7d3652c"
+          },
+          {
+            "name": "project_dependency_check",
+            "wall_s": 0.45812275004573166,
+            "output_sha256": "b990e26c32f0ba55c3cc168ffd5c269777e362aa4d8ca62abe2929b887227cdb"
+          }
+        ],
+        "passed": false
+      },
+      "failure_interpretation": "CLI help exits 1 in the pinned version; later process-CPU ESRCH errors during cleanup leave accounting incomplete."
+    }
+  ],
+  "pilot_started": false,
+  "model_calls": 0,
+  "heldout_actions_inspected": false,
+  "live_fixture_summary": {
+    "complete_operations": 4,
+    "source_boundaries": 8,
+    "integrity_verified": true,
+    "service_wall_ns_sum": 1166583876,
+    "guest_operation_wall_ns_sum": 72436291,
+    "guest_operation_cpu_ns_sum": 50255000,
+    "not_agent_or_retrieval_evaluation": true
+  },
+  "cleanup": {
+    "containers_removed": true,
+    "loaded_attempt_image_removed": true,
+    "vm_stopped": true,
+    "saved_configurations_unchanged": true,
+    "private_verified_artifact_cache_retained_bytes": 844838767,
+    "cache_purpose": "Preserve pinned evidence and avoid repeat downloads; no running resource or credentials. Not published."
+  },
+  "stop_reason": "Campaign closed on shutdown CPU-counter errors. Registered charges do not certify complete CPU accounting; no retry or pilot followed.",
+  "code_followup": "CLI compatibility now uses version; known exited processes retain a capacity-bound CPU tail only during teardown. Host tests only; old measurements unchanged.",
+  "remaining_gate": "Live validation of corrected shutdown accounting and final compatibility/recorder gates under an explicit measurable resource allowance. No paid API or installation needed.",
+  "validation": {
+    "host_tests_before_run1": 99,
+    "host_tests_before_run2": 100,
+    "post_run_patch_host_tests": 101,
+    "independent_capture_verification": true,
+    "post_run_patch_live_validation": false
+  }
+}

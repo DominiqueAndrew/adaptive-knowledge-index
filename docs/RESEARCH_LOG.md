@@ -413,3 +413,30 @@ The precise remaining gate is renewed authorization for the verified registry
 preflight and conditional bounded fixture-first attempt. It requires no host
 installation, new credential or security-setting change. Adaptive benefit,
 live recorder feasibility and prospective agent outcomes remain unresolved.
+
+## Shared-budget continuation — first live recorder evidence
+
+Used one durable 512 MiB / 3 GiB / 300 CPU-second campaign across two setup runs,
+with verified artifact reuse and no pilot retry. Run 1 (`31284cf`, 99 host tests)
+stopped while reviewing bundled Windows launcher data. A narrow review of the
+pinned pip/setuptools wheel members resolved that check without executing the
+launchers or weakening TLS, architecture or mount constraints.
+
+Run 2 (`e3ff05a`, 100 tests) started the native isolated runtime, verified a live
+four-operation original fixture, and passed six dependency/setup checks. Four
+complete operations, eight source snapshots and ten journal events independently
+verified. Full fixture service time was 1.166584 s versus 0.072436 s guest operation
+bodies. This is instrumentation evidence, not an agent/retrieval result.
+
+The CLI help check stopped on exit 1; static inspection confirms the legacy CLI
+uses that status for help. Two ESRCH counter errors during shutdown left accounting
+incomplete, and the shared guard closed the campaign. No model call, pilot or
+held-out inspection occurred. Cumulative transfer 329,892,894 bytes, active wall
+82.799640 s, registered conservative CPU charge 166.486913 s. The CPU total cannot
+be certified complete. Containers/image removed, VM stopped, saved settings unchanged;
+844,838,767 bytes of verified offline artifacts retained locally for audit/reuse.
+
+Changed the next compatibility check to `version` and added a host-tested bounded
+tail for known processes exiting during teardown. Final suite: 101 tests. These
+patches were not run live and do not change the incomplete historical status.
+See `TASK420_SHARED_BUDGET_RESULTS.md`; adaptive efficacy remains unresolved.

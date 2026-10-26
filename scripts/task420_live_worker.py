@@ -439,6 +439,7 @@ def cleanup(root, phase):
             tag=read(path)['tag']; run(DOCKER+['image','rm',tag])
     elif phase=='vm':
         if (root/'vm-state.json').exists():
+            save(root/'vm-state.json',{'state':'stopping','at_monotonic_ns':time.monotonic_ns()})
             run([COLIMA,'stop'],timeout=45)
             rows=[json.loads(s) for s in run([COLIMA,'list','--json']).splitlines()]
             if not any(r.get('name')=='default' and r.get('status')=='Stopped' for r in rows):raise RuntimeError('VM stop unconfirmed')

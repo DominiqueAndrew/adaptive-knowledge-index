@@ -49,6 +49,12 @@ request because the selected Python runtime had an empty default CA store. No VM
 or pilot started. A local verified-trust preflight is now tested; it has not been
 retried against the network. Prior research conclusions remain unchanged.
 
+The [shared-budget continuation](docs/TASK420_SHARED_BUDGET_RESULTS.md) subsequently
+validated four real isolated recorder-fixture operations and six dependency/setup
+gates. A legacy CLI check and shutdown CPU-counter errors stopped progression; no
+agent pilot ran. All runtime resources were cleaned up. These are instrumentation
+results, with adaptive efficacy still unresolved.
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,

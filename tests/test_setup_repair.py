@@ -48,7 +48,8 @@ class GuestPlanTests(unittest.TestCase):
             self.assertEqual(argv[:4], ['/usr/local/bin/python3', '-I', '-B', '-c'])
             self.assertNotIn('venv', argv)
             self.assertFalse(any('/env/bin/' in arg for arg in argv))
-        self.assertIn('from b2.console_tool import main; main()', dict(GUEST.setup_steps())['cli_help'][4])
+        self.assertIn('from b2.console_tool import main; main()', dict(GUEST.setup_steps())['cli_version'][4])
+        self.assertIn('sys.argv=["b2","version"]', dict(GUEST.setup_steps())['cli_version'][4])
         self.assertIn('--egg-base', dict(GUEST.setup_steps())['project_metadata'][4])
 
     def test_bootstrap_and_runtime_install_are_separate_offline_hash_locked_targets(self):

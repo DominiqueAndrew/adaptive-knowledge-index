@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 import ssl
+import errno
 import zipfile
 from unittest import mock
 
@@ -15,6 +16,7 @@ sys.path.insert(0,str(ROOT/'scripts'))
 import task420_live_worker as worker
 import run_task420_attempt as supervisor
 from aki.setup_tls import verified_context
+from aki.setup_accounting import AccountingError
 
 
 def module(name,path):
@@ -25,6 +27,17 @@ with mock.patch.dict(sys.modules,{'control':CONTROL}):BACKEND=module('fixture_ba
 
 
 class LiveBridgeTests(unittest.TestCase):
+    def test_known_exited_process_has_bounded_tail_only_during_cleanup(self):
+        old={'identity':'fixture','cpu_ns':10,'reaped_children_cpu_ns':0,'observed_ns':100,'unobserved_ns':0}
+        error=AccountingError('fixture ESRCH');error.errno=errno.ESRCH
+        with mock.patch.object(supervisor,'darwin_process_cpu',side_effect=error):
+            result=supervisor.owned_sample(1,old,cleanup=True,capacity=4,now=120)
+            self.assertEqual(result['cpu_ns'],10);self.assertEqual(result['unobserved_ns'],80)
+            for previous,cleanup in [(old,False),(None,True)]:
+                with self.assertRaises(AccountingError):supervisor.owned_sample(1,previous,cleanup=cleanup,capacity=4,now=120)
+            error.errno=errno.EPERM
+            with self.assertRaises(AccountingError):supervisor.owned_sample(1,old,cleanup=True,capacity=4,now=120)
+
     def test_only_pinned_unused_windows_launcher_data_is_accepted(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'pip-20.2.3-py2.py3-none-any.whl'

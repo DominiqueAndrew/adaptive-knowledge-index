@@ -1,5 +1,16 @@
 # Research release history
 
+## Shared-budget live instrumentation milestone
+
+- Persist download/CPU totals across authorized recoverable setup retries; reuse
+  verified artifacts, reject unaccounted attempts and enforce a single pilot.
+- Record four verified live guest fixture operations and six passed setup gates.
+  No pilot ran: legacy CLI help status and shutdown CPU errors stopped progression.
+- Preserve the campaign's incomplete accounting status and all failures. Runtime
+  cleanup completed; isolated verified artifact cache retained and sized explicitly.
+- Host-only follow-up fixes use CLI `version` and bounded tails for known exiting
+  processes. 101 tests pass; live validation of those fixes remains pending.
+
 ## Corrected live attempt and verified-trust preflight
 
 - Freeze an integrated, bounded fixture-first driver at `238d6b5`; 93 host tests.

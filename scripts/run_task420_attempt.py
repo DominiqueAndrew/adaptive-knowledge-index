@@ -6,6 +6,7 @@ All work, including any pilot, shares a stricter 600s/300 CPU-s outer envelope.
 """
 import argparse
 import ctypes
+import errno
 import hashlib
 import json
 import os
@@ -37,6 +38,19 @@ def children(pid):
     return [p for p in values[:count] if p>0]
 
 
+def owned_sample(pid,previous,*,cleanup,capacity,now):
+    """A known exiting process retains its last CPU plus a capacity-bound tail.
+
+    Only ESRCH during teardown is recoverable. Unknown PIDs and permission errors
+    still fail; no missing observation is interpreted as zero CPU.
+    """
+    try:
+        return {**darwin_process_cpu(pid),'observed_ns':now,'unobserved_ns':0}
+    except AccountingError as exc:
+        if getattr(exc,'errno',None)!=errno.ESRCH or not cleanup or previous is None:raise
+        return {**previous,'unobserved_ns':max(0,now-previous['observed_ns'])*capacity}
+
+
 class Accounting:
     def __init__(self,root,campaign=None):
         self.root=root;self.started=time.monotonic_ns();self.host_capacity=os.cpu_count()
@@ -45,6 +59,7 @@ class Accounting:
         for name in self.ledger.REQUIRED:
             self.ledger.register(name,name,4 if name=='guest' else self.host_capacity,0,self.started,active=True)
         self.worker_max=0;self.runtime={};self.runtime_first=None;self.vm_start=None
+        self.worker_samples={}
         self.guest=None;self.guest_error=None;self.final=None
         self.observations=[];self.max_cpu=0;self.max_disk=0
         self.last_progress_ns=0
@@ -86,7 +101,10 @@ class Accounting:
             seen.add(pid)
             if len(seen)>256:raise AccountingError('owned worker count')
             try:
-                sample=darwin_process_cpu(pid);total+=sample['cpu_ns']+sample['reaped_children_cpu_ns'];queue.extend(children(pid))
+                sample=owned_sample(pid,self.worker_samples.get(pid),cleanup=self.runner is not None and self.runner.phase=='cleanup',
+                                    capacity=self.host_capacity,now=time.monotonic_ns())
+                self.worker_samples[pid]=sample
+                total+=sample['cpu_ns']+sample['reaped_children_cpu_ns']+sample['unobserved_ns'];queue.extend(children(pid))
             except AccountingError:
                 # A process may have just reaped. Its CPU enters RUSAGE_CHILDREN.
                 try:os.kill(pid,0)
@@ -108,14 +126,15 @@ class Accounting:
                 try:pid=int(path.read_text().strip())
                 except (ValueError,FileNotFoundError):continue
                 if pid<=0:raise AccountingError('invalid VM PID')
-                try:sample=darwin_process_cpu(pid)
+                previous=next((v for v in self.runtime.values() if v['pid']==pid),None)
+                try:sample=owned_sample(pid,previous,cleanup=vm['state'] in ('stopping','stopped'),capacity=self.host_capacity,now=now)
                 except AccountingError:
                     if vm['state']=='stopped':continue
                     raise
                 if self.runtime_first is None:self.runtime_first=now
                 identity=sample['identity'];previous=self.runtime.get(identity)
                 if previous and sample['cpu_ns']<previous['cpu_ns']:raise AccountingError('runtime CPU reset')
-                self.runtime[identity]={**sample,'observed_ns':now,'pid':pid}
+                self.runtime[identity]={**sample,'pid':pid}
         host=0
         for sample in self.runtime.values():
             host+=sample['cpu_ns']+sample['reaped_children_cpu_ns']

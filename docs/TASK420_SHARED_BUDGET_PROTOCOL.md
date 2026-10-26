@@ -19,7 +19,9 @@ No partial guest environment is reused. Download reservations are persisted befo
 each response read, so an interrupted read cannot silently reset transfer costs.
 Readonly package mounts contain only verified files from that cache. Image import,
 containers and VM startup/shutdown remain attempt-scoped. Final cleanup removes the
-campaign's cached artifacts, not unrelated runtime images or projects.
+campaign's cached artifacts when no longer needed, not unrelated runtime images or
+projects. If retained for audit/reuse, report their exact size and keep them inside
+ignored project storage with no running service or credentials.
 
 There is at most **one pilot**, capped at twelve source operations and ten minutes,
 and only after the live fixture/recorder and all compatibility gates pass. A durable

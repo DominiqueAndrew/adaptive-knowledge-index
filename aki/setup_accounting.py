@@ -130,7 +130,9 @@ def darwin_process_cpu(pid):
     function.restype = ctypes.c_int
     result = RUsageV2()
     if function(pid, 2, ctypes.byref(result)):
-        raise AccountingError('explicit process CPU unavailable: '+str(ctypes.get_errno()))
+        error=AccountingError('explicit process CPU unavailable: '+str(ctypes.get_errno()))
+        error.errno=ctypes.get_errno()
+        raise error
     return {'identity': str(pid)+':'+str(result.start),
             'cpu_ns': int(result.user + result.system),
             'reaped_children_cpu_ns': int(result.child_user + result.child_system)}

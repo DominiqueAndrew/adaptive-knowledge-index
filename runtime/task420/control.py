@@ -46,7 +46,7 @@ def setup_steps():
                'sys.argv=["/workspace/setup.py","egg_info","--egg-base",' + repr(META) + ']; '
                'runpy.run_path("/workspace/setup.py",run_name="__main__")')
     cli = ('import sys; sys.path[:0]=' + repr(paths('runtime')) + '; '
-           'sys.argv=["b2","--help"]; from b2.console_tool import main; main()')
+           'sys.argv=["b2","version"]; from b2.console_tool import main; main()')
     imports = ('import sys; sys.path[:0]=' + repr(paths('runtime')) + '; '
                'import arrow,logfury,requests,six,tqdm,pytest,mock,pyflakes,yapf; '
                'print("AKI_DEPENDENCY_IMPORTS_OK")')
@@ -58,7 +58,7 @@ def setup_steps():
         ('imports', [PYTHON, '-I', '-B', '-c', imports]),
         ('project_metadata', [PYTHON, '-I', '-B', '-c', project]),
         ('project_dependency_check', module_command('pip', ['check'])),
-        ('cli_help', [PYTHON, '-I', '-B', '-c', cli]),
+        ('cli_version', [PYTHON, '-I', '-B', '-c', cli]),
         ('unit_collection', module_command('pytest', ['--collect-only', '-q', '-p', 'no:cacheprovider', 'test'])),
     ]
 
