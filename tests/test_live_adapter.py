@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 import ssl
+import zipfile
 from unittest import mock
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -24,6 +25,16 @@ with mock.patch.dict(sys.modules,{'control':CONTROL}):BACKEND=module('fixture_ba
 
 
 class LiveBridgeTests(unittest.TestCase):
+    def test_only_pinned_unused_windows_launcher_data_is_accepted(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'pip-20.2.3-py2.py3-none-any.whl'
+            with zipfile.ZipFile(p,'w') as z:z.writestr('pip/_vendor/distlib/t32.exe',b'MZfixture')
+            self.assertEqual(len(worker.review_wheel(p)['inert_launcher_data']),1)
+            with zipfile.ZipFile(p,'w') as z:z.writestr('unreviewed.exe',b'MZfixture')
+            with self.assertRaises(RuntimeError):worker.review_wheel(p)
+            with zipfile.ZipFile(p,'w') as z:z.writestr('native.so',b'fixture')
+            with self.assertRaises(RuntimeError):worker.review_wheel(p)
+
     def test_local_tls_preflight_loads_existing_roots_without_network(self):
         with mock.patch('urllib.request.urlopen',side_effect=AssertionError('network not allowed')):
             context,proof=verified_context()

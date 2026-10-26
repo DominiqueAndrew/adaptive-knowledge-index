@@ -33,6 +33,27 @@ DOCKER = ['/opt/homebrew/bin/docker', '--context', 'colima']
 COLIMA = '/opt/homebrew/bin/colima'
 CAP = 512*1024**2
 
+# Reviewed, inert Windows console-launcher data in the exact pinned pure-Python
+# tooling wheels. Never execute these on macOS or in the arm64 Linux container.
+WINDOWS_LAUNCHERS={
+ 'setuptools-50.3.2-py3-none-any.whl':{'setuptools/'+n+'.exe' for n in ('cli-32','cli-64','cli','gui-32','gui-64','gui')},
+ 'pip-20.2.3-py2.py3-none-any.whl':{'pip/_vendor/distlib/'+n+'.exe' for n in ('t32','t64','w32','w64')},
+}
+
+
+def review_wheel(artifact):
+    with zipfile.ZipFile(artifact) as z:
+        reviewed=[]
+        for name in z.namelist():
+            if name.startswith('/') or '..' in Path(name).parts or name.endswith(('.so','.dylib')):raise RuntimeError('unexpected wheel member')
+            if name.endswith('.exe'):
+                if name not in WINDOWS_LAUNCHERS.get(artifact.name,set()):raise RuntimeError('unreviewed executable data')
+                data=z.read(name)
+                if data[:2]!=b'MZ':raise RuntimeError('unexpected launcher data format')
+                reviewed.append({'member':name,'sha256':hashlib.sha256(data).hexdigest(),'role':'unused Windows launcher data'})
+        if sum(i.file_size for i in z.infolist())>64*1024**2:raise RuntimeError('wheel expansion cap')
+        return {'artifact':artifact.name,'members':len(z.infolist()),'inert_launcher_data':reviewed}
+
 
 def save(path, value):
     temp = path.with_suffix(path.suffix+'.tmp')
@@ -157,10 +178,7 @@ def stage(root):
     review=[]
     for artifact in packages.iterdir():
         if artifact.name.endswith('.whl'):
-            with zipfile.ZipFile(artifact) as z:
-                if any(n.startswith('/') or '..' in Path(n).parts or n.endswith(('.so','.dylib','.exe')) for n in z.namelist()): raise RuntimeError('unexpected wheel member')
-                if sum(i.file_size for i in z.infolist())>64*1024**2: raise RuntimeError('wheel expansion cap')
-                review.append({'artifact':artifact.name,'members':len(z.infolist())})
+            review.append(review_wheel(artifact))
         elif artifact.name=='arrow-0.12.0.tar.gz':
             with tarfile.open(artifact,'r:gz') as tar:
                 for member in tar:
