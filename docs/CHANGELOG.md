@@ -1,5 +1,14 @@
 # Research release history
 
+## Cached validation — runtime collision, no benchmark
+
+- Add explicit cache-only staging and a separate zero-download validation ledger;
+  preserve the old cache/records and block model/network staging dispatch.
+- Record one live attempt stopped by existing active containers before image import.
+  Cleanup completed with saved settings unchanged; no fixture or compatibility run.
+- Reject the driver's completeness claim after auditing two suppressed worker
+  counter errors. Remove that suppression; 115 host tests pass. No live retry.
+
 ## Closed-campaign offline audit
 
 - Reconcile all 40 retained artifact hashes and compressed-download/expanded-disk

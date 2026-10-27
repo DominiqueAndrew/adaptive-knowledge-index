@@ -1,0 +1,123 @@
+{
+  "scope": "One authorized cached validation; no benchmark, model or artifact download",
+  "execution_commit": "34e3767",
+  "status": "blocked_runtime_collision_and_accounting_defect",
+  "frozen_protocol": "docs/TASK420_CACHED_VALIDATION_PROTOCOL.md",
+  "passed": [
+    "offline cache verification: 40 files",
+    "native engine architecture check",
+    "owned-attempt staging cleanup",
+    "VM shutdown readback",
+    "four saved-configuration hash comparisons",
+    "original cache and closed campaign unchanged"
+  ],
+  "failed": [
+    "exclusive-runtime gate: active containers detected",
+    "independent CPU compliance audit: suppressed worker counter errors"
+  ],
+  "unrun": [
+    "emulation-handler readback after container collision gate",
+    "image import",
+    "confined container creation",
+    "recorder fixture",
+    "all eight compatibility steps",
+    "benchmark and model pilot"
+  ],
+  "resources": {
+    "download_bytes": 0,
+    "new_allowance_cpu_limit_ns": 300000000000,
+    "reported_cpu_charge_ns": 93688328312,
+    "cpu_compliance_certified": false,
+    "active_wall_s": 27.461660708999716,
+    "peak_disk_reservation_bytes": 2791274917,
+    "disk_limit_bytes": 3221225472,
+    "accounting_scope": "VM/guest counters include unrelated active containers; overlap and bounds mean this is not attributable project CPU cost.",
+    "download_scope": "AKI staging only; unrelated container network traffic unmeasured"
+  },
+  "cpu_audit": {
+    "driver_reported_accounting_complete": true,
+    "driver_reported_ceiling_exceeded": false,
+    "audit_accepts_completeness": false,
+    "final_components": {
+      "guest": {
+        "identity": "guest",
+        "measured_ns": 44352451500,
+        "unobserved_upper_bound_ns": 1274664,
+        "active": false
+      },
+      "supervisor": {
+        "identity": "supervisor",
+        "measured_ns": 3973398000,
+        "unobserved_upper_bound_ns": 1000000000,
+        "active": false
+      },
+      "runtime_host": {
+        "identity": "runtime_host",
+        "measured_ns": 34172648156,
+        "unobserved_upper_bound_ns": 3823992,
+        "active": false
+      },
+      "workers": {
+        "identity": "workers",
+        "measured_ns": 10184732000,
+        "unobserved_upper_bound_ns": 0,
+        "active": false
+      }
+    },
+    "journal_events": 18,
+    "event_kinds": {
+      "baseline": 1,
+      "snapshot": 14,
+      "counter_error": 2,
+      "final": 1
+    },
+    "suppressed_errors": [
+      {
+        "component": "workers",
+        "errno": 3,
+        "during_cleanup": false,
+        "had_previous_sample": true,
+        "relative_time_s": 19.811439625
+      },
+      {
+        "component": "workers",
+        "errno": 3,
+        "during_cleanup": true,
+        "had_previous_sample": false,
+        "relative_time_s": 20.637926708
+      }
+    ],
+    "reason": "A disappeared descendant was accepted without proof its CPU entered an observed reaped-child counter. One had no prior sample. No certified correction is inferred."
+  },
+  "cleanup": {
+    "pending": [],
+    "vm_state": "stopped",
+    "new_container_created": false,
+    "image_import_started": false,
+    "staging_paths_removed": true,
+    "original_cache_bytes": 844838767,
+    "original_cache_preserved": true,
+    "configuration_comparisons": {
+      "colima_profile": true,
+      "lima_profile": true,
+      "docker_config": true,
+      "ssh_config": true
+    },
+    "runtime_collision_limit": "No active-container identities or owners were retained. Starting/stopping the preexisting VM may have started/quiesced existing auto-start containers; none was individually altered or deleted."
+  },
+  "provenance": {
+    "result_sha256": "49c3770516c2e3c40b374ef8bfe2b8d2207e9de09c7420861e08a89cac38d4a7",
+    "counter_journal_sha256": "cf53ad67eeed257866a565ac5e6cc6e72bd59206c1ab998a22ff40b1c7719163",
+    "old_budget_sha256": "7a065fe179dfea3cd327016b012270dd7f1235cc6901e87a1cbaf36c0f51bc2a",
+    "new_budget_sha256": "5cb60b708b6fdf57ac3e8089ac60b81660a6b82a47e3d1fb01caac83cccff74d",
+    "both_campaigns_closed": true,
+    "raw_logs_published": false
+  },
+  "validation": {
+    "pre_run_host_tests": 114,
+    "post_run_host_tests": 115,
+    "post_run_test_wall_s": 2.562,
+    "post_run_strict_counter_fix_live_validated": false
+  },
+  "decision": "No retry or pilot. Need exclusive runtime coordination and trustworthy descendant-exit accounting before further live validation."
+}

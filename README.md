@@ -60,6 +60,12 @@ artifact inventory, explains the download/cache difference, and preserves the
 incomplete CPU finding. Narrow accounting and recorder repairs pass 110 host tests;
 the remaining compatibility and shutdown checks still require live validation.
 
+The [cached validation follow-up](docs/TASK420_CACHED_VALIDATION_RESULTS.md) stopped
+at an active-container collision before image import. It used no downloads or
+models. Retained counters exposed another completeness defect; the strict follow-up
+passes 115 host tests, but live compatibility and trustworthy CPU attribution remain
+unresolved. Both campaign allowances are closed.
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,

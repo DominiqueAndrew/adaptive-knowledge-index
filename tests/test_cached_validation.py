@@ -11,12 +11,22 @@ sys.path.insert(0,str(Path(__file__).parents[1]/'scripts'))
 import task420_live_worker as worker
 import run_task420_attempt as supervisor
 from aki.setup_budget import SharedBudget
+from aki.setup_accounting import AccountingError
 
 
 def digest(data):return hashlib.sha256(data).hexdigest()
 
 
 class CachedValidationTests(unittest.TestCase):
+    def test_disappeared_worker_is_not_silently_accepted(self):
+        accounting=object.__new__(supervisor.Accounting)
+        accounting.worker_samples={};accounting.host_capacity=12;accounting.runner=None;accounting.worker_max=0
+        error=AccountingError('original fixture ESRCH');error.errno=3
+        with mock.patch.object(supervisor,'children',return_value=[987654]),mock.patch.object(supervisor,'owned_sample',side_effect=error),mock.patch.object(accounting,'_record') as record,mock.patch.object(supervisor.os,'kill',side_effect=ProcessLookupError):
+            with self.assertRaises(AccountingError):accounting._workers()
+            self.assertEqual(error.counter_component,'workers')
+            record.assert_called_once()
+
     def fixture(self,base):
         old=base/'closed';cache=old/'artifact-cache';(cache/'image/0').mkdir(parents=True);(cache/'packages').mkdir()
         layer=b'original layer fixture';package=b'original package fixture'

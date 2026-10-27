@@ -467,3 +467,33 @@ is corrected and raw measurements retained. Future measurements include that wor
 Retain task 420 for a future explicitly authorized compatibility/accounting-only
 check; no new task selection or optimizer work. See `TASK420_OFFLINE_AUDIT.md` for
 the evidence, limitations and narrow future scope. The current campaign is closed.
+
+## 2026-10-27 — cached validation stopped before image import
+
+Separate authorization and a fresh allowance: no downloads, no models, 300 CPU-s,
+600 active wall seconds, 3 GiB additional disk. Frozen execution commit `34e3767`,
+114 host tests. Added cache-only staging, independent zero-transfer ledger and
+runtime exclusivity gate; reverified all 40 cached files without modifying the old
+cache, manifest or budget. Used the same native-only non-persistent startup flags.
+
+One attempt: staging passed, native engine started, then active containers triggered
+the contamination guard. No image import, guest creation, recorder fixture, package
+setup, compatibility step, benchmark or model call ran. No runtime retry. Cleanup
+returned the VM to stopped and removed only new staging paths. Four saved config
+hashes match; old cache and budget hashes remain unchanged. Existing container
+identities were not retained, so their ownership is unknown. VM startup/shutdown
+may have started/quiesced auto-start containers; none was individually modified.
+
+Driver charged 93.688328312 conservative CPU-s and 27.461661 active wall seconds;
+peak disk reservation 2,791,274,917 bytes. AKI staging transferred zero bytes;
+unrelated containers' traffic was not measured. Both ledgers are closed.
+
+The new journal exposed two suppressed worker ESRCH errors, one with no prior
+sample. Despite driver accounting_complete=true, reaped-child coverage was not
+proved; independent audit rejects CPU completeness and project-only attribution.
+Removed the suppression and added a failing-before/fixed-after mock. Final suite:
+115 passes, 2.562 s. Patch is host-tested only, with no new live attempt.
+
+Decision: do not retry until runtime exclusivity and reliable descendant-exit
+accounting are established. Preserve the failed evidence and pending compatibility
+gates. See `TASK420_CACHED_VALIDATION_RESULTS.md`; adaptive claims remain unchanged.

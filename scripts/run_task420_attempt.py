@@ -120,9 +120,8 @@ class Accounting:
             except AccountingError as exc:
                 exc.counter_component='workers'
                 self._record('counter_error',{'component':'workers','message':str(exc),'context':getattr(exc,'counter_context',{})})
-                # A process may have just reaped. Its CPU enters RUSAGE_CHILDREN.
-                try:os.kill(pid,0)
-                except ProcessLookupError:continue
+                # Disappearance does not prove that this descendant's CPU entered
+                # an observed parent's reaped total. Never suppress missing usage.
                 raise
         self.worker_max=max(self.worker_max,total)
         return self.worker_max
