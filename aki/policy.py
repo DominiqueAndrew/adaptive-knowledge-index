@@ -5,6 +5,7 @@ import time
 from collections import OrderedDict, defaultdict, deque
 from dataclasses import dataclass
 from .store import Store
+from .source import STATIC_IMPORTS, require_relation_semantics
 
 POLICIES = ("disabled", "static_full", "static_bounded", "lru", "frequency", "gds", "aki")
 
@@ -72,9 +73,11 @@ class Policy:
         lookup = s.lookup_ns or 30_000
         return expected * max(0, s.base_ns - lookup)
 
-    def query(self, root: str, kind: str, revision: str, text: str = "", budget: int = 4096) -> tuple[list[str], dict]:
+    def query(self, root: str, kind: str, revision: str, text: str = "", budget: int = 4096,
+              *, relation_semantics=STATIC_IMPORTS) -> tuple[list[str], dict]:
         start = time.perf_counter_ns()
         self.store.check(revision)
+        require_relation_semantics(relation_semantics)  # Reject even when a cached answer exists.
         direction = "forward" if kind == "dependencies" else "reverse"
         key = self.key(root, direction)
         lookup_start = time.perf_counter_ns()
@@ -159,7 +162,7 @@ class Policy:
                  "optimizer_ns": end - retrieval_end - build_ns, "total_ns": end - start,
                  "candidate": candidate, "built": bool(build_ns), "evicted": evicted,
                  "logical_bytes": sum(self.resident.values()), "returned": len(packed),
-                 "abstained": not packed}
+                 "abstained": not packed, **self.store.relationship_scope()}
         return packed, event
 
     def refresh(self, documents: dict[str, str], provenance: str, invalidation: str = "global") -> dict:

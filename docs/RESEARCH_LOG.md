@@ -605,3 +605,42 @@ an unproven shutdown still makes lifecycle CPU uncertified. The old 300-CPU-seco
 allowances remain closed and unchanged. No VM/container/profile action, installation,
 artifact download, hidden-session read or other-project inspection occurred.
 See OFFLINE_ADAPTER_AUDIT.md and its metadata/provenance record.
+
+## 2026-10-27 — launcher gate review and runtime-semantics rejection
+
+Implemented a non-executing launch controller with ordered identity, pinned-image,
+expansion/disk, no-mount/no-Docker confinement and separate guest/VM/host-final
+receipt gates. Fault tests cover orphan/reparented helpers, vanished counters,
+uncertain starts, stop errors, event loss, noexec/network weakening and resource
+regression/exhaustion. A separate adversarial pass by the implementation agent
+found/fixed default-profile lease bypass, incomplete disk reservation and mutable
+nested receipts. No independent external reviewer is claimed. The controller is
+ready for code review; there is no live execution shim, and no supplied receipt
+label can turn fixture success into live certification.
+
+Read-only installed Lima 2.1.2 help and matching pinned source show that foreground
+hostagent mode still uses separate SSH-master cleanup; network setup may also
+create background helpers. VZ stop has a timeout/error path. No complete Mac host
+domain witness exists in the current adapter. Therefore the controller rejects
+that backend before downloading anything. The prior 3,600 CPU-second reservation
+is a conditional capacity-times-wall bound, not an enforced aggregate cap. A
+shorter 1,080 CPU-second window has the same proof gap. Per-process rlimits cannot
+be relabeled as an aggregate descendant limit. No new approval request is justified
+until a supported host-domain/quiescence backend exists; the two allowances stay
+closed. No changes to runtime configuration or other workers occurred.
+
+Explicitly reject runtime-complete dependency requests at every retrieval/cache
+entry point. The default static-import semantics are named in query costs, source
+evidence and refresh reports, always with runtime_complete=false. Common dynamic
+import/alias diagnostics are persisted but deliberately non-exhaustive. Original
+stub-import executions provide an independent call truth oracle demonstrating
+missing runtime edges even when all caches agree. Unknown alias indirection still
+cannot certify completeness. Extractor v4 forces old stores/materializations to
+refresh; no speculative dynamic edges or code execution enter extraction.
+
+180 host tests pass in 4.065 seconds. Existing static quality/mutation comparisons
+pass on the new code. Prior benchmark timings retain their earlier commits; no new
+performance or agent-task claim. No binary download, VM, container, guest command,
+model call, install or real held-out task access. See LAUNCHER_REVIEW.md for the
+exact remaining platform capability and why merely increasing the budget is not
+an adequate next action.

@@ -134,3 +134,16 @@ runs remain available in `results/` and Git.
 - 159 host tests pass. Record official clean-source image metadata and a new bounded
   proposal, without download or provisioning. Live containment/host shutdown proof
   remains missing; previous CPU failures and closed budgets are unchanged.
+
+### Offline launcher review and explicit static semantics — 2026-10-27
+
+- Add an ordered non-executing launcher controller, artifact/resource gates,
+  independent guest/VM/host finalization requirements and owner-scoped failure
+  cleanup intents. Reject the installed Darwin backend before acquisition; no
+  executable platform adapter or live certification is supplied.
+- Diagnose common dynamic-import call sites without executing them. Label all
+  retrieval as static imports and reject complete-runtime semantics even on cache
+  hits. Bump extractor to v4; old materializations require refresh. Static edge
+  behavior is unchanged; historical timing measurements retain their old versions.
+- 180 host tests pass, including independent original call-recording truth probes
+  and launcher fault injection. No new live attempt or approval request.

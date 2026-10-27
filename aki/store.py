@@ -5,9 +5,9 @@ import json
 import sqlite3
 import time
 from pathlib import Path
-from .source import digest, is_test, parse, source_lines, token_count
+from .source import digest, is_test, parse, source_lines, token_count, STATIC_IMPORTS, require_relation_semantics
 
-EXTRACTOR = "python-ast-import-v3-physical-lines"
+EXTRACTOR = "python-ast-import-v4-explicit-static-semantics"
 
 
 class StaleRevision(ValueError):
@@ -51,6 +51,8 @@ class Store:
         self.revision = row[0] if row else ""
         row = self.db.execute("SELECT v FROM meta WHERE k='extractor'").fetchone()
         self.extractor = row[0] if row else ""
+        row = self.db.execute("SELECT v FROM meta WHERE k='dynamic_imports'").fetchone()
+        self.dynamic_imports = json.loads(row[0]) if row else []
         self.documents: dict[str, str] = {}
         self.tokens = dict(self.db.execute("SELECT path,tokens FROM files"))
 
@@ -71,6 +73,7 @@ class Store:
             return {"revision": revision, "files": len(documents),
                     "edges": self.db.execute("SELECT count(*) FROM edges").fetchone()[0],
                     "parse_errors": json.loads(meta.get("parse_errors", "[]")),
+                    "relationship_scope": self.relationship_scope(),
                     "invalidated": 0, "retained": old_count, "noop": True,
                     "changed_files": 0, "parsed_files": 0, "reused_files": 0,
                     "spans_written": 0, "hash_ns": hash_end-begin,
@@ -142,11 +145,13 @@ class Store:
             self.db.execute("INSERT OR REPLACE INTO meta VALUES('revision',?)", (revision,))
             self.db.execute("INSERT OR REPLACE INTO meta VALUES('extractor',?)", (EXTRACTOR,))
             self.db.execute("INSERT OR REPLACE INTO meta VALUES('parse_errors',?)", (json.dumps(parsed.errors),))
+            self.db.execute("INSERT OR REPLACE INTO meta VALUES('dynamic_imports',?)", (json.dumps(parsed.dynamic_imports),))
         self.revision, self.documents = revision, dict(documents)
         self.extractor = EXTRACTOR
+        self.dynamic_imports = list(parsed.dynamic_imports)
         self.tokens = token_sizes
         return {"revision": revision, "files": len(documents), "edges": len(parsed.edges),
-                "parse_errors": list(parsed.errors), "invalidated": old_count-len(retained),
+                "parse_errors": list(parsed.errors), "relationship_scope": self.relationship_scope(), "invalidated": old_count-len(retained),
                 "retained": len(retained), "noop": False, "changed_files": len(changed | removed),
                 "parsed_files": parsed.parsed_files, "reused_files": parsed.reused_files,
                 "spans_written": spans_written, "hash_ns": hash_end-begin,
@@ -160,18 +165,24 @@ class Store:
         if revision != self.revision or (scope is not None and scope != self.scope):
             raise StaleRevision("requested source revision or scope is not current; refresh required")
 
-    def edge_evidence(self, src: str, dst: str, revision: str) -> list[dict]:
+    def relationship_scope(self) -> dict:
+        return {"relation_semantics": STATIC_IMPORTS, "runtime_complete": False,
+                "known_dynamic_import_site_count": len(self.dynamic_imports)}
+
+    def edge_evidence(self, src: str, dst: str, revision: str, *, relation_semantics=STATIC_IMPORTS) -> list[dict]:
         """Ground an edge in immutable current spans; existence is not task correctness."""
         self.check(revision)
+        require_relation_semantics(relation_semantics)
         rows = self.db.execute("""SELECT e.line,e.extractor,s.id,s.path,s.start,s.end,s.hash,s.text,s.provenance
           FROM edge_spans e JOIN spans s ON s.id=e.span_id JOIN active_spans a ON a.span_id=s.id
           WHERE e.src=? AND e.dst=? AND s.scope=? ORDER BY e.line""",
           (src,dst,self.scope))
         names=("line","extractor","span_id","path","start","end","sha256","text","provenance")
-        return [dict(zip(names,row)) | {"current_revision": revision} for row in rows]
+        return [dict(zip(names,row)) | {"current_revision": revision} | self.relationship_scope() for row in rows]
 
-    def closure(self, root: str, direction: str) -> list[str]:
+    def closure(self, root: str, direction: str, *, relation_semantics=STATIC_IMPORTS) -> list[str]:
         self.check(self.revision)
+        require_relation_semantics(relation_semantics)
         if direction not in {"forward", "reverse"}:
             raise ValueError(direction)
         a, b = ("src", "dst") if direction == "forward" else ("dst", "src")

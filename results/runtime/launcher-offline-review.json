@@ -1,0 +1,50 @@
+{
+  "recorded_utc": "2026-10-27T03:41:04.681140+00:00",
+  "scope": "offline original fixtures and read-only installed-help/public-source review",
+  "tests_passed": 180,
+  "tests_wall_s": 4.065,
+  "launcher_fault_tests": 16,
+  "independent_relation_truth_tests": 5,
+  "new_live_runs": 0,
+  "binary_downloads": 0,
+  "guest_commands": 0,
+  "model_calls": 0,
+  "real_benchmark_runs": 0,
+  "installed_lima_version": "2.1.2",
+  "reviewed_lima_source_commit": "2d4314e945cda21ed777fe73a078619f23fc48df",
+  "reviewed_source_paths": [
+    "pkg/instance/start.go",
+    "pkg/sshutil/sshutil.go",
+    "pkg/hostagent/hostagent.go",
+    "pkg/networks/usernet/recoincile.go",
+    "pkg/driver/vz/vz_driver_darwin.go"
+  ],
+  "operational_decision": "reject installed Darwin backend before artifact acquisition",
+  "reason": "no complete host VM/helper containment and terminal evidence provider; foreground mode does not establish it",
+  "executable_platform_shim_available": false,
+  "independent_external_reviewer": false,
+  "review_method": "separate adversarial pass and hand-authored fixture contracts by implementation agent",
+  "cpu_budget_review": {
+    "old_cap_cpu_s": 300,
+    "old_maximum_capacity_window_s": 25,
+    "prior_proposal_cpu_s": 3600,
+    "prior_proposal_wall_s": 300,
+    "shorter_conditional_cpu_s": 1080,
+    "shorter_conditional_wall_s": 90,
+    "host_logical_cpus": 12,
+    "aggregate_cap_enforced": false,
+    "approval_request_ready": false
+  },
+  "parser_decision": {
+    "runtime_complete_requests": "rejected before cache lookup",
+    "default_semantics": "python-static-imports-v1",
+    "extractor": "python-ast-import-v4-explicit-static-semantics",
+    "dynamic_site_detection_exhaustive": false,
+    "dynamic_edges_guessed": false,
+    "runtime_extraction_executes_source": false
+  },
+  "closed_campaign_sha256": {
+    "task420-shared-20261026": "7a065fe179dfea3cd327016b012270dd7f1235cc6901e87a1cbaf36c0f51bc2a",
+    "task420-cached-validation-20261027": "5cb60b708b6fdf57ac3e8089ac60b81660a6b82a47e3d1fb01caac83cccff74d"
+  }
+}

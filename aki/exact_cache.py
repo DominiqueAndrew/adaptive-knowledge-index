@@ -8,6 +8,7 @@ from collections import OrderedDict
 import json
 import time
 from .policy import Policy
+from .source import STATIC_IMPORTS, require_relation_semantics
 
 
 class ExactResultCache:
@@ -28,8 +29,9 @@ class ExactResultCache:
         report['total_refresh_ns'] = time.perf_counter_ns() - start
         return report
 
-    def query(self, root, kind, revision, text='', budget=4096):
+    def query(self, root, kind, revision, text='', budget=4096, *, relation_semantics=STATIC_IMPORTS):
         start = time.perf_counter_ns(); self.store.check(revision)
+        require_relation_semantics(relation_semantics)
         key = json.dumps(['exact', self.store.scope, self.store.extractor,
                           revision, root, kind, text, budget], separators=(',', ':'))
         lookup = time.perf_counter_ns()
@@ -59,7 +61,7 @@ class ExactResultCache:
                         'build_ns': build_ns, 'total_ns': total,
                         'candidate': not hit, 'built': bool(build_ns), 'evicted': evicted,
                         'logical_bytes': sum(self.resident.values()),
-                        'returned': len(answer), 'abstained': not answer}
+                        'returned': len(answer), 'abstained': not answer, **self.store.relationship_scope()}
 
 
 def fixture_policy(store, name, budget):

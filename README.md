@@ -85,6 +85,13 @@ official boot artifact now has pinned metadata and a bounded provisioning propos
 it has not been downloaded. Live containment and complete Mac shutdown evidence
 remain prerequisites, and no live allowance has been reopened.
 
+The [offline launcher review](docs/LAUNCHER_REVIEW.md) now rejects the installed Mac
+backend before acquisition: foreground operation cannot prove complete helper
+shutdown, and a capacity reservation is not an enforced aggregate CPU cap. The
+controller has no executable OS shim. 180 host tests pass. Retrieval now explicitly
+labels static-import semantics and rejects requests for complete runtime
+dependencies, including on cache hits. Dynamic import hints never certify completeness.
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,
