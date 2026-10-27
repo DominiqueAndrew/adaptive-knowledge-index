@@ -568,3 +568,40 @@ Final suite: 137 host tests pass in 3.337 seconds. Both live budget files retain
 their prior hashes and closed states. No VM/profile/container/download/security
 change or private-session inspection occurred. See OFFLINE_COMPONENTS_MILESTONE.md
 for proof obligations and the unresolved boot/host-accounting prerequisites.
+
+## 2026-10-27 — platform adapter and independent freshness challenge
+
+Implemented an injected Linux-cgroup platform adapter connecting enrollment,
+dispatch, seal, owned-stop and final read to the subtree ledger. Unsupported
+platforms (including Darwin PID polling), incomplete containment, vanished scopes,
+read/stop failures and unacknowledged controls fail closed. A surviving descendant
+keeps cleanup pending. The reader verifies identity after its final event read.
+These are original filesystem/mocked tests; no Linux kernel or Mac live launcher
+has been certified. Guest-domain accounting does not cover the host lifecycle.
+
+Added durable exact-result LRU with complete revision/query/budget keys and the
+same Store durability/logical-byte cap. The fixture harness now accepts independent
+hand-authored expectations. Adversarial checks span all seven matched policies,
+including added boundary edges, newly resolvable imports, package initializers,
+moves/deletions/branch restoration, current token packing and stale evidence
+injection. A dynamic import is intentionally exposed as an extraction gap; empty
+but incomplete answers are not mislabeled as stale source.
+
+Final focused suite: 159 tests, 3.553 seconds. A single affected sealed harness run
+(v3) records 30 synthetic condition-attempts/120 operations, all fixture-correct and
+fresh. Frequency selected among simple development caches; heldout totals are
+32.181 ms frequency, 29.383 ms disabled and 27.904 ms AKI. Earlier reversed ordering
+and all prior raw results remain. No efficacy inference from these tiny plumbing
+timings, no real task success, no new threshold tuning or real heldout reads.
+
+Read-only official release/source metadata identifies a smaller arm64 runtime=none
+image: 209,768,031 bytes, pinned SHA-256/SHA-512. The release is not immutable and
+the build is not hermetically attested; no binary was acquired. Proposed separate
+validation scope: one original fixture, zero host mounts/Docker/model/benchmark,
+256 MiB download, 8 GiB added disk with preboot expansion gate, 2-vCPU/2-GiB VM,
+240-second work plus 60-second cleanup, 3,600 CPU-second whole-machine conservative
+reservation. This requires new approval and actual exclusive-launcher receipts;
+an unproven shutdown still makes lifecycle CPU uncertified. The old 300-CPU-second
+allowances remain closed and unchanged. No VM/container/profile action, installation,
+artifact download, hidden-session read or other-project inspection occurred.
+See OFFLINE_ADAPTER_AUDIT.md and its metadata/provenance record.

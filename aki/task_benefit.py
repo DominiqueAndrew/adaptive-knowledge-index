@@ -12,10 +12,12 @@ import tempfile
 import time
 from .benchmark import oracle
 from .policy import Policy
+from .exact_cache import fixture_policy
+from .evidence_audit import audit_evidence
 from .source import parse,digest
 from .store import Store
 
-BASELINES=('disabled','frequency','lru','gds','static_bounded')
+BASELINES=('disabled','frequency','lru','gds','static_bounded','exact_lru')
 DEFAULTS={'storage_bytes':4096,'token_budget':2048,'seed':104}
 
 
@@ -27,7 +29,7 @@ def save_new(path,value):
 
 def code_hashes():
     root=Path(__file__).parent
-    return {name:sha((root/name).read_bytes()) for name in ('task_benefit.py','policy.py','store.py','source.py','benchmark.py')}
+    return {name:sha((root/name).read_bytes()) for name in ('task_benefit.py','exact_cache.py','evidence_audit.py','policy.py','store.py','source.py','benchmark.py')}
 
 
 def aggregate_attempts(rows):
@@ -57,7 +59,7 @@ def aggregate_attempts(rows):
             'cost_per_resolved_task_ns':sum(r['lifecycle_ns'] for r in real)/resolved if resolved else None}
 
 
-def run_fixtures(cases,policies,config,*,policy_factory=Policy):
+def run_fixtures(cases,policies,config,*,policy_factory=fixture_policy):
     """Gold/oracles remain evaluator-only. Each task/condition owns a fresh store."""
     if not cases or any(c.get('kind')!='synthetic_fixture' for c in cases):raise ValueError('only original fixture execution is implemented')
     if any(p not in BASELINES+('aki',) for p in policies):raise ValueError('unmatched policy')
@@ -72,19 +74,29 @@ def run_fixtures(cases,policies,config,*,policy_factory=Policy):
             try:
                 for event in case['events']:
                     docs=event['documents'];op=event['operation']
-                    edges=parse(docs).edges
-                    expected=oracle(docs,edges,op['root'],op['kind'],op.get('text',''),config['token_budget'])
-                    valid=set(oracle(docs,edges,op['root'],op['kind'],op.get('text',''),10**9))
+                    manual={'expected_answer','valid_paths','expected_edges'}
+                    if manual.intersection(event) and not manual.issubset(event):
+                        raise ValueError('incomplete independent fixture expectations')
+                    if manual.issubset(event):
+                        expected=event['expected_answer'];valid=set(event['valid_paths'])
+                    else:
+                        edges=parse(docs).edges
+                        expected=oracle(docs,edges,op['root'],op['kind'],op.get('text',''),config['token_budget'])
+                        valid=set(oracle(docs,edges,op['root'],op['kind'],op.get('text',''),10**9))
                     started=time.perf_counter_ns()
                     policy.refresh(docs,'original fixture current step','selective')
                     revision=store.revision
                     answer,cost=policy.query(op['root'],op['kind'],revision,op.get('text',''),config['token_budget'])
                     elapsed=time.perf_counter_ns()-started;service+=elapsed
                     step_fresh=set(answer)<=valid and dict(store.db.execute('SELECT path,hash FROM files'))=={p:digest(t) for p,t in docs.items()}
-                    fresh &= step_fresh;correct &= answer==expected;abstentions+=int(not answer)
+                    step_correct=answer==expected
+                    if manual.issubset(event):
+                        audit=audit_evidence(store,docs,event['expected_edges'])
+                        step_fresh &= audit['current_source_valid'];step_correct &= audit['passed']
+                    fresh &= step_fresh;correct &= step_correct;abstentions+=int(not answer)
                     if store.usage()>config['storage_bytes']:raise ValueError('matched storage budget exceeded')
                     steps.append({'phase':event['phase'],'revision':revision,'answer_sha256':sha(encoded(answer)),
-                                  'correct':answer==expected,'fresh':step_fresh,'service_ns':elapsed,'returned_files':len(answer),'cost':cost})
+                                  'correct':step_correct,'fresh':step_fresh,'service_ns':elapsed,'returned_files':len(answer),'cost':cost})
             finally:
                 start=time.perf_counter_ns();store.close();service+=time.perf_counter_ns()-start
             results[name].append({'kind':'synthetic_fixture','task_id':case['task_id'],'correct':correct,'fresh':fresh,

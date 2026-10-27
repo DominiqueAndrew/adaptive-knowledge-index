@@ -78,6 +78,13 @@ sealed synthetic task-benefit harness. 137 host tests pass. The legacy shared-VM
 entrypoint is disabled; clean boot provenance and a complete live host-accounting
 adapter remain missing. No new agent evaluation or adaptive advantage is claimed.
 
+The [platform-adapter and adversarial-cache audit](docs/OFFLINE_ADAPTER_AUDIT.md)
+adds explicit unsupported/fail-closed lifecycle handling, hand-authored evidence
+checks and a durable exact-result cache comparator. 159 host tests pass. A smaller
+official boot artifact now has pinned metadata and a bounded provisioning proposal;
+it has not been downloaded. Live containment and complete Mac shutdown evidence
+remain prerequisites, and no live allowance has been reopened.
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,

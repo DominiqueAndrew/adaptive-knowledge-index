@@ -12,7 +12,7 @@ class OwnershipTests(unittest.TestCase):
     def setUp(self):
         self.args={'profile':'aki-fixture','attempt':'a'*32,'endpoint':'unix:///fixture/aki-fixture/docker.sock','attempt_root':'/fixture/project/scratch/run','workspace':'/fixture/project','existing_profiles':['default','unrelated']}
         self.lease=propose_lease(**self.args)
-        self.actual={'profile':'aki-fixture','attempt':'a'*32,'owner':'adaptive-knowledge-index','endpoint':self.args['endpoint'],
+        self.actual={'profile':'aki-fixture','attempt':'a'*32,'owner':'adaptive-knowledge-index','endpoint':self.args['endpoint'],'runtime':'docker',
                      'arch':'aarch64','cpus':2,'memory_bytes':2*1024**3,'readonly_mounts':list(self.lease.readonly_mounts),'writable_mounts':[],
                      'ssh_agent':False,'rosetta':False,'binfmt_handlers':[],'public_address':False,'port_forwarder':'none','template':False,'kubernetes':False,'containers':[]}
 
@@ -21,6 +21,18 @@ class OwnershipTests(unittest.TestCase):
             with self.assertRaises(OwnershipError):propose_lease(**(self.args|changes))
 
     def test_exact_empty_owned_runtime_passes(self):self.assertTrue(verify_runtime(self.lease,self.actual))
+
+    def test_runtime_none_rejects_mounts_and_any_container_state(self):
+        lease=propose_lease(**self.args,runtime='none')
+        actual=self.actual|{'runtime':'none','readonly_mounts':[]}
+        self.assertTrue(verify_runtime(lease,actual));self.assertEqual(lease.readonly_mounts,())
+        for change in ({'readonly_mounts':list(self.lease.readonly_mounts)}, {'runtime':'docker'},
+                       {'containers':[{'id':'c'*64,'attempt':'a'*32}]}):
+            with self.assertRaises(OwnershipError):verify_runtime(lease,actual|change,created_container_ids={'c'*64})
+
+    def test_malformed_container_ids_fail_closed(self):
+        for identity in (None,[],False,'short'):
+            with self.assertRaises(OwnershipError):verify_runtime(self.lease,self.actual|{'containers':[{'id':identity}]})
 
     def test_legacy_default_adapter_cannot_reopen_a_live_attempt(self):
         with mock.patch.object(sys,'argv',['driver','--execute-approved-single-attempt','--validation-only','--campaign','unused']),mock.patch.object(legacy,'SharedBudget',side_effect=AssertionError('ledger touched')),mock.patch.object(legacy.subprocess,'run',side_effect=AssertionError('runtime touched')):

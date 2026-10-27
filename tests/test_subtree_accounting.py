@@ -60,3 +60,19 @@ class SubtreeTests(unittest.TestCase):
             def opened(path,*args,**kwargs):return io.StringIO(values[path.name].pop(0))
             with mock.patch.object(Path,'open',opened):s=read_cgroup_v2(root,BOOT,clock=lambda:100)
             self.assertTrue(s.populated)
+
+    def test_scope_replacement_during_last_event_read_is_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);values={'cgroup.type':['domain'],'cgroup.events':['populated 0','populated 0'],'cpu.stat':['usage_usec 10']}
+            original=Path.stat;calls=0
+            def stat(path,*args,**kwargs):
+                nonlocal calls
+                result=original(path,*args,**kwargs)
+                # Only stat(), not is_symlink()'s lstat(), observes replacement.
+                if path==root and kwargs.get('follow_symlinks',True):
+                    calls+=1
+                    if calls==3:return mock.Mock(st_dev=result.st_dev,st_ino=result.st_ino+1)
+                return result
+            def opened(path,*args,**kwargs):return io.StringIO(values[path.name].pop(0))
+            with mock.patch.object(Path,'open',opened),mock.patch.object(Path,'stat',stat):
+                with self.assertRaisesRegex(AccountingError,'replaced'):read_cgroup_v2(root,BOOT,clock=lambda:100)

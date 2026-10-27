@@ -1,0 +1,44 @@
+{
+  "label": "Read-only public metadata; binary not downloaded or independently verified",
+  "colima_version": "0.10.3",
+  "colima_source_commit": "00f6c297e92a82c04a4ab507db0a61435650d7e8",
+  "image_source_commit": "078088ada3cce8835b8c42710ab44d17a935b195",
+  "release_tag": "v0.10.4",
+  "release_id": 333691676,
+  "release_immutable": false,
+  "asset_id": 437242088,
+  "asset_name": "ubuntu-24.04-minimal-cloudimg-arm64-none.raw.gz",
+  "url": "https://github.com/abiosoft/colima-core/releases/download/v0.10.4/ubuntu-24.04-minimal-cloudimg-arm64-none.raw.gz",
+  "size_bytes": 209768031,
+  "github_reported_sha256": "1acf2b1740a27120ebdce156106d286a2b21dbce67defa33e64594ef2b29ca5d",
+  "colima_pinned_sha512": "08842066d2569c72bb7ea925217d666de6240b2c9cffa4365a1e5d7f1903370dc1a3e608b0130dd942c837cf9ff3d9168d5cbc44995593d7f553a8243a48b7b9",
+  "references": [
+    "https://github.com/abiosoft/colima/blob/00f6c297e92a82c04a4ab507db0a61435650d7e8/embedded/images/images.txt",
+    "https://api.github.com/repos/abiosoft/colima-core/releases/tags/v0.10.4",
+    "https://github.com/abiosoft/colima-core/blob/078088ada3cce8835b8c42710ab44d17a935b195/scripts/image.sh"
+  ],
+  "proposal": {
+    "approved": false,
+    "runtime": "none",
+    "new_download_cap_bytes": 268435456,
+    "uncompressed_stream_abort_bytes": 3221225472,
+    "root_virtual_disk_bytes": 4294967296,
+    "additional_disk_cap_bytes": 8589934592,
+    "vm_vcpus": 2,
+    "vm_memory_bytes": 2147483648,
+    "work_wall_s": 240,
+    "teardown_reserve_wall_s": 60,
+    "host_logical_cpus": 12,
+    "conservative_capacity_cpu_s": 3600,
+    "original_fixture_only": true,
+    "model_calls": 0,
+    "benchmark_runs": 0
+  },
+  "limits": [
+    "Official release is not marked immutable; require both pinned digests and size before use.",
+    "Expanded size not supplied by release metadata; fail on expansion cap before boot.",
+    "Upstream build uses mutable Ubuntu release URL and package repositories; not a hermetic build attestation.",
+    "Existing verified OCI cache is not needed for runtime=none and remains untouched.",
+    "No live launcher currently supplies independently verified containment and shutdown receipts on Mac."
+  ]
+}

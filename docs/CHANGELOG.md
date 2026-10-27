@@ -122,3 +122,15 @@ runs remain available in `results/` and Git.
   prospective capture protocol. No live agent/scaffold or credential is supplied.
 - Preserve earlier results and their code revisions; core Store/Policy semantics
   are unchanged. No adaptive efficacy or agent-success claim is added.
+
+### Offline accounting adapter and comparator audit — 2026-10-27
+
+- Add tested cgroup lifecycle adapter contract with explicit unsupported platforms,
+  sticky read/control failures and final empty-scope proof requirements. No live
+  launcher is enabled. Add zero-mount/runtime-none ownership preflight.
+- Add matched durable exact-result LRU to the sealed fixture selector, independent
+  evidence expectations and adversarial mutation/fault tests. Preserve earlier
+  fixture freezes/results at their original commits; v3 uses the expanded baseline set.
+- 159 host tests pass. Record official clean-source image metadata and a new bounded
+  proposal, without download or provisioning. Live containment/host shutdown proof
+  remains missing; previous CPU failures and closed budgets are unchanged.

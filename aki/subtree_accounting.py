@@ -99,7 +99,14 @@ def read_cgroup_v2(directory,boot_id,*,clock=time.monotonic_ns):
             if any(len(row)!=2 for row in rows) or len({r[0] for r in rows})!=len(rows):raise AccountingError('invalid counter fields')
             return dict(rows)
         usage=int(fields(values['cpu.stat'])['usage_usec']);pop=fields(values['cgroup.events'])['populated']
-        with (root/'cgroup.events').open() as stream:post=fields(stream.read(4097))['populated']
+        event_path=root/'cgroup.events'
+        if event_path.is_symlink():raise AccountingError('counter link rejected')
+        with event_path.open() as stream:post_text=stream.read(4097)
+        if len(post_text)>4096:raise AccountingError('counter size cap')
+        post=fields(post_text)['populated']
+        final=root.stat()
+        if root.is_symlink() or (before.st_dev,before.st_ino)!=(final.st_dev,final.st_ino):
+            raise AccountingError('cgroup replaced during final read')
         if usage<0 or pop not in ('0','1') or post not in ('0','1'):raise AccountingError('invalid subtree counters')
         # A transition 1 -> 0 needs another sample: the CPU read may precede exit.
         return SubtreeSample(f'{boot_id}:{before.st_dev}:{before.st_ino}',observed_ns,usage*1000,pop=='1' or post=='1')
