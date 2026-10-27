@@ -5,14 +5,15 @@ from pathlib import Path
 
 
 class SharedBudget:
-    def __init__(self,root):
+    def __init__(self,root,*,download_limit=512*1024**2):
+        if type(download_limit) is not int or download_limit<0:raise ValueError('invalid download limit')
         self.root=Path(root);self.root.mkdir(parents=True,exist_ok=True)
         self.lock=(self.root/'budget.lock').open('a')
         fcntl.flock(self.lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         self.path=self.root/'budget.json'
         if self.path.exists():self.state=json.loads(self.path.read_text())
         else:
-            self.state={'download_limit':512*1024**2,'disk_limit':3*1024**3,'cpu_limit_ns':300*10**9,
+            self.state={'download_limit':download_limit,'disk_limit':3*1024**3,'cpu_limit_ns':300*10**9,
                         'download_bytes':0,'cpu_charged_ns':0,'active_wall_s':0,'attempts':[],'pending_attempt':None,'closed':False}
             self.save()
 

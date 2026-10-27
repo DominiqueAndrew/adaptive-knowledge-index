@@ -94,6 +94,7 @@ def run(argv, *, data=None, timeout=30, limit=2*1024**2, reject_pattern=None,env
 
 
 def stage(root):
+    if read(root/'supervisor.json').get('validation_only'):raise RuntimeError('validation cannot use network staging')
     proposal = read(PROJECT/'results/runtime/task420-setup-proposal.json')
     tls,tls_proof=verified_context()
     if tls_proof!=read(root/'tls-preflight.json'):raise RuntimeError('TLS trust inputs changed after preflight')
@@ -225,6 +226,53 @@ def stage(root):
     state['task_input_sha256']=hashlib.sha256(canonical(task)).hexdigest();checkpoint()
 
 
+def verified_cache_files(cache,proposal):
+    """Read pinned public bytes only. Return an exact inventory, never fetch."""
+    if cache.is_symlink() or not cache.is_dir() or any(p.is_symlink() for p in cache.rglob('*')):raise RuntimeError('cache must contain real files only')
+    config_name=proposal['image']['config_digest'].removeprefix('sha256:')+'.json'
+    config=(cache/'image'/config_name).read_bytes()
+    if 'sha256:'+hashlib.sha256(config).hexdigest()!=proposal['image']['config_digest']:raise RuntimeError('cached config identity')
+    parsed=json.loads(config)
+    if parsed['architecture']!='arm64' or parsed['os']!='linux':raise RuntimeError('cached architecture')
+    manifest=read(cache/'image/manifest.json')
+    layers=[str(i)+'/layer.tar' for i in range(len(parsed['rootfs']['diff_ids']))]
+    if len(manifest)!=1 or manifest[0]['Config']!=config_name or manifest[0]['Layers']!=layers:raise RuntimeError('cached image inventory')
+    files={'image/'+config_name:'sha256:'+hashlib.sha256(config).hexdigest(),
+           'image/manifest.json':'sha256:'+hashlib.sha256((cache/'image/manifest.json').read_bytes()).hexdigest()}
+    files.update({'image/'+name:digest for name,digest in zip(layers,parsed['rootfs']['diff_ids'])})
+    for item in proposal['candidate_dependencies']['packages']:
+        a=item['artifact'];name=a['filename']
+        if Path(name).name!=name or (cache/'packages'/name).stat().st_size!=a['size']:raise RuntimeError('cached package size/path')
+        files['packages/'+name]='sha256:'+a['sha256']
+    actual={p.relative_to(cache).as_posix() for p in cache.rglob('*') if p.is_file()}
+    if actual!=set(files):raise RuntimeError('unexpected or missing cached file')
+    for name,digest in files.items():
+        h=hashlib.sha256()
+        with (cache/name).open('rb') as stream:
+            for block in iter(lambda:stream.read(1024**2),b''):h.update(block)
+        if 'sha256:'+h.hexdigest()!=digest:raise RuntimeError('cached content hash')
+    return files,config_name,layers
+
+
+def stage_cached(root):
+    supervisor=read(root/'supervisor.json')
+    if supervisor.get('validation_only') is not True:raise RuntimeError('cached validation requires no pilot')
+    campaign=Path(supervisor['campaign']);source=Path(supervisor['cache_only_from'])
+    if source.resolve()==campaign.resolve() or not read(source/'budget.json')['closed']:raise RuntimeError('separate closed source campaign required')
+    cache=source/'artifact-cache';proposal=read(PROJECT/'results/runtime/task420-setup-proposal.json')
+    files,config_name,layers=verified_cache_files(cache,proposal)
+    # Read-only hard links preserve the old bytes; only the new manifest is written.
+    for name in files:
+        if name=='image/manifest.json':continue
+        target=root/name;target.parent.mkdir(exist_ok=True,parents=True);os.link(cache/name,target)
+    tag='aki-task420-reviewed:'+root.name
+    save(root/'image/manifest.json',[{'Config':config_name,'RepoTags':[tag],'Layers':layers}])
+    state={'download_bytes':0,'observed_body_bytes':0,'status':'offline_cache_verified',
+           'tag':tag,'config_name':config_name,'verified_files':len(files),'cached_bytes':sum((cache/n).stat().st_size for n in files),
+           'source_budget_sha256':hashlib.sha256((source/'budget.json').read_bytes()).hexdigest(),'sha256':files}
+    save(root/'transfer.json',state);save(campaign/'transfer.json',state)
+
+
 def start(root):
     save(root/'vm-state.json',{'state':'starting','at_monotonic_ns':time.monotonic_ns()})
     output=run([COLIMA,'start','--binfmt=false','--save-config=false','--activate=false','--ssh-config=false'],timeout=65,
@@ -233,6 +281,7 @@ def start(root):
     if re.search(rb'(?i)(downloading|installing|installed (386|amd64)|password|permission prompt)',output): raise RuntimeError('unexpected startup provisioning')
     info=json.loads(run(DOCKER+['info','--format','{{json .}}']))
     if info.get('Architecture') not in ('aarch64','arm64'): raise RuntimeError('non-native engine')
+    if run(DOCKER+['ps','-q']).strip():raise RuntimeError('other active containers would contaminate guest accounting')
     handlers=run([COLIMA,'ssh','--','sh','-c','for f in /proc/sys/fs/binfmt_misc/qemu* /proc/sys/fs/binfmt_misc/rosetta*; do [ ! -e "$f" ] || echo handler-present; done'])
     if handlers.strip(): raise RuntimeError('CPU emulation handler present')
     save(root/'vm-state.json',{'state':'ready','at_monotonic_ns':time.monotonic_ns()})
@@ -382,6 +431,7 @@ def setup(root):
 
 
 def pilot(root):
+    if read(root/'supervisor.json').get('validation_only'):raise RuntimeError('pilot disabled for validation-only allowance')
     assert_live_gates(root)
     campaign=Path(read(root/'supervisor.json').get('campaign',root))
     with (campaign/'pilot-started.json').open('x') as stream:json.dump({'attempt':root.name,'started_unix':time.time()},stream)
@@ -475,12 +525,12 @@ def cleanup(root, phase):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('phase',choices=['stage','start','import','setup','pilot','cleanup-container','cleanup-image','cleanup-vm','cleanup-local']);p.add_argument('root',type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('phase',choices=['stage','stage-cached','start','import','setup','pilot','cleanup-container','cleanup-image','cleanup-vm','cleanup-local']);p.add_argument('root',type=Path);a=p.parse_args()
     root=a.root.resolve()
     if not root.is_relative_to(PROJECT/'scratch') or not (root/'supervisor.json').is_file():raise SystemExit('explicit supervised attempt required')
     try:
         if a.phase.startswith('cleanup-'):cleanup(root,a.phase.split('-',1)[1])
-        else:{'stage':stage,'start':start,'import':import_image,'setup':setup,'pilot':pilot}[a.phase](root)
+        else:{'stage':stage,'stage-cached':stage_cached,'start':start,'import':import_image,'setup':setup,'pilot':pilot}[a.phase](root)
         print(json.dumps({'phase':a.phase,'completed':True}),flush=True)
     except Exception as exc:
         save(root/(a.phase+'-failure.json'),{'error_type':type(exc).__name__,'message':str(exc)[:1800]})

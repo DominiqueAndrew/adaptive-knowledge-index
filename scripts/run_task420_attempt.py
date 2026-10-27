@@ -211,20 +211,28 @@ def config_hashes():
     return {name:hashlib.sha256((Path.home()/name).read_bytes()).hexdigest() if (Path.home()/name).exists() else None for name in names}
 
 
-def work_phases(validation_only=False):
-    phases=[('stage',120),('start',70),('import',120),('setup',180)]
+def work_phases(validation_only=False,cache_only=False):
+    if cache_only and not validation_only:raise ValueError('cache-only mode is validation only')
+    phases=[('stage-cached' if cache_only else 'stage',120),('start',70),('import',120),('setup',180)]
     return phases if validation_only else phases+[('pilot',180)]
 
 
 def main():
     main_started=time.monotonic()
     parser=argparse.ArgumentParser();parser.add_argument('--execute-approved-single-attempt',action='store_true');parser.add_argument('--campaign',type=Path,required=True)
-    parser.add_argument('--validation-only',action='store_true',help='Exclude all model/planner/pilot dispatch; does not authorize live execution.');args=parser.parse_args()
+    parser.add_argument('--validation-only',action='store_true',help='Exclude all model/planner/pilot dispatch; does not authorize live execution.')
+    parser.add_argument('--cache-only-from',type=Path,help='Reuse a closed campaign read-only; no network staging, fresh validation allowance only.');args=parser.parse_args()
     if not args.execute_approved_single_attempt:raise SystemExit('No action; separate live-attempt authorization required.')
-    tls,tls_proof=verified_context()  # Local only, before allocating a live attempt.
+    if args.validation_only and not args.cache_only_from:raise SystemExit('validation requires explicit no-download cache')
+    if args.cache_only_from and not args.validation_only:raise SystemExit('cache-only requires validation-only')
+    tls_proof={'network_disabled':True} if args.cache_only_from else verified_context()[1]
     campaign=args.campaign.resolve()
     if not campaign.is_relative_to(PROJECT/'scratch') or campaign==PROJECT/'scratch':raise SystemExit('dedicated project scratch campaign required')
-    budget=SharedBudget(campaign)
+    if args.cache_only_from:
+        source=args.cache_only_from.resolve()
+        if not source.is_relative_to(PROJECT/'scratch') or source==campaign or campaign.exists():raise SystemExit('new campaign and separate retained cache required')
+        if not read(source/'budget.json')['closed']:raise SystemExit('source campaign must remain closed')
+    budget=SharedBudget(campaign,download_limit=0 if args.cache_only_from else 512*1024**2)
     # This precondition does not start or stop anything.
     status=subprocess.run([COLIMA,'list','--json'],capture_output=True,check=True,timeout=10)
     profiles=[json.loads(row) for row in status.stdout.splitlines()]
@@ -232,23 +240,29 @@ def main():
     attempt=uuid.uuid4().hex;remaining=budget.begin(attempt);root=campaign/('run-'+attempt)
     prepare(root,attempt);(root/'control/backend.py').write_bytes((PROJECT/'runtime/task420/backend.py').read_bytes())
     save(root/'tls-preflight.json',tls_proof)
-    before=config_hashes();save(root/'supervisor.json',{'pid':os.getpid(),'attempt':attempt,'started_unix':time.time(),'single_attempt':True,'campaign':str(campaign)})
+    before=config_hashes();save(root/'config-before.json',before)
+    save(root/'supervisor.json',{'pid':os.getpid(),'attempt':attempt,'started_unix':time.time(),'single_attempt':True,'campaign':str(campaign),
+         'validation_only':args.validation_only,'cache_only_from':str(source) if args.cache_only_from else None})
+    if args.cache_only_from:
+        plan=read(root/'plan.json');plan['supervision']['transfer_bytes']=0;save(root/'plan.json',plan)
     accounting=Accounting(root,campaign);runner=SetupWatchdog(cpu_snapshot=accounting.snapshot,
         total_s=600-budget.state['active_wall_s']-(time.monotonic()-main_started),cpu_limit_ns=remaining)
     accounting.runner=runner
     def cmd(phase,timeout):return Command(phase,(sys.executable,'-I',str(PROJECT/'scripts/task420_live_worker.py'),phase,str(root)),timeout_s=timeout)
     print(json.dumps({'attempt_directory':str(root),'status':'starting_one_bounded_attempt'}),flush=True)
     try:
-        result=runner.run([cmd(phase,timeout) for phase,timeout in work_phases(args.validation_only)],
+        result=runner.run([cmd(phase,timeout) for phase,timeout in work_phases(args.validation_only,bool(args.cache_only_from))],
                           [cmd('cleanup-container',15),cmd('cleanup-image',15),cmd('cleanup-vm',45),cmd('cleanup-local',10)])
     finally:accounting.stop.set();accounting.thread.join(timeout=4)
-    result.update({'config_hashes_unchanged':config_hashes()==before,'peak_conservative_cpu_ns':accounting.max_cpu,
+    after=config_hashes();save(root/'config-after.json',after)
+    result.update({'config_hashes_unchanged':after==before,'peak_conservative_cpu_ns':accounting.max_cpu,
                    'peak_disk_reserved_bytes':accounting.max_disk,'root_name':root.name,
                    'total_including_preparation_wall_s':time.monotonic()-main_started,
                    'validation_only':args.validation_only,
                    'interpretation':'Live setup/fixture only unless pilot record separately confirms dispatch; counters are conservative with overlapping host/guest costs.'})
     save(root/'result.json',result)
     budget.finish(attempt,result)
+    if args.cache_only_from:budget.state['closed']=True;budget.save()
     result['shared_budget']={k:budget.state[k] for k in ('download_bytes','cpu_charged_ns','active_wall_s','closed')}
     save(root/'result.json',result);budget.close()
     print(json.dumps({k:result.get(k) for k in ('status','reason','elapsed_s','accounting_complete','cleanup_pending','config_hashes_unchanged','peak_conservative_cpu_ns','peak_disk_reserved_bytes','shared_budget')}),flush=True)
