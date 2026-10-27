@@ -1,0 +1,14 @@
+{
+  "scope": "original deterministic host mock; not live accounting",
+  "historical_commit": "34e3767",
+  "historical": {
+    "raised": false,
+    "returned_cpu_ns": 0,
+    "counter_errors_recorded": 1
+  },
+  "current": {
+    "raised": true,
+    "returned_cpu_ns": null,
+    "counter_errors_recorded": 1
+  }
+}

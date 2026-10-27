@@ -1,5 +1,17 @@
 # Research release history
 
+## Offline runtime root-cause audit and task-benefit protocol
+
+- Reproduce historical worker-error suppression using deterministic original mocks;
+  extend fail-closed lifecycle coverage. Five focused tests, 120 full-suite passes.
+- Document why owned-resource cleanup never proved shared-engine exclusivity and
+  why stopping the default VM could interrupt unrelated services. Ownership/impact
+  cannot be reconstructed from the missing container inventory.
+- Specify an AKI-only profile with reduced host access, with no live action enabled;
+  the configured clean boot-cache path is absent and provisioning remains unapproved.
+- Require prospective opportunity evidence and paired executable-task outcomes
+  against the strongest development-selected fresh cache before adaptive claims.
+
 ## Cached validation — runtime collision, no benchmark
 
 - Add explicit cache-only staging and a separate zero-download validation ledger;

@@ -497,3 +497,33 @@ Removed the suppression and added a failing-before/fixed-after mock. Final suite
 Decision: do not retry until runtime exclusivity and reliable descendant-exit
 accounting are established. Preserve the failed evidence and pending compatibility
 gates. See `TASK420_CACHED_VALIDATION_RESULTS.md`; adaptive claims remain unchanged.
+
+## 2026-10-27 — offline counter/ownership root-cause audit
+
+No VM/container lifecycle command, download, benchmark or model call. Read only
+retained AKI evidence, selected profile metadata and installed Colima help. Earlier
+cleanup removed owned containers; it never established an empty shared engine.
+The cached run retained no active-container IDs/policies, so their owners and
+auto-start versus concurrent-creation origin are unknown. Stopping default Colima
+quiesced its guest services; unrelated-worker interruption/data impact is unknown.
+Neither “everything was untouched” nor attribution to another project is justified.
+
+Deterministically replayed original `_workers` from `34e3767`: an unobserved worker
+ESRCH is logged then accepted as zero when its PID disappears. Current code raises.
+Added five original tests spanning missing/known counters, explicit teardown bound,
+work dispatch, cleanup, final snapshot and ledger closure. Focused 5/5; suite 120
+passes in 2.556 seconds. No missing live usage was reconstructed or budget reopened.
+
+Designed a separate owned AKI profile/context with two CPUs/two GiB RAM, no shared
+default-runtime lifecycle and only attempt control/package read-only mounts. The
+configured pristine boot-cache path is missing; existing mutable VM disk cloning
+is excluded because it could copy private state/containers. A clean pinned base,
+bounded provisioning quote and complete descendant-exit evidence remain prerequisites;
+this is not a ready live retry or a new approval request.
+
+Added task-benefit design: no closure-admission tuning after the measured <0.34%
+opportunity ceiling; require genuine prospective costly/reusable work, matched
+strong caches and actual paired executable-task outcomes under full lifecycle
+accounting. The 12-task held-out cohort is not enough by itself for a broad quality
+noninferiority claim. No held-out actions were opened. See root-cause audit and
+TASK_BENEFIT_EXPERIMENT.md for the decision rules and limits.

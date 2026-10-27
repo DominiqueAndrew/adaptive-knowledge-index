@@ -66,6 +66,12 @@ models. Retained counters exposed another completeness defect; the strict follow
 passes 115 host tests, but live compatibility and trustworthy CPU attribution remain
 unresolved. Both campaign allowances are closed.
 
+The [offline root-cause audit](docs/RUNTIME_ROOT_CAUSE_AUDIT.md) reproduces the
+suppressed-counter bug and documents the unknown impact of shared-VM shutdown.
+120 host tests pass. A separate runtime needs a verified clean boot image and
+complete process accounting before further live work. The [next experiment design](docs/TASK_BENEFIT_EXPERIMENT.md)
+requires actual task benefit against a strong fresh cache, not proxy speed alone.
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,
