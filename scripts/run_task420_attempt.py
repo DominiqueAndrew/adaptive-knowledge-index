@@ -222,6 +222,9 @@ def main():
     parser.add_argument('--validation-only',action='store_true',help='Exclude all model/planner/pilot dispatch; does not authorize live execution.')
     parser.add_argument('--cache-only-from',type=Path,help='Reuse a closed campaign read-only; no network staging, fresh validation allowance only.');args=parser.parse_args()
     if not args.execute_approved_single_attempt:raise SystemExit('No action; separate live-attempt authorization required.')
+    # The shared default VM caused a verified collision. Keep historical code for
+    # evidence, but do not expose another runnable default-runtime attempt.
+    raise SystemExit('Live adapter disabled: dedicated ownership and complete subtree accounting are not integrated. Closed campaigns cannot be reused.')
     if args.validation_only and not args.cache_only_from:raise SystemExit('validation requires explicit no-download cache')
     if args.cache_only_from and not args.validation_only:raise SystemExit('cache-only requires validation-only')
     tls_proof={'network_disabled':True} if args.cache_only_from else verified_context()[1]

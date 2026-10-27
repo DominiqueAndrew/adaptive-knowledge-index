@@ -1,0 +1,16 @@
+{
+  "scope": "existing configured cache metadata only; no image read, mount, download or VM call",
+  "configured_boot_references": [
+    {
+      "local_reference": true,
+      "exists": false,
+      "symlink": false,
+      "basename": "b0992ab88f5a3c0c436bbb3065c01466f20dc1dd0eb0a60299d410176f21a1c3"
+    }
+  ],
+  "configured_cache_parent_exists": false,
+  "verified_pristine_boot_image_available": false,
+  "provenance_status": "No existing upstream digest/clean-image attestation found in the inspected configured image metadata. Absence at the configured location is not a whole-system search.",
+  "mutable_default_vm_disk_eligible": false,
+  "other_project_colima_dependency": "unknown; no relevant receipts in retained AKI records, no private sessions inspected"
+}

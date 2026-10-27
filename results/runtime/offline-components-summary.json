@@ -1,0 +1,20 @@
+{
+  "scope": "offline original components and synthetic fixtures only",
+  "tests_passed": 137,
+  "test_wall_s": 3.337,
+  "new_live_runs": 0,
+  "model_calls": 0,
+  "downloads": 0,
+  "kernel_cgroup_contract_live_validated": false,
+  "darwin_descendant_adapter_integrated": false,
+  "legacy_live_driver_enabled": false,
+  "fixture_baseline": "frequency",
+  "fixture_condition_attempts": 27,
+  "real_task_success": null,
+  "boot_provenance": "configured clean boot cache absent; no verified replacement",
+  "other_project_colima_dependency": "unknown",
+  "closed_campaign_sha256": {
+    "task420-shared-20261026": "7a065fe179dfea3cd327016b012270dd7f1235cc6901e87a1cbaf36c0f51bc2a",
+    "task420-cached-validation-20261027": "5cb60b708b6fdf57ac3e8089ac60b81660a6b82a47e3d1fb01caac83cccff74d"
+  }
+}

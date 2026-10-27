@@ -72,6 +72,12 @@ suppressed-counter bug and documents the unknown impact of shared-VM shutdown.
 complete process accounting before further live work. The [next experiment design](docs/TASK_BENEFIT_EXPERIMENT.md)
 requires actual task benefit against a strong fresh cache, not proxy speed alone.
 
+The [offline components milestone](docs/OFFLINE_COMPONENTS_MILESTONE.md) adds durable
+subtree/capacity accounting primitives, explicit runtime ownership gates and a
+sealed synthetic task-benefit harness. 137 host tests pass. The legacy shared-VM
+entrypoint is disabled; clean boot provenance and a complete live host-accounting
+adapter remain missing. No new agent evaluation or adaptive advantage is claimed.
+
 ## Run
 
 Requires Python 3.11+ with SQLite FTS5. No package installation, model key,

@@ -8,7 +8,7 @@ from pathlib import Path
 
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument("--manifest",type=Path,default=Path("docs/RUNTIME_ROOT_CAUSE_RELEASE.json"))
+    p.add_argument("--manifest",type=Path,default=Path("docs/OFFLINE_COMPONENTS_RELEASE.json"))
     args=p.parse_args()
     root=Path.cwd().resolve()
     manifest=json.loads(args.manifest.read_text())

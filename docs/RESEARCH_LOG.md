@@ -527,3 +527,44 @@ strong caches and actual paired executable-task outcomes under full lifecycle
 accounting. The 12-task held-out cohort is not enough by itself for a broad quality
 noninferiority claim. No held-out actions were opened. See root-cause audit and
 TASK_BENEFIT_EXPERIMENT.md for the decision rules and limits.
+
+## 2026-10-27 — offline readiness components and sealed fixture harness
+
+Implemented exit-independent accounting primitives: an owned durable subtree
+counter with stable identity/rounding/stale-interval bounds, plus whole-lifetime
+physical-capacity fallback. Finalization needs closed dispatch and an observed
+empty scope; missing PIDs and parent exits are not proof. Cgroup reader uses
+two-sided populated checks and rejects malformed/replaced/missing domains. Original
+filesystem/mocked tests only; no kernel/VM runtime claim. The Mac integration is
+still missing. A 12-CPU full-capacity envelope would spend the 180 CPU-s work
+allowance in 15 wall seconds, shorter than the prior 19.283-second startup, so
+another identical-budget attempt is not justified with that fallback.
+
+Implemented pure dedicated-profile ownership/isolation and cleanup gates. They
+reject preexisting/default profiles, extra host mounts, identity changes and
+foreign containers. Disabled the legacy default-runtime driver before any live
+command or ledger creation. Its historical code remains for audit. The configured
+pristine boot cache and parent directory are absent; no other verified boot
+artifact is inferred. Mutable VM disks are excluded. ClauseWeave/Roblox dependency
+on Colima remains unknown from the permitted records.
+
+Implemented a sealed fixture evaluation harness with development-only baseline
+selection, matching budgets, fresh independent stores and frozen code/config.
+Held-out input cannot be read by its evaluator before freezing; seals detect
+changes and prevent repeated opening. This is accidental-leakage prevention, not
+encryption. Actual frozen research holdout actions remain uninspected. Task-success
+aggregation requires executable-test receipts, includes failures/cancellations,
+rejects stale evidence/missing cost and emits no real success value for fixtures.
+
+Ran original synthetic fixtures only. Final run: 18 development and nine holdout
+condition-attempts (four steps each), all correct/fresh. Frequency was the lowest
+observed development cache; keep disabled as a separate control. Holdout fixture
+totals: frequency 28.218 ms, disabled 27.611 ms, AKI 29.772 ms. These tiny single-run
+timings establish harness function, not efficacy. The first plumbing run that chose
+disabled overall is retained with its exact source hash; no negative evidence was
+discarded. Real task attempts/model calls are zero and resolved-task metrics null.
+
+Final suite: 137 host tests pass in 3.337 seconds. Both live budget files retain
+their prior hashes and closed states. No VM/profile/container/download/security
+change or private-session inspection occurred. See OFFLINE_COMPONENTS_MILESTONE.md
+for proof obligations and the unresolved boot/host-accounting prerequisites.

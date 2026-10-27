@@ -1,5 +1,17 @@
 # Research release history
 
+## Offline accounting/ownership/evaluation components
+
+- Add exit-independent subtree-counter and whole-lifetime capacity accounting,
+  with fixture-only cgroup reader, explicit quiescence and sticky fault checks.
+- Add dedicated-runtime ownership/isolation/cleanup gates; disable the legacy
+  default-VM live entrypoint before any runtime or ledger action.
+- Add sealed development/holdout evaluation plumbing with strongest implemented
+  fresh-cache selection, disabled control, correctness/freshness and strict
+  executable-task receipt metrics. Demonstrate only original synthetic fixtures.
+- 137 host tests pass. Preserve both fixture-run versions, all live failures and
+  closed budgets. No clean boot artifact or reliable Mac live adapter is claimed.
+
 ## Offline runtime root-cause audit and task-benefit protocol
 
 - Reproduce historical worker-error suppression using deterministic original mocks;
